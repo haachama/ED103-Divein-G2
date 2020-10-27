@@ -1,0 +1,158 @@
+//1.顏色
+.demo-color1{
+    width: 30px;
+    height: 30px;
+    background-color: $keyWhite;
+    color: $keyWhite;
+    padding-left: 40px;
+}
+.demo-color2{
+    width: 30px;
+    height: 30px;
+    background-color: $keyYellow;
+    color: $keyYellow;
+    padding-left: 40px;
+}
+.demo-color3{
+    width: 30px;
+    height: 30px;
+    background-color: $keyBlue;
+    color: $keyBlue;
+    padding-left: 40px;
+}
+.demo-color4{
+    width: 30px;
+    height: 30px;
+    background-color: $keyBlack;
+    color: $keyBlack;
+    padding-left: 40px;
+}
+.demo-color5{
+    width: 30px;
+    height: 30px;
+    background-color: $keyGray;
+    color: $keyGray;
+    padding-left: 40px;
+}
+.demo-color6{
+    width: 30px;
+    height: 30px;
+    background-color: $transparentWhite;
+    color: $transparentWhite;
+    padding-left: 40px;
+}
+
+//3.頁籤樣式-固定
+.demo-tab1{
+    @include tab($w:195px,$h:60px);
+}
+
+
+
+//4.次要按鈕 立即購買 確認....
+.demo-btn{
+  //公式 @include other-Button(寬,高,padding-y,padding-x)
+    @include other-button($w:150px,$h:30px,$padding-y:2px,$padding-x:2px);
+    // @include other-button(50px,30px,2px,2px);
+}
+
+
+//5.燈箱樣式
+
+//5-1 ------只有燈箱
+.lightbox-block1{
+    @include lightbox-block;
+    .lightbox1{
+        @include lightbox;
+    }
+    .button_closeBox1{
+        @include button_closeBox;
+    }
+}
+
+//5-2 ------燈箱裡面form表單＋submit
+.lightbox-block2{
+    @include lightbox-block;
+    .lightbox2{
+        @include lightbox;
+    }
+    .button_closeBox2{
+        @include button_closeBox;
+    }
+    .inlightbox-form2{
+        @include inlightbox-form-submit;
+    }
+}
+
+
+//5-3 ------燈箱裡面form表單＋checkbox＋submit
+.lightbox-block3{
+    @include lightbox-block;
+    .lightbox3{
+        @include lightbox;
+    }
+    .button_closeBox3{
+        @include button_closeBox;
+    }
+    .inlightbox-form3{
+        @include inlightbox-form-checkbox-submit;
+    }
+}
+
+
+
+
+
+
+//6.輸入框
+input{
+    @include input;   
+}
+
+.demo-input1{
+    @include input-text($w:150px,$h:30px);
+}
+
+.demo-input2{
+    @include input-radio;
+}
+
+.demo-input3{
+    @include input-checkbox($w:25px,$h:30px);  
+}
+
+.demo-input4{
+    @include input-submit($w:150px,$h:30px); 
+}
+
+.demo-input5{
+    @include input-password($w:150px,$h:30px);   
+}
+
+.demo-input6{
+    @include input-number($w:150px,$h:30px);
+}
+
+.demo-input7{
+    @include input-date($w:150px,$h:30px);   
+}
+
+
+//7.卡片之間的距離
+.demo-cards{
+//公式@mixin cards($w:300px)  //預設寬300px
+    @include cards($w:300px);
+}
+
+//8.select //很少用到
+.demo-select{
+    @include select($w:150px, $h:30px);
+}
+
+//9.textarea //很少用看看就好
+.demo-textarea{
+    @include textarea($w:300px,$h:25px);
+}
+
+
+

@@ -1,0 +1,62 @@
+*{
+  box-sizing: border-box;
+}
+body {
+  font-size: $baseFz;
+  font-family: $en , $zh;
+  color: $keyWhite;
+
+  background-image: url("../img/diveinbg.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  .container {
+    width: 100%;
+  }
+  
+}
+
+img{
+  max-width: 100%;
+  width: 100%;
+  font-size: 0;
+  height: auto;
+}
+
+a{
+  text-decoration: none;
+}
+
+[type="text"]{
+  @include input-text($w:160px,$h:30px);
+}
+
+[type="radio"]{
+  @include input-radio;
+}
+
+[type="checkbox"]{
+  @include input-checkbox($w:25px,$h:30px,$margin-R:10px);
+}
+
+
+[type="submit"]{
+  @include input-submit($w:160px,$h:30px);
+}
+
+[type="password"]{
+  @include input-password($w:160px,$h:30px);
+}
+
+[type="number"]{
+  @include input-number($w:160px,$h:30px);
+}
+
+[type="date"]{
+  @include input-date($w:160px,$h:30px);
+}
+
+
+

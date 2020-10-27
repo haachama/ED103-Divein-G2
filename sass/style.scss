@@ -1,0 +1,42 @@
+//通常import的順序是以下
+//第一區- 一般來說～變數會放在最前面
+@import "./common/variables"; 
+@import "./common/mixin";  
+
+//第二區-基礎樣式 reset
+@import "./common/reset";     
+@import "./common/base";
+@import "./common/rwd";
+@import "./common/font";
+
+//第三區-標籤樣式
+@import "./common/header";    //（包含footer)
+ 
+//第四區-元件樣式
+@import "./common/bubbleBtn"; 
+@import "./common/hamburger";
+  
+//再來就是放一些小功能的樣式....
+
+
+
+// ====開始放其他人的樣式====
+//demo
+@import "./demo";
+@import "./pages/index";
+@import "./pages/spot";
+@import "./pages/course";
+@import "./pages/shop";
+@import "./pages/diary";
+@import "./pages/game";
+@import "./pages/member";
+@import "./pages/trainer";
+@import "./pages/back";
+
+
+
+
+
+
+
+ 

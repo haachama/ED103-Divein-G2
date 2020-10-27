@@ -1,0 +1,180 @@
+header {
+    background-color: rgba(254, 254, 254, 0.15);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+
+    h1,div,button{
+        vertical-align: middle;
+    }
+}
+
+h1{
+    font-size: 0;
+}
+
+.logo {
+    img {
+        height: 80px;
+        padding: 5px 0;
+        width: auto;
+    }
+}
+
+.nav {
+
+    ul {
+        font-size: 0;
+    }
+
+    li {
+        font-size: $baseFz;
+        display: inline-block;
+        margin: 0 20px;
+    }
+
+    a {
+        display: inline-block;
+        text-decoration: none;
+        color: $keyWhite;
+        line-height: 25px;
+        transition:all .2s;
+    }
+
+    a:hover {
+        color: $keyBlue;
+    }
+
+    li::before,a{
+        vertical-align: middle;
+    }
+
+}
+
+.nav.show{
+    display: block !important; 
+}
+
+.nav.hide{
+    display: none;
+}
+
+.memCart li.show{
+    display:inline-block
+}
+
+.memCart {
+
+    li {
+        display: inline-block;
+        margin: 0 10px;
+    }
+
+    img {
+        width: 30px;
+    }
+
+}
+
+
+%iconBefore {
+    content: "";
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin-right: 7px;
+}
+
+.recommend_nav::before {
+    @extend %iconBefore;
+    background-image: url("../img/header/recmed.png");
+}
+
+.course_nav::before {
+    @extend %iconBefore;
+    background-image: url("../img/header/lesson.png");
+}
+
+.shop_nav::before {
+    @extend %iconBefore;
+    background-image: url("../img/header/shop.png");
+}
+
+.blog_nav::before {
+    @extend %iconBefore;
+    background-image: url("../img/header/blog.png");
+}
+
+.game_nav::before {
+    @extend %iconBefore;
+    background-image: url("../img/header/game.png");
+}
+
+
+
+.bg{
+    background-color: #222;
+    height: 100vh;
+}
+
+// footer
+.copyright {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0px;
+    background-color: $keyBlack;
+    color: $keyWhite;
+    font-size: $baseFz;
+}
+
+
+@media screen and (max-width: 991px) {
+ 
+    header{
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 0 3%;
+    }
+
+ 
+    .nav{
+        display: none;
+        position: absolute;
+        top: 90px;
+        left: 50%;
+        transform: translate(-50%);
+    }
+
+    .nav li{
+        margin: 50px auto;
+        display: block;
+    }
+
+    li::before, li > a {
+        vertical-align: middle;
+    }
+
+    a::before {
+        vertical-align: middle;
+    }
+
+    .memCart {
+        position: absolute;
+        left: 50%;
+        bottom: 5%;
+        transform: translate(-40%);
+
+        li {
+            display: none;
+        }
+    }
+
+    .nav a:hover{
+        transform: translateX(-5px);
+    }
+    
+}

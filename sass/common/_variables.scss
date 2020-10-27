@@ -1,0 +1,175 @@
+//原則上這邊能看多少是多少 能記多少是多少
+// color--------------------------
+//一般變數寫法
+$keyWhite:#fefefe;
+$keyYellow: #E6AE2C;
+$keyBlue: #073977;
+$keyBlack:#16181D;
+$keyGray:#221814;
+$transparentWhite:rgba(254, 254, 254, .75);
+
+
+//另一種寫法
+$color:(
+    keyWhite:#fefefe,
+    keyYellow: #E6AE2C,
+    keyBlue: #073977,
+    keyBlack:#16181D,
+    keyGray:#221814,
+    transparentWhite:rgba(254, 254, 254, .75),
+);
+// color--------------------------end
+
+
+// 背景--------------------------
+$bgColor:$keyBlack;
+
+// 背景--------------------------end
+
+//rwd----------------------------
+$rwdOne: 1200px;
+$rwdTwo: 992px;
+$rwdThree: 767px;
+$rwdFour: 577px;
+$rwdFive: 376px;
+//rwd 為了方便先這樣設定 基本上應該還是要用功能及畫面意義斷點變數名稱 如 desktop  pad  mobile...
+//rwd---------------------------end
+
+// 字體------------------------
+$en: "Tahoma", sans-serif;
+$zh: "微軟正黑體", sans-serif;
+$baseFz: 16px;
+// 字體------------------------end
+
+
+//格線設定----------------------------
+$borderW: 1px;                //邊框粗度
+$radius: 5px;                 //邊線圓角
+$border-color: $keyYellow;    //邊框顏色
+$box-shaow: 7px,7px,7px,$keyBlack;    //陰影
+//格線設定----------------------------end
+
+
+
+
+
+
+
+
+
+//=====================底下不用看也不要動，謝謝捏！======================
+
+//整個網頁大範圍的基本設定------------------------
+$text-color: $keyWhite;         //文字-整個網頁基本色
+$hot-color: $keyYellow;         //文字-整個網頁較為重點色
+$bg-color: $keyYellow;          //背景-整個網頁基本色
+//整個網頁大範圍的基本設定------------------------end
+
+//主按鈕設定----------------------------
+$btn-font-color: $keyWhite;             //按鈕字體顏色
+$btn-border-color: $keyWhite;           //按鈕邊框顏色
+$btn-bg-color: $keyYellow;              //按鈕背景顏色
+$btnHover-font-color: $keyWhite;        //按鈕字體顏色：滑過去
+$btnHover-border-color: $keyWhite;      //按鈕邊框顏色：滑過去
+$btnHover-bg-Color: $keyYellow;         //按鈕背景顏色：滑過去
+//主按鈕設定----------------------------
+
+//次按鈕設定----------------------------
+$btn2-font-color: $keyWhite;             //按鈕字體顏色
+$btn2-border-color: #176587;           //按鈕邊框顏色
+$btn2-bg-color: #176587;               //按鈕背景顏色
+$btn2Hover-font-color: $keyWhite;        //按鈕字體顏色：滑過去
+$btn2Hover-border-color: darken(#176587,5%);      //按鈕邊框顏色：滑過去
+$btn2Hover-bg-Color: darken(#176587,5%);         //按鈕背景顏色：滑過去
+$btn2-margin-y: 20px;                   //按鈕margin寬
+$btn2-margin-x: auto;                   //按鈕margin高
+//次按鈕設定----------------------------
+
+
+
+//頁籤設定----------------------------
+$tab-font-color: $keyWhite;             //頁籤字體顏色
+$tab-bg-color: none;                    //頁籤背景顏色
+$tab-border-color: $keyWhite;           //頁籤邊框顏色
+$tabHover-font-color: $keyBlue;        //頁籤字體顏色：滑過去
+$tabHover-border-color: $keyWhite;      //頁籤邊框顏色：滑過去
+$tabHover-bg-Color: $keyWhite;         //頁籤背景顏色：滑過去
+$tab-padding: 20px;
+$tab-margin: 5px;
+//頁籤設定----------------------------end
+
+
+//卡片設定----------------------------
+$cards-margin-y: 30px;
+$cards-margin-x: 20px;
+$cards-padding-y: 20px;
+$cards-padding-x: 20px;
+//卡片設定----------------------------end
+
+
+
+//燈箱設定----------------------------
+$lightbox-font-color: $keyBlue;      //燈箱文字
+$lightbox-bg-color: $keyWhite;  //燈箱背景顏色
+$lightbox-border-color: $keyWhite;    //燈箱邊框顏色
+$lightbox-padding-y: 30px;            //燈箱padding-y
+$lightbox-padding-x: 20px;            //燈箱padding-x
+$lightbox-back-bg-color: rgba(2,2,2,0.7);    //燈箱後面整面的背景顏色
+$lightbox-adm-second: 1s;             //燈箱動畫
+//燈箱設定----------------------------end
+
+//form表單----------------------------
+$form-padding:20px;
+//form表單----------------------------
+
+
+
+//輸入框設定------------select/textarea/input----
+$input-form-height: 30px;      //input 高
+$input-form-width: 160px;       //input 寬
+$input-formFoucusBd-color: $keyGray; //input focus邊框顏色
+$input-border-color: $keyGray;
+$input-padding-y: 10px;     //input padding 高
+$input-padding-x: 10px;     //input padding 寬
+$input-margin-y: 0px;     //input margin 高
+$input-margin-x: 0px;     //input margin 寬
+$input-textbg-color: $keyWhite;
+//輸入框設定----------------------------end
+
+
+
+
+
+
+
+
+
+
+//===========coco的變數 10.17
+$spotFontColor: #a5a5a5;
+$spotBnPaddingRL: 30px;
+$spotBnPaddingTB: 50px;
+$spotPadding: 10px;
+$spotMargin: 20px;
+$spotImgMargin: 5px;
+
+$spotareaW: 90vw;
+$spotRightW:  $spotareaW * 0.35; 
+$spotLeftW:  $spotareaW * 0.63; 
+$spotAnimalW: $spotareaW*0.9;
+
+$lineH: 30px;
+$memimgW: 40px;
+
+$rwdSpotMargin: $spotMargin *0.5;
+$rwdSpotPadding: $spotMargin *0.5;
+$rwdLineH: $lineH - 10px;
+
+
+
+
+//oco小整理--10.22
+//1.變數命名原則會盡量以$ 功能 – 樣式 或是$畫面區塊 – 需要被定義的樣式
+//ex:首頁的課程介紹裡的背景顏色 $index-course-bgcolor
+//2.不要以顏色來命名變數，要盡量賦予改變彈性
+

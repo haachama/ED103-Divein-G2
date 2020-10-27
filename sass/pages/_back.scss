@@ -1,0 +1,187 @@
+/*後台樣式*/
+.back{
+    background-color: #03162f;
+    background-image: none;
+    color: $keyWhite;
+
+    img {
+        max-width: 100%;
+    }
+        
+    .switch {
+        /* ====================ios toggle按鈕 ==================== */
+        position: relative;
+        display: inline-block;
+        width: 50px;
+        height: 30px;
+    }
+    
+    .switch input {
+        /* Hide default HTML checkbox */
+        opacity: 0;
+        width: 0;
+        height: 0;
+    } 
+    
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: .4s;
+    }
+    
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 20px;
+        width: 20px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: .4s;
+    }
+    
+    input:checked+.slider {
+        background-color: #2ecc71;
+    }
+    
+    input:focus+.slider {
+        box-shadow: 0 0 1px#2ecc71;
+    }
+    
+    input:checked+.slider:before {
+        transform: translateX(23px);
+    }
+    
+    .slider.round {
+        /* Rounded sliders */
+        border-radius: 34px;
+    }
+    
+    .slider.round:before {
+        border-radius: 50%;
+    }
+    
+    .btn {
+        /* ==================== simple btn ==================== */
+        margin: 0 20px;
+        border-color: #fefefe;
+        font-size: 16px;
+        border-radius: 7px;
+        letter-spacing: 3px;
+        font-family: $zh;
+        background-color: #03162f;
+        color: #fefefe;
+        padding: 8px 32px;
+    }
+    
+    .btn:hover {
+        border-color:#fefefe;
+        background:#fefefe;
+        cursor: pointer;
+        color: #03162f;
+    }
+    
+    input {
+        /* ==================== input ==================== */
+        background: #fefefe;
+        padding: 3px 2px;
+        border-radius: 5px;
+    }
+    
+    .backHeader {
+        /* ==================== header 區域 ==================== */
+        width: 100%;
+        position: sticky;
+        top: 0;
+        height: 80px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    
+        img[alt=logo] {
+            height: 80px;
+            padding: 7px 0;
+            width: auto;
+            margin-left: 50px;
+        }
+    
+        .profile {
+            p {
+                display: inline-block;
+                line-height: 80px;
+                color: $keyWhite;
+            }
+        }
+    }
+    
+    .tab_container {
+        /* ==================== 頁籤區塊 ==================== */
+        display: flex;
+        margin-top: 20px;
+    
+        .tab_list_block {
+            padding-left: 50px;
+            display: inline-block;
+    
+            li {
+                width: 125px;
+            }
+        }
+    }
+    
+    .tab_list li a {
+        /* 頁籤列表 */
+        text-decoration: none;
+        display: inline-block;
+        padding: 13px 5px;
+        color: $keyWhite;
+    
+        &.-on {
+            background-image: linear-gradient(#E6AE2C);
+            background-position: 0% 70%;
+            background-size: 100% 20%;
+            background-repeat: no-repeat;
+        }
+    }
+    
+    .tab_contents {
+        /* 頁籤內容區塊 */
+    
+        .tab {
+            padding: 10px;
+            display: none;
+    
+            &.-on {
+                display: block;
+            }
+        }
+    
+    }
+    
+    table {
+        /* ==================== table ==================== */
+        margin: 20px;
+    }
+    
+    th,
+    td {
+        border-top: 1px solid $keyWhite;
+        padding: 15px;
+        vertical-align: middle;
+    }
+    
+    table tr:last-child td {
+        border-bottom: 1px solid $keyWhite;
+    }
+    
+    input[type=password] {
+        width: 150px;
+    }
+}
+
+

@@ -1,0 +1,62 @@
+/*--------------------------------寫法-----------------------------
+//請直接引用公式 
+        .class{
+            @include breakpoint(填入斷點數字，拜託“不要”加單位){ 開始寫你要的樣式 }
+            例：
+            @include breakpoint( 1200 ){ display:none }           
+        }
+＊如果你還是覺得看不懂，可以直接複製下面整串到你要的class名稱裡面，已經幫你寫好所有斷點
+
+.class名稱{
+    //正常情況寫這邊
+
+    @include breakpoint (1200) {
+        //在1200px區間做變化寫這邊
+    }
+    @include breakpoint (992) {
+        //在991px區間做變化寫這邊  
+    }
+    @include breakpoint (767) {
+        //在768px區間做變化寫這邊
+    }
+    @include breakpoint (577) {
+        //在576px區間做變化寫這邊
+    }
+    @include breakpoint (376) {
+        //在375px區間做變化寫這邊
+    }
+}
+*/
+
+
+//rwd 為了方便先這樣設定  基本上應該還是要用功能及畫面意義去命名 如 desktop  pad  moblie... 
+@mixin breakpoint($point) {
+    @if $point == 1200{
+        @media all and (max-width: 1200px) {
+            @content;
+        }
+    }
+    @else if $point == $rwdTwo{
+        @media all and (max-width: $rwdTwo) {
+            @content;
+        }
+    }
+    @else if $point == 767{
+        @media all and (max-width: $rwdThree) {
+            @content;
+        }
+    }
+    @else if $point == 577{
+        @media all and (max-width: $rwdFour) {
+            @content;
+        }
+    }
+    @else if $point == 376{
+        @media all and (max-width: $rwdFive) {
+            @content;
+        }
+    }
+}
+
+
+

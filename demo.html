@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/plugins/CSSPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/easing/EasePack.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenLite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TimelineLite.min.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <title>demo</title>
+</head>
+<style>
+    h2 {
+        padding: 20px 0;
+    }
+
+    section {
+        margin: 60px 30px;
+    }
+
+    p {
+        font-size: 24px;
+        color: wheat;
+    }
+
+    .ex {
+        color: orange;
+    }
+
+
+    ul {
+        font-size: 24px;
+    }
+
+    li {
+        font-size: 24px;
+        padding: 10px 0;
+    }
+    pre{
+        line-height: 1.3;
+    }
+</style>
+
+<body>
+    <header>
+        <h1 class="logo">海中日子 Divein
+            <a href="javascript:;"><img src="./img/header/logo.png" alt="logo"></a>
+        </h1>
+        <div class="nav">
+            <ul>
+                <li class="recommend_nav">
+                    <a href="javascript:;">潛點推薦</a>
+                </li>
+                <li class="course_nav">
+                    <a href="javascript:;">潛水課程</a>
+                </li>
+                <li class="shop_nav">
+                    <a href="javascript:;">潛水商城</a>
+                </li>
+                <li class="blog_nav">
+                    <a href="javascript:;">潛水日誌</a>
+                </li>
+                <li class="game_nav">
+                    <a href="javascript:;">下潛遊戲</a>
+                </li>
+            </ul>
+        </div>
+        <div class="memCart">
+            <ul>
+                <li><a href="javascript:;"><img src="./img/header/member.png"></a></li>
+                <li><a href="javascript:;"><img src="./img/header/cart.png"></a></li>
+            </ul>
+        </div>
+        <button class="hamburger hamburger--3dxy" type="button">
+            <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+            </span>
+        </button>
+    </header>
+
+    <section>
+        <h2>----1.這些是主要顏色變數---</h2>
+        <br>
+        <div class="demo-color">
+            <ul>
+                <li class="demo-color1">$keyWhite:#fefefe;</li>
+                <li class="demo-color2">$keyYellow:#E6AE2C;</li>
+                <li class="demo-color3">$keyBlue:#073977;</li>
+                <li class="demo-color4">$keyBlack:#16181D;</li>
+                <li class="demo-color5">$keyGray:#221814;</li>
+                <li class="demo-color6">$transparentWhite:rgba(254,254,254,0.75);</li>
+            </ul>
+        </div>
+    </section>
+    <hr>
+    <section>
+        <h2>------2.這些是文字------</h2>
+        <br>
+        <h2>
+            <!-- <pre>
+                h2{
+                    font-size:2.5*$baseFz; 
+                    color:$keywhite;
+                } //40px  
+            </pre> -->
+        </h2>
+        <br>
+        <h3>
+            <pre>
+                h3{
+                    font-size:2.5*$baseFz; 
+                    color:$keywhite;
+                } //32px  
+            </pre>
+        </h3>
+        <h4>
+            <pre>
+                h4{
+                    font-size:1.5*$baseFz; 
+                    color:$keywhite;
+                } //24px  
+            </pre>
+        </h4>
+
+    </section>
+    <hr>
+    <section>
+        <ul class="ex">
+            <li>1. 使用mixin方法，需打上 ＠include XXX; </li>
+            <li>2. 使用方法有兩種形式</li>
+            <li>以頁籤樣式舉例 (傳值與不傳值)：</li>
+            <li>若不傳值會使用預設值</li>
+            <li> .你自己的class{ @include tab;} </li>
+            <li> .你自己的class{ @include tab(4px,5px);}</li>
+            <li>--------------------------------------------------------</li>
+        </ul>
+        <p>
+            @include -------> 是內建函數 <br>
+            tab -------> 是函式名稱一定要用這個才能呼叫出他的所有規格<br>
+            ($w,$h) -------> 是你可以自己套入能符合你的變數數值！！<br>
+        </p>
+        <p>-----------------------------------------------------</p>
+        <ul class="ex">
+            <li>但是～若呼叫出來的樣式都滿足不了你的需求，請在大括號寫你想的樣式吧！</li>
+            <li>
+                <pre>.你自己的class{  
+                                @include tab(4px,5px); 
+                                display:block;
+                                ........
+                    }</pre>
+            </li>
+        </ul>
+    </section>
+    <hr>
+    <section>
+        <h2>------3.頁籤樣式------</h2>
+        <div class="demo-tabone" style="display: flex; flex-direction: column;">
+            <ul class="ex">
+                <li>****請注意***</li>
+                <li>請務必確認在寫js的時候，要利用指定的class名稱才會出現預設白底狀況</li>
+                <li>一定要這個特定class名稱 class="-iAmHere"</li>
+            </ul>
+            <ul style="display: flex;">
+                <li class="demo-tab1">第一種</li>
+                <li class="demo-tab1 -iAmHere">第二種 -iAmHere</li>
+            </ul>
+            <p>引用方式
+                <pre>
+                 .你自己的class名稱{
+                     @include tab($w:195px,$h:60px);
+                    }   
+                </pre>
+            </p>
+        </div>
+    </section>
+    <hr>
+    <section>
+        <h2>------4.次要按鈕------</h2>
+        <button class="demo-btn">確認</button>
+        <br>
+        原則上這是給較具有功能意義的在用
+        <ul class="ex">
+            <li>記得如果你要改裡面的變數值，請全部都要照括號內的順序寫好</li>
+
+        </ul>
+        <p>引用方式
+            <!-- <pre>
+                .你自己的class名稱{
+                    @include other-button($w:50px,$h:30px,$padding-y:2px,$padding-x:2px);
+                }
+                <br>
+                ex:
+                .demo-btn{
+                    @include other-button(100px,30px,5px,5px);
+                }
+            </pre> -->
+        </p>
+    </section>
+    <hr>
+    <section>
+        <h2>------５.燈箱樣式 點擊按鈕產生燈箱------</h2>
+        <p>----------------------------------------------</p>
+        <br>
+        <div class="mainBtn_1">
+            <div class="bubbleBtn">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="goo">
+                    <defs>
+                        <filter id="goo">
+                            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
+                                result="goo" />
+                            <feComposite in="SourceGraphic" in2="goo" />
+                        </filter>
+                    </defs>
+                </svg>
+
+                <span class="button--bubble__container">
+                    <a href="#campaign" class="button button--bubble">
+                        5-1 只有燈箱
+                    </a>
+                    <span class="button--bubble__effect-container">
+                        <span class="circle top-left"></span>
+                        <span class="circle top-left"></span>
+                        <span class="circle top-left"></span>
+
+                        <span class="button effect-button"></span>
+
+                        <span class="circle bottom-right"></span>
+                        <span class="circle bottom-right"></span>
+                        <span class="circle bottom-right"></span>
+                    </span>
+                </span>
+            </div>
+        </div>
+        <div class="lightbox-block1">
+            <div class="lightbox1">
+                <div class="button_closeBox1">
+                    <button type="button" class="btn_modal_close">✖</button>
+                </div>
+                <h3>只有燈箱+純文字</h3>
+            </div>
+        </div>
+        <br>
+        <p>-----------------------------------------------------</p>
+        <br>
+        <div class="mainBtn_2">
+            <div class="bubbleBtn">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="goo">
+                    <defs>
+                        <filter id="goo">
+                            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
+                                result="goo" />
+                            <feComposite in="SourceGraphic" in2="goo" />
+                        </filter>
+                    </defs>
+                </svg>
+
+                <span class="button--bubble__container">
+                    <a href="#campaign" class="button button--bubble">
+                        5-2燈箱裡面form表單＋submit
+                    </a>
+                    <span class="button--bubble__effect-container">
+                        <span class="circle top-left"></span>
+                        <span class="circle top-left"></span>
+                        <span class="circle top-left"></span>
+
+                        <span class="button effect-button"></span>
+
+                        <span class="circle bottom-right"></span>
+                        <span class="circle bottom-right"></span>
+                        <span class="circle bottom-right"></span>
+                    </span>
+                </span>
+            </div>
+        </div>
+        <div class="lightbox-block2">
+            <div class="lightbox2">
+                <div class="button_closeBox2">
+                    <button type="button" class="btn_modal_close">✖</button>
+                </div>
+                <h3>你學會如何使用燈箱了嗎？</h3>
+                <form action="" class="inlightbox-form2">
+                    <input class="submitbtn2" type="submit" value="送出">
+                </form>
+            </div>
+        </div>
+        <br>
+        <p>-----------------------------------------------------</p>
+        <br>
+        <div class="mainBtn_3">
+            <div class="bubbleBtn">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="goo">
+                    <defs>
+                        <filter id="goo">
+                            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
+                                result="goo" />
+                            <feComposite in="SourceGraphic" in2="goo" />
+                        </filter>
+                    </defs>
+                </svg>
+
+                <span class="button--bubble__container">
+                    <a href="#campaign" class="button button--bubble">
+                        5-3燈箱裡面form表單＋checkbox＋submit
+                    </a>
+                    <span class="button--bubble__effect-container">
+                        <span class="circle top-left"></span>
+                        <span class="circle top-left"></span>
+                        <span class="circle top-left"></span>
+
+                        <span class="button effect-button"></span>
+
+                        <span class="circle bottom-right"></span>
+                        <span class="circle bottom-right"></span>
+                        <span class="circle bottom-right"></span>
+                    </span>
+                </span>
+            </div>
+        </div>
+        <div class="lightbox-block3">
+            <div class="lightbox3">
+                <div class="button_closeBox3">
+                    <button type="button" class="btn_modal_close">✖</button>
+                </div>
+                <h3>你學會如何呼叫函示了嗎？</h3>
+                <form action="" class="inlightbox-form3">
+                    <ul>
+                        <li><label><input id="pl" type="checkbox">還沒有</label></li>
+                        <li><label><input id="pl1" type="checkbox">我懂了</label></li>
+                        <li><label ><input id="pl2" type="checkbox">這絕對是一片蛋糕</label></li>
+                        <li><input class="submitbtn3" type="submit" value="送出"></li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+
+        <ul class="ex">
+            <li>***請注意***</li>
+            <li> 燈箱所用的class名稱為我們網站的保留字 請勿重複命名</li>
+            <li> 燈箱所用的class名稱為固定名稱 請勿自行更改</li>
+            <li> 若需有自己樣式，請自行增加class名稱</li>
+            <li> html的寫法請直接參照demo.html 複製貼上</li>
+            <li> 最後別忘了要連上lightbox.js檔案（跟我們的主button一樣的方式）</li>
+        </ul>
+        <div>
+            <h3>//5-1 ------只有燈箱</h3>
+            <p>
+                <pre>
+                .lightbox-block1{
+                    @include lightbox-block;
+                    .lightbox1{
+                        @include lightbox;
+                    }
+                    .button_closeBox1{
+                        @include button_closeBox;
+                    }
+                }
+            </pre>
+            </p>
+        </div>
+        <br>
+        <div>
+            <h3>//5-2 ------燈箱裡面form表單＋submit</h3>
+            <p>
+                <pre>
+                .lightbox-block2{
+                    @include lightbox-block;
+                    .lightbox2{
+                        @include lightbox;
+                    }
+                    .button_closeBox2{
+                        @include button_closeBox;
+                    }
+                    .inlightbox-form2{
+                        @include inlightbox-form-submit;
+                    }
+                }
+            </pre>
+            </p>
+        </div>
+        <br>
+        <div>
+            <h3>//5-3 ------燈箱裡面form表單＋checkbox＋submit</h3>
+
+            <p>
+                <pre>
+                .lightbox-block3{
+                    @include lightbox-block;
+                    .lightbox3{
+                        @include lightbox;
+                    }
+                    .button_closeBox3{
+                        @include button_closeBox;
+                    }
+                    .inlightbox-form3{
+                        @include inlightbox-form-checkbox-submit;
+                    }
+                }
+            </pre>
+            </p>
+        </div>
+    </section>
+    <hr>
+    <section>
+        <h2>------6.輸入框相關 input------</h2>
+        <div>
+            <input class="demo-input1" type="text"> <br>
+            <p>6-1 當輸入type="text" 引用 @include input-text($w:160px,$h:30px);</p>
+            <p>-----------------------------------------------------</p>
+            <input class="demo-input2" type="radio"><br>
+            <p>6-2 當輸入 type="radio" 引用 @include input-radio;</p>
+            <p>-----------------------------------------------------</p>
+            <input class="demo-input3" type="checkbox">大家好
+            <p>6-3 當輸入 type="checkbox" 引用 @include input-checkbox($w:25px,$h:30px,$margin-R:10px);</p>
+            <p>-----------------------------------------------------</p>
+            <input class="demo-input4" type="submit" value="送出"><br>
+            <p>6-4 當輸入type="submit"引用 @include input-submit($w:160px,$h:30px);</p>
+            <p>-----------------------------------------------------</p>
+            <input class="demo-input5" type="password"><br>
+            <p>6-5 當輸入type="password"引用 @include input-password($w:160px,$h:30px);</p>
+            <p>-----------------------------------------------------</p>
+            <input class="demo-input6" type="number"><br>
+            <p>6-6 當輸入type="number"引用 @include input-number($w:160px,$h:30px);</p>
+            <p>-----------------------------------------------------</p>
+            <input class="demo-input7" type="date"><br>
+            <p>6-7 當輸入 type="date"引用 @include input-date($w:160px,$h:30px);</p>
+        </div>
+    </section>
+    <section>
+        <h2>------7.卡片間的距離------</h2>
+        <div style="display: inline-block;">
+            <div class="demo-cards">卡片之間的距離</div>
+            <div class="demo-cards">卡片之間的距離</div>
+            <p>//公式@mixin cards($w:300px) //預設卡片本身的寬300px<br>
+                .你自己的class名稱{ @include cards($w:300px);}</p>
+        </div>
+    </section>
+    <hr>
+    <section>
+        <h2>------８.輸入框相關 select ------</h2>
+        <div>
+            <select class="demo-select" name="" id="">
+                <option value="">你好</option>
+                <option value="">我好</option>
+                <option value="">都不好</option>
+            </select>
+            <p>引用 @include select($w:150px, $h:30px)</p>
+
+        </div>
+    </section>
+    <hr>
+    <section>
+        <h2>------９.輸入框相關（很少用到） textarea ------</h2>
+        <div>
+            <textarea class="demo-textarea" name="" id="" cols="100" rows="4"></textarea>
+        </div>
+        <p>引用 @include textarea($w:300px,$h:25px);</p>
+    </section>
+    <hr>
+    <section>
+        <h2>------10.關於rwd ------</h2>
+        <p>請於command/_rwd／裡面有提到如何填寫</p>
+    </section>
+
+    <footer>
+        <div class="copyright">
+            Copyright © 2020 Divein | 海中日子 All Rights Reserved.
+        </div>
+    </footer>
+    <script src="./js/bubbleBtn.js"></script>
+    <script src="./js/lightbox.js"></script>
+</body>
+
+</html>

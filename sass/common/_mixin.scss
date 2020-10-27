@@ -1,0 +1,376 @@
+
+//如果你在閱讀這裏 請不要動這一塊東西 這邊只能查看
+
+// 置中
+@mixin margin-auto($num){
+    margin: $num auto;
+}
+
+//＊＊＊＊＊制定公版規範- 頁籤＊＊＊＊＊
+@mixin tab($w:195px,$h:60px) {
+    width: $w;
+    height: $h;
+    background-color: $tab-bg-color; 
+    border: 1px solid $tab-border-color;
+    color: $tab-font-color;
+    font-size: $baseFz;
+    text-align: center;
+    line-height: 20px;
+    padding: $tab-padding;
+    margin: $tab-margin;
+    cursor: pointer;
+    @content;
+    &:hover {
+        background-color: $tabHover-bg-Color;
+        border: 1px solid $tabHover-border-color;
+        color: $tabHover-font-color;
+        @content;      
+    }
+    &:active, &.-iAmHere{
+        background-color: $tabHover-bg-Color;
+        color: $tabHover-font-color;
+        @content;      
+
+    }   
+}
+//＊＊＊＊＊制定公版規範- 頁籤＊＊＊＊＊
+
+//＊＊＊＊＊制定公版規範- 次要按鈕＊＊＊＊＊
+@mixin other-button ($w:150px,$h:30px,$padding-y:2px,$padding-x:2px){
+    width: $w;
+    height: $h;
+    padding: $padding-y $padding-x;
+    margin: $btn2-margin-y $btn2-margin-x;
+    text-align: center;
+    //以下-固定全域變數
+    font-size: $baseFz;
+    color: $btn2-font-color;
+    background-color: $btn2-bg-color;
+    border: 1px solid $btn2-border-color;
+    border-radius: $radius;
+    transition: all 0.2s ease-out;
+    box-shadow: 2px 3px 3px $keyGray;
+    cursor: pointer;
+    outline: 0 none;
+    @content;
+    
+    &:hover {
+        background-color: $btn2Hover-bg-Color;
+        border: 1px solid $btn2Hover-border-color;
+        color: $btn2Hover-font-color;
+        @content;   
+    }
+    &:active{
+        background-color: $btn2Hover-bg-Color;
+        border: none;
+        color: $btn2Hover-font-color;
+        box-shadow: none;
+        outline: none;
+        @content;
+    }
+    &:focus{
+        background-color: $btn2Hover-bg-Color;
+        border: none;
+        outline: none;
+        @content;     
+    }
+
+}
+//＊＊＊＊＊制定公版規範- 次要按鈕＊＊＊＊＊
+
+
+//卡片(以課程為例)
+@mixin cards($w:300px) {
+    width: $w;
+    margin: $cards-margin-y $cards-margin-x;
+    padding: $cards-padding-y $cards-padding-x;
+    box-shadow: 7px, 7px, 7px $transparentWhite;
+    border: 1px solid $keyWhite;
+    @content;    
+    img{
+        width: 100%;
+        max-width: 100%;
+        @content;   
+    }
+
+}
+
+
+//＊＊＊＊＊制定公版規範- 燈箱＊＊＊＊＊
+
+//最外層的大底層圖
+@mixin lightbox-block {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: $lightbox-back-bg-color;
+    opacity: 0;  //預設透明
+    z-index: -1;
+    transition: opacity $lightbox-adm-second;
+    @content;
+    &.-openbox{
+        opacity: 1;
+        z-index: 3;
+        @content;    
+    }
+    &.-opacity-zero{
+        opacity: 0;
+        @content;      
+    }
+}
+
+//燈箱那層
+@mixin lightbox {
+    width: 70%;
+    max-width: 800px;
+    background-color: $lightbox-bg-color;
+    border-radius: $radius;
+    color: $lightbox-font-color; 
+    text-align: center;
+    padding: $lightbox-padding-y $lightbox-padding-x;
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    @content;
+    
+}
+
+//關掉燈箱的按鈕
+@mixin button_closeBox{
+    display: block;
+    margin-left: auto;
+    text-align: right;
+    text-transform: none;
+    text-indent: 0px;
+    @content;
+    .btn_modal_close{
+        text-shadow: none;
+        right: 5px;
+        top: 3px;
+        width: 35px;
+        height: 35px;
+        color: $keyBlack;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        margin-left: auto;
+        @content;
+    }
+
+}
+
+//5-2 ------燈箱裡面的form表單＋submit
+@mixin inlightbox-form-submit {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 0 auto;
+    padding: $form-padding;
+    @content;
+    input{
+        @include input-submit;
+        @content;
+
+    }
+}
+
+//5-3 ---燈箱裡面的form表單＋checkbox＋submit
+@mixin inlightbox-form-checkbox-submit {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 0 auto;
+    padding: $form-padding;
+    @content;
+    ul{
+        display: block;
+        width: 60%;
+        margin: 0 auto;
+        text-align: center;
+        @content;
+        li{
+            display: block;
+            text-align: center;
+            @content;
+            input{
+                @include input-checkbox;
+                @content;
+
+            }
+            &:last-child input{
+                @include input-submit;
+                @content;
+
+            }
+        }
+    }
+}
+
+
+
+//＊＊＊＊＊制定公版規範- 燈箱＊＊＊＊＊
+
+
+//其他小零件另外寫入 要套的時候叫混搭一起套
+// form表單
+@mixin form {
+    padding: $form-padding-y $form-padding-x;
+    @content;   
+
+}
+
+
+// input, select, textarea
+%simple-form-basic{
+    vertical-align: middle;
+    border-radius: $radius;
+    border: 1px solid $input-border-color;
+    background: $input-textbg-color;
+    &:hover{
+        border-color: $keyBlack;
+    }
+    &:active{
+        border-color: $keyGray;
+    }
+    &:focus{
+        outline: 0 none;
+        border-color: $input-formFoucusBd-color; 
+    }
+}
+
+// 输入框
+@mixin input {
+    @extend %simple-form-basic;
+    text-align: left;
+    margin: $input-margin-y $input-margin-x;
+    padding: $input-padding-y $input-padding-x;
+    font-size: $baseFz;
+    @content;
+}
+
+@mixin input-text($w:160px,$h:30px){
+    @include input;
+    width: $w;
+    height: $h;
+    cursor: auto;
+    @content; 
+}
+
+//input 的type="radio"
+@mixin input-radio{
+    @include input;
+    cursor: pointer;
+    @content;   
+
+} 
+
+
+// input 的type="checkbox"
+@mixin input-checkbox($w:25px,$h:30px,$margin-R:10px){
+    @include input;
+    cursor: pointer;
+    width: $w;
+    height: $h;
+    margin-right: $margin-R;
+    @content;   
+
+}
+
+
+// input 的type="submit"
+@mixin input-submit($w:160px,$h:30px){
+    @include input;
+    @include other-button;
+    text-align: center;
+    cursor: pointer;
+    padding: 2px 2px;
+    width: $w;
+    height: $h;
+    border: none;
+    box-shadow: 2px 3px 3px $keyGray;
+    @content;   
+    &:hover{
+        background-color: $btn2Hover-bg-Color;
+        border: 1px solid $btn2Hover-border-color;
+        color: $btn2Hover-font-color;
+        border: none;
+        outline: 0 none;
+        @content;   
+    }
+    &:active{
+        border-color: $keyGray;
+        box-shadow: none;
+        border: none;
+        outline: 0 none;
+        @content;   
+
+    }
+    &:focus{
+        outline: 0 none;
+        border-color: $input-formFoucusBd-color; 
+        @content;   
+        
+    }
+}
+
+
+// input 的type="password"
+@mixin input-password($w:160px,$h:30px){
+    @include input;
+    width: $w;
+    height: $h;
+    @content;   
+    &:focus{
+      border-color: $keyGray;
+      @content;   
+    }  
+}
+
+// input 的type="number"
+@mixin input-number($w:160px,$h:30px){    
+    @include input;
+    width: $w;
+    height: $h;
+    @content;      
+
+}
+
+// input 的type="date"
+@mixin input-date($w:160px,$h:30px){
+    @include input;
+    width: $w;
+    height: $h;
+    padding-left: 0;
+    cursor: pointer;
+    @content;      
+ 
+}
+
+//select
+@mixin select($w:160px, $h:30px){
+    @extend %simple-form-basic;
+    vertical-align: top;
+    width: $w;
+    height: $h;
+    font-size: $baseFz;
+    @content;      
+}
+
+// textarea
+@mixin textarea($w:300px,$h:25px){
+    @extend %simple-form-basic;
+    width: $w;
+    height: $h;
+    vertical-align: top;
+    @content;     
+    &:focus{
+        border-color: $keyGray;
+        @content;      
+    } 
+}
+
+
