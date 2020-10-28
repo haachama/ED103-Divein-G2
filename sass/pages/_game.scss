@@ -1,7 +1,287 @@
 .gameIntro{
 
     // 請勿超出大括號
+    :root{
+        --header-height: 117px;
+    }
 
+    // footer置底
+    main{
+        min-height: calc(100vh - var(--header-height));
+        overflow: hidden;
+    }
+
+    h2 {
+        color: $transparentWhite;
+        margin: 0 0 20px 0;
+    }
+    
+    h3 {
+        color: $transparentWhite;
+    }
+    
+    h4 {
+        font-size: 24px;
+        color: $transparentWhite;
+    }
+    
+    p {
+        font-size: $baseFz;
+        color: $transparentWhite;
+        margin: 5px;
+    }
+    
+    .flexGrow{
+        display: flex;
+        flex-grow: 1;
+    }
+
+    
+    .button--bubble{
+        background: $keyWhite;
+    }
+    
+    .button--bubble:hover {
+        background: $keyWhite;
+        color: $keyBlue;
+    }
+    
+    //觸摸時泡泡顏色
+    .button--bubble:hover+.button--bubble__effect-container .circle {
+        background: $keyWhite;
+    }
+    
+    //觸摸時背景顏色
+    .button--bubble:hover+.button--bubble__effect-container .button {
+        background:$keyWhite;
+    }
+    
+    //泡泡變形中顏色
+    .button--bubble__effect-container .circle{
+        background: $keyWhite;
+    }
+
+    .startBtn .bubbleBtn {
+        text-align: center;
+        margin: 20px;
+    }
+    
+    //選擇裝備
+
+    .parent_container {
+        position: relative;
+        display: flex;
+        width: 1200px;
+        justify-content: center;
+        margin: 40px auto;
+        box-sizing: border-box;
+    }
+    
+    .choseRole{
+        position: absolute;
+        top: 10px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .choseRoleRwd{
+        display: none;
+    }
+    
+    .changeRole{
+        position: relative;
+        display: flex;
+        position: relative;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        width: 510px;
+        flex-grow: 1;
+
+    }
+    .changeRoleBtnBlock{
+        width: 50px;
+        height: 100%;
+        display: inline-flex;
+        position: relative;
+    }
+    .changeRoleBtn{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto 0;
+        width: 100%;
+        height: 50px;
+        border: 0;
+        outline: none;
+        background-color: transparent;
+    }
+
+    svg{
+        outline: none;
+        cursor: pointer;
+    }
+
+    .playRole {
+        position: relative;
+        margin: auto 50px;
+        width: 142px;
+        height: 100%;
+        display: inline-flex;
+    }
+
+    .playRole img{
+        position: absolute;
+        top:50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .abilityBlock{
+        position: relative;
+        width: 200px;
+        margin: 0 50px 0 0 ; 
+    }
+
+    .ability{
+        position: absolute;
+        bottom: 0;
+        width: 200px;
+        margin: 20px 0;
+        text-align: center;
+    }
+    .abilityDescribe{
+        width: 100%;
+        display: inline-flex;
+    }
+
+    .equipList {
+        display: flex;
+        position: relative;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        width: 510px;
+    }
+
+        
+    .totalPriceBlock {
+        width: 100%;
+        display: inline-flex;
+    }
+
+    .totalPrice {
+        width: 100px;
+        padding: 5px;
+        margin: 5px;
+        text-align: center;
+        border-radius: 10px;
+        color: $keyBlack;
+        background-color: #FFE153;
+    }
+
+    .maskList {
+        display: inline-flex;
+        width: 600px;
+    }
+    .airList {
+        display: inline-flex;
+        width: 600px;
+    }
+    .shoeList {
+        display: inline-flex;
+        width: 600px;
+    }
+
+    .equipDescribeBlock{
+        height: 150px;
+        line-height:150px;
+    }
+
+    .equipBlock{
+        display: block;
+        width: 130px;
+        margin: 10px;
+        margin: 10px;
+        text-align: center;
+    }
+
+    .bubbleBackground{
+        position: relative;
+        width: 130px;
+        height: 130px;
+        display: block;
+        text-align: center;
+        background-image: url("../img/game/bubbleBackground.png");
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
+    
+    .equip {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto auto;
+        cursor: pointer;
+    }
+    
+    .equip img {
+        width: auto;
+    }
+    
+    .eye img {
+        position: absolute;
+        top: 20px;
+        left: 15px;
+        transform: scale(1.15) rotate(170deg);
+    }
+    
+    .back img {
+        position: absolute;
+        top: 28%;
+        transform: translateX(-70%);
+        z-index: -1;
+    }
+    
+    .foot img {
+        position: absolute;
+        bottom: -30px;
+        transform: scale(1.7) rotate(12deg) translate(10px, 5px);
+    }
+    
+    .rule {
+        
+        position: absolute;
+        top: 100px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        width: 375px;
+        background-color: $keyBlack; //$transparentWhite;
+        padding: 20px;
+        border-radius: 15px;
+        text-align: center;
+    }
+    
+    .pRule{
+        text-indent: 2em;
+        line-height: 32px;
+        margin: 20px;
+        text-align: left;
+    }
+    .none {
+        display: none;
+    }
+    
+    .ruleBtnX {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        border: 0;
+        color: $transparentWhite;
+        background: none;
+    }
 
 
 
@@ -23,7 +303,7 @@
 
 }
 
-.gameResort{
+.gameResult{
 
 
 
