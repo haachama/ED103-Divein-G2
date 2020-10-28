@@ -45,11 +45,15 @@ gulp.task('default', function () {
     browserSync.init({
         server: {
             baseDir: "./app",
-            index: "index.html"
+            index: "backstage.html"
         }
     });
     gulp.watch(['sass/*.scss' , 'sass/**/*.scss'], ['sass']).on('change', reload);
     gulp.watch(['*.html', '**/*.html'], ['fileinclude']).on('change', reload);
 });
 
+gulp.task('hi', function(){
+    //do something
+    console.log('hell word 你好gulp');
+});
 
