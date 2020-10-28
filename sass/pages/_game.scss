@@ -1,6 +1,5 @@
 .gameIntro{
 
-    // 請勿超出大括號
     :root{
         --header-height: 117px;
     }
@@ -283,34 +282,99 @@
         background: none;
     }
 
-
-
-
-
-
-
 }
 
 .game{
-
-
-
-
-
-
-
 
 
 }
 
 .gameResult{
 
-
-
-
-
-
-
-
+    .parent_score {
+        position: relative;
+        width: 576px;
+        border-bottom: 3px solid $transparentWhite;
+        margin: 65px auto 25px auto;
+        text-align: center;
+    }
     
+    .scoreDescribe {
+        font-size: 30px;
+        color: $keyWhite;
+        margin: 10px;
+        font-weight: 500;
+    }
+    .yellow{
+        color: #FFE153;
+    }
+    
+    .resortRole {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+    }
+    
+    .goShopBtn .bubbleBtn {
+        text-align: right;
+        margin: 10px;
+    }
+    
+    .rankList {
+        width: 576px;
+        height: 460px;
+        border-bottom: 3px solid $transparentWhite;
+        margin: 25px auto;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+    
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        border-radius: 5px;
+        background: $transparentWhite; 
+    }
+       
+    
+    ::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        background: #888; 
+    }
+      
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555; 
+    }
+    
+    .record {
+        display: flex;
+    }
+    
+    .record img{
+        width: 80px;
+        height: 80px;
+        margin: 20px;
+        // border: 1px solid $keyBlack;
+        background-color: $transparentWhite;
+        border-radius: 50%;
+    }
+    
+    .record h3{
+        flex-grow: 1;
+        width: 100px;
+        margin: auto 0;
+    }
+    
+    .record h4{
+        flex-grow: 1;
+        margin: auto 0;
+    }
+
+    .restartBtn .bubbleBtn{
+        text-align: center;
+        margin: 20px;
+    }
+
 }
