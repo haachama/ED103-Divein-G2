@@ -5,9 +5,16 @@
     }
 
     // footer置底
+    
     main{
         min-height: calc(100vh - var(--header-height));
         overflow: hidden;
+    }
+    
+    body {
+        font-family: $en, $zh;
+        box-sizing: border-box;
+        height: auto;
     }
 
     h2 {
@@ -29,13 +36,13 @@
         color: $transparentWhite;
         margin: 5px;
     }
-    
-    .flexGrow{
+
+    .flexGrow {
         display: flex;
         flex-grow: 1;
     }
 
-    
+    //改變按鈕顏色
     .button--bubble{
         background: $keyWhite;
     }
@@ -60,175 +67,198 @@
         background: $keyWhite;
     }
 
-    .startBtn .bubbleBtn {
-        text-align: center;
-        margin: 20px;
-    }
-    
-    //選擇裝備
+    //↓最外層div
 
     .parent_container {
+
         position: relative;
         display: flex;
         width: 1200px;
         justify-content: center;
         margin: 40px auto;
         box-sizing: border-box;
+
+        @include breakpoint (1200) {
+            -webkit-flex-flow: row wrap;
+            flex-flow: row wrap;
+            width: 100%;
+        }
     }
     
+    //選擇角色
+
+    //標題文字↓
+
     .choseRole{
-        position: absolute;
-        top: 10px;
-        left: 0;
+        position: relative;
+        display: block;
         width: 100%;
         text-align: center;
     }
-
     .choseRoleRwd{
         display: none;
     }
-    
+
     .changeRole{
         position: relative;
         display: flex;
-        position: relative;
         justify-content: space-evenly;
         flex-wrap: wrap;
         width: 510px;
         flex-grow: 1;
 
-    }
-    .changeRoleBtnBlock{
-        width: 50px;
-        height: 100%;
-        display: inline-flex;
-        position: relative;
-    }
-    .changeRoleBtn{
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        margin: auto 0;
-        width: 100%;
-        height: 50px;
-        border: 0;
-        outline: none;
-        background-color: transparent;
+        @include breakpoint (1200) {
+            width: 40%;
+            flex-grow: 0;    
+        }
+
+        .choseRoleRwd{
+            display: none;
+        }
+
+        //切換角色按鈕↓
+
+        .changeRoleBtnBlock{
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 100%;
+            margin: 0;
+
+            .changeRoleBtn{
+                position: absolute;
+                top: 0; 
+                bottom: 0;
+                margin: auto 0;
+                border: 0;
+                outline: none;
+                background-color: transparent;
+                
+                svg{
+                    outline: none;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        //角色圖片
+
+        .playRole {
+            position: relative;
+            display: inline-flex;
+            width: 142px;
+            margin: auto 0;
+
+            @include breakpoint (1200) {
+                width: 40%;
+            }
+        }
     }
 
-    svg{
-        outline: none;
-        cursor: pointer;
-    }
-
-    .playRole {
-        position: relative;
-        margin: auto 50px;
-        width: 142px;
-        height: 100%;
-        display: inline-flex;
-    }
-
-    .playRole img{
-        position: absolute;
-        top:50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
+    //角色能力圖
 
     .abilityBlock{
         position: relative;
+        display: block;
         width: 200px;
-        margin: 0 50px 0 0 ; 
+
+        @include breakpoint (1200) {   
+            width: 15%;
+        }
+        .ability{
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .abilityDescribe{
+            width: 100%;
+            display: inline-flex;
+        }
     }
 
-    .ability{
-        position: absolute;
-        bottom: 0;
-        width: 200px;
-        margin: 20px 0;
-        text-align: center;
-    }
-    .abilityDescribe{
+    //選擇裝備
+
+    .totalPriceBlock {
         width: 100%;
+        text-align: right;
         display: inline-flex;
+        .totalPrice {
+            width: 100px;
+            padding: 5px;
+            margin: 5px;
+            text-align: center;
+            border-radius: 10px;
+            color: $keyBlack;
+            background-color: #FFE153;
+        }
     }
-
+    
     .equipList {
         display: flex;
         position: relative;
         justify-content: space-evenly;
         flex-wrap: wrap;
-        width: 510px;
-    }
+        width: 45%;
+        margin: 50px 0;
 
+        .maskList {
+            display: inline-flex;
+            width: 600px;
+        }
+        .airList {
+            display: inline-flex;
+            width: 600px;
+        }
+        .shoeList {
+            display: inline-flex;
+            width: 600px;
+        }
         
-    .totalPriceBlock {
-        width: 100%;
-        display: inline-flex;
     }
 
-    .totalPrice {
-        width: 100px;
-        padding: 5px;
-        margin: 5px;
+    //裝備圖片
+    .equipBlock{
+        position: relative;
+        display: block;
+        width: 20%;
+        height: 70%;
+        margin: 5%;
+        margin: 10px;
         text-align: center;
-        border-radius: 10px;
-        color: $keyBlack;
-        background-color: #FFE153;
     }
-
-    .maskList {
-        display: inline-flex;
-        width: 600px;
-    }
-    .airList {
-        display: inline-flex;
-        width: 600px;
-    }
-    .shoeList {
-        display: inline-flex;
-        width: 600px;
+    
+    .bubbleBackground{
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: block;
+        text-align: center;
+        background-image: url("../img/game/bubbleBackground.png");
+        background-size: 100%;
+        background-repeat: no-repeat;
+        .equip {
+            position: absolute;
+            top: -10px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto auto;
+            width: 60%;
+            height: 60%;
+            cursor: pointer;
+        }
     }
 
     .equipDescribeBlock{
         height: 150px;
         line-height:150px;
     }
-
-    .equipBlock{
+    .price{
         display: block;
-        width: 130px;
-        margin: 10px;
-        margin: 10px;
-        text-align: center;
     }
-
-    .bubbleBackground{
-        position: relative;
-        width: 130px;
-        height: 130px;
-        display: block;
-        text-align: center;
-        background-image: url("../img/game/bubbleBackground.png");
-        background-size: 100%;
-        background-repeat: no-repeat;
-    }
-    
-    .equip {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        margin: auto auto;
-        cursor: pointer;
-    }
-    
-    .equip img {
-        width: auto;
-    }
-    
+  
     .eye img {
         position: absolute;
         top: 20px;
@@ -249,8 +279,8 @@
         transform: scale(1.7) rotate(12deg) translate(10px, 5px);
     }
     
-    .rule {
-        
+    //規則
+    .rule {   
         position: absolute;
         top: 100px;
         left: 0;
@@ -261,27 +291,121 @@
         padding: 20px;
         border-radius: 15px;
         text-align: center;
-    }
-    
-    .pRule{
-        text-indent: 2em;
-        line-height: 32px;
-        margin: 20px;
-        text-align: left;
-    }
-    .none {
-        display: none;
-    }
-    
-    .ruleBtnX {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        border: 0;
-        color: $transparentWhite;
-        background: none;
+        .pRule {
+            text-indent: 2em;
+            line-height: 32px;
+            margin: 20px;
+            text-align: left;
+        }
+        .ruleBtnX {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            border: 0;
+            color: $transparentWhite;
+            background: none;
+        }
     }
 
+    .startBtn .bubbleBtn {
+        text-align: center;
+        margin: 20px;
+    }
+    
+    //game.html
+    .gameGif{
+        margin: 0 auto;
+        display: block;
+    }
+    .gameGifRWD{
+        margin: 0 auto;
+        display: none;
+    }
+    //gameResort.html
+    
+    .parent_score {
+        position: relative;
+        width: 576px;
+        border-bottom: 3px solid $transparentWhite;
+        margin: 65px auto 25px auto;
+        text-align: center;
+
+        .scoreDescribe {
+            font-size: 30px;
+            color: $keyWhite;
+            margin: 10px;
+            font-weight: 500;
+        }
+        .yellow{
+            color: #FFE153;
+        }
+        .resortRole {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+        .goShopBtn .bubbleBtn {
+            text-align: right;
+            margin: 10px;
+        }
+    }
+    
+    .rankList {
+        width: 576px;
+        height: 460px;
+        border-bottom: 3px solid $transparentWhite;
+        margin: 25px auto;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+    
+    //排行榜滑桿
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        border-radius: 5px;
+        background: $transparentWhite; 
+    }
+       
+    ::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        background: #888; 
+    }
+      
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555; 
+    }
+    
+    .record {
+        display: flex;
+    }
+    
+    //會員頭像
+    .record img{
+        width: 80px;
+        height: 80px;
+        margin: 20px;
+        background-color: $transparentWhite;
+        border-radius: 50%;
+    }
+    
+    .record h3{
+        flex-grow: 1;
+        width: 100px;
+        margin: auto 0;
+    }
+    
+    .record h4{
+        flex-grow: 1;
+        margin: auto 0;
+    }
+
+    .restartBtn .bubbleBtn{
+        text-align: center;
+        margin: 20px;
+    }
 }
 
 .game{
