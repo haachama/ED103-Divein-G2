@@ -5,31 +5,125 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
-    <title>海中日子</title>
+    <link rel="stylesheet" href="./fontawesome/css/all.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>海中日子 | 購物車</title>
 </head>
 
 <body class="cart">
     @@include('./layout/header.html')
 
-    <div class="title"><h2>購物車</h2></div>
+    <div class="title">
+        <h2>購物車</h2>
+    </div>
+    <div class="container">
+        <table>
+            <tr>
+                <th>商品圖片</th>
+                <th>商品名稱</th>
+                <th>單價</th>
+                <th>數量</th>
+                <th>小計</th>
+                <th>刪除</th>
+            </tr>
+            <tr>
+                <td><img src="./img/shop/mask4@2x.png" alt=""></td>
+                <td>水中看得清</td>
+                <td>8700</td>
+                <td>2</td>
+                <td>17400</td>
+                <td><i class="fas fa-trash"></i></td>
+            </tr>
+            <tr>
+                <td><img src="./img/shop/mask4@2x.png" alt=""></td>
+                <td>水中看得清</td>
+                <td>8700</td>
+                <td>2</td>
+                <td>17400</td>
+                <td><i class="fas fa-trash"></i></td>
+            </tr>
+        </table>
+        
+        <div class="totalContent">
+            <div class="gamePlay">
+                玩遊戲獲取紅利點數！
+                <button class="demo-btn">前往遊戲</button>
+            </div>
+            <div class="calc">
+                <p class="bill">您購買了<span>4</span>樣物品，總金額為：$<span>34800</span></p>  
+                <p class="point">您目前持有點數：<span>100</span></p>
+                <p class="total">總計：$<span>34700</span></p>
+            </div> 
+        </div>
 
-   <table>
-       <tr>
-           <th>商品圖片</th>
-           <th>商品名稱</th>
-           <th>單價</th>
-           <th>數量</th>
-           <th>小計</th>
-           <th>刪除</th>
-        </tr>
-   </table> 
+        <div class="cartBtn">
+            <div class="bubbleBtn addCart">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="goo">
+                    <defs>
+                        <filter id="goo">
+                            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
+                                result="goo" />
+                            <feComposite in="SourceGraphic" in2="goo" />
+                        </filter>
+                    </defs>
+                </svg>
+
+                <span class="button--bubble__container">
+                    <a href="#campaign" class="button button--bubble">
+                        繼續購物
+                    </a>
+                    <span class="button--bubble__effect-container">
+                        <span class="circle top-left"></span>
+                        <span class="circle top-left"></span>
+                        <span class="circle top-left"></span>
+
+                        <span class="button effect-button"></span>
+
+                        <span class="circle bottom-right"></span>
+                        <span class="circle bottom-right"></span>
+                        <span class="circle bottom-right"></span>
+                    </span>
+                </span>
+            </div>
+            <div class="bubbleBtn bill">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="goo">
+                    <defs>
+                        <filter id="goo">
+                            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
+                                result="goo" />
+                            <feComposite in="SourceGraphic" in2="goo" />
+                        </filter>
+                    </defs>
+                </svg>
+    
+                <span class="button--bubble__container">
+                    <a href="#campaign" class="button button--bubble">
+                        進行結帳
+                    </a>
+                    <span class="button--bubble__effect-container">
+                        <span class="circle top-left"></span>
+                        <span class="circle top-left"></span>
+                        <span class="circle top-left"></span>
+    
+                        <span class="button effect-button"></span>
+    
+                        <span class="circle bottom-right"></span>
+                        <span class="circle bottom-right"></span>
+                        <span class="circle bottom-right"></span>
+                    </span>
+                </span>
+            </div>
+        </div>
+    </div>
 
 
 
-
-
-
-    @@include('./layout/footer.html');
-    <script src="./js/index.js"></script>
+    @@include('./layout/footer.html')
+    <script src="./js/shop.js"></script>
+    <script src="./js/bubbleBtn.js"></script>
 </body>
+
 </html>

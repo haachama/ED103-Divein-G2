@@ -1,18 +1,105 @@
-.cart{
-    .title{
+.cart {
+    
+    .title {
         text-align: center;
     }
 
-    
+    .container {
+        width: 60%;
+        margin: auto;
+        min-height: 81.2vh;
+        table {
+            /* ==================== table ==================== */
+            margin: 20px auto 0px auto;
+
+            img {
+                width: 70px;
+            }
+        }
+        th{
+            font-size: 1.5*$baseFz;
+            font-weight: 600;
+            background-color: $keyBlue;
+        }
+        th:first-child{
+            border-radius: 5px 0 0 0;
+        }
+        th:last-child{
+            border-radius: 0 5px 0 0;
+        }
+        td{
+            background-color: #fdf6e7;
+            color: $keyBlack;
+            border-top: 1px solid $keyBlack;
+        }
+        td:last-child{
+            border-bottom: 1px solid $keyBlack;
+        }
+        
+        th,
+        td {
+            // border-top: 1px solid $keyWhite;
+            padding: 40px;
+            vertical-align: middle;
+            text-align: center;
+        }
 
 
+        .fa-trash {
+            cursor: pointer;
 
+            &:hover {
+                color: #E6AE2C;
+            }
+        }
+    }
 
+    .totalContent{
+        width: 864px;
+        margin: auto;
+        padding: 30px;
+        background-color: #fdf6e7;
+        color: $keyBlack;
+        display: flex;
+        .gamePlay{
+            flex: 1;
+        }
+        p{
+            margin: 5px;
+        }
 
+        
+    }
+    span{
+        color: red;
+    }
 
-
-
-
+    .cartBtn{
+        width: 100%;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        .bubbleBtn{
+            margin: 30px;
+        }
+    }
+    .bill{
+        .button--bubble__container .effect-button,
+        .button--bubble__effect-container .circle
+        {
+            background: #176587;
+        }
+        .button--bubble:hover{
+            color: #176587;
+        }
+        .button--bubble:hover+.button--bubble__effect-container .circle {
+            background: #fefefe;
+        }
+        //觸摸時背景顏色
+        .button--bubble:hover+.button--bubble__effect-container .button {
+            background: #fefefe;
+        }
+    }
 
 
 

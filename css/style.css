@@ -1778,4 +1778,20 @@ input {
 .cart .title {
   text-align: center;
 }
+
+.cart table {
+  /* ==================== table ==================== */
+  margin: 20px;
+}
+
+.cart th,
+.cart td {
+  border-top: 1px solid #fefefe;
+  padding: 15px;
+  vertical-align: middle;
+}
+
+.cart table tr:last-child td {
+  border-bottom: 1px solid #fefefe;
+}
 /*# sourceMappingURL=style.css.map */
