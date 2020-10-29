@@ -1541,6 +1541,10 @@ input {
   font-size: 24px;
 }
 
+.shop .art .fa-heart:hover {
+  color: red;
+}
+
 .shop .item img {
   width: 150px;
   padding: 30px;
@@ -1769,5 +1773,9 @@ input {
 
 .back input[type=password] {
   width: 150px;
+}
+
+.cart .title {
+  text-align: center;
 }
 /*# sourceMappingURL=style.css.map */
