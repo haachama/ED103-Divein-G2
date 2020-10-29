@@ -1,4 +1,69 @@
-$('.button--bubble').each(function () {
+import $ from "jquery";
+import {TweenMax, TimelineMax} from "gsap";
+
+$(function () {
+
+//登入
+var mfc = $(".memberFromChangeBtn");
+var mfa = $(".memberFromArea");
+var mltOne = $(".mltOne");
+var mltTwo =  $(".mltTwo");
+
+$("#memberRegistered").click(function(){
+  $(".memLogRegArea").addClass("memberMove");
+});
+$("#memberLogin").click(function(){
+  $(".memLogRegArea").removeClass("memberMove");
+});
+$("#ml").click(function(){
+    mfc.removeClass("memberMove");
+    mfc.removeClass("memberPasForgot");
+    mfa.removeClass("memberFromMove");
+    mfa.removeClass("memberFromPasMove");
+    mltOne.removeClass("memberPasForgot");
+    mltTwo.removeClass("memberPasForgot");
+
+  });
+  $("#tl").click(function(){
+    mfc.addClass("memberMove");
+    mfc.removeClass("memberPasForgot");
+    mfa.addClass("memberFromMove");
+    mfa.removeClass("memberFromPasMove");
+    mltOne.removeClass("memberPasForgot");
+    mltTwo.removeClass("memberPasForgot");
+  });
+  $("#memberPasForgot").click(function(){
+    mfc.removeClass("memberFromMove");
+    mfc.addClass("memberPasForgot");
+    mfa.removeClass("memberFromMove");
+    mfa.addClass("memberFromPasMove");
+    mltOne.addClass("memberPasForgot");
+    mltTwo.addClass("memberPasForgot");
+  });
+
+    //header
+    // hamburger icon 的切換
+    $("button.hamburger").on("click", function () {
+        $(this).toggleClass("is-active");
+        $('.nav').slideToggle("show");
+        $('.memCart li').toggleClass("show");
+        $('header').toggleClass("bg")
+    });
+    // RWD導覽列
+    $(window).resize(function () {
+        var $pixel = document.body.clientWidth;
+
+        if ($pixel > 991) {
+            $('.nav').removeClass('hide')
+            $('.nav').addClass('show')
+        } else {
+            $('.nav').removeClass('show')
+            $('.nav').addClass('hide')
+        }
+    });
+
+  //按鈕
+  $('.button--bubble').each(function () {
     var $circlesTopLeft = $(this).parent().find('.circle.top-left');
     var $circlesBottomRight = $(this).parent().find('.circle.bottom-right');
 
@@ -126,4 +191,5 @@ $('.button--bubble').each(function () {
     $(this).on('mouseover', function () {
         btTl.restart();
     });
+});
 });

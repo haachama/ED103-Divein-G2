@@ -1,15 +1,293 @@
 // 會員登入
 .memberLogin{
+    .memLogReg {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+        margin: -20px 0 30px;
+    }
 
-    // 請勿超出大括號
+    h3, h4{
+        text-align: center;
+        color: #FEFEFE;
+    }
+    
+    .mlt, .mrt{
+        margin-top: 50px;
+    }
+    a {
+        color: #FEFEFE;
+        font-size: 14px;
+        text-decoration: none;
+        margin: 15px 0;
+    }
+    
+    /* 登入切換 */
+    .memberFromChange{
+        width: 165px;
+        position: relative;
+        border-radius: 30px;
+        background-color: #6d311932;
+        margin: 0 auto;
+        margin-top: 70px;
+        text-align: center;
+    }
+    
+    .memberFromChangeBtn{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 80px;
+        height: 100%;
+        background-color: #f4703b;
+        border-radius: 30px;
+        transition: all 0.6s ease-in-out;
+    }
+    .memberFromChangeBtn.memberPasForgot{
+        background-color: transparent;
+    }
+    .memberFromChangeBtn.memberMove{
+        transform: translateX(100%);
+        left:4px;
+        /* animation: show 0.6s; */
+        transition: all 0.6s ease-in-out;
+    }
+    
+    .memberFromChange p{
+        display: inline;
+        width: 90px;
+        padding: 10px 20px;
+        text-align: center;
+        position: relative;
+        cursor: pointer;
+    }
+    .mlt{
+        margin: 0 auto;
+    }
+    .mlt h4{
+        margin: 50px auto 10px;
+    }
+    .mltTwo{
+        display: none;
+    }
+    .mltTwo.memberPasForgot{
+        display: block;
+    }
+    .mltOne.memberPasForgot{
+        display: none;
+    }
+    
+    #memberPasForgot{
+        color: #FEFEFE;
+        font-size: 14px;
+        text-decoration: none;
+        margin: 15px 0;
+        cursor: pointer;
+    }
+    #memberPasForgot:hover{
+        color: blue;
+    }
+    
+    .memberFromContent{
+        // border: 1px solid blue;
+        width: 100%;
+        height: 210px;
+        margin-top: 0;
+        overflow: hidden;
+        position: relative;
+    }
+    .memberFromArea{
+        position: absolute;
+        top: -235px;
+        left: 10%;
+        transition: all 0.6s ease-in-out;
+    }
+    .memberFromAreaTextTwo{
+        margin: 30px auto;
+    }
+    .memberFromAreaTextOne, .memberFromAreaTextThree{
+        margin: 60px auto;
+    }
+    
+    .memberFromArea.memberFromMove{
+        top: -475px;
+    }
+    .memberFromArea.memberFromPasMove{
+        top: -40px;
+    }
+    
+    
+    
+    /* 按鈕樣式 */
+    // button:active {
+    //     transform: scale(0.95);
+    // }
+    // button:focus {
+    //     outline: none;
+    // }
+    
+    // button.ghost {
+    //     background-color: transparent;
+    //     border-color: #FFFFFF;
+    // }
+    
+    .memberFrom{
+        background-color: $keyBlack;
+    }
+    /* 表單樣式 */
+    form {
+        // background-color: rgba(22, 24, 29, 0.9);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0 50px;
+        height: 70%;
+        text-align: center;
+    }
+    
+    input {
+        background-color: #eee;
+        border: none;
+        padding: 12px 15px;
+        margin: 8px 0;
+        width: 100%;
+    }
+    
+    /* 內容與切換動作 */
+    .memLogRegArea {
+        // background-color: rgba(22, 24, 29, 0.7);
+        border-radius: 10px;
+        position: relative;
+        overflow: hidden;
+        width: 768px;
+        max-width: 100%;
+        min-height: 480px;
+    }
+    .memberFrom {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        transition: all 0.6s ease-in-out;
+    }
+    
+    .login {
+        left: 50%;
+        width: 50%;
+        opacity: 1;
+        z-index: 2;
+    }
+    
+    .memLogRegArea.memberMove .login {
+        left: 0;
+        opacity: 1;
+        z-index: -1;
+    }
+    
+    .registered {
+        z-index: -2;
+        left: 50%;
+        width: 50%;
+    }
+    
+    .memLogRegArea.memberMove .registered {
+        left: 0;
+        z-index: 1;
+        animation: show 0.6s;
+    }
+    
+    @keyframes show {
+        0%, 49.99% {
+            opacity: 0;
+            z-index: 1;
+        }
+    
+        50%, 100% {
+            opacity: 1;
+            z-index: 5;
+        }
+    }
+    
+    .overlayContainer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 100%;
+        overflow: hidden;
+        transition: transform 0.6s ease-in-out;
+        z-index: 100;
+    }
+    
+    .memLogRegArea.memberMove .overlayContainer{
+        transform: translateX(100%);
+    }
+    
+    .overlay {
+        background: #FF416C;
+        /* background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
+        background: linear-gradient(to right, #FF4B2B, #FF416C); */
+        background-repeat: no-repeat;
+        background-size: cover;
+        /* background-position: 0 0; */
+        color: #FFFFFF;
+        position: relative;
+        left: -100%;
+        height: 100%;
+        width: 200%;
+          transform: translateX(0);
+        transition: transform 0.6s ease-in-out;
+    }
+    
+    .memLogRegArea.memberMove .overlay {
+          transform: translateX(50%);
+    }
+    
+    .overlayPanel {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0 40px;
+        text-align: center;
+        top: 0;
+        height: 100%;
+        width: 50%;
+        transform: translateX(0);
+        transition: transform 0.6s ease-in-out;
+    }
+    
+    .overlayLeft {
+        transform: translateX(0);
+    }
+    
+    .overlayRight {
+        right: 0;
+        transform: translateX(0);
+    }
 
+    .memberLoginButton{
+        margin-top: 20px;
 
-
-
-
-
-
-
+        .button--bubble__container{
+            height: 30px;
+        }
+        .button{
+            margin: 0;
+        }
+    }
+    .ghost{
+        background-color: rgba(22, 24, 29, 0.3);
+        border: 1.5px solid rgba(254, 254, 254, 0.8);
+        width: 60px;
+        border-radius: 15px;
+    }
+    .ghost:hover{
+        background-color: rgba(22, 24, 29, 0.7);
+    }
 }
 
 // 會員中心
@@ -58,6 +336,10 @@
     .memberOption {
         background-color: $transparentWhite;
         padding: 20px;
+
+        p{
+            color: $keyBlack;
+        }
     
         .memberInformation p {
             margin: 20px 0;
@@ -89,10 +371,12 @@
         .memberPoint li{
             margin: 5px auto;
         }
-        .memberPoint li p, .memberPoint li span{
+        .memberPoint li p{
             display: inline-block;
+            color: $keyBlack;
         }
         .memberPoint li span{
+            display: inline-block;
             color: #930000;
         }
     
@@ -103,10 +387,12 @@
         .memberPointPhone li{
             margin: 5px auto;
         }
-        .memberPointPhone li p, .memberPointPhone li span{
+        .memberPointPhone li p{
             display: inline-block;
+            color: $keyBlack;
         }
         .memberPointPhone li span{
+            display: inline-block;
             color: #930000;
         }
     }
@@ -120,6 +406,9 @@
     /* 頁籤區塊 */
     .memberTabListBlock, .memberTabContents {
         vertical-align:top;
+    }
+    .memberTabContents{
+        margin-top: 20px;
     }
     
     /* 頁籤列表 */
@@ -196,6 +485,11 @@
             color: $keyWhite;
             margin: 20px 10px;
         }
+
+        .memberDiaBtn, .memberCorBtn{
+            width: 28%;
+            text-align: center;
+        }
     
         .memberDiaEditBtn, .memberCorInfBtn{
             // margin-bottom: 30px;
@@ -214,7 +508,7 @@
 
         .memberDelBtn{
             display: inline-block;
-            margin: 0 10px;
+            margin-left: 10px;
         }
         .memberDelBtn i{
             color: $transparentWhite;
@@ -234,10 +528,7 @@
             text-align: center;
         }
     }
-    // .memberCourse:hover{
-    //     background-color: rgba(254, 254, 254, 0.3);
-    // }
-    
+
     //map tab
     .memberTag{
         margin-top: 20px;
@@ -266,7 +557,6 @@
         width: 100%;
         height: 40px;
         padding: 10px 15px;
-        // margin: 0 5px;
         display: inline-block;
         border: 1px solid $keyWhite;
         border-radius: 15px;
@@ -289,7 +579,6 @@
     }
     
     .memberTagMap{
-        // width: 100%;
         background-color: rgba(254, 254, 254, 0.3);
         border-radius: 15px;
         padding: 15px;
@@ -313,27 +602,6 @@
         flex-wrap: nowrap;
         justify-content: center;
     }
-    .memberOrdTitle div {
-        display: inline-block;
-    }
-    .memberOrdTitle div p{
-        color: #FEFEFE;
-        text-align: center;
-    }
-    .memberOrdNo {
-        width: 20%;
-    }
-    .memberOrdData {
-        width: 20%;
-    }
-    .memberOrdName {
-        width: 40%;
-    }
-    .memberOrdPrice {
-        width: 20%;
-    }
-    
-    
     .memberOrderContent{
         padding: 10px 0;
         // width: 100%;
@@ -345,23 +613,23 @@
     .memberOrderContent:hover{
         background-color: rgba(254, 254, 254, 0.3);
     }
-    .memberOrderContent div {
+    .memberOrdTitle div, .memberOrderContent div{
         display: inline-block;
     }
-    .memberOrderContent div p{
+    .memberOrdTitle div p, .memberOrderContent div p{
         color: #FEFEFE;
         text-align: center;
     }
-    .memberOrdContentNo {
-        width: 20%;
+    .memberOrdNo {
+        width: 25%;
     }
-    .memberOrdContentData {
-        width: 20%;
+    .memberOrdData {
+        width: 25%;
     }
-    .memberOrdContentName {
-        width: 40%;
+    .memberOrdName {
+        width: 30%;
     }
-    .memberOrdContentPrice {
+    .memberOrdPrice {
         width: 20%;
     }
     
@@ -384,10 +652,10 @@
         width: 30%;
     }
     .memberOrdName {
-        width: 40%;
+        width: 45%;
     }
     .memberOrdBtn {
-        width: 30%;
+        width: 25%;
     }
     
     .memberFavCourse{
@@ -397,11 +665,9 @@
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
-        cursor: pointer;
+        background-color: rgba(22, 24, 29, 0.7);
     }
-    .memberFavCourse:hover{
-        background-color: rgba(254, 254, 254, 0.3);
-    }
+    
     .memberFavCourse div {
         display: inline-block;
     }
@@ -412,20 +678,42 @@
     .memberFavContainerImg {
         width: 30%;
         border-radius: 10px;
+        padding: 5px;
         overflow: hidden;
     }
     .memberFavContainerImg img{
         width: 100%;
     }
     .memberFavContainerName {
-        width: 40%;
+        width: 45%;
     }
     .memberFavContainerBtn {
-        width: 30%;
+        width: 25%;
     }
     .memberFavInfBtn{
-        margin: 20px 0;
+        display: inline-block;
+        width: 90px;
+        padding-top: 6px;
     }
+    .memberFavInfBtn a{
+        font-size: 16px;
+        color: $keyWhite;
+        text-align: center;
+    }
+    .memberDelBtn{
+        display: inline-block;
+        padding: 0 10px;
+    }
+    
+    .memberDelBtn i{
+        color: $transparentWhite;
+        cursor: pointer;
+    }
+    .memberDelBtn i:hover{
+        color: $keyWhite;
+    }
+
+
     
     // pagination
     ul.memberPagination{
@@ -485,22 +773,21 @@
                     th{
                         align-items: center; 
                         text-align: right;
-                        padding: 5px;
-                        // vertical-align: baseline;
+                        padding: 12px;
+                        color: $keyBlack;
                     }
                     tr{
                         align-items: center; 
                         text-align: left;
-                        // vertical-align: baseline;
-    
-                        p{
-                            margin-left: 5px;
-                            background-color: #176587;
-                            border: 1px solid #176587;
-                            border-radius: 5px;
-                            text-align: center;
-                            // vertical-align: baseline;
+                        color: $keyBlack;
+
+                        .demo-btn{
+                            font-size: 12px;
+                            margin: 0;
+                            width: 70px;
+                            height: 20px;
                         }
+    
                     }
                 }
                 
@@ -510,12 +797,6 @@
             display: flex;
             justify-content: center;
             margin-bottom: 30px;
-    
-            button{
-                background-color: #176587;
-                border: 1px solid #176587;
-                border-radius: 5px;
-            }
         }
     }
     .memberIF{
@@ -531,57 +812,6 @@
         display: none;
     }
     
-    // .memberIF.-on{
-    //     display: block;
-    // }
-    // .memberIFC.-on{
-    //     display: block;
-    // }
-    // .memberPSC.-on{
-    //     display: block;
-    // }
-    // .memberLIC.-on{
-    //     display: block;
-    // }
-    
-    // 
-    // .nameList{
-    //     width: 100%;
-    //     position: absolute;
-    //     top: 0;
-    //     left: 50%;
-    //     transform: translate(-50%);
-    //     padding: 20px;
-    //     background-color: $keyWhite;
-    //     z-index: 2;
-    //     display: none;
-    
-    //     .memberCourseInfo p{
-    //         color: $keyBlack;
-    //     }
-    
-    //     .avatar {
-    //         table{
-    //             margin: 0 auto;
-    //         }
-           
-    //         td{
-    //             padding: 20px;
-    //            vertical-align: middle;
-    //         }
-    //         img{
-    //             width: 70px;
-    //         }
-    //     }
-    //     .closeBtn{
-    //         text-align: center;
-    //         margin-top: 20px;
-    //     }
-    // }
-    
-    // .nameList.on{
-    //     display: inline-block;
-    // }
     
     @media all and (max-width: 991px){
         body{
@@ -608,6 +838,26 @@
                 display: block;
             }
         }
+
+        .memberCourse{
+
+            .memberDiaBtn{
+                display: block;
+                margin: 0 auto;
+            }
+    
+            .memberCorBtn{
+                display: block;
+                margin: 0 auto;
+                width: 300px;
+            }
+            .memberCorInfBtn{
+                display: inline-block;
+            }
+            // .memberCorInfBtn a{
+            //     display: inline-block;
+        }
+        // } 
     
         .memberInfo{
             width: 70%;
@@ -642,6 +892,34 @@
         
     }
     
+    @media all and (max-width: 762px){
+        .memberCourse{
+    
+            .memberCorBtn{
+                width: 28%;
+            }
+            .memberCorInfBtn{
+                display: block;
+            }
+        }
+
+        .memberFavCourse{
+            .memberFavContainerBtn{
+                display: block;
+                margin: 0 auto;
+            }
+            .memberFavInfBtn{
+                display: block;
+                margin: 0 auto;
+            }
+            .memberDelBtn{
+                display: block;
+                margin-top: 20px;
+                text-align: center;
+            }
+        }
+    }
+
     
     
     @media all and (max-width: 576px){
