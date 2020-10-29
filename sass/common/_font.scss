@@ -2,6 +2,7 @@
 h2 {
     font-size: 2.5*$baseFz;
     position: relative;
+    display: inline-block;
 }
 
 h2::before{
