@@ -45,9 +45,22 @@ gulp.task('default', function () {
     browserSync.init({
         server: {
             baseDir: "./app",
+<<<<<<< HEAD
             index: "member.html"
+=======
+            index: "shop.html"
+>>>>>>> 90f2ffa0f2e3310af91167d42be6d4a3c2842d94
         }
     });
     gulp.watch(['sass/*.scss' , 'sass/**/*.scss'], ['sass']).on('change', reload);
     gulp.watch(['*.html', '**/*.html'], ['fileinclude']).on('change', reload);
 });
+<<<<<<< HEAD
+=======
+
+gulp.task('hi', function(){
+    //do something
+    console.log('hell word 你好gulp');
+});
+
+>>>>>>> 90f2ffa0f2e3310af91167d42be6d4a3c2842d94
