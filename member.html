@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/favicon.ico" type="image/x-icon" />
+    <link rel="Shortcut Icon" href="./img/favicon.ico" type="image/x-icon" />
+    <title>海中日子 | 會員中心</title>
+<link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./fontawesome/css/all.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/plugins/CSSPlugin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/easing/EasePack.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenLite.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TimelineLite.min.js"></script>
+
+</head>
+
+<body class="member">
+    @@include('./layout/header.html')
+    <div class="memberMain">
+        <div class="memberAsideMenu">
+            <div class="memberAsideMenuTitle"><a href="./trainerCenter.html">會員中心</a></div>
+            <div class="memberOption">
+                <p>Hello, Shizuka</p>
+                <div class="memberFile"><img src="./img/member/member/Shizuka.jpg"></div>
+                <ul class="memberPointPhone">
+                    <li><p>紅利點數：</p><span>800</span></li>
+                    <li><p>遊戲分數：</p><span>800</span></li>
+                </ul>
+                <ul class="memberInformation">
+                    <li><a href="javascript:;" class="show_mif">個人資料</a></li>
+                    <li><a href="javascript:;" class="show_cpw">密碼修改</a></li>
+                    <li>
+                        <label for="memberImgFile">更換頭像</label>
+                        <input type="file" id="memberImgFile" name="memberImgFile" accept="image/png, image/jpeg">
+                    </li>
+                </ul>
+                <ul class="memberPoint">
+                    <li><p>紅利點數：</p><span>800</span></li>
+                    <li><p>遊戲分數：</p><span>800</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="memberInfo">
+            <div class="memberTabArea">
+
+                <div class="memberTabListBlock">
+                    <ul class="memberTabList">
+                        <li><a href="#" data-target="Dia" class="memberTab -on">日誌</a></li>
+                        <li><a href="#" data-target="Cor" class="memberTab">課程</a></li>
+                        <li><a href="#" data-target="Tag" class="memberTab">採點</a></li>
+                        <li><a href="#" data-target="Ord" class="memberTab">訂單</a></li>
+                        <li><a href="#" data-target="Fav" class="memberTab">收藏</a></li>
+                    </ul>
+                </div>
+    
+                <div class="memberTabContents" >
+    
+                    <div class="memberTab Dia -on">
+                        <div class="memberCourse">
+                            <div class="memberImgContainer">
+                                <img src="./img/member/diary/pexels-richard-segal-1618606.jpg">
+                            </div>
+                            <div class="memberCourseInfo">
+                                <p>第一次潛水</p>
+                                <p>潛水日期：09/20 - 09/24</p>
+                                <p>潛水地點：大白沙</p>
+                            </div>
+                            <div class="memberDiaBtn">
+                                <div class="memberDiaEditBtn demo-btn">
+                                    <a href="#campaign">
+                                        日誌編輯 
+                                    </a>
+                                </div>
+                                <div class="memberDelBtn">
+                                    <i class="far fa-trash-alt"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="memberPagination">
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                        </ul>
+                    </div>
+    
+                    <div class="memberTab Cor">
+                        <div class="memberCourse">
+                            <div class="memberImgContainer">
+                                <img src="./img/member/course/divein_1.jpg">
+                            </div>
+                            <div class="memberCourseInfo">
+                                <p>潛水體驗班</p>
+                                <p>上課日期：09/20 - 09/24</p>
+                                <p>上課地點：大白沙</p>
+                            </div>
+                            <div class="memberDiaBtn">
+                                <div class="memberCorInfBtn demo-btn">
+                                    <a href="#campaign">
+                                        詳細資訊
+                                    </a>
+                                </div>
+                                <div class="memberCorInfBtn mainBtn_3 demo-btn">
+                                    課程評鑑
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="memberPagination">
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                        </ul>
+                    </div>
+                    <div class="lightbox-block3">
+                        <div class="lightbox3">
+                            <div class="button_closeBox3">
+                                <button type="button" class="btn_modal_close">✖</button>
+                            </div>
+                            <h3>你學會如何呼叫函示了嗎？</h3>
+                            <form action="" class="inlightbox-form3">
+                                <ul>
+                                    <li><label><input id="pl" type="checkbox">還沒有</label></li>
+                                    <li><label><input id="pl1" type="checkbox">我懂了</label></li>
+                                    <li><label ><input id="pl2" type="checkbox">這絕對是一片蛋糕</label></li>
+                                    <li><input class="submitbtn3" type="submit" value="送出"></li>
+                                </ul>
+                            </form>
+                        </div>
+                    </div>
+    
+                    <div class="memberTab Tag">
+                        <div class="memberTag">
+                            <div class="memberTagTabListBlock">
+                                <ul class="memberTagTabList">
+                                    <li><a href="#" data-target="SLC" class="memberTagTab -on">小琉球</a></li>
+                                    <li><a href="#" data-target="KD" class="memberTagTab">墾丁</a></li>
+                                    <li><a href="#" data-target="LD" class="memberTagTab">綠島</a></li>
+                                    <li><a href="#" data-target="LU" class="memberTagTab">蘭嶼</a></li>
+                                    <li><a href="#" data-target="DBG" class="memberTagTab">東北角</a></li>
+                                </ul>
+                            </div>
+                            <div class="memberTagMap memberTagTab SLC -on">
+                                <img src="./img/member/tag/SLMap.png" alt="">
+                            </div>
+                            <div class="memberTagMap memberTagTab KD">
+                                <img src="./img/member/tag/SLMap.png" alt="">
+                            </div>
+                            <div class="memberTagMap memberTagTab LD">
+                                <img src="./img/member/tag/SLMap.png" alt="">
+                            </div>
+                            <div class="memberTagMap memberTagTab LU">
+                                <img src="./img/member/tag/SLMap.png" alt="">
+                            </div>
+                            <div class="memberTagMap memberTagTab DBG">
+                                <img src="./img/member/tag/SLMap.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="memberTab Ord">
+                        <hr>
+                        <div class ="memberOrdTitle">
+                            <div class="memberOrdNo"><p>訂單編號</p></div>
+                            <div class="memberOrdData"><p>訂單日期</p></div>
+                            <div class="memberOrdName"><p>商品名稱</p></div>
+                            <div class="memberOrdPrice"><p>價格</p></div>
+                        </div>
+                        <hr>
+                        <div class="memberOrderContent">
+                            <div class="memberOrdContentNo"><p>No:001</p></div>
+                            <div class="memberOrdContentData"><p>2020/09/26</p></div>
+                            <div class="memberOrdContentName"><p>XXXXXXXXX</p></div>
+                            <div class="memberOrdContentPrice"><p>800 元</p></div>
+                        </div>
+                        <hr>
+                        <ul class="memberPagination">
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                        </ul>
+                    </div>
+
+                    <div class="memberTab Fav">
+                        <hr>
+                        <div class ="memberFavTitle">
+                            <div class="memberFavImg"><p>商品圖片</p></div>
+                            <div class="memberOrdName"><p>商品名稱</p></div>
+                            <div class="memberOrdBtn"></div>
+                        </div>
+                        <hr>
+                        
+                        <div class="memberFavCourse">
+                            <div class="memberFavContainerImg">
+                                <img src="./img/trainer/coast.jpg">
+                            </div>
+                            <div class="memberFavContainerName">
+                                <p>潛水體驗班</p>
+                            </div>
+                            <div class="memberFavContainerBtn">
+                                <div class="memberFavInfBtn bubbleBtn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="goo">
+                                        <defs>
+                                            <filter id="goo">
+                                                <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                                                <feColorMatrix in="blur" mode="matrix"
+                                                    values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+                                                <feComposite in="SourceGraphic" in2="goo" />
+                                            </filter>
+                                        </defs>
+                                    </svg>
+    
+                                    <span class="button--bubble__container">
+                                        <a href="#campaign" class="button button--bubble">
+                                            加入購物車
+                                        </a>
+                                        <span class="button--bubble__effect-container">
+                                            <span class="circle top-left"></span>
+                                            <span class="circle top-left"></span>
+                                            <span class="circle top-left"></span>
+    
+                                            <span class="button effect-button"></span>
+    
+                                            <span class="circle bottom-right"></span>
+                                            <span class="circle bottom-right"></span>
+                                            <span class="circle bottom-right"></span>
+                                        </span>
+                                    </span>
+                                </div>
+                                <div class="memberFavInfBtn bubbleBtn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="goo">
+                                        <defs>
+                                            <filter id="goo">
+                                                <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                                                <feColorMatrix in="blur" mode="matrix"
+                                                    values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+                                                <feComposite in="SourceGraphic" in2="goo" />
+                                            </filter>
+                                        </defs>
+                                    </svg>
+    
+                                    <span class="button--bubble__container">
+                                        <a href="#campaign" class="button button--bubble">
+                                            商品刪除
+                                        </a>
+                                        <span class="button--bubble__effect-container">
+                                            <span class="circle top-left"></span>
+                                            <span class="circle top-left"></span>
+                                            <span class="circle top-left"></span>
+    
+                                            <span class="button effect-button"></span>
+    
+                                            <span class="circle bottom-right"></span>
+                                            <span class="circle bottom-right"></span>
+                                            <span class="circle bottom-right"></span>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <ul class="memberPagination">
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                        </ul>
+                    </div>
+                
+                    <div class="memberInfor memberIF">
+                        <div class="memberInforTitle">
+                            <h4>會員個人資料</h4>
+                        </div>
+                        <div class="memberInforArea">
+                            <form action="">
+                                <table>
+                                    <tr>
+                                        <th>會員帳號：</th>
+                                        <td>aaaaaa</td>
+                                    </tr>
+                                    <tr>
+                                        <th>會員密碼：</th>
+                                        <td>******</td>
+                                    </tr>
+                                    <tr>
+                                        <th></th>
+                                        <td><p class="show_cpw">密碼修改</p></td>
+                                    </tr>
+                                    <tr>
+                                        <th>會員姓名：</th>
+                                        <td>靜香</td>
+                                    </tr>
+                                    <tr>
+                                        <th>會員暱稱：</th>
+                                        <td>Shizuka</td>
+                                    </tr>
+                                    <tr>
+                                        <th>OW證照：</th>
+                                        <td>a123123123</td>
+                                    </tr>
+                                    <tr>
+                                        <th>AOW證照：</th>
+                                        <td>審核未通過</td>
+                                    </tr>
+                                    <tr>
+                                        <th></th>
+                                        <td><p class="show_cpw">證照填寫</p></td>
+                                    </tr>
+                                    <tr>
+                                        <th>會員信箱：</th>
+                                        <td>aaa@a.com</td>
+                                    </tr>
+                                </table>
+                            </form>
+                        </div>
+                        <div class="memberInforBtn">
+                            <button class="show_cmif">編輯資料</button>
+                        </div>
+                    </div>
+
+                    <div class="memberInfor memberIFC">
+                        <div class="memberInforTitle">
+                            <h4>個人資料編輯</h4>
+                        </div>
+                        <div class="memberInforArea">
+                            <form action="">
+                                <table>
+                                    <tr>
+                                        <th>會員姓名：</th>
+                                        <td>靜香</td>
+                                    </tr>
+                                    <tr>
+                                        <th>會員暱稱：</th>
+                                        <td><input type="text"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>會員信箱：</th>
+                                        <td><input type="text"></td>
+                                    </tr>
+                                </table>
+                            </form>
+                        </div>
+                        <div class="memberInforBtn">
+                            <button class="show_mif">確認修改</button>
+                        </div>
+                    </div>
+
+                    <div class="memberInfor memberPSC">
+                        <div class="memberInforTitle">
+                            <h4>密碼修改</h4>
+                        </div>
+                        <div class="memberInforArea">
+                            <form action="">
+                                <table>
+                                    <tr>
+                                        <th>請輸入舊密碼：</th>
+                                        <td><input type="password"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>請輸入新密碼：</th>
+                                        <td><input type="password"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>請輸入新密碼：</th>
+                                        <td><input type="password"></td>
+                                    </tr>
+                                </table>
+                            </form>
+                        </div>
+                        <div class="memberInforBtn">
+                            <button class="show_mif">確認修改</button>
+                        </div>
+                    </div>
+
+                    <div class="memberInfor memberLIC">
+                        <div class="memberInforTitle">
+                            <h4>證照審查</h4>
+                        </div>
+                        <div class="memberInforArea">
+                            <form action="">
+                                <table>
+                                    <tr>
+                                        <th>請輸入OW字號：</th>
+                                        <td><input type="password"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>請輸入AOW字號：</th>
+                                        <td><input type="password"></td>
+                                    </tr>
+                                </table>
+                            </form>
+                        </div>
+                        <div class="memberInforBtn">
+                            <button class="show_mif">送出</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <ul class="memberPagination">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul> -->
+        </div>
+
+       
+
+    </div>
+
+    @@include('./layout/footer.html')
+
+    <script src="./../src/bubbleBtn.js"></script>
+    <script src="./../src/common.js"></script>
+    <script src="./../src/member.js"></script>
+</body>
+
+</html>

@@ -14,31 +14,666 @@
 
 // 會員中心
 .member{
+    .memberMain {
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+        min-height: 100vh;
+    }
+    hr{
+        border: 1px solid #FEFEFE;
+    }
+    
+    //左側會員中心
+    .memberAsideMenu {
+        width: 18%;
+        text-align: center;
+    
+        .memberAsideMenuTitle {
+            padding: 15px 10px;
+            color: $keyWhite;
+            background-color: $keyBlack;
+            margin-bottom: 20px;
+    
+            a{
+                color: $keyWhite;
+            }
+        }
+    
+    }
+    .memberFile{
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+        margin: 20px auto;
+        overflow: hidden;
+    }
+    .memberFile img {
+        width: 100%;
+    }
+    #memberImgFile{
+        display: none;
+    }
+    
+    .memberOption {
+        background-color: $transparentWhite;
+        padding: 20px;
+    
+        .memberInformation p {
+            margin: 20px 0;
+        }
+        .memberInformation li a {
+            display: inline-block;
+            text-decoration: none;
+            color: $keyBlack;
+            margin: 10px 0;
+        }
+        .memberInformation li label {
+            display: inline-block;
+            text-decoration: none;
+            color: $keyBlack;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+    
+        .memberInformation li a:hover{
+            color: $keyBlue;
+        }
+        .memberInformation li label:hover {
+            color: $keyBlue;
+        }
+    
+        .memberPoint{
+            margin: 30px auto 5px;
+        }
+        .memberPoint li{
+            margin: 5px auto;
+        }
+        .memberPoint li p, .memberPoint li span{
+            display: inline-block;
+        }
+        .memberPoint li span{
+            color: #930000;
+        }
+    
+        .memberPointPhone{
+            margin: 10px auto 30px;
+            display: none;
+        }
+        .memberPointPhone li{
+            margin: 5px auto;
+        }
+        .memberPointPhone li p, .memberPointPhone li span{
+            display: inline-block;
+        }
+        .memberPointPhone li span{
+            color: #930000;
+        }
+    }
+    
+    //右側頁籤資訊區域
+    .memberInfo{
+        margin-left: 20px;
+        width: 60%;
+    }
+    
+    /* 頁籤區塊 */
+    .memberTabListBlock, .memberTabContents {
+        vertical-align:top;
+    }
+    
+    /* 頁籤列表 */
+    .memberTabList {
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .memberTabList li {
+        display: inline-block;
+        width: 30%;
+        text-align: center;
+    }
+    
+    .memberTabList li a {
+        width: 100%;
+        height: 40px;
+        padding: 10px 25px;
+        display: inline-block;
+        border: 1px solid $keyWhite;
+        cursor: pointer;
+        color: $keyWhite;
+        font-size: 18px;
+        position: relative;
+        top: 1px;
+        transition: all .3s;
+    }
+    
+    .memberTabList li a:hover{
+        color: $keyBlue;
+        background-color: $keyWhite;
+    }
+    
+    .memberTabList li a.-on {
+        color: $keyBlue;
+        background-color: $keyWhite;
+    }
+    
+    /* 頁籤內容區塊 */
+    .memberTabContents .memberTab {
+        display: none;
+    }
+    
+    .memberTabContents .memberTab.-on {
+        display: block;
+    }
+    
+    // per course
+    .memberCourse{
+        margin-top: 20px;
+        margin-bottom: 3px;
+        border-radius: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgba(22, 24, 29, 0.7);
+        
+        //page 2
+        .memberImgContainer{
+            display: inline-block;
+            width: 250px;
+            margin: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+            // position: relative;
+    
+        }
+        .memberImgContainer img{
+            width: 100%;
+        }
 
+        .memberCourseInfo p{
+            color: $keyWhite;
+            margin: 20px 10px;
+        }
+    
+        .memberDiaEditBtn, .memberCorInfBtn{
+            // margin-bottom: 30px;
+            width: 90px;
+            padding-top: 6px;
+        }
+        .memberDiaEditBtn{
+            display: inline-block;
+        }
 
+        .memberDiaEditBtn a{
+            font-size: 16px;
+            color: $keyWhite;
+            text-align: center;
+        }
 
-}
+        .memberDelBtn{
+            display: inline-block;
+            margin: 0 10px;
+        }
+        .memberDelBtn i{
+            color: $transparentWhite;
+            cursor: pointer;
+        }
+        .memberDelBtn i:hover{
+            color: $keyWhite;
+        }
 
-// 個人資料
-.memberPerInf{
-
-
-
-}
-
-// 密碼修改
-.memberPasChange{
-
-
-
-
-}
-
-// 個人資料編輯
-.memberPerInfChange{
-
-
-
-
-
+        //page 2
+        .memberCorInfBtn{
+            margin-right: 20px;
+        }
+        .memberCorInfBtn a{
+            font-size: 16px;
+            color: $keyWhite;
+            text-align: center;
+        }
+    }
+    // .memberCourse:hover{
+    //     background-color: rgba(254, 254, 254, 0.3);
+    // }
+    
+    //map tab
+    .memberTag{
+        margin-top: 20px;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .memberTagTabListBlock{
+        vertical-align: top;
+    }
+    .memberTagTabList {
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+    }
+    .memberTagTabList ul{
+        display: block;
+    }
+    
+    .memberTagTabList li {
+        display: inline-block;
+        width: 15%;
+        text-align: center;
+    }
+    
+    .memberTagTabList li a {
+        width: 100%;
+        height: 40px;
+        padding: 10px 15px;
+        // margin: 0 5px;
+        display: inline-block;
+        border: 1px solid $keyWhite;
+        border-radius: 15px;
+        cursor: pointer;
+        color: $keyWhite;
+        font-size: 16px;
+        position: relative;
+        top: 1px;
+        transition: all .3s;
+    }
+    
+    .memberTagTabList li a:hover{
+        color: $keyBlue;
+        background-color: $keyWhite;
+    }
+    
+    .memberTagTabList li a.-on {
+        color: $keyBlue;
+        background-color: $keyWhite;
+    }
+    
+    .memberTagMap{
+        // width: 100%;
+        background-color: rgba(254, 254, 254, 0.3);
+        border-radius: 15px;
+        padding: 15px;
+        display: none;
+        margin: 20px auto 50px;
+        width: 90%;
+    }
+    .memberTagMap.-on{
+        display: block;
+    }
+    .memberTagMap img{
+        width: 100%;
+        border-radius: 15px;
+    }
+    
+    //order
+    .memberOrdTitle {
+        padding: 25px 0;
+        // width: 100%;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+    }
+    .memberOrdTitle div {
+        display: inline-block;
+    }
+    .memberOrdTitle div p{
+        color: #FEFEFE;
+        text-align: center;
+    }
+    .memberOrdNo {
+        width: 20%;
+    }
+    .memberOrdData {
+        width: 20%;
+    }
+    .memberOrdName {
+        width: 40%;
+    }
+    .memberOrdPrice {
+        width: 20%;
+    }
+    
+    
+    .memberOrderContent{
+        padding: 10px 0;
+        // width: 100%;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        cursor: pointer;
+    }
+    .memberOrderContent:hover{
+        background-color: rgba(254, 254, 254, 0.3);
+    }
+    .memberOrderContent div {
+        display: inline-block;
+    }
+    .memberOrderContent div p{
+        color: #FEFEFE;
+        text-align: center;
+    }
+    .memberOrdContentNo {
+        width: 20%;
+    }
+    .memberOrdContentData {
+        width: 20%;
+    }
+    .memberOrdContentName {
+        width: 40%;
+    }
+    .memberOrdContentPrice {
+        width: 20%;
+    }
+    
+    //Favorites
+    .memberFavTitle {
+        padding: 25px 0;
+        // width: 100%;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+    }
+    .memberFavTitle div {
+        display: inline-block;
+    }
+    .memberFavTitle div p{
+        color: #FEFEFE;
+        text-align: center;
+    }
+    .memberFavImg {
+        width: 30%;
+    }
+    .memberOrdName {
+        width: 40%;
+    }
+    .memberOrdBtn {
+        width: 30%;
+    }
+    
+    .memberFavCourse{
+        padding: 10px 0;
+        // width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+    .memberFavCourse:hover{
+        background-color: rgba(254, 254, 254, 0.3);
+    }
+    .memberFavCourse div {
+        display: inline-block;
+    }
+    .memberFavCourse div p{
+        color: #FEFEFE;
+        text-align: center;
+    }
+    .memberFavContainerImg {
+        width: 30%;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    .memberFavContainerImg img{
+        width: 100%;
+    }
+    .memberFavContainerName {
+        width: 40%;
+    }
+    .memberFavContainerBtn {
+        width: 30%;
+    }
+    .memberFavInfBtn{
+        margin: 20px 0;
+    }
+    
+    // pagination
+    ul.memberPagination{
+        display: flex;
+        justify-content: center;
+        color: $keyWhite;
+        font-size: 18px;
+    
+        li{
+            border: 1px solid $keyWhite;
+            margin: 20px 10px;
+            padding: 10px 15px;
+        }
+    
+        li:hover{
+            color: $keyBlue;
+            background-color: $keyWhite;
+            border: 1px solid $keyBlue;
+            cursor: pointer;
+        }
+    
+        li:first-child{
+            color: $keyBlue;
+            background-color: $keyWhite;
+            border: 1px solid $keyBlue;
+        }
+    }
+    
+    .memberInfor{
+        background-color:  rgba(254, 254, 254, 0.75);
+        border-radius: 15px;
+        margin: 20px auto 40px;
+        padding: 20px 0;
+        display: block;
+        width: 80%;
+    
+        .memberInforTitle{
+            display: flex;
+            justify-content: center;
+    
+            h4{
+                color: $keyBlack;
+                margin: 30px auto;
+            }
+        }
+        .memberInforArea{
+            display: flex;
+            justify-content: center;
+            flex-wrap: nowrap;
+    
+            form{
+                // margin-bottom: 30px;
+    
+                table{
+                    align-items: center;
+                    margin-bottom: 20px;
+                    th{
+                        align-items: center; 
+                        text-align: right;
+                        padding: 5px;
+                        // vertical-align: baseline;
+                    }
+                    tr{
+                        align-items: center; 
+                        text-align: left;
+                        // vertical-align: baseline;
+    
+                        p{
+                            margin-left: 5px;
+                            background-color: #176587;
+                            border: 1px solid #176587;
+                            border-radius: 5px;
+                            text-align: center;
+                            // vertical-align: baseline;
+                        }
+                    }
+                }
+                
+            }
+        }
+        .memberInforBtn{
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+    
+            button{
+                background-color: #176587;
+                border: 1px solid #176587;
+                border-radius: 5px;
+            }
+        }
+    }
+    .memberIF{
+        display: none;
+    }
+    .memberIFC{
+        display: none;
+    }
+    .memberPSC{
+        display: none;
+    }
+    .memberLIC{
+        display: none;
+    }
+    
+    // .memberIF.-on{
+    //     display: block;
+    // }
+    // .memberIFC.-on{
+    //     display: block;
+    // }
+    // .memberPSC.-on{
+    //     display: block;
+    // }
+    // .memberLIC.-on{
+    //     display: block;
+    // }
+    
+    // 
+    // .nameList{
+    //     width: 100%;
+    //     position: absolute;
+    //     top: 0;
+    //     left: 50%;
+    //     transform: translate(-50%);
+    //     padding: 20px;
+    //     background-color: $keyWhite;
+    //     z-index: 2;
+    //     display: none;
+    
+    //     .memberCourseInfo p{
+    //         color: $keyBlack;
+    //     }
+    
+    //     .avatar {
+    //         table{
+    //             margin: 0 auto;
+    //         }
+           
+    //         td{
+    //             padding: 20px;
+    //            vertical-align: middle;
+    //         }
+    //         img{
+    //             width: 70px;
+    //         }
+    //     }
+    //     .closeBtn{
+    //         text-align: center;
+    //         margin-top: 20px;
+    //     }
+    // }
+    
+    // .nameList.on{
+    //     display: inline-block;
+    // }
+    
+    @media all and (max-width: 991px){
+        body{
+            background-size:auto
+        }
+    
+        .memberMain{
+            display: block;
+        }
+    
+        .memberAsideMenu{
+            width: 70%;
+            margin: 0 auto;
+    
+            ul{
+                display: flex;
+                justify-content: space-around;
+            }
+    
+            .memberPoint{
+                display: none;
+            }
+            .memberPointPhone{
+                display: block;
+            }
+        }
+    
+        .memberInfo{
+            width: 70%;
+            margin: 20px auto;
+    
+            .progressStar div{
+                width: 250px;
+            }
+    
+            .memberTabList li a {
+                padding: 10px 20px;
+            }
+        }
+    
+        .bubbleBtn{
+            margin: 20px auto 0;
+        }
+    
+        .memberCourse{
+            flex-wrap: wrap;
+    
+            .memberImgContainer{
+                flex-grow: 1;
+            }
+        }
+    
+        .memberTagTabList li a {
+            padding: 10px 0px;
+            border-radius: 10px;
+        }
+    
+        
+    }
+    
+    
+    
+    @media all and (max-width: 576px){
+        
+        .memberAsideMenu{
+            width: 90%;
+        }
+        
+        .memberInfo{
+            width: 90%;
+    
+            .rateStar{
+                flex-wrap: wrap;
+            }
+            .memberTabList li a {
+                padding: 10px 15px;
+            }
+        } 
+        // .memberDiaBtn{
+        //     display: block;
+        //     margin: 0 auto;
+        // }
+        // .memberDiaEditBtn, .memberCorInfBtn{
+        //     display: inline-block;
+        // }
+    }
+    
+    @media all and (max-width: 376px){
+        
+        .memberTabList li a {
+            padding: 10px 15px;
+        }
+    
+    }
 }
