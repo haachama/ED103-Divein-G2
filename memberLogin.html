@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/favicon.ico" type="image/x-icon" />
+    <link rel="Shortcut Icon" href="./img/favicon.ico" type="image/x-icon" />
+    <title>海中日子 | 會員中心</title>
+<link rel="stylesheet" href="./css/style.css">
+
+</head>
+<body class="memberLogin">
+    @@include('./layout/header.html')
+
+    <div class="memLogReg">
+        <div class="memLogRegArea">
+            <div class="memberFrom login">
+              <div class="memberFromChange" id="memberFromChange">
+                <div class="memberFromChangeBtn"></div>
+                <p id="ml">會員</p>
+                <p id="tl">教練</p>
+              </div>
+              <div class="mlt">
+                <h4 class="mltOne">登入</h4>
+                <h4 class="mltTwo">密碼查詢</h4>
+              </div>
+              <div class="memberFromContent">
+                <div class="memberFromArea">
+                  <form class="memberFromAreaTextOne" action="index.html" method="post">
+                    <!-- 密碼查詢 -->
+                    <input type="test" class="demo-input1" placeholder="會員帳號" />
+                    <input type="test" class="demo-input1" placeholder="會員信箱" />
+
+                    <div class="memberLoginButton bubbleBtn">
+                      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="goo">
+                          <defs>
+                              <filter id="goo">
+                                  <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                                  <feColorMatrix in="blur" mode="matrix"
+                                      values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+                                  <feComposite in="SourceGraphic" in2="goo" />
+                              </filter>
+                          </defs>
+                      </svg>
+                      <span class="button--bubble__container">
+                        <a href="#campaign" class="button button--bubble">
+                          查詢
+                        </a>
+                        <span class="button--bubble__effect-container">
+                            <span class="circle top-left"></span>
+                            <span class="circle top-left"></span>
+                            <span class="circle top-left"></span>
+                            <span class="button effect-button"></span>
+                            <span class="circle bottom-right"></span>
+                            <span class="circle bottom-right"></span>
+                            <span class="circle bottom-right"></span>
+                        </span>
+                      </span>
+                    </div>
+                    <!-- <button type="button" name="button">查詢</button> -->
+                  </form>
+                  <form class="memberFromAreaTextTwo" action="index.html" method="post">
+                    <!-- 會員登入 -->
+                    <input type="test" class="demo-input1" placeholder="會員帳號" />
+                    <input type="password" class="demo-input5" placeholder="會員密碼" />
+                    <p id="memberPasForgot">忘記密碼了嗎?</p>
+
+                    <div class="memberLoginButton bubbleBtn">
+                      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="goo">
+                          <defs>
+                              <filter id="goo">
+                                  <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                                  <feColorMatrix in="blur" mode="matrix"
+                                      values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+                                  <feComposite in="SourceGraphic" in2="goo" />
+                              </filter>
+                          </defs>
+                      </svg>
+                      <span class="button--bubble__container">
+                          <a href="#campaign" class="button button--bubble">
+                            登入
+                          </a>
+                          <span class="button--bubble__effect-container">
+                              <span class="circle top-left"></span>
+                              <span class="circle top-left"></span>
+                              <span class="circle top-left"></span>
+                              <span class="button effect-button"></span>
+                              <span class="circle bottom-right"></span>
+                              <span class="circle bottom-right"></span>
+                              <span class="circle bottom-right"></span>
+                          </span>
+                      </span>
+                    </div>
+                    <!-- <button type="button" name="button">登入</button> -->
+                  </form>
+                  <form class="memberFromAreaTextThree" action="index.html" method="post">
+                    <!-- 教練登入 -->
+                    <input type="test" class="demo-input1" placeholder="教練帳號" />
+                    <input type="password" class="demo-input5" placeholder="教練密碼" />
+
+                    <div class="memberLoginButton bubbleBtn">
+                      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="goo">
+                          <defs>
+                              <filter id="goo">
+                                  <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                                  <feColorMatrix in="blur" mode="matrix"
+                                      values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+                                  <feComposite in="SourceGraphic" in2="goo" />
+                              </filter>
+                          </defs>
+                      </svg>
+                      <span class="button--bubble__container">
+                          <a href="#campaign" class="button button--bubble">
+                            登入
+                          </a>
+                          <span class="button--bubble__effect-container">
+                              <span class="circle top-left"></span>
+                              <span class="circle top-left"></span>
+                              <span class="circle top-left"></span>
+                              <span class="button effect-button"></span>
+                              <span class="circle bottom-right"></span>
+                              <span class="circle bottom-right"></span>
+                              <span class="circle bottom-right"></span>
+                          </span>
+                      </span>
+                    </div>
+                    <!-- <button type="button" name="button">登入</button> -->
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="memberFrom registered">
+              <div class="mrt">
+                <h3>註冊</h3>
+              </div>
+              <form class="" action="index.html" method="post">
+                <input type="text" class="demo-input1" placeholder="會員帳號" />
+                <input type="password" class="demo-input5" placeholder="會員密碼" />
+                <input type="password" class="demo-input5" placeholder="密碼確認" />
+                <input type="text" class="demo-input1" placeholder="會員姓名" />
+                <input type="text" class="demo-input1" placeholder="會員暱稱" />
+                <input type="text" class="demo-input1" placeholder="Email" />
+                
+                <div class="memberLoginButton bubbleBtn">
+                  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="goo">
+                      <defs>
+                          <filter id="goo">
+                              <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                              <feColorMatrix in="blur" mode="matrix"
+                                  values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+                              <feComposite in="SourceGraphic" in2="goo" />
+                          </filter>
+                      </defs>
+                  </svg>
+                  <span class="button--bubble__container">
+                      <a href="#campaign" class="button button--bubble">
+                        註冊
+                      </a>
+                      <span class="button--bubble__effect-container">
+                          <span class="circle top-left"></span>
+                          <span class="circle top-left"></span>
+                          <span class="circle top-left"></span>
+                          <span class="button effect-button"></span>
+                          <span class="circle bottom-right"></span>
+                          <span class="circle bottom-right"></span>
+                          <span class="circle bottom-right"></span>
+                      </span>
+                  </span>
+              </div>
+                <!-- <button type="button" name="button">註冊</button> -->
+              </form>
+            </div>
+      
+            <div class="overlayContainer">
+              <div class="overlay">
+                      <div class="overlayPanel overlayLeft">
+                          <button class="ghost demo-btn" id="memberLogin">登入</button>
+                      </div>
+                      <div class="overlayPanel overlayRight">
+                          <button class="ghost demo-btn" id="memberRegistered">註冊</button>
+                      </div>
+                  </div>
+            </div>
+          </div>
+    </div>
+
+    @@include('./layout/footer.html')
+
+    <script src="./js/memberLogin.js"></script>
+</body>

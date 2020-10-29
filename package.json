@@ -1,7 +1,7 @@
 {
   "name": "divein_G2",
   "version": "1.0.0",
-  "description": "版本更新如下：\r @增加_variables檔裡面的input 變數$input-textbg-color: $keyWhite;     _____10.25 co",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -26,11 +26,8 @@
     "vue": "^2.6.12"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.3",
-    "@babel/preset-env": "^7.12.1",
-    "browser-sync": "^2.26.13",
+    "browser-sync": "^2.26.12",
     "gulp": "^3.9.1",
-    "gulp-babel": "^8.0.0",
     "gulp-clean": "^0.4.0",
     "gulp-clean-css": "^4.3.0",
     "gulp-concat": "^2.6.1",

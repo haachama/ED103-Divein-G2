@@ -1,21 +1,76 @@
 import $ from "jquery";
-import TweenMax from "gsap";
+import {TweenMax, TimelineMax} from "gsap";
 
-$('.button--bubble').each(function () {
+$(function () {
+
+//登入
+var mfc = $(".memberFromChangeBtn");
+var mfa = $(".memberFromArea");
+var mltOne = $(".mltOne");
+var mltTwo =  $(".mltTwo");
+
+$("#memberRegistered").click(function(){
+  $(".memLogRegArea").addClass("memberMove");
+});
+$("#memberLogin").click(function(){
+  $(".memLogRegArea").removeClass("memberMove");
+});
+$("#ml").click(function(){
+    mfc.removeClass("memberMove");
+    mfc.removeClass("memberPasForgot");
+    mfa.removeClass("memberFromMove");
+    mfa.removeClass("memberFromPasMove");
+    mltOne.removeClass("memberPasForgot");
+    mltTwo.removeClass("memberPasForgot");
+
+  });
+  $("#tl").click(function(){
+    mfc.addClass("memberMove");
+    mfc.removeClass("memberPasForgot");
+    mfa.addClass("memberFromMove");
+    mfa.removeClass("memberFromPasMove");
+    mltOne.removeClass("memberPasForgot");
+    mltTwo.removeClass("memberPasForgot");
+  });
+  $("#memberPasForgot").click(function(){
+    mfc.removeClass("memberFromMove");
+    mfc.addClass("memberPasForgot");
+    mfa.removeClass("memberFromMove");
+    mfa.addClass("memberFromPasMove");
+    mltOne.addClass("memberPasForgot");
+    mltTwo.addClass("memberPasForgot");
+  });
+
+    //header
+    // hamburger icon 的切換
+    $("button.hamburger").on("click", function () {
+        $(this).toggleClass("is-active");
+        $('.nav').slideToggle("show");
+        $('.memCart li').toggleClass("show");
+        $('header').toggleClass("bg")
+    });
+    // RWD導覽列
+    $(window).resize(function () {
+        var $pixel = document.body.clientWidth;
+
+        if ($pixel > 991) {
+            $('.nav').removeClass('hide')
+            $('.nav').addClass('show')
+        } else {
+            $('.nav').removeClass('show')
+            $('.nav').addClass('hide')
+        }
+    });
+
+  //按鈕
+  $('.button--bubble').each(function () {
     var $circlesTopLeft = $(this).parent().find('.circle.top-left');
     var $circlesBottomRight = $(this).parent().find('.circle.bottom-right');
 
-<<<<<<< HEAD
-    var tl = new TweenMax();
-    var tl2 = new TweenMax();
-
-    var btTl = new TweenMax({
-=======
     var tl = new TimelineMax();
     var tl2 = new TimelineMax();
 
     var btTl = new TimelineMax({
->>>>>>> member
         paused: true
     });
 
@@ -61,13 +116,8 @@ $('.button--bubble').each(function () {
         opacity: 0
     }, '-=1');
 
-<<<<<<< HEAD
-    var tlBt1 = new TweenMax();
-    var tlBt2 = new TweenMax();
-=======
     var tlBt1 = new TimelineMax();
     var tlBt2 = new TimelineMax();
->>>>>>> member
 
     tlBt1.set($circlesTopLeft, {
         x: 0,
@@ -142,4 +192,4 @@ $('.button--bubble').each(function () {
         btTl.restart();
     });
 });
-
+});

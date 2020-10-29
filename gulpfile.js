@@ -46,10 +46,14 @@ gulp.task('default', function () {
         server: {
             baseDir: "./app",
 <<<<<<< HEAD
+<<<<<<< HEAD
             index: "member.html"
 =======
             index: "shop.html"
 >>>>>>> 90f2ffa0f2e3310af91167d42be6d4a3c2842d94
+=======
+            index: "memberLogin.html"
+>>>>>>> member
         }
     });
     gulp.watch(['sass/*.scss' , 'sass/**/*.scss'], ['sass']).on('change', reload);
