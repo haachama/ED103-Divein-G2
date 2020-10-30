@@ -18,6 +18,7 @@
         <h2>購物車</h2>
     </div>
     <div class="container">
+
         <table>
             <tr>
                 <th>商品圖片</th>
@@ -27,21 +28,21 @@
                 <th>小計</th>
                 <th>刪除</th>
             </tr>
-            <tr>
+            <tr id="row1">
                 <td><img src="./img/shop/mask4@2x.png" alt=""></td>
                 <td>水中看得清</td>
-                <td>8700</td>
+                <td>8600</td>
                 <td>2</td>
                 <td>17400</td>
-                <td><i class="fas fa-trash"></i></td>
+                <td><i class="fas fa-trash" id="trash1"></i></td>
             </tr>
-            <tr>
+            <tr id="row2">
                 <td><img src="./img/shop/mask4@2x.png" alt=""></td>
                 <td>水中看得清</td>
                 <td>8700</td>
                 <td>2</td>
                 <td>17400</td>
-                <td><i class="fas fa-trash"></i></td>
+                <td><i class="fas fa-trash" id="trash2"></i></td>
             </tr>
         </table>
         
@@ -124,6 +125,31 @@
     @@include('./layout/footer.html')
     <script src="./js/shop.js"></script>
     <script src="./js/bubbleBtn.js"></script>
+    <script>
+        function doFirst(){
+            let faTrash = document.getElementsByClassName('fa-trash');
+            
+            
+            
+            for(let i = 0; i<faTrash.length; i++){
+                faTrash[i].addEventListener('click',function(){
+                    let aid = this.id;
+                    // let index = ;
+                    garbageCan(aid);
+                });
+            }
+            
+            function garbageCan(aid){
+                // if(`row${}`=){
+                    
+                    if (aid.slice(-1)==`$`)
+                    
+                // }
+            }
+        }
+        window.addEventListener('load',doFirst);
+
+    </script>
 </body>
 
 </html>
