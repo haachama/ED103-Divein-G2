@@ -5,7 +5,7 @@
     }
 
     // footer置底
-    
+
     main{
         min-height: calc(100vh - var(--header-height));
         overflow: hidden;
@@ -112,8 +112,26 @@
             flex-grow: 0;    
         }
 
+        @include breakpoint (767) { 
+            width: 70%;
+        }
+
+        .choseRole{
+            display: block;
+
+            @include breakpoint (992) {
+                display: none;
+            }
+        }
         .choseRoleRwd{
             display: none;
+
+            @include breakpoint (992) {
+                display: block;
+                width: 100%;
+                text-align: center;
+                margin: 10px 0 -100px 0;
+            }
         }
 
         //切換角色按鈕↓
@@ -152,6 +170,10 @@
             @include breakpoint (1200) {
                 width: 40%;
             }
+
+            @include breakpoint (767) {
+                width: 30%;
+            }
         }
     }
 
@@ -165,44 +187,66 @@
         @include breakpoint (1200) {   
             width: 15%;
         }
+
+        @include breakpoint (767) {
+            width: 30%;
+        }
+
         .ability{
             position: absolute;
             bottom: 0;
             width: 100%;
             margin: 20px 0;
             text-align: center;
+
+            @include breakpoint (767) {
+                position: relative;
+            }
         }
         .abilityDescribe{
-            width: 100%;
             display: inline-flex;
+            width: 100%;
+            margin: 0;
+
+            @include breakpoint (767) {
+                margin: 10px;
+            }
         }
     }
 
     //選擇裝備
 
     .totalPriceBlock {
-        width: 100%;
-        text-align: right;
         display: inline-flex;
+        text-align: right;
+        width: 100%;
+
         .totalPrice {
-            width: 100px;
-            padding: 5px;
-            margin: 5px;
             text-align: center;
             border-radius: 10px;
             color: $keyBlack;
+            width: 100px;
+            padding: 5px;
+            margin: 5px;
             background-color: #FFE153;
+
+            @include breakpoint (767) {
+                border-radius: 10px 0 0 10px;
+            }
         }
     }
     
     .equipList {
-        display: flex;
         position: relative;
+        display: flex;
         justify-content: space-evenly;
         flex-wrap: wrap;
-        width: 45%;
+        width: 510px;
         margin: 50px 0;
-
+        
+        @include breakpoint (1200) {
+            width: 45%;
+        }
         .maskList {
             display: inline-flex;
             width: 600px;
@@ -222,22 +266,40 @@
     .equipBlock{
         position: relative;
         display: block;
-        width: 20%;
-        height: 70%;
-        margin: 5%;
-        margin: 10px;
         text-align: center;
+        width: 130px;
+        height: 70%;
+        margin: 10px;
+
+        @include breakpoint (1200) {
+            width: 20%;
+        }
+
+        @include breakpoint (767) {
+            width: 110px;
+        }
     }
     
     .bubbleBackground{
         position: relative;
-        width: 100%;
-        height: 100%;
         display: block;
+        width: 130px;
+        height: 130px;
         text-align: center;
         background-image: url("../img/game/bubbleBackground.png");
         background-size: 100%;
         background-repeat: no-repeat;
+
+        @include breakpoint (1200) {
+            width: 100%;
+            height: 100%;
+        }
+
+        @include breakpoint (767) {
+            width: 110px;
+            height: 110px;
+        }
+
         .equip {
             position: absolute;
             top: -10px;
@@ -255,10 +317,12 @@
         height: 150px;
         line-height:150px;
     }
+
     .price{
         display: block;
     }
   
+    //華晴的換裝程式碼
     .eye img {
         position: absolute;
         top: 20px;
@@ -280,8 +344,10 @@
     }
     
     //規則
+
     .rule {   
         position: absolute;
+        text-align: center;
         top: 100px;
         left: 0;
         right: 0;
@@ -290,12 +356,13 @@
         background-color: $keyBlack; //$transparentWhite;
         padding: 20px;
         border-radius: 15px;
-        text-align: center;
+
         .pRule {
+            text-align: left;
             text-indent: 2em;
             line-height: 32px;
             margin: 20px;
-            text-align: left;
+            
         }
         .ruleBtnX {
             position: absolute;
@@ -360,6 +427,7 @@
     }
     
     //排行榜滑桿
+
     ::-webkit-scrollbar {
         width: 10px;
     }
@@ -421,6 +489,10 @@
         border-bottom: 3px solid $transparentWhite;
         margin: 65px auto 25px auto;
         text-align: center;
+
+        @include breakpoint (577) {
+            width: 100%;
+        }
     }
     
     .scoreDescribe {
@@ -451,6 +523,10 @@
         margin: 25px auto;
         overflow-y: scroll;
         overflow-x: hidden;
+
+        @include breakpoint (577) {
+            width: 100%;
+        }
     }
     
     ::-webkit-scrollbar {

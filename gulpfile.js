@@ -45,7 +45,7 @@ gulp.task('default', function () {
     browserSync.init({
         server: {
             baseDir: "./app",
-            index: "gameIntro.html"
+            index: "game.html"
         }
     });
     gulp.watch(['sass/*.scss' , 'sass/**/*.scss'], ['sass']).on('change', reload);
