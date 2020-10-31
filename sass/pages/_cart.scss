@@ -1,5 +1,5 @@
 .cart {
-    
+
     .title {
         text-align: center;
     }
@@ -8,6 +8,7 @@
         width: 60%;
         margin: auto;
         min-height: 81.2vh;
+
         table {
             /* ==================== table ==================== */
             margin: 20px auto 0px auto;
@@ -16,26 +17,31 @@
                 width: 70px;
             }
         }
-        th{
+
+        th {
             font-size: 1.5*$baseFz;
             font-weight: 600;
             background-color: $keyBlue;
         }
-        th:first-child{
+
+        th:first-child {
             border-radius: 5px 0 0 0;
         }
-        th:last-child{
+
+        th:last-child {
             border-radius: 0 5px 0 0;
         }
-        td{
+
+        td {
             background-color: #fdf6e7;
             color: $keyBlack;
             border-top: 1px solid $keyBlack;
         }
-        td:last-child{
+
+        td:last-child {
             border-bottom: 1px solid $keyBlack;
         }
-        
+
         th,
         td {
             // border-top: 1px solid $keyWhite;
@@ -54,53 +60,159 @@
         }
     }
 
-    .totalContent{
+    .totalContent {
         width: 864px;
         margin: auto;
         padding: 30px;
         background-color: #fdf6e7;
         color: $keyBlack;
         display: flex;
-        .gamePlay{
+
+        .gamePlay {
             flex: 1;
         }
-        p{
+
+        p {
             margin: 5px;
         }
 
-        
+
     }
-    span{
+
+    span {
         color: red;
     }
 
-    .cartBtn{
+    .cartBtn {
         width: 100%;
         margin: auto;
         display: flex;
         justify-content: center;
-        .bubbleBtn{
+
+        .bubbleBtn {
             margin: 30px;
         }
     }
-    .bill{
+
+    .buyMore,
+    .toBack{
+
         .button--bubble__container .effect-button,
-        .button--bubble__effect-container .circle
-        {
+        .button--bubble__effect-container .circle {
             background: #176587;
         }
-        .button--bubble:hover{
+
+        .button--bubble:hover {
             color: #176587;
         }
+
         .button--bubble:hover+.button--bubble__effect-container .circle {
             background: #fefefe;
         }
+
         //觸摸時背景顏色
         .button--bubble:hover+.button--bubble__effect-container .button {
             background: #fefefe;
         }
     }
 
+    //收件人、信用卡資訊欄
+    .writeInfo{
+        margin-bottom: 50px;
+        p,h4{
+            padding: 8px;
+            color: $keyBlack;
+        }
+        .information{
+            max-width: 1200px;
+            box-sizing: border-box;
+            padding: 10px;
+            margin: auto;
+            position: relative;
+            width: 100%;
+            h3{
+                text-align: center;
+                background-color: $keyBlue;
+                border-radius: 5px 5px 0 0;
+                padding: 10px;
+            }
+        }
+        .wrap{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 10px;
+            background-color: #fdf6e7;
 
+            .writeInfoCol{
+                width: 40%;
+            }
+            .creditCard input{
+                width: 60px;
+            }
+        }
+        .subBtn{
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+            .bubbleBtn{
+                margin:0 30px;
+            }
+        }
+    }
+
+
+    //結帳後的視窗
+    // .orderConfirm {
+    //     display: none;
+    //     position: fixed;
+    //     width: 100%;
+    //     top: 0;
+    //     bottom: 0;
+    //     left: 0;
+    //     right: 0;
+    //     margin: auto;
+    //     z-index: 2;
+    // }
+
+
+    .lightbox1{
+        background-color: #fdf6e7;
+        max-width: 500px;
+    }
+    .confirmContainer {
+        box-sizing: border-box;
+        padding: 10px;
+
+        p {
+            color: $keyBlack;
+            text-align: left;
+        }
+
+        .confirmTitle {
+            padding-top: 10px;
+        }
+
+        .rewrite {
+            @include other-button(100px, 30px, 2px, 2px);
+        }
+
+        .confirmBtn {
+            @include other-button(100px, 30px, 2px, 2px);
+            background-color: $keyYellow;
+            border: 1px solid $keyYellow;
+            &:hover {
+                background-color:  rgb(224, 168, 36);
+                border: 1px solid  rgb(201, 151, 34);
+            }
+            &:active{
+                background-color: $keyYellow;
+            }
+            &:focus{
+                background-color: $keyYellow;
+            }
+        }
+    }
 
 }
