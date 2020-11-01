@@ -445,7 +445,6 @@
 }
 //==============潛點內頁==============
 .spotRefer{
-
     .spotRefre_Main{
         display: flex;
         flex-direction: row;
@@ -852,10 +851,9 @@
     }
     //所有留言
     .spotMsgBlock{
-        // border: 1px solid red;
         width: 80%;
         margin: 0 auto;
-        @include breakpoint (992){
+        @include breakpoint (767){
             width: 100%; 
         }
     }
@@ -873,72 +871,48 @@
             border-radius: 50%;
             padding: $spotPadding;
         }
-        >div{
-            // border: 1px solid greenyellow;
+        
+        .spotMsgText{
+            padding: $spotPadding;
             display: flex;
             flex-direction: row;
-            align-items: center;
-            .spotMsgText{
-                // border: 1px solid orange;
-                padding: $spotPadding;
+            align-content: center;
+            &:nth-child(2){
+                width: 80%;
                 display: flex;
-                flex-direction: row;
-                align-content: center;
+                padding: $spotPadding;
+                >div{
+                    min-width: 60px;
+                }
                 h5{
-                    font-size: $baseFz;
                     color: $transparentWhite;
-                    // border: 1px solid greenyellow;
-                    padding: $spotPadding;
-                // line-height: $lineH;
                 }
                 span{
                     font-size: $baseFz*0.5;
                     color: $transparentWhite;
                 }
-                
-            }
-            &:nth-child(2){
-                width: 80%;
-                display: flex;
-                padding: $spotPadding;
-                // border: 1px solid greenyellow;
                 p{
-                    display: inline-block;
-                    text-align: right;
                     color: $transparentWhite;
-                    font-size: $baseFz;
-                    padding-left: $spotPadding; 
-                    margin: 0 auto;  
-                    // border: 1px solid greenyellow;
-
+                    margin: 0 auto; 
+                    padding-left: 10px;
                 }
             }
             &:nth-child(3){
-                // background-color: rebeccapurple;
                 flex: 2;
-                text-align: right;
-                font-size: $baseFz;
-            }
-            i{
-                color: $transparentWhite;
-                &:hover{
-                    color: $keyWhite;
-                    cursor: pointer;
-                }
-            }
-            &:last-child{
-                font-size: 0;
                 i{
+                    color: $transparentWhite;
                     font-size: 18px;
+                    &:hover{
+                        color: $keyWhite;
+                        cursor: pointer;
+                    }
                 }
             }
         }
     }
     .spotMsgMoreBtn{
-        // color: $keyWhite;
         margin: $rwdSpotMargin*2;
         text-align: center;
-        
     }
         
 

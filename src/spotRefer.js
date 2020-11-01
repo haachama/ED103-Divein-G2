@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import {TweenMax,TimelineMax} from 'gsap';
+import Swal from 'sweetalert2';
 
 $(function(){
 
@@ -180,7 +181,7 @@ $(function(){
         spotImgHereList.appendChild(newLi);
         hereAddBtn[index].style.backgroundColor = "#221814";
         hereAddBtn[index].style.border = "#221814";
-        alert('感謝您的點擊，讓此潛點更加熱門');
+        Swal.fire("感謝您的點擊", "讓此潛點更加熱門", "success");
         hereAddBtn.removeEventListener("click",addOneImg ,false);
     };
 
@@ -188,8 +189,7 @@ $(function(){
         hereAddBtn[i].addEventListener("click",function(){
             addOneImg(i)
         });
-    }   
-
+    }
 
     //潛點內頁-rwd 頁籤介紹
     $("a.spotRefrList").on("click", function(rs){
@@ -202,8 +202,9 @@ $(function(){
         $("section." + $(this).attr("data-target")).addClass("spotShow");
     });
 
+    //檢舉燈箱
      // 開啟 Modal 彈跳視窗
-     $("i.fa-exclamation-circle").on("click", function(){
+    $("i.fa-exclamation-circle").on("click", function(){
         $(".lightbox-block3").addClass("-openbox");
     });
 
@@ -223,5 +224,21 @@ $(function(){
         }, 1000);
     });
 
+
+    //載入更多按鈕
+    // $(function(){
+    //     /*初始化*/
+    //     var counter = 0; /*計數器*/
+    //     var pageStart = 0; /*offset*/
+    //     var pageSize = 4; /*size*/
+    //     /*首次載入*/
+    //     getData(pageStart, pageSize);
+    //     /*監聽載入更多*/
+    //     $(document).on('click', '.js-load-more', function(){
+    //     counter   ;
+    //     pageStart = counter * pageSize;
+    //     getData(pageStart, pageSize);
+    //     });
+    // });
 
 });
