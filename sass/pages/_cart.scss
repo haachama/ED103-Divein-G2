@@ -2,81 +2,92 @@
 
     .title {
         text-align: center;
+        margin: 30px;
     }
 
     .container {
-        width: 60%;
+        max-width: 1200px;
+        box-sizing: border-box;
+        width: 100%;
         margin: auto;
-        min-height: 81.2vh;
 
-        table {
-            /* ==================== table ==================== */
-            margin: 20px auto 0px auto;
-
-            img {
-                width: 70px;
-            }
-        }
-
-        th {
-            font-size: 1.5*$baseFz;
-            font-weight: 600;
-            background-color: $keyBlue;
-        }
-
-        th:first-child {
-            border-radius: 5px 0 0 0;
-        }
-
-        th:last-child {
-            border-radius: 0 5px 0 0;
-        }
-
-        td {
+        .wrap{
+            border-radius: 5px 5px 0 0;
             background-color: #fdf6e7;
-            color: $keyBlack;
-            border-top: 1px solid $keyBlack;
-        }
 
-        td:last-child {
-            border-bottom: 1px solid $keyBlack;
-        }
-
-        th,
-        td {
-            // border-top: 1px solid $keyWhite;
-            padding: 40px;
-            vertical-align: middle;
-            text-align: center;
-        }
-
-
-        .fa-trash {
-            cursor: pointer;
-
-            &:hover {
-                color: #E6AE2C;
+            .listHeader{
+                display: flex;
+                text-align: center;
+                background-color: $keyBlue;
+                font-weight: bold;
+                padding: 10px 0;
+                border-radius: 5px 5px 0 0;
+                justify-content: space-around;
+                @include breakpoint(992){
+                    h4{
+                        font-size: 18px;
+                    }
+                }
+                @include breakpoint(577){
+                    h4{
+                        font-size: 14px;
+                    }
+                }
             }
-        }
+            .listRow{
+                .prodInfo{
+                    align-items: center;
+                    display: flex;
+                    justify-content: space-around;
+                    color: $keyBlack;
+                    padding: 20px 0;
+                    border-bottom: 1px solid $keyBlack;
+                    .prodPic{
+                        width: 5%;
+                    }
+                    @include breakpoint(577){
+                        div{
+                            font-size: 14px;
+                        }
+                    }
+                }
+                .fa-trash {
+                    cursor: pointer;
+        
+                    &:hover {
+                        color: #E6AE2C;
+                    }
+                }
+            }
+        }            
     }
 
     .totalContent {
-        width: 864px;
         margin: auto;
         padding: 30px;
         background-color: #fdf6e7;
         color: $keyBlack;
         display: flex;
-
+        justify-content: space-between;
+        flex-wrap: wrap;
+        
         .gamePlay {
-            flex: 1;
+            .demo-btn{
+                width: 80px;
+            }
         }
-
-        p {
+        
+        .calc{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            @include breakpoint(767){
+                align-items: flex-start;
+            }
+            p{
             margin: 5px;
+            }
         }
-
-
     }
 
     span {
@@ -139,15 +150,13 @@
         }
         .wrap{
             display: flex;
-            justify-content: center;
             flex-wrap: wrap;
             padding: 10px;
+            justify-content: space-around;
             background-color: #fdf6e7;
-
-            .writeInfoCol{
-                width: 40%;
-            }
+            
             .creditCard input{
+                margin: 2px 0;
                 width: 60px;
             }
         }
