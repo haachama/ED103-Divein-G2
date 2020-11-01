@@ -1,35 +1,759 @@
-.trainerCenter{
+// common aside style
+.asideMenu {
+   width: 18%;
+   text-align: center;
 
+   .title {
+      padding: 15px 10px;
+      color: $keyWhite;
+      background-color: $keyBlack;
+      margin-bottom: 20px;
 
-   // 請勿超出大括號
-
-
-
-
-
-
-
-
-
-
-
-
-}
-
-.addCourse{
-
-
-
-
-
-
-
-
+      a {
+         color: $keyWhite;
+      }
+   }
 
 }
 
+.profile img {
+   width: 100px;
+   height: 100px;
+   margin: 20px 0;
+   border-radius: 50%;
+}
 
-.trainerManage{
+.option {
+   background-color: $transparentWhite;
+   padding: 20px;
+
+   p {
+      margin: 20px 0;
+      color: $keyBlack;
+
+   }
+
+   a {
+      display: inline-block;
+      text-decoration: none;
+      color: $keyBlack;
+      margin: 10px 0;
+   }
+}
+
+
+// 教練中心
+.trainerCenter {
+   main {
+      display: flex;
+      justify-content: center;
+      margin-top: 50px;
+   }
+
+   .incomingCourse {
+      display: flex;
+
+      img {
+         width: 300px;
+      }
+   }
+
+   .courseInfo {
+      color: $keyWhite;
+      margin-left: 20px;
+
+      p {
+         margin: 20px 10px;
+      }      
+
+      .btn{
+         @include other-button;
+      }
+   }
+
+   .info {
+      margin-left: 20px;
+
+      .rateStar {
+         margin-bottom: 20px;
+         background-color: $transparentWhite;
+         padding: 20px;
+         border-radius: 15px;
+         display: flex;
+         justify-content: space-evenly;
+      }
+
+      .preview {
+         display: inline-block;
+      }
+
+      .fiveStar {
+         margin: 10px 0 0;
+         color: $keyBlue;
+      }
+
+      .num {
+         height: 110px;
+         line-height: 100px;
+         width: 110px;
+         text-align: center;
+         border-radius: 15px;
+         border: 1px solid $keyBlue;
+         background-color: $keyBlue;
+         color: $keyWhite;
+         font-size: 32px;
+      }
+
+      .perStar {
+         display: flex;
+         margin-left: 20px;
+         color: $keyBlack;
+
+         li {
+            margin: 5px 0;
+            line-height: 20px;
+         }
+      }
+
+      .progressStar {
+         margin: 0 10px;
+
+         li {
+            background-color: $transparentWhite;
+            border-radius: 15px;
+         }
+
+         div {
+            width: 350px;
+            height: 20px;
+            border-radius: 15px;
+            background-image: linear-gradient($keyBlue, $keyBlue);
+            background-position: 0 0;
+            background-size: 0% 0%;
+            background-repeat: no-repeat;
+            border: 1px solid $keyBlue;
+         }
+
+         li:nth-child(1) div {
+            background-size: 80% 100%;
+         }
+
+         li:nth-child(2) div {
+            background-size: 80% 100%;
+         }
+      }
+   }
+
+   .incomingTitle {
+      display: inline-block;
+      padding: 15px 10px;
+      color: $keyWhite;
+      background-color: $keyBlack;
+      margin-bottom: 20px;
+      position: relative;
+   }
+
+   .incomingTitle::after {
+      content: '';
+      display: inline-block;
+      background-color: $keyBlack;
+      width: 300%;
+      height: 2px;
+      position: absolute;
+      right: -300%;
+      top: 50%;
+   }
+
+
+
+   @media all and (min-width: 992px) {
+      footer {
+         position: absolute;
+         bottom: 0;
+         width: 100%;
+      }
+   }
+
+   @media all and (max-width: 991px) {
+      main {
+         display: block;
+      }
+
+      .asideMenu {
+         width: 70%;
+         margin: 0 auto;
+
+         ul {
+            display: flex;
+            justify-content: space-around;
+         }
+      }
+
+      .info {
+         width: 70%;
+         margin: 20px auto;
+
+         .progressStar div {
+            width: 250px;
+         }
+      }
+
+
+   }
+
+   @media all and(max-width: 768px) {
+      body {
+         background-size: auto
+      }
+
+      .asideMenu {
+         width: 80%;
+      }
+
+      .info {
+         width: 80%;
+
+         .progressStar div {
+            width: 150px;
+         }
+      }
+
+      .incomingTitle::after {
+         width: 200%;
+         right: -200%;
+      }
+
+      .incomingCourse {
+         display: block;
+      }
+
+      .incomingCourse img,
+      .incomingCourse div {
+         vertical-align: top;
+      }
+
+      .courseInfo {
+         margin-left: 0;
+      }
+
+      .courseInfo p {
+         margin: 40px 0;
+      }
+   }
+
+   @media all and (max-width: 376px) {
+
+      .asideMenu {
+         width: 90%;
+      }
+
+      .info {
+         width: 90%;
+
+         .rateStar {
+            flex-wrap: wrap;
+         }
+      }
+
+
+      .incomingTitle::after {
+         width: 120%;
+         right: -120%;
+      }
+   }
+
+}
+
+.addCourse {
+   main{
+      min-height: calc(100vh - 166px);
+      margin-bottom: 30px;
+   }
+   .addTitle {
+      margin: 20px 15% 30px;
+   }
+
+   .content {
+      width: 70%;
+      margin: 0 auto;
+      background-color: $keyBlack;
+      color: $keyWhite;
+      padding:20px 5%;
+      border-radius: 15px;
+
+
+      section {
+         margin: 50px auto;
+         width: 90%;
+      }
+
+      .mustWrite{
+         color: $keyYellow;
+         padding-left: 2px;
+      }
+
+      .second,
+      .third,
+      .date{
+         display: flex;
+         justify-content: space-between;
+
+         div {
+            line-height: 1.8;
+            width: 173px;
+         }
+
+         input.num {
+            margin: 0 3px;
+            width: 70%;
+         }
+
+         input[type=file] {
+            width: 80px;
+            padding: 0;
+         }
+
+         input[type="text"]{
+            font-family: monospace;
+            padding: 0;
+         }
+      }
+
+      select {
+         padding: 3px 15px;
+      }
+   }
+
+
+   .lessonType {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+
+      div{
+         border-radius: 50%;
+         width: 130px;
+         height: 130px;
+         margin: 0 30px;
+
+         &:hover{
+            cursor: pointer;
+         }
+
+         @include breakpoint (577) {
+            width: 80px;
+            height: 80px;
+            margin: 20px;
+         }
+
+         [type="radio"]{
+            visibility: hidden;
+         }
+      }
+
+      div.border{
+         border: 2px solid $keyWhite;
+      }
+   }
+
+
+   .btnList {
+      text-align: center;
+   }
+
+
+   .saveBtn,.cancelBtn {
+      @include other-button;
+      margin: 0 10px;
+
+      @include breakpoint (577) {
+         margin:10px ;
+
+      }
+   }
+
+   // RWD
+   @media all and (max-width: 1200px) {
+      .content {
+         width: 90%;
+      }
+   }
+
+   @media all and (max-width: 768px) {
+      .lessonType {
+         flex-wrap: wrap;
+      }
+
+      .content {
+
+         .second,
+         .third,
+         .date {
+            display: block;
+
+            div {
+               margin: 15px 0;
+            }
+         }
+      }
+
+   }
+}
+
+
+.trainerManage {
+
+   main {
+      display: flex;
+      justify-content: center;
+      margin-top: 50px;
+      min-height: calc(100vh - 166px);
+   }
+
+   .asideMenu {
+      width: 18%;
+      text-align: center;
+
+      .title {
+         padding: 15px 10px;
+         color: $keyWhite;
+         background-color: $keyBlack;
+         margin-bottom: 20px;
+
+         a {
+            color: $keyWhite;
+         }
+      }
+
+   }
+
+   .profile img {
+      width: 100px;
+      margin: 20px 0;
+
+   }
+
+   .option {
+      background-color: $transparentWhite;
+      padding: 20px;
+
+      p {
+         margin: 20px 0;
+      }
+
+      a {
+         display: inline-block;
+         text-decoration: none;
+         color: $keyBlack;
+         margin: 10px 0;
+      }
+
+      a:hover {
+         color: $keyBlue;
+      }
+
+      li:nth-child(3) a {
+         color: $keyBlue;
+         font-weight: 700;
+      }
+   }
+
+   .info {
+      margin-left: 20px;
+      width: 70%;
+      max-width: 652px;
+
+      .month {
+         text-align: center;
+         margin-bottom: 20px;
+         color: $keyWhite;
+         font-size: 20px;
+      }
+   }
+
+   // 課程
+
+   /* 頁籤區塊 */
+   .tab_list_block,
+   .tab_contents {
+      vertical-align: top;
+   }
+
+   /* 頁籤列表 */
+   .tab_list {
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+   }
+
+   .tab_list li {
+      display: inline-block;
+      width: 30%;
+      text-align: center;
+   }
+
+   .tab_list li a {
+      width: 100%;
+      height: 40px;
+      padding: 10px 5px;
+      display: inline-block;
+      border: 1px solid $keyWhite;
+      cursor: pointer;
+      color: $keyWhite;
+      font-size: 18px;
+      position: relative;
+      top: 1px;
+      transition: all .3s;
+   }
+
+   .tab_list li a:hover {
+      color: $keyBlue;
+      background-color: $keyWhite;
+   }
+
+   .tab_list li a.-on {
+      color: $keyBlue;
+      background-color: $keyWhite;
+   }
+
+
+   /* 頁籤內容區塊 */
+   .tab_contents div.tab {
+      display: none;
+   }
+
+   .tab_contents div.tab.-on {
+      display: block;
+   }
+
+   // per course
+   .course {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .imgContainer {
+         display: inline-block;
+         width: 250px;
+         position: relative;
+
+      }
+
+      img {
+         width: 100%;
+      }
+
+      .btn {
+         @include other-button;
+      }
+
+   }
+
+
+
+   .course.full .imgContainer::before {
+      content: '已額滿';
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, .3);
+      position: absolute;
+      line-height: 168px;
+      text-align: center;
+      color: $transparentWhite;
+   }
+
+   .course::before {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 1px;
+      background-color: $keyWhite;
+      position: absolute;
+      top: -10px;
+   }
+
+   .courseInfo p {
+      color: $keyWhite;
+      margin: 20px 10px;
+
+   }
+
+   // pagination
+   ul.pagination {
+      display: flex;
+      justify-content: center;
+      color: $keyWhite;
+      font-size: 18px;
+
+      li {
+         border: 1px solid $keyWhite;
+         margin: 20px 10px;
+         padding: 10px 15px;
+      }
+
+      li:hover {
+         color: $keyBlue;
+         background-color: $keyWhite;
+         border: 1px solid $keyBlue;
+         cursor: pointer;
+      }
+
+      li:first-child {
+         color: $keyBlue;
+         background-color: $keyWhite;
+         border: 1px solid $keyBlue;
+      }
+   }
+
+   .tab_container {
+      position: relative;
+   }
+
+   .nameList,.auditList {
+      width: 100%;
+      position: absolute;
+      top: 15%;
+      left: 50%;
+      transform: translate(-50%);
+      padding: 20px;
+      background-color: $keyWhite;
+      z-index: 2;
+
+
+      .courseInfo p {
+         color: $keyBlack;
+      }
+
+      .avatar {
+         overflow-y: auto;
+         height: 300px;
+
+         table {
+            margin: 10px auto 0;
+         }
+
+         td {
+            padding: 20px;
+            vertical-align: middle;
+            color: $keyBlack;
+         }
+
+         img {
+            width: 70px;
+         }
+      }
+
+      .closeBtn {
+         text-align: center;
+         margin-top: 20px;
+      }
+   }
+
+   .nameList.on {
+      display: inline-block;
+   }
+
+   .auditList{
+
+      .avatar{
+         th:first-child,td:first-child{
+            @include breakpoint (577) {
+               display: none;
+            }
+         }
+   
+         td{
+            @include breakpoint (577) {
+               padding: 5px;
+            }
+         }
+      }
+   }
+
+   .fa-check{
+      color: rgb(233, 72, 72);
+   }
+   .fa-times{
+      color: rgb(12, 180, 130);
+   }
+
+
+   .btn.audit {
+      @include other-button;
+      width: 90px;
+
+      @include breakpoint (577) {
+         margin: 5px auto;
+      }
+   }
+
+   @media all and (max-width: 991px) {
+      body {
+         background-size: auto
+      }
+
+      main {
+         display: block;
+      }
+
+      .asideMenu {
+         width: 70%;
+         margin: 0 auto;
+
+         ul {
+            display: flex;
+            justify-content: space-around;
+         }
+      }
+
+      .info {
+         width: 70%;
+         margin: 20px auto;
+
+         .progressStar div {
+            width: 250px;
+         }
+      }
+
+      .bubbleBtn {
+         margin: 20px auto 0;
+      }
+
+      .course {
+         flex-wrap: wrap;
+
+         .imgContainer {
+            flex-grow: 1;
+         }
+      }
+
+
+
+   }
+
+
+
+   @media all and (max-width: 576px) {
+
+      .asideMenu {
+         width: 90%;
+      }
+
+      .info {
+         width: 90%;
+
+         .rateStar {
+            flex-wrap: wrap;
+         }
+      }
+
+      .course.full .imgContainer::before {
+         line-height: 290px;
+      }
+
+   }
 
 
 
@@ -42,6 +766,4 @@
 
 
 
-
-    
 }
