@@ -1432,6 +1432,8 @@ input {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -1440,7 +1442,7 @@ input {
 }
 
 .shop .itemType ul li {
-  width: 10%;
+  width: 80px;
   text-align: center;
   border: 2px solid #fefefe;
   font-size: 16px;
@@ -1469,6 +1471,12 @@ input {
           transform: translate(-50%, -50%);
 }
 
+@media all and (max-width: 767px) {
+  .shop .itemList .demomanIn {
+    display: none;
+  }
+}
+
 .shop .product {
   width: 100%;
   max-width: 1200px;
@@ -1481,6 +1489,8 @@ input {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .shop .productDown {
@@ -1505,6 +1515,17 @@ input {
           align-items: center;
   padding: 20px 0;
   margin: 15px;
+}
+
+.shop .art::before {
+  content: '';
+}
+
+.shop .art .jelly {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60px;
 }
 
 .shop .art .itemName,
@@ -1560,6 +1581,23 @@ input {
   width: 100%;
   margin: 5px auto;
   text-align: center;
+}
+
+.shop .shopBtn .detail .button--bubble__container .effect-button,
+.shop .shopBtn .detail .button--bubble__effect-container .circle {
+  background: #176587;
+}
+
+.shop .shopBtn .detail .button--bubble:hover {
+  color: #176587;
+}
+
+.shop .shopBtn .detail .button--bubble:hover + .button--bubble__effect-container .circle {
+  background: #fefefe;
+}
+
+.shop .shopBtn .detail .button--bubble:hover + .button--bubble__effect-container .button {
+  background: #fefefe;
 }
 
 .shop .bubbleBtn {
