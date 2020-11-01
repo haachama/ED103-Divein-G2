@@ -459,7 +459,7 @@
     
     // per course
     .memberCourse{
-        margin-top: 20px;
+        margin-top: 10px;
         margin-bottom: 3px;
         border-radius: 5px;
         display: flex;
@@ -528,6 +528,27 @@
             text-align: center;
         }
     }
+    // .pointCheckUl{
+    //     position: relative;
+    // }
+    // .pointCheckLi{
+    //     position: absolute;
+    // }
+
+    // .pointCheckInput{
+    //     display: none;
+    // }
+    // .pointCheck{
+    //     width: 40px;
+    //     height: 40px;
+    //     margin: 0;
+    //     padding: 0;
+    //     display: inline-block;
+    //     cursor: pointer;
+    // }
+    // .pointCheck img{
+    //     width: 100%;
+    // }
 
     //map tab
     .memberTag{
@@ -659,6 +680,7 @@
     }
     
     .memberFavCourse{
+        margin-top: 10px;
         padding: 10px 0;
         // width: 100%;
         display: flex;
