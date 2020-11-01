@@ -9,7 +9,7 @@
 請參考index.html一起服用
 
 3.頁籤 
-  @include tab;
+  @include tab($w:195px,$h:60px);
 
 4.次要按鈕  
   @include other-button();

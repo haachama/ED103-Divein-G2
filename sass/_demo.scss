@@ -110,7 +110,7 @@ input{
 }
 
 .demo-input1{
-    @include input-text($w:150px,$h:30px);
+    @include input-text($w:160px,$h:30px);
 }
 
 .demo-input2{
@@ -122,19 +122,19 @@ input{
 }
 
 .demo-input4{
-    @include input-submit($w:150px,$h:30px); 
+    @include input-submit($w:160px,$h:30px); 
 }
 
 .demo-input5{
-    @include input-password($w:150px,$h:30px);   
+    @include input-password($w:160px,$h:30px);   
 }
 
 .demo-input6{
-    @include input-number($w:150px,$h:30px);
+    @include input-number($w:160px,$h:30px);
 }
 
 .demo-input7{
-    @include input-date($w:150px,$h:30px);   
+    @include input-date($w:160px,$h:30px);   
 }
 
 
