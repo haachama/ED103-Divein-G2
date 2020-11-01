@@ -5,17 +5,10 @@ $('.button--bubble').each(function () {
     var $circlesTopLeft = $(this).parent().find('.circle.top-left');
     var $circlesBottomRight = $(this).parent().find('.circle.bottom-right');
 
-<<<<<<< HEAD
     var tl = new TweenMax();
     var tl2 = new TweenMax();
 
-    var btTl = new TweenMax({
-=======
-    var tl = new TimelineMax();
-    var tl2 = new TimelineMax();
-
     var btTl = new TimelineMax({
->>>>>>> member
         paused: true
     });
 
@@ -61,13 +54,8 @@ $('.button--bubble').each(function () {
         opacity: 0
     }, '-=1');
 
-<<<<<<< HEAD
     var tlBt1 = new TweenMax();
-    var tlBt2 = new TweenMax();
-=======
     var tlBt1 = new TimelineMax();
-    var tlBt2 = new TimelineMax();
->>>>>>> member
 
     tlBt1.set($circlesTopLeft, {
         x: 0,
