@@ -12,43 +12,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TimelineLite.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <link rel="stylesheet" href="./css/course.css">
-    <title>潛水課程</title>
+    <title>海中日子 | 潛水課程</title>
     
 </head>
 
 
-<body class="courseBg">
-    <header class="courseHeader">
-        <div class="logo">
-            <a href="javascript:;"><img src="./img/header/logo.png" alt="logo"></a>
-        </div>
-        <div class="nav">
-            <ul>
-                <li class="recommend_nav">
-                    <a href="javascript:;">潛 點<br>&nbsp;&nbsp;推 薦</a>
-                </li>
-                <li class="course_nav">
-                    <a href="javascript:;">潛 水<br>&nbsp;&nbsp;課 程</a>
-                </li>
-                <li class="shop_nav">
-                    <a href="javascript:;">潛 水<br>&nbsp;&nbsp;商 城</a>
-                </li>
-                <li class="blog_nav">
-                    <a href="javascript:;">潛 水<br>&nbsp;&nbsp;日 誌</a>
-                </li>
-                <li class="game_nav">
-                    <a href="javascript:;">下 潛<br>&nbsp;&nbsp;遊 戲</a>
-                </li>
-            </ul>
-        </div>
-        <div class="memCart">
-            <ul>
-                <li><a href="javascript:;"><img src="./img/header/member.png" ></a></li>
-                <li><a href="javascript:;"><img src="./img/header/cart.png"></a></li>
-            </ul>
-        </div>
-    </header>
+<body class="course">
+    @@include('./layout/header.html')
     <section class="coursePage01">
         <!-- The video -->
         <div class="video-box">
@@ -120,7 +90,7 @@
     <section class="coursePage03">
         <div class="courseClass">
             <div class="courseSign">
-                <h2>課程報名</h2>
+                <h2 class="courseProfession01">課程報名</h2>
             </div>
             
             <div class="courseItem">
@@ -330,29 +300,8 @@
                 </ul>
             </div>
     </section>
-    <footer>
-        <div class="copyright">
-            Copyright © 2020 Divein | 海中日子 All Rights Reserved.
-        </div>
-    </footer>
-    <script src="https://rawgit.com/lmgonzalves/momentum-slider/master/dist/momentum-slider.min.js"></script>
-    <script src="./js/course/course.js"></script>
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-
-    <script src="./js/bubbleBtn.js"></script>
-    <script>
-        $(".courseTime").on("click", function(){
-            $(this).toggleClass("courseAw");
-    });
-
-
-
-        var btn = document.getElementById('btn'); 
-        btn.addEventListener("click",function(){
-            Swal.fire('此課程須持有OW證照才可報名');
-        },false)
-
-    </script>
+    @@include('./layout/footer.html')
+    <script src="./js/course.js"></script>
 </body>
 
 </html>

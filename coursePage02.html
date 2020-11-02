@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/course.css">
+    <!-- <link rel="stylesheet" href="./css/course.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/plugins/CSSPlugin.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/easing/EasePack.min.js"></script>
@@ -14,42 +14,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TimelineLite.min.js"></script>
     
     
-    <title>潛水課程</title>
+    <title>海中日子 | 潛水課程</title>
     
 </head>
 
 
-<body class="courseBg">
-    <header class="courseHeader">
-        <div class="logo">
-            <a href="javascript:;"><img src="./img/header/logo.png" alt="logo"></a>
-        </div>
-        <div class="nav">
-            <ul>
-                <li class="recommend_nav">
-                    <a href="javascript:;">潛 點<br>&nbsp;&nbsp;推 薦</a>
-                </li>
-                <li class="course_nav">
-                    <a href="javascript:;">潛 水<br>&nbsp;&nbsp;課 程</a>
-                </li>
-                <li class="shop_nav">
-                    <a href="javascript:;">潛 水<br>&nbsp;&nbsp;商 城</a>
-                </li>
-                <li class="blog_nav">
-                    <a href="javascript:;">潛 水<br>&nbsp;&nbsp;日 誌</a>
-                </li>
-                <li class="game_nav">
-                    <a href="javascript:;">下 潛<br>&nbsp;&nbsp;遊 戲</a>
-                </li>
-            </ul>
-        </div>
-        <div class="memCart">
-            <ul>
-                <li><a href="javascript:;"><img src="./img/header/member.png" ></a></li>
-                <li><a href="javascript:;"><img src="./img/header/cart.png"></a></li>
-            </ul>
-        </div>
-    </header>
+<body class="coursePage02">
+    @@include('./layout/header.html')
     <section class="coursePage01_01">
         <div class="courseContent">
             <div class="courseContentLeft">
@@ -291,12 +262,10 @@
         
     
     <footer>
-        <div class="copyright">
-            Copyright © 2020 Divein | 海中日子 All Rights Reserved.
-        </div>
+        @@include('./layout/footer.html')
     </footer>
-    <script src="./js/course/coursePage02.js"></script>
-    <script src="./js/bubbleBtn.js"></script>
+    <script src="./js/coursePage02.js"></script>
+    <!-- <script src="./js/bubbleBtn.js"></script> -->
     <script>
         $('p.courseOPEN').on('click', function(){
             $(this).toggleClass('close');
