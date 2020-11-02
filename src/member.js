@@ -129,3 +129,57 @@ $(function () {
         $(this).parent('div').parent('div').parent('div').remove();
     });
 });
+
+
+//map
+(function($){
+    $(document).ready(function(){
+        $('#mapIdSLC').height(window.innerHeight);
+        $('#mapIdKD').height(window.innerHeight);
+        $('#mapIdLD').height(window.innerHeight);
+        $('#mapIdLU').height(window.innerHeight);
+        $('#mapIdDBG').height(window.innerHeight);
+
+        var mapIdSLC = L.map('mapIdSLC', {
+            center: [22.3386444, 120.3698176],
+            zoom: 18
+        });
+        var mapIdKD = L.map('mapIdKD', {
+            center: [21.98, 120.797],
+            zoom: 14
+        });
+        var mapIdLD = L.map('mapIdLD', {
+            center: [22.65889, 121.47500],
+            zoom: 14
+        });
+        var mapIdLU = L.map('mapIdLU', {
+            center: [22.0567358, 121.5324732],
+            zoom: 14
+        });
+        var mapIdDBG = L.map('mapIdDBG', {
+            center: [25.016698, 121.944693],
+            zoom: 14
+        });
+
+        L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+        maxZoom: 18,
+        attribution: 'Map data: © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: © <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+        }).addTo(mapIdSLC);
+        L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+        maxZoom: 14,
+        attribution: 'Map data: © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: © <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+        }).addTo(mapIdKD);
+        L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+        maxZoom: 14,
+        attribution: 'Map data: © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: © <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+        }).addTo(mapIdLD);
+        L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+        maxZoom: 14,
+        attribution: 'Map data: © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: © <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+        }).addTo(mapIdLU);
+        L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+        maxZoom: 14,
+        attribution: 'Map data: © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: © <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+        }).addTo(mapIdDBG);
+    });
+  })($)

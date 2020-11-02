@@ -46,7 +46,6 @@ gulp.task('default', function () {
         server: {
             baseDir: "./app",
             index: "memberLogin.html",
-            index: "member.html",
         }
     });
     gulp.watch(['sass/*.scss' , 'sass/**/*.scss'], ['sass']).on('change', reload);
