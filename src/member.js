@@ -140,46 +140,159 @@ $(function () {
         $('#mapIdLU').height(window.innerHeight);
         $('#mapIdDBG').height(window.innerHeight);
 
-        var mapIdSLC = L.map('mapIdSLC', {
-            center: [22.3386444, 120.3698176],
-            zoom: 18
+        var mapIdSLC = new ol.Map({
+            target: 'mapIdSLC',
+            layers: [
+              new ol.layer.Tile({
+                source: new ol.source.OSM()
+              })
+            ],
+            view: new ol.View({
+              center: ol.proj.fromLonLat([120.381201, 22.354354]),
+              zoom: 13.5
+            })
         });
-        var mapIdKD = L.map('mapIdKD', {
-            center: [21.98, 120.797],
-            zoom: 14
+        var mapIdKD = new ol.Map({
+            target: 'mapIdKD',
+            layers: [
+              new ol.layer.Tile({
+                source: new ol.source.OSM()
+              })
+            ],
+            view: new ol.View({
+              center: ol.proj.fromLonLat([120.797, 21.98]),
+              zoom: 12
+            })
         });
-        var mapIdLD = L.map('mapIdLD', {
-            center: [22.65889, 121.47500],
-            zoom: 14
+        var mapIdLD = new ol.Map({
+            target: 'mapIdLD',
+            layers: [
+              new ol.layer.Tile({
+                source: new ol.source.OSM()
+              })
+            ],
+            view: new ol.View({
+              center: ol.proj.fromLonLat([121.47500, 22.65889]),
+              zoom: 13
+            })
         });
-        var mapIdLU = L.map('mapIdLU', {
-            center: [22.0567358, 121.5324732],
-            zoom: 14
+        var mapIdLU = new ol.Map({
+            target: 'mapIdLU',
+            layers: [
+              new ol.layer.Tile({
+                source: new ol.source.OSM()
+              })
+            ],
+            view: new ol.View({
+              center: ol.proj.fromLonLat([121.5324732, 22.0567358]),
+              zoom: 12
+            })
         });
-        var mapIdDBG = L.map('mapIdDBG', {
-            center: [25.016698, 121.944693],
-            zoom: 14
+        var mapIdDBG = new ol.Map({
+            target: 'mapIdDBG',
+            layers: [
+              new ol.layer.Tile({
+                source: new ol.source.OSM()
+              })
+            ],
+            view: new ol.View({
+              center: ol.proj.fromLonLat([121.944693, 25.016698]),
+              zoom: 12
+            })
         });
 
-        L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
-        maxZoom: 18,
-        attribution: 'Map data: © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: © <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
-        }).addTo(mapIdSLC);
-        L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
-        maxZoom: 14,
-        attribution: 'Map data: © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: © <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
-        }).addTo(mapIdKD);
-        L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
-        maxZoom: 14,
-        attribution: 'Map data: © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: © <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
-        }).addTo(mapIdLD);
-        L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
-        maxZoom: 14,
-        attribution: 'Map data: © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: © <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
-        }).addTo(mapIdLU);
-        L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
-        maxZoom: 14,
-        attribution: 'Map data: © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: © <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
-        }).addTo(mapIdDBG);
-    });
-  })($)
+
+        // var mapIdSLC = L.map('mapIdSLC').setView([22.3386444, 120.3698176], 9); 
+        // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+		// attribution: '<a href="https://www.openstreetmap.org/">OpenStreetMap</a> | <a href="https://noob.tw/openstreetmap/">Tutorial 教學</a>',
+		// maxZoom: 18,
+        // }).addTo(mapIdSLC);
+
+        
+        // var mapIdSLC = L.map('mapIdSLC', {
+        //     center: [22.354354, 120.381201],
+        //     zoom: 14
+        // });
+        // var mapIdKD = L.map('mapIdKD', {
+        //     center: [21.98, 120.797],
+        //     zoom: 14
+        // });
+        // var mapIdLD = L.map('mapIdLD', {
+        //     center: [22.65889, 121.47500],
+        //     zoom: 14
+        // });
+        // var mapIdLU = L.map('mapIdLU', {
+        //     center: [22.0567358, 121.5324732],
+        //     zoom: 14
+        // });
+        // var mapIdDBG = L.map('mapIdDBG', {
+        //     center: [25.016698, 121.944693],
+        //     zoom: 14
+        // });
+
+        // var mapIdSLC = L.map('mapIdSLC', {
+        //     center: [22.3386444, 120.3698176], // 中心點座標
+        //     zoom: 14, // 0 - 18
+        //     attributionControl: true, // 是否秀出「leaflet」的貢獻標記
+        //     zoomControl: true , // 是否秀出 - + 按鈕
+        //   });
+
+        // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(mapIdSLC);
+
+        // L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+        // maxZoom: 18,
+        // attribution: 'Map data: © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: © <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+        // }).addTo(mapIdSLC);
+        // L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+        // maxZoom: 18,
+        // attribution: 'Map data: © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: © <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+        // }).addTo(mapIdKD);
+        // L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+        // maxZoom: 18,
+        // attribution: 'Map data: © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: © <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+        // }).addTo(mapIdLD);
+        // L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+        // maxZoom: 18,
+        // attribution: 'Map data: © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: © <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+        // }).addTo(mapIdLU);
+        // L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+        // maxZoom: 18,
+        // attribution: 'Map data: © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: © <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+        // }).addTo(mapIdDBG);
+
+        $(".memberTab").click(function(){
+            mapIdSLC.hidden = false;
+            mapIdKD.hidden = false;
+            mapIdLD.hidden = false;
+            mapIdLU.hidden = false;
+            mapIdDBG.hidden = false;
+
+            mapIdSLC.updateSize();
+            mapIdKD.updateSize();
+            mapIdLD.updateSize();
+            mapIdLU.updateSize();
+            mapIdDBG.updateSize();
+        });
+
+        $(".memberTagTab.SLC").click(function(){
+            mapIdSLC.hidden = false;
+            mapIdSLC.updateSize();
+        });
+        $(".memberTagTab.KD").click(function(){
+            mapIdKD.hidden = false;
+            mapIdKD.updateSize();
+        });
+        $(".memberTagTab.LD").click(function(){
+            mapIdLD.hidden = false;
+            mapIdLD.updateSize();
+        });
+        $(".memberTagTab.LU").click(function(){
+            mapIdLU.hidden = false;
+            mapIdLU.updateSize();
+        });
+        $(".memberTagTab.DBG").click(function(){
+            mapIdDBG.hidden = false;
+            mapIdDBG.updateSize();
+        });
+        });
+   })($)

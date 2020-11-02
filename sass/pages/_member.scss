@@ -686,6 +686,7 @@
     }
     .memberTagMapArea{
         width: 100%;
+        height: 100%;
         margin: 0;
         padding: 0;
         overflow: hidden;
@@ -693,19 +694,21 @@
     }
     .memberMapId{
         width: 100%;
+        height: 100%;
+        // background: #333;
+        // width: 587px;
+        // height: 587px;
     }
     
     //order
     .memberOrdTitle {
         padding: 25px 0;
-        // width: 100%;
         display: flex;
         flex-wrap: nowrap;
         justify-content: center;
     }
     .memberOrderContent{
         padding: 10px 0;
-        // width: 100%;
         display: flex;
         flex-wrap: nowrap;
         justify-content: center;
