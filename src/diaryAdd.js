@@ -1,7 +1,7 @@
     import {TweenMax, TimelineMax} from "gsap";
     import Vue from "vue";
     import rangeslider from "rangeslider.js";
-
+    // require("jquery.ripples.js");
 
 $(function () {
     //水波紋

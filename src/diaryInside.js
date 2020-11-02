@@ -205,7 +205,7 @@ $(function(){
                 el: '.pageLeftLine',
                 data() {
                     return {
-                    data: [10, 71, 78, 25, 36, 92],
+                    data: [10, 71, 78, 25, 36, 92], 
                     line: '',
                     };
                 },
@@ -214,7 +214,7 @@ $(function(){
                 },
                 methods: {
                     getScales() {
-                    const x = d3.scaleTime().range([0, 500]);
+                    const x = d3.scaleTime().range([500, 0]);
                     const y = d3.scaleLinear().range([210, 0]);
                     d3.axisLeft().scale(x);
                     d3.axisBottom().scale(y);

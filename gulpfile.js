@@ -45,7 +45,7 @@ gulp.task('default', function () {
     browserSync.init({
         server: {
             baseDir: "./app",
-            index: "diaryInside.html"
+            index: "diaryAdd.html"
         }
     });
     gulp.watch(['sass/*.scss' , 'sass/**/*.scss'], ['sass']).on('change', reload);
@@ -53,8 +53,8 @@ gulp.task('default', function () {
 });
 
 
-// gulp.task('hi', function(){
-//     //do something
+gulp.task('hi', function(){
+    //do something
 
-//     console.log('hell word 你好gulp');
-// });
+    console.log('hell word 你好gulp');
+});
