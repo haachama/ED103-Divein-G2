@@ -6,8 +6,8 @@
 
     // footer置底
 
-    main{
-        min-height: calc(100vh - var(--header-height));
+    .gameMain{
+        min-height: calc(100vh - 117px);
         overflow: hidden;
     }
     
@@ -42,31 +42,6 @@
         flex-grow: 1;
     }
 
-    //改變按鈕顏色
-    .button--bubble{
-        background: $keyWhite;
-    }
-    
-    .button--bubble:hover {
-        background: $keyWhite;
-        color: $keyBlue;
-    }
-    
-    //觸摸時泡泡顏色
-    .button--bubble:hover+.button--bubble__effect-container .circle {
-        background: $keyWhite;
-    }
-    
-    //觸摸時背景顏色
-    .button--bubble:hover+.button--bubble__effect-container .button {
-        background:$keyWhite;
-    }
-    
-    //泡泡變形中顏色
-    .button--bubble__effect-container .circle{
-        background: $keyWhite;
-    }
-
     //↓最外層div
 
     .parent_container {
@@ -89,14 +64,15 @@
 
     //標題文字↓
 
-    .choseRole{
-        position: relative;
-        display: block;
-        width: 100%;
-        text-align: center;
-    }
     .choseRoleRwd{
         display: none;
+
+        @include breakpoint (992) {
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin: 10px 0;
+        }
     }
 
     .changeRole{
@@ -117,20 +93,13 @@
         }
 
         .choseRole{
+            position: relative;
             display: block;
+            width: 100%;
+            text-align: center;
 
             @include breakpoint (992) {
                 display: none;
-            }
-        }
-        .choseRoleRwd{
-            display: none;
-
-            @include breakpoint (992) {
-                display: block;
-                width: 100%;
-                text-align: center;
-                margin: 10px 0 -100px 0;
             }
         }
 
@@ -190,13 +159,13 @@
 
         @include breakpoint (767) {
             width: 30%;
+            padding: 5px;
         }
 
         .ability{
             position: absolute;
             bottom: 0;
             width: 100%;
-            margin: 20px 0;
             text-align: center;
 
             @include breakpoint (767) {
@@ -206,11 +175,6 @@
         .abilityDescribe{
             display: inline-flex;
             width: 100%;
-            margin: 0;
-
-            @include breakpoint (767) {
-                margin: 10px;
-            }
         }
     }
 
@@ -218,7 +182,6 @@
 
     .totalPriceBlock {
         display: inline-flex;
-        text-align: right;
         width: 100%;
 
         .totalPrice {
@@ -246,6 +209,9 @@
         
         @include breakpoint (1200) {
             width: 45%;
+        }
+        @include breakpoint (767) {
+            width: 100%;
         }
         .maskList {
             display: inline-flex;
@@ -483,6 +449,11 @@
 
 .gameResult{
 
+    .gameMain{
+        min-height: calc(100vh - 117px);
+        overflow: hidden;
+    }
+    
     .parent_score {
         position: relative;
         width: 576px;
@@ -505,10 +476,12 @@
         color: #FFE153;
     }
     
-    .resortRole {
+    .resultRole {
         position: absolute;
         left: 0;
         bottom: 0;
+        width: 100px;
+        height: 131px;
     }
     
     .goShopBtn .bubbleBtn {

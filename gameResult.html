@@ -5,25 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>下潛遊戲</title>
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/game.css">
-    <script src="./js/game.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/plugins/CSSPlugin.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/easing/EasePack.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenLite.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TimelineLite.min.js"></script>
     
 </head>
 <body class="gameResult">
     @@include('./layout/header.html')
 
-    <main>
+    <main class="gameMain">
         <div class="parent_score">
 
             <div class="parent_resortRole">
                 <!-- <button><</button>
                 <button>></button> -->
-                <img class="resortRole" src="./img/game/resortRole.png"><!-- 要代變數 -->
+                <img class="resultRole" src="./img/game/resortRole.png"><!-- 要代變數 -->
                 <div class="eye">
                     <!-- <img src="./img/mask10.png"> -->
                 </div>
@@ -232,8 +225,6 @@
         </div>
     </main>
     
-    @@include('./layout/footer.html');
-
-    <script src="./js/bubbleBtn.js"></script>
+    @@include('./layout/footer.html')
 </body>
 </html>
