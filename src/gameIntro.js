@@ -1,4 +1,5 @@
-
+import $ from 'jquery';
+import { TweenMax, TimelineMax } from 'gsap';
 
 var rulebtn = document.getElementById("rulebtn");
 var rulebtnX = document.getElementById("rulebtnX");
