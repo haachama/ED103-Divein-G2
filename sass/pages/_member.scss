@@ -12,11 +12,15 @@
     h4{
         text-align: center;
         color: $keyBlack;
+<<<<<<< HEAD
     }
     
     .mlt, .mrt{
         margin-top: 70px;
+=======
+>>>>>>> member
     }
+
     a {
         color: #FEFEFE;
         font-size: 14px;
@@ -51,8 +55,11 @@
     }
     .memberFromChangeBtn.memberMove{
         transform: translateX(103%);
+<<<<<<< HEAD
         // left: -10px;
         /* animation: show 0.6s; */
+=======
+>>>>>>> member
         transition: all 0.6s ease-in-out;
     }
 
@@ -80,6 +87,9 @@
     }
     .mlt h4{
         margin: 50px auto 10px;
+    }
+    .mrt{
+        margin: 60px auto 10px;  
     }
     .mltTwo{
         display: none;
@@ -113,8 +123,13 @@
     }
     .memberFromArea{
         position: absolute;
+<<<<<<< HEAD
         top: -240px;
         left: 17%;
+=======
+        top: -280px;
+        left: 8%;
+>>>>>>> member
         transition: all 0.6s ease-in-out;
     }
     .memberFromAreaTextTwo{
@@ -125,19 +140,25 @@
     }
     
     .memberFromArea.memberFromMove{
+<<<<<<< HEAD
         top: -469px;
+=======
+        top: -520px;
+>>>>>>> member
     }
     .memberFromArea.memberFromPasMove{
-        top: -40px;
+        top: -30px;
     }
     
     .memberFrom{
         background-color: $transparentWhite;
+<<<<<<< HEAD
         // background-color: rgba(22, 24, 29, 0.7);
+=======
+>>>>>>> member
     }
     /* 表單樣式 */
     form {
-        // background-color: rgba(22, 24, 29, 0.9);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -229,12 +250,14 @@
     }
     
     .overlay {
+<<<<<<< HEAD
         // background: #FF416C;
         /* background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
         background: linear-gradient(to right, #FF4B2B, #FF416C); */
         // background-repeat: no-repeat;
+=======
+>>>>>>> member
         background-size: cover;
-        /* background-position: 0 0; */
         color: #FFFFFF;
         position: relative;
         left: -100%;
@@ -245,7 +268,10 @@
 
         .memberLoginBanner{
             width:100%;
+<<<<<<< HEAD
             // overflow:hidden;
+=======
+>>>>>>> member
         }
         .memberLoginImgList{
             position: relative;
@@ -296,13 +322,101 @@
         }
     }
     .ghost{
+<<<<<<< HEAD
         background-color: rgba(22, 24, 29, 0.3);
         border: none;
         width: 90px;
         // border-radius: 15px;
+=======
+        background-color: rgba(22, 24, 29, 0.9);
+        border: none;
+        width: 90px;
+>>>>>>> member
     }
     .ghost:hover{
         background-color: rgba(22, 24, 29, 0.7);
+    }
+
+    @media all and (max-width: 991px){
+        .memLogRegArea{
+            width: 614.4px;
+            min-height: 384px;
+        }
+        .memberFromChange{
+            margin-top: 50px;
+        }
+        .memberFromArea{
+            left: 3%;
+        }
+        .mrt{
+            margin: 30px auto 10px;
+        }
+        .memberFromRegArea{
+            height: 420px;
+        }
+        .memberRegisteredArea{
+            margin-top: 20px;
+            overflow-x: hidden;
+            overflow-y: scroll;
+        }
+        .memberRegisteredArea::-webkit-scrollbar {
+            display: none;
+        }
+    }
+    @media all and (max-width: 762px){
+        .memLogRegArea{
+            width: 537.6px;
+            min-height: 336px;
+        }
+        .memberFromChange{
+            margin-top: 30px;
+        }
+        .memberFromArea{
+            left: 2%;
+        }
+        .mlt h4{
+            margin: 30px auto 10px;
+        }
+        .memberFromRegArea{
+            height: 330px;
+        }
+        .memberLoginButton{
+            margin-top: 30px;
+        }
+        #memberPasForgot{
+            margin-bottom: 0;
+        }
+    }
+    @media all and (max-width: 576px){
+        .memLogRegArea{
+            width: 460.8px;
+            // min-height: 228px;
+        }
+        .memberLoginImgList img{
+            min-width: 537.6px;
+        }
+        .memberFromArea{
+            left: -3%;
+        }
+        .memberLoginButton{
+            width: 100px;
+        }
+    }
+    @media all and (max-width: 376px){
+        .memLogRegArea{
+            width: 300px;
+        }
+        .memberFromArea{
+            left: -16%;
+        }
+        .memberFromRegArea{
+            width: 200px;
+            position: absolute;
+            left: -15%;
+        }
+        .memberLoginButton{
+            margin-top: 20px;
+        }
     }
 }
 
@@ -475,7 +589,7 @@
     
     // per course
     .memberCourse{
-        margin-top: 20px;
+        margin-top: 10px;
         margin-bottom: 3px;
         border-radius: 5px;
         display: flex;
@@ -544,6 +658,14 @@
             text-align: center;
         }
     }
+    .pointCheckLi{
+        width: 100%;
+
+        .pointCheckLiLa{
+            margin-left: 0;
+            margin-right: 15px;
+        }
+    }
 
     //map tab
     .memberTag{
@@ -605,9 +727,15 @@
     .memberTagMap.-on{
         display: block;
     }
-    .memberTagMap img{
+    .memberTagMapArea{
         width: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
         border-radius: 15px;
+    }
+    .memberMapId{
+        width: 100%;
     }
     
     //order
@@ -675,6 +803,7 @@
     }
     
     .memberFavCourse{
+        margin-top: 10px;
         padding: 10px 0;
         // width: 100%;
         display: flex;
