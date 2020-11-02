@@ -249,7 +249,7 @@ var select = new Vue({
             if (this.value == "") {
                 return [];
             } else {
-
+                console.log(this);
                 // for (let index = 0; index < this.areas.length; index++) {
                 //   const element = this.areas[index];
                 //   if (element.selected == this.value) {
