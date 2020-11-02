@@ -51,5 +51,3 @@ gulp.task('default', function () {
     gulp.watch(['sass/*.scss' , 'sass/**/*.scss'], ['sass']).on('change', reload);
     gulp.watch(['*.html', '**/*.html'], ['fileinclude']).on('change', reload);
 });
-
-
