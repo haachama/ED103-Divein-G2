@@ -45,9 +45,23 @@ gulp.task('default', function () {
     browserSync.init({
         server: {
             baseDir: "./app",
+<<<<<<< HEAD
             index: "shop.html",
+=======
+            index: "diaryAdd.html"
+>>>>>>> ann
         }
     });
     gulp.watch(['sass/*.scss' , 'sass/**/*.scss'], ['sass']).on('change', reload);
     gulp.watch(['*.html', '**/*.html'], ['fileinclude']).on('change', reload);
+<<<<<<< HEAD
+=======
+});
+
+
+gulp.task('hi', function(){
+    //do something
+
+    console.log('hell word 你好gulp');
+>>>>>>> ann
 });
