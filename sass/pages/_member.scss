@@ -12,13 +12,6 @@
     h4{
         text-align: center;
         color: $keyBlack;
-<<<<<<< HEAD
-    }
-    
-    .mlt, .mrt{
-        margin-top: 70px;
-=======
->>>>>>> member
     }
 
     a {
@@ -55,11 +48,6 @@
     }
     .memberFromChangeBtn.memberMove{
         transform: translateX(103%);
-<<<<<<< HEAD
-        // left: -10px;
-        /* animation: show 0.6s; */
-=======
->>>>>>> member
         transition: all 0.6s ease-in-out;
     }
 
@@ -123,13 +111,8 @@
     }
     .memberFromArea{
         position: absolute;
-<<<<<<< HEAD
-        top: -240px;
-        left: 17%;
-=======
         top: -280px;
         left: 8%;
->>>>>>> member
         transition: all 0.6s ease-in-out;
     }
     .memberFromAreaTextTwo{
@@ -140,11 +123,7 @@
     }
     
     .memberFromArea.memberFromMove{
-<<<<<<< HEAD
-        top: -469px;
-=======
         top: -520px;
->>>>>>> member
     }
     .memberFromArea.memberFromPasMove{
         top: -30px;
@@ -152,10 +131,6 @@
     
     .memberFrom{
         background-color: $transparentWhite;
-<<<<<<< HEAD
-        // background-color: rgba(22, 24, 29, 0.7);
-=======
->>>>>>> member
     }
     /* 表單樣式 */
     form {
@@ -250,13 +225,6 @@
     }
     
     .overlay {
-<<<<<<< HEAD
-        // background: #FF416C;
-        /* background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
-        background: linear-gradient(to right, #FF4B2B, #FF416C); */
-        // background-repeat: no-repeat;
-=======
->>>>>>> member
         background-size: cover;
         color: #FFFFFF;
         position: relative;
@@ -268,10 +236,6 @@
 
         .memberLoginBanner{
             width:100%;
-<<<<<<< HEAD
-            // overflow:hidden;
-=======
->>>>>>> member
         }
         .memberLoginImgList{
             position: relative;
@@ -322,16 +286,9 @@
         }
     }
     .ghost{
-<<<<<<< HEAD
-        background-color: rgba(22, 24, 29, 0.3);
-        border: none;
-        width: 90px;
-        // border-radius: 15px;
-=======
         background-color: rgba(22, 24, 29, 0.9);
         border: none;
         width: 90px;
->>>>>>> member
     }
     .ghost:hover{
         background-color: rgba(22, 24, 29, 0.7);
