@@ -267,7 +267,7 @@ $(function () {
         });
 
         $(".StarFive").click(function(){
-            $(".pointCheckColor").css("width","200px");
+            $(".pointCheckColor").css("width","198px");
         });
 
         $(".btn_modal_close").click(function(){
