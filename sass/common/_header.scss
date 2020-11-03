@@ -69,6 +69,8 @@ h1{
     li {
         display: inline-block;
         margin: 0 10px;
+        color: $keyBlue;
+        vertical-align: middle;
     }
 
     img {
@@ -167,8 +169,13 @@ h1{
         left: 50%;
         bottom: 5%;
         transform: translate(-40%);
-
+        
         li {
+            display: none;
+
+        }
+
+        li:nth-child(1).show{
             display: none;
         }
 

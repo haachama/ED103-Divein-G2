@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/favicon.ico" type="image/x-icon" />
+    <link rel="Shortcut Icon" href="./img/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./fontawesome/css/all.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>海中日子 | 新增課程</title>
+</head>
+
+<body class="addCourse">
+    @@include('./layout/header.html')
+
+    <main>
+        <h3 class="addTitle">新增課程</h3>
+
+        <div class="content">
+            <section>
+                <p>選擇課程<span class="mustWrite">*</span></p>
+                <div class="lessonType">
+                    <div>
+                        <img src="./img/addCourse/typeExperience.png">體驗潛水
+                        <input type="radio" name="lessonType" value="體驗潛水">
+                    </div>
+                    <div>
+                        <img src="./img/addCourse/typeOw.png">OW
+                        <input type="radio" name="lessonType" value="OW">
+                    </div>
+                    <div>
+                        <img src="./img/addCourse/typeAow.png">AOW
+                        <input type="radio" name="lessonType" value="AOW">
+                    </div>
+                    <div>
+                        <img src="./img/addCourse/typeOwAow.png">OW + AOW
+                        <input type="radio" name="lessonType" value="OW + AOW">
+                    </div> 
+                </div>
+            </section>
+
+            <section class="second">
+                <div>班級名稱<span class="mustWrite">*</span><br><input type="text" name="className"></div>
+                <div>開班價格<span class="mustWrite">*</span><br><input type="text" name="classPrice"></div>
+                <div>班級名額<span class="mustWrite">*</span><br>
+                    <i class="fas fa-minus"></i>
+                    <input type="text" class="num" name="classQuota">
+                    <i class="fas fa-plus"></i>
+                </div>
+            </section>
+
+            <section class="third">
+                <div>潛水區域<span class="mustWrite">*</span><br>
+                    <select>
+                        <option value="greenLand">綠島</option>
+                        <option value="lanyu"">蘭嶼</option>
+                        <option value=" kenting">墾丁</option>
+                        <option value="smallRyukyu">小琉球</option>
+                        <option value="NEcorner">東北角</option>
+                    </select>
+                </div>
+                <div>開課潛點<span class="mustWrite">*</span><br>
+                    <select>
+                        <option value="1">海底教堂</option>
+                        <option value="2">鋼鐵礁</option>
+                        <option value="3">石朗大香菇</option>
+                        <option value="4">海底大峽谷</option>
+                        <option value="5">雞仔礁</option>
+                    </select>
+                </div>
+                <div>添加照片<br><input type="file"></div>
+            </section>
+
+            <section class="date">
+                <div>
+                    開課日期<span class="mustWrite">*</span><br><input type="date" name="courseDate" id="startDate">
+                </div>
+                <div>
+                    結訓日期<span class="mustWrite">*</span><br><input type="text" value="--/--/--" id="finishDate" name="endDate" readonly>
+                </div>
+                <div>
+                    報名起始日期<span class="mustWrite">*</span><br><input type="date">
+                </div>
+                <div>
+                    報名截止日期<span class="mustWrite">*</span><br><input type="date">
+                </div>
+            </section>
+
+            <div class="btnList">
+                <button class="btn cancelBtn">取消</button>
+
+                <button class="btn saveBtn">儲存</button>
+            </div>
+        </div>
+    </main>
+
+    @@include('./layout/footer.html')
+    <script src="./js/addCourse.js"></script>
+</body>
+
+</html>
