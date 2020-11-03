@@ -140,6 +140,7 @@ $(function () {
         $('#mapIdLU').height(window.innerHeight);
         $('#mapIdDBG').height(window.innerHeight);
 
+        //小琉球
         var mapIdSLC = new ol.Map({
             target: 'mapIdSLC',
             layers: [
@@ -148,10 +149,12 @@ $(function () {
               })
             ],
             view: new ol.View({
-              center: ol.proj.fromLonLat([120.381201, 22.354354]),
+              center: ol.proj.fromLonLat([120.375456, 22.329162]),
               zoom: 13.5
             })
         });
+
+        //墾丁
         var mapIdKD = new ol.Map({
             target: 'mapIdKD',
             layers: [
@@ -160,10 +163,12 @@ $(function () {
               })
             ],
             view: new ol.View({
-              center: ol.proj.fromLonLat([120.797, 21.98]),
-              zoom: 12
+              center: ol.proj.fromLonLat([120.797, 21.917294]),
+              zoom: 11.5
             })
         });
+
+        //綠島
         var mapIdLD = new ol.Map({
             target: 'mapIdLD',
             layers: [
@@ -172,10 +177,12 @@ $(function () {
               })
             ],
             view: new ol.View({
-              center: ol.proj.fromLonLat([121.47500, 22.65889]),
+              center: ol.proj.fromLonLat([121.492165, 22.642492]),
               zoom: 13
             })
         });
+
+        //蘭嶼
         var mapIdLU = new ol.Map({
             target: 'mapIdLU',
             layers: [
@@ -184,10 +191,12 @@ $(function () {
               })
             ],
             view: new ol.View({
-              center: ol.proj.fromLonLat([121.5324732, 22.0567358]),
+              center: ol.proj.fromLonLat([121.546533, 22.012993]),
               zoom: 12
             })
         });
+
+        //東北角
         var mapIdDBG = new ol.Map({
             target: 'mapIdDBG',
             layers: [
@@ -196,69 +205,10 @@ $(function () {
               })
             ],
             view: new ol.View({
-              center: ol.proj.fromLonLat([121.944693, 25.016698]),
-              zoom: 12
+              center: ol.proj.fromLonLat([121.944693, 24.968898]),
+              zoom: 10
             })
         });
-
-
-        // var mapIdSLC = L.map('mapIdSLC').setView([22.3386444, 120.3698176], 9); 
-        // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-		// attribution: '<a href="https://www.openstreetmap.org/">OpenStreetMap</a> | <a href="https://noob.tw/openstreetmap/">Tutorial 教學</a>',
-		// maxZoom: 18,
-        // }).addTo(mapIdSLC);
-
-        
-        // var mapIdSLC = L.map('mapIdSLC', {
-        //     center: [22.354354, 120.381201],
-        //     zoom: 14
-        // });
-        // var mapIdKD = L.map('mapIdKD', {
-        //     center: [21.98, 120.797],
-        //     zoom: 14
-        // });
-        // var mapIdLD = L.map('mapIdLD', {
-        //     center: [22.65889, 121.47500],
-        //     zoom: 14
-        // });
-        // var mapIdLU = L.map('mapIdLU', {
-        //     center: [22.0567358, 121.5324732],
-        //     zoom: 14
-        // });
-        // var mapIdDBG = L.map('mapIdDBG', {
-        //     center: [25.016698, 121.944693],
-        //     zoom: 14
-        // });
-
-        // var mapIdSLC = L.map('mapIdSLC', {
-        //     center: [22.3386444, 120.3698176], // 中心點座標
-        //     zoom: 14, // 0 - 18
-        //     attributionControl: true, // 是否秀出「leaflet」的貢獻標記
-        //     zoomControl: true , // 是否秀出 - + 按鈕
-        //   });
-
-        // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(mapIdSLC);
-
-        // L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
-        // maxZoom: 18,
-        // attribution: 'Map data: © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: © <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
-        // }).addTo(mapIdSLC);
-        // L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
-        // maxZoom: 18,
-        // attribution: 'Map data: © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: © <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
-        // }).addTo(mapIdKD);
-        // L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
-        // maxZoom: 18,
-        // attribution: 'Map data: © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: © <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
-        // }).addTo(mapIdLD);
-        // L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
-        // maxZoom: 18,
-        // attribution: 'Map data: © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: © <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
-        // }).addTo(mapIdLU);
-        // L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
-        // maxZoom: 18,
-        // attribution: 'Map data: © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: © <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
-        // }).addTo(mapIdDBG);
 
         $(".memberTab").click(function(){
             mapIdSLC.hidden = false;
@@ -296,3 +246,33 @@ $(function () {
         });
         });
    })($)
+
+   $(function () {
+       //課程評鑑星星
+
+        $(".StarOne").click(function(){
+            $(".pointCheckColor").css("width","40px");
+        });
+
+        $(".StarTwo").click(function(){
+            $(".pointCheckColor").css("width","80px");
+        });
+
+        $(".StarThree").click(function(){
+            $(".pointCheckColor").css("width","120px");
+        });
+
+        $(".StarFour").click(function(){
+            $(".pointCheckColor").css("width","160px");
+        });
+
+        $(".StarFive").click(function(){
+            $(".pointCheckColor").css("width","200px");
+        });
+
+        $(".btn_modal_close").click(function(){
+            setTimeout(function(){
+                $(".pointCheckColor").css("width","0px");
+            },1000);
+        });
+   });

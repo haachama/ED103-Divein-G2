@@ -379,6 +379,7 @@
 
 // 會員中心
 .member{
+
     .memberMain {
         display: flex;
         justify-content: center;
@@ -461,6 +462,7 @@
         .memberPoint li p{
             display: inline-block;
             color: $keyBlack;
+            font-size: 12px;
         }
         .memberPoint li span{
             display: inline-block;
@@ -477,6 +479,7 @@
         .memberPointPhone li p{
             display: inline-block;
             color: $keyBlack;
+            font-size: 12px;
         }
         .memberPointPhone li span{
             display: inline-block;
@@ -596,6 +599,7 @@
         .memberDelBtn{
             display: inline-block;
             margin-left: 10px;
+            margin-bottom: 10px;
         }
         .memberDelBtn i{
             color: $transparentWhite;
@@ -615,12 +619,59 @@
             text-align: center;
         }
     }
-    .pointCheckLi{
-        width: 100%;
+    .pointCheckUl{
 
-        .pointCheckLiLa{
-            margin-left: 0;
-            margin-right: 15px;
+        .pointCheckLi{
+            width: 100%;
+            font-size: 0;
+
+            .pointCheckArea{
+                margin: 0 auto;
+                position: relative;
+                width: 200px;
+
+                .pointCheckColor{
+                    position: absolute;
+                    top: 1px;
+                    height: 38px;
+                    background-color: $keyYellow;
+                    z-index: -1;
+                }
+              
+                .pointCheckRadio{
+                    width: 200px;
+                    margin: 0;
+                    padding: 0;
+                    position: absolute;
+                    content: "";
+
+                    input{
+                        display: none;
+                    }
+                    label{
+                        display: inline-block;
+                        margin: 0;
+                        padding: 0;
+
+                        .pointCheckStar{
+                            margin: 0;
+                            padding: 0;
+                            width: 40px;
+                            outline: none;
+                            cursor: pointer;
+                            z-index: 3;
+                        }
+                        .pointCheckStar img{
+                            width: 100%;
+                            max-width: 40px;
+                        }
+                    }
+                }
+
+            }
+        }
+        .pointButton{
+            margin-top: 30px;
         }
     }
 
@@ -676,17 +727,17 @@
     .memberTagMap{
         background-color: rgba(254, 254, 254, 0.3);
         border-radius: 15px;
-        padding: 15px;
+        padding: 10px;
         display: none;
         margin: 20px auto 50px;
-        width: 90%;
+        width: 100%;
     }
     .memberTagMap.-on{
         display: block;
     }
     .memberTagMapArea{
         width: 100%;
-        height: 100%;
+        height: 400px;
         margin: 0;
         padding: 0;
         overflow: hidden;
@@ -694,10 +745,7 @@
     }
     .memberMapId{
         width: 100%;
-        height: 100%;
-        // background: #333;
-        // width: 587px;
-        // height: 587px;
+        height: 400px;
     }
     
     //order
@@ -724,6 +772,9 @@
         color: #FEFEFE;
         text-align: center;
     }
+    .memberOrderContent div p{
+        font-size: 12px;
+    }
     .memberOrdNo {
         width: 25%;
     }
@@ -738,34 +789,34 @@
     }
     
     //Favorites
-    .memberFavTitle {
-        padding: 25px 0;
-        // width: 100%;
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: center;
-    }
-    .memberFavTitle div {
-        display: inline-block;
-    }
-    .memberFavTitle div p{
-        color: #FEFEFE;
-        text-align: center;
-    }
-    .memberFavImg {
-        width: 30%;
-    }
-    .memberOrdName {
-        width: 45%;
-    }
-    .memberOrdBtn {
-        width: 25%;
-    }
+    // .memberFavTitle {
+    //     padding: 25px;
+    //     // width: 100%;
+    //     display: flex;
+    //     flex-wrap: nowrap;
+    //     justify-content: center;
+    // }
+    // .memberFavTitle div {
+    //     display: inline-block;
+    // }
+    // .memberFavTitle div p{
+    //     color: #FEFEFE;
+    //     text-align: center;
+    // }
+    // .memberFavImg {
+    //     width: 30%;
+    // }
+    // .memberOrdName {
+    //     width: 45%;
+    // }
+    // .memberOrdBtn {
+    //     width: 25%;
+    // }
     
     .memberFavCourse{
         margin-top: 10px;
-        padding: 10px 0;
-        // width: 100%;
+        padding: 10px;
+        border-radius: 5px;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -782,8 +833,7 @@
     }
     .memberFavContainerImg {
         width: 30%;
-        border-radius: 10px;
-        padding: 5px;
+        border-radius: 5px;
         overflow: hidden;
     }
     .memberFavContainerImg img{
@@ -1023,6 +1073,13 @@
                 text-align: center;
             }
         }
+
+        .memberOrdTitle div p{
+            font-size: 12px;
+        }
+        .memberOrderContent div p{
+            font-size: 8px;
+        }
     }
 
     
@@ -1041,22 +1098,37 @@
             }
             .memberTabList li a {
                 padding: 10px 15px;
+                font-size: 16px;
             }
         } 
-        // .memberDiaBtn{
-        //     display: block;
-        //     margin: 0 auto;
-        // }
-        // .memberDiaEditBtn, .memberCorInfBtn{
-        //     display: inline-block;
-        // }
+
+        .memberTagTabList li a{
+            font-size: 14px;
+        }
+
+        .pointCheckColor, .pointCheckRadio{
+            left: -16%;
+        }
+
+        .memberFavInfBtn{
+            width: 70px;
+        }
+        .memberFavInfBtn a{
+            font-size: 12px;
+        }
     }
     
     @media all and (max-width: 376px){
         
-        .memberTabList li a {
-            padding: 10px 15px;
+        .memberInfo{
+
+            .memberTabList li a {
+                padding: 10px;
+            }
         }
-    
+
+        .pointCheckColor, .pointCheckRadio{
+            left: -25%;
+        }
     }
 }
