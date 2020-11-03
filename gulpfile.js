@@ -53,8 +53,8 @@ gulp.task('default', function () {
 });
 
 
-// gulp.task('hi', function(){
-//     //do something
+gulp.task('hi', function(){
+    //do something
 
-//     console.log('hell word 你好gulp');
-// });
+    console.log('hell word 你好gulp');
+});

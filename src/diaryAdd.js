@@ -1,7 +1,7 @@
     import {TweenMax, TimelineMax} from "gsap";
     import Vue from "vue";
     import rangeslider from "rangeslider.js";
-
+    // require("jquery.ripples.js");
 
 $(function () {
     //水波紋
@@ -249,7 +249,6 @@ var select = new Vue({
             if (this.value == "") {
                 return [];
             } else {
-
                 // for (let index = 0; index < this.areas.length; index++) {
                 //   const element = this.areas[index];
                 //   if (element.selected == this.value) {
