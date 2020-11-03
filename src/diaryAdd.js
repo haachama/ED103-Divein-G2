@@ -261,3 +261,24 @@ var select = new Vue({
     },
 });
 
+function doFirst() {
+            //先跟HTML畫面產生關聯，再建事件聆聽功能
+            document.getElementById('biologicalBtnJSAnn').onchange = checkBiological;
+            checkBiological();
+        }
+function checkBiological() {
+    let diveAreas = ['bi1', 'bi2', 'bi3', 'bi4', 'bi5'];
+    let mapping = ['東北角','墾丁','小琉球','綠島','蘭嶼'];
+    let selected = document.getElementById("diveArea").options[document.getElementById("diveArea").selectedIndex].text;
+
+    for (let i = 0; i < diveAreas.length; i++) {
+        let yourSelect = document.getElementById(diveAreas[i]);
+        if (selected == mapping[i]) {
+            yourSelect.style.display = 'inline-block';
+        } else {
+            yourSelect.style.display = 'none';
+        }
+    }
+}
+window.addEventListener('load', doFirst);
+    
