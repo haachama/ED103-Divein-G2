@@ -1,0 +1,1269 @@
+.hide {
+    visibility: hidden;
+}
+
+.index {
+    background-image: url("../img/index/azurlane.png");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-attachment: unset;
+    height: auto;
+
+    h3 {
+        margin-top: 100px;
+        text-align: center;
+        font-size: 18px;
+        display: block;
+    }
+
+    .downH3 {
+        display: none;
+    }
+
+    @media all and (max-width: 991px) {
+        .topH3 {
+            display: none;
+        }
+
+        .downH3 {
+            display: block;
+            position: absolute;
+            top: 350px;
+            left: 50%;
+            transform: translate(-50%);
+            margin-top: 0;
+        }
+    }
+
+    @media all and (max-width: 577px) {
+        .downH3 {
+            top: 300px;
+        }
+    }
+
+    @media all and (max-width: 376px) {
+        .downH3 {
+            top: 200px;
+            font-size: 16px;
+        }
+    }
+
+    .waterWaveBubble {
+        overflow: hidden;
+
+        .innerWrap {
+            position: relative;
+            height: 810px;
+
+            @include breakpoint (376) {
+                height: 510px;
+            }
+        }
+
+        .logo {
+            position: absolute;
+            width: 300px;
+            height: 266px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-image: url('../img/index/diveinlogo_big.png');
+            opacity: 1;
+            z-index: 19;
+            top: 370px;
+            left: 120px;
+
+            @include breakpoint (376) {
+                width: 150px;
+            }
+        }
+
+        @media all and (max-width: 1300px) {
+            .logo {
+                top: 250px;
+            }
+        }
+
+        @media all and (max-width: 992px) {
+            .logo {
+                top: 370px;
+            }
+        }
+
+        .water_waves {
+            position: absolute;
+            top: 25%;
+            width: 100%;
+            height: 55.795%;
+            max-height: 491px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-image: url('../img/index/waves/water_waves.png');
+            z-index: 14;
+        }
+
+        @media all and (max-width: 1920px) {
+            .water_waves {
+                top: 13%;
+            }
+        }
+
+        @media all and (max-width: 1720px) {
+            .water_waves {
+                top: 10%;
+            }
+
+        }
+
+        @media all and (max-width: 1560px) {
+            .water_waves {
+                top: 6%;
+            }
+
+        }
+
+        @media all and (max-width: 1400px) {
+            .water_waves {
+                top: 3%;
+            }
+        }
+
+        @media all and (max-width: 1200px) {
+            .water_waves {
+                top: -1%;
+            }
+        }
+
+        @media all and (max-width: 991px) {
+            .water_waves {
+                top: 7%;
+            }
+        }
+
+        @media all and (max-width: 768px) {
+            .water_waves {
+                top: 3%;
+            }
+        }
+
+        @media all and (max-width: 577px) {
+            .water_waves {
+                top: 12%;
+            }
+        }
+
+        @media all and (max-width: 376px) {
+            .water_waves {
+                top: 24%;
+            }
+        }
+
+        .bubble {
+            position: relative;
+            width: 100%;
+            height: 551px;
+        }
+
+        .bubble::before {
+            content: '';
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background-image: url("../img/index/dolphin.png");
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: absolute;
+            top: 90px;
+            left: 27%;
+            animation: dolphinMove 3.5s linear infinite;
+
+            @include breakpoint (1200) {
+                top: 100px;
+                left: 50%;
+            }
+
+            @include breakpoint (577) {
+                left: 80%;
+            }
+
+            @include breakpoint (376) {
+                display: none;
+            }
+        }
+
+        .bubble4 {
+            position: absolute;
+            right: 0;
+            background-image: url('../img/index/waves/bubble4.png');
+            width: 100px;
+            height: 70px;
+            bottom: 60px;
+            z-index: 19;
+        }
+
+        @media all and (max-width: 1560px) {
+            .bubble4 {
+                visibility: hidden;
+            }
+        }
+
+
+        .bubble3 {
+            position: absolute;
+            left: 909px;
+            background-image: url('../img/index/waves/bubble3.png');
+            width: 509px;
+            height: 99px;
+            bottom: 144px;
+            z-index: 19;
+            transform: translate(355px, 90px) rotate(-2.2deg);
+        }
+
+        @media all and (max-width: 1720px) {
+            .bubble3 {
+                left: 790px;
+                bottom: 166px;
+            }
+        }
+
+
+        .bubble2 {
+            position: absolute;
+            left: 340px;
+            background-image: url('../img/index/waves/bubble2.png');
+            width: 311px;
+            height: 142px;
+            top: 105px;
+            z-index: 19;
+        }
+
+        %b1BubbleB5 {
+            animation: b1-bubble 7500ms linear infinite;
+            animation-fill-mode: forwards;
+            display: inline-block;
+            position: absolute;
+            background-size: cover;
+        }
+
+        .b1-bubble {
+            @extend %b1BubbleB5;
+            top: 250px;
+            left: 490px;
+            width: 3.5px;
+            height: 2.1px;
+            background-image: url(../img/index/waves/bubble1-1.png);
+
+            @include breakpoint (577) {
+                left: 290px;
+            }
+
+            @include breakpoint (376) {
+                left: 190px;
+            }
+        }
+
+        .b2-bubble {
+            @extend %b1BubbleB5;
+            animation-duration: 6500ms;
+            top: 260px;
+            left: 450px;
+            width: 2.5px;
+            height: 1.5px;
+            background-image: url(../img/index/waves/bubble1-2.png);
+
+            @include breakpoint (577) {
+                left: 250px;
+            }
+
+            @include breakpoint (376) {
+                left: 150px;
+            }
+        }
+
+        .b3-bubble {
+            @extend %b1BubbleB5;
+            animation-duration: 5500ms;
+            top: 200px;
+            left: 430px;
+            width: 3.1px;
+            height: 2.1px;
+            background-image: url(../img/index/waves/bubble1-3.png);
+
+            @include breakpoint (577) {
+                left: 230px;
+            }
+
+            @include breakpoint (376) {
+                left: 130px;
+            }
+        }
+
+        .b4-bubble {
+            @extend %b1BubbleB5;
+            animation-duration: 7500ms;
+            top: 180px;
+            left: 520px;
+            width: 4.6px;
+            height: 2.9px;
+            background-image: url(../img/index/waves/bubble1-4.png);
+
+            @include breakpoint (577) {
+                left: 320px;
+            }
+
+            @include breakpoint (376) {
+                left: 220px;
+            }
+        }
+
+        .b5-bubble {
+            @extend %b1BubbleB5;
+            animation-duration: 6000ms;
+            top: 130px;
+            left: 500px;
+            width: 5.5px;
+            height: 3.6px;
+            background-image: url(../img/index/waves/bubble1-5.png);
+
+            @include breakpoint (577) {
+                left: 300px;
+            }
+
+            @include breakpoint (376) {
+                left: 200px;
+            }
+        }
+
+    }
+
+    %animateSet {
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+        animation-delay: 0s;
+    }
+
+    .rand_big_small {
+        @extend %animateSet;
+        animation-name: rand_bigsmall;
+        animation-duration: 14s;
+    }
+
+    .rand_big_small_3 {
+        @extend %animateSet;
+        animation-name: rand_bigsmall_3;
+        animation-duration: 14s;
+    }
+
+    .shake-hard_12 {
+        @extend %animateSet;
+        animation-name: shake-hard;
+        animation-duration: 12s;
+    }
+
+    .shake-hard_15 {
+        @extend %animateSet;
+        animation-name: shake-hard;
+        animation-duration: 15s;
+    }
+
+
+    .shake-vertical_12 {
+        @extend %animateSet;
+        animation-name: shake-waves;
+        animation-duration: 12s;
+    }
+
+
+    h2 {
+        margin-left: 120px;
+        margin-top: 50px;
+
+        @include breakpoint (577) {
+            margin-left: 50%;
+            transform: translateX(-25%);
+        }
+
+        @include breakpoint (376) {
+            font-size: 28px;
+            margin-top: 80px;
+        }
+    }
+
+    .container {
+        display: block;
+        width: 600px;
+        margin: 50px auto 0;
+        height: 400px;
+        position: relative;
+
+        @include breakpoint (992) {
+            width: 400px;
+            margin-top: 0;
+        }
+
+        @include breakpoint (376) {
+            width: 300px;
+            height: 300px;
+        }
+
+        .spotTitle {
+            position: absolute;
+            top: 18px;
+            left: 50%;
+            transform: translate(-50%);
+            color: #fefefe;
+            font-size: 24px;
+
+            @include breakpoint (577) {
+                top: 80px;
+                font-size: 18px;
+            }
+
+            @include breakpoint (376) {
+                top: 110px;
+            }
+        }
+
+        .scene {
+            height: 400px;
+            background-image: url("../img/index/diveSpotNew.png");
+            background-size: 81%;
+            background-position: 50% center;
+            background-repeat: no-repeat;
+            z-index: -1;
+            overflow: hidden;
+
+            img {
+                width: 90px;
+
+                @include breakpoint (992) {
+                    width: 60px;
+                }
+            }
+        }
+    }
+
+    %parallax {
+        content: '';
+        display: inline-block;
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+        position: absolute;
+        transform: scale(1.2);
+    }
+
+    .container::before {
+        @extend %parallax;
+        background-image: url("../img/index/maskDark.png");
+        width: 600px;
+        height: 400px;
+
+        @include breakpoint (992) {
+            width: 400px;
+        }
+
+        @include breakpoint (376) {
+            width: 300px;
+        }
+    }
+
+    .container::after {
+        @extend %parallax;
+        background-image: url("../img/index/tube.png");
+        width: 100%;
+        height: 100%;
+        bottom: 0;
+        left: -49%;
+        z-index: 2;
+
+        @include breakpoint (992) {
+            width: 60%;
+            height: 60%;
+            top: 20%;
+            left: -30%;
+        }
+    }
+
+    .weatherNow {
+        width: 100%;
+        text-align: center;
+
+        .fas {
+            margin: 15px;
+            font-size: 1.2*$baseFz;
+
+            @include breakpoint (376) {
+                font-size: $baseFz;
+            }
+        }
+    }
+
+    .spotBtn {
+        display: flex;
+        justify-content: center;
+
+        .bubbleBtn {
+            margin: 30px;
+        }
+
+        .button {
+            @include breakpoint (376) {
+                padding: 10px;
+            }
+        }
+    }
+
+
+    //潛水課程
+    .containerCourse {
+        box-sizing: border-box;
+        overflow: hidden;
+
+        .submarine {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            height: 320px;
+            position: relative;
+
+            background-image: url("../img/index/submarineGray.png");
+            background-size: 60%;
+            background-position: top center;
+            background-repeat: no-repeat;
+            animation: submarineMove 5s linear infinite;
+
+
+            @include breakpoint (992) {
+                background-image: none;
+                margin-top: 40px;
+                padding-top: 0;
+                height: auto;
+                animation: none;
+            }
+        }
+
+        .light{
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            left:45.5%;
+            z-index: 2;
+            clip-path: polygon(50% 0%, 28% 100%, 76% 100%);
+
+            width: 10%;
+            height: 60%;
+            background-color: rgba(255, 245, 220, 0.2);
+            transform-origin: top;
+            animation: detectLight 3.5s linear infinite alternate;
+
+            @include breakpoint (992) {
+                display: none;
+            }
+        }
+
+        .courseBox {
+            margin: 160px 20px 0;
+            height: 100px;
+
+            a {
+                display: block;
+            }
+
+            @include breakpoint (992) {
+                margin: 20px;
+            }
+
+            @include breakpoint (376) {
+                margin: 20px 30px;
+            }
+        }
+
+        .courseBox:nth-child(2) {
+            margin-left: -50px;
+
+            @include breakpoint (992) {
+                margin: 20px;
+            }
+
+            @include breakpoint (376) {
+                margin: 20px 30px;
+            }
+        }
+
+        .animal {
+            overflow: hidden;
+            border-radius: 50%;
+            position: relative;
+
+            img {
+                width: 80px;
+            }
+
+            .windows {
+                border-radius: 50%;
+            }
+
+            .subLife {
+                position: absolute;
+                left: 12%;
+                top: 20%;
+
+                transform-style: preserve-3d;
+                transform: perspective(500px);
+            }
+        }
+
+        .courseTxt {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .courseList {
+            display: flex;
+            justify-content: space-around;
+            margin: 0px auto;
+            width: 70%;
+
+            @include breakpoint (577) {
+                flex-wrap: wrap;
+            }
+        }
+
+        .post-module {
+            position: relative;
+            min-width: 270px;
+            height: 370px;
+            transition: all 0.3s linear 0s;
+            margin: 20px;
+
+            &:hover {
+                cursor: pointer;
+            }
+
+            &:hover .thumbnail img {
+                transform: scale(1.1);
+                opacity: 0.6;
+            }
+
+            a {
+                display: inline-block;
+            }
+
+            .thumbnail {
+                background: #000000;
+                height: 370px;
+                overflow: hidden;
+
+                .date {
+                    position: absolute;
+                    top: 20px;
+                    right: 20px;
+                    z-index: 1;
+                    background: #E6AE2C;
+                    width: 55px;
+                    height: 55px;
+                    padding: 10px 0;
+                    border-radius: 100%;
+                    color: #FFFFFF;
+                    text-align: center;
+                    box-sizing: border-box;
+
+                    .day {
+                        font-size: 18px;
+                    }
+
+                    .month {
+                        font-size: 12px;
+                        text-transform: uppercase;
+                    }
+                }
+
+
+                img {
+                    display: block;
+                    width: 120%;
+                    transition: all 0.3s linear 0s;
+                }
+
+            }
+
+            .post-content {
+                position: absolute;
+                bottom: 0;
+                background: #FFFFFF;
+                width: 100%;
+                padding: 20px;
+                box-sizing: border-box;
+                transition: all 0.3s linear 0s;
+            }
+
+            .category {
+                position: absolute;
+                top: -34px;
+                left: 0;
+                background: #E6AE2C;
+                padding: 10px 15px;
+                color: #FFFFFF;
+                font-size: 14px;
+                font-weight: 600;
+            }
+
+            .title {
+                padding: 0 0 10px;
+                color: #333333;
+                font-size: 20px;
+            }
+
+            .subTitle {
+                margin-top: 10px;
+                padding: 0 0 10px;
+                color: #E6AE2C;
+                font-size: 18px;
+            }
+
+            .description {
+                display: none;
+                color: #666666;
+                font-size: 14px;
+                line-height: 1.8em;
+            }
+
+            p {
+                letter-spacing: 0;
+            }
+
+        }
+
+
+
+    }
+
+    @media all and (max-width: 991px) {
+        .post-module:nth-child(3) {
+            display: none;
+        }
+    }
+
+
+    .shop {
+        max-width: 1200px;
+        margin: 20px auto 0;
+        display: flex;
+        justify-content: center;
+        position: relative;
+
+        .demoMan {
+
+            img {
+                width: 150px;
+                margin-left: 150px;
+                margin-top: 50px;
+            }
+
+            @include breakpoint (992) {
+                display: none;
+            }
+        }
+
+        .itemList {
+            margin-left: 100px;
+            margin-top: 80px;
+
+            @include breakpoint (577) {
+                margin: 0 auto;
+                width: 90%;
+                text-align: center;
+            }
+
+            
+
+            span {
+                color: $keyWhite;
+                font-weight: bold;
+                font-size: 1.5*$baseFz;
+
+                @include breakpoint (577) {
+                    font-size: 16px;
+                    display: block;
+                    text-align: center;
+                    margin-top: 10px;
+                }
+
+            }
+
+            
+            .item .line{
+                display: inline-block;
+                position: absolute;
+                background-repeat: no-repeat;
+                background-position: 0% 0%;
+                background-image: linear-gradient($keyWhite,$keyWhite);
+                background-size: 0% 100%;
+                transition:background-size linear .5s;
+            }
+
+            .mask {
+                margin-left: 140px;
+                position: relative;
+
+                @include breakpoint (992) {
+                    margin-left: 0px;
+                }
+
+                .line {
+                    left: -108%;
+                    top: 30%;
+                    width: 300px;
+                    height: 2px;
+                    transform: rotate(9deg);
+
+                    @include breakpoint (992) {
+                        display: none;
+                    }
+                }
+
+                &:hover .line{
+                    animation: drawAline .5s linear 1 normal forwards;
+                }
+            }
+
+
+            .watch {
+                margin-left: 80px;
+                position: relative;
+
+                @include breakpoint (992) {
+                    margin-left: 0px;
+                }
+
+                .line {
+                    left: -54%;
+                    top: 52%;
+                    width: 181px;
+                    height: 2px;
+
+                    @include breakpoint (992) {
+                        display: none;
+                    }
+                }
+
+                &:hover .line{
+                    animation: drawAline .5s linear 1 normal forwards;
+                }
+            }
+
+            .gloves {
+                margin-left: 200px;
+                position: relative;
+
+                @include breakpoint (992) {
+                    margin-left: 0px;
+                }
+
+                .line {
+                    left: -146%;
+                    top: 0%;
+                    width: 320px;
+                    height: 2px;
+                    transform: rotate(16deg);
+
+                    @include breakpoint (992) {
+                        display: none;
+                    }
+                }
+                &:hover .line{
+                    animation: drawAline .5s linear 1 normal forwards;
+                }
+            }
+
+            .frogshoes {
+                position: relative;
+
+                @include breakpoint (992) {
+                    margin-left: 0px;
+                }
+
+                .line {
+                    left: -32%;
+                    top: 30%;
+                    width: 134px;
+                    height: 2px;
+                    transform: rotate(9deg);
+
+                    @include breakpoint (992) {
+                        display: none;
+                    }
+                }
+                &:hover .line{
+                    animation: drawAline .5s linear 1 normal forwards;
+                }
+            }
+
+            .item {
+                margin-bottom: 30px;
+
+                @include breakpoint (992) {
+                    display: inline-block;
+                    margin: 10px 40px;
+                }
+
+                @include breakpoint (577) {
+                    margin: 30px;
+                }
+                @include breakpoint (376) {
+                    margin: 10px;
+                }
+
+                a,
+                span {
+                    vertical-align: middle;
+                }
+
+                img {
+                    width: 130px;
+                }
+
+                a {
+                    margin-right: 30px;
+                    display: inline-block;
+
+                    @include breakpoint (577) {
+                        margin: 0px;
+                    }
+                }
+
+               
+            }
+        }
+    }
+
+    .shopBtn {
+        text-align: center;
+        margin: 50px;
+    }
+
+
+    // 潛水日誌
+    .diaryArea{
+        margin-bottom: 130px;
+    }
+    .cardContainer {
+        width: 80%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin: 50px auto;
+    }
+
+    .imgContainer {
+        width: 425px;
+        height: 425px;
+
+        @include breakpoint (577) {
+            height: auto;
+        }
+
+        img {
+            height: 100%;
+            vertical-align: bottom;
+        }
+    }
+
+    .blogContent {
+
+        width: 425px;
+        padding-left: 20px;
+        background-color: #16181d;
+        color: #fefefe;
+        height: 425px;
+
+        @include breakpoint (376) {
+            height: auto;
+        }
+
+        p {
+            display: inline-block;
+            text-align: center;
+            margin: 10px 20px;
+        }
+
+        span {
+            display: block;
+            margin-top: 2px;
+        }
+
+        div {
+            margin: 10px 0;
+        }
+
+    }
+
+    .profile {
+        img {
+            width: auto;
+            border-radius: 50%;
+            border: 1px solid $keyWhite;
+        }
+
+        img,
+        .nameDate {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        p {
+            display: block;
+        }
+    }
+
+    .blogWeather {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .sublife {
+        text-align: center;
+
+        img {
+            margin: 5px 8px;
+            width: auto;
+        }
+
+        p {
+            display: block;
+        }
+    }
+
+    .smallDiary {
+        display: flex;
+        justify-content: center;
+
+        @include breakpoint (767){
+            flex-wrap: wrap;
+        }
+
+        .diarySolid {
+            width: 300px;
+            border-radius: 5px;
+            overflow: hidden;
+
+            a{
+                color: $keyWhite;
+            }
+
+            .imgContent {
+                position: relative;
+
+                img {
+                    vertical-align: top;
+                }
+
+                .diaryTitleA {
+                    position: absolute;
+                    top: 0;
+                    display: flex;
+                    width: 100%;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 15px 15px;
+
+                    .diaryTitleFlex {
+
+                        img {
+                            vertical-align: middle;
+                            width: 42px;
+                            border-radius: 50%;
+                            border: 1px solid $keyWhite;
+                            overflow: hidden;
+                        }
+                        
+                        .userName {
+                            padding-left: 10px;
+                            display: inline-block;
+                        }
+                    }
+
+                    div,p{
+                        vertical-align: middle;
+                    }
+                }
+
+                .diaryTitleB {
+                    position: absolute;
+                    bottom: 0;
+
+                    p{
+                        padding: 0px 15px 15px 15px;
+                    }
+                }
+            }
+
+            // 卡片文字內容
+            .diaryText {
+                padding: 10px;
+                background-color: $keyWhite;
+                color: $keyBlue;
+                text-align: center;
+
+                .diaryTextData {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-evenly;
+
+                    div{
+                        line-height: 1.5;
+                    }
+
+                    span {
+                        display: block;
+                        color: #467500;
+                        font-size: 24px;
+                    }
+                }
+            }
+
+            .diaryTextP {
+                P {
+                    display: inline-block;
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+
+    .diaryCenter {
+        position: relative;
+        margin: 0 10px;
+
+        @include breakpoint (767){
+            margin: 20px 0px;
+        }
+    }
+
+    .diaryCenter::after {
+        content: '';
+        display: inline-block;
+        width: 130px;
+        height: 105px;
+        background-image: url(../img/index/shaII.png);
+        background-repeat: no-repeat;
+        background-position: center top;
+        background-size: 120px auto;
+        position: absolute;
+        left: 50%;
+        bottom: -30%;
+        transform: translateX(-50%);
+        z-index: -1;
+
+        @include breakpoint (767){
+            display: none;
+        }
+    }
+
+    .diaryCenter:hover::after {
+        background-position: center bottom;
+    }
+
+    .diaryCenter:hover{
+        animation: cardMove 1s ease-in-out 1;
+    }
+
+    .diaryCenter:nth-child(3){
+        @include breakpoint (992){
+            display: none;
+        }
+    }
+
+    .gameCenter {
+        max-width: 800px;
+        margin-top: 30px;
+        margin: auto;
+        padding: 5px;
+        
+        .gameH3 {
+            margin-top: 50px;
+        }
+    
+        .diveGif {
+            text-align: center;
+    
+            img {
+                width: 60%;
+                margin: 50px auto;
+            }
+        }
+    
+        .bubbleBtn {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+    }
+    
+    .bottomSunhoo {
+        position: relative;
+        width: 100%;
+        background-image: url(../img/index/homeBg.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    
+    .rank{
+        position: absolute;
+        right: 5%;
+        bottom: 17%;
+
+        .nameList{
+            position: relative;
+    
+            p{
+                position: absolute;
+                font-size: 20px;
+                transform: rotate(-16deg);
+            }
+
+            .top{
+                top: 32%;
+                left: 30%;
+            }
+
+            .second{
+                top: 48%;
+                left: 46%;
+            }
+
+            .third{
+                top: 62%;
+                left: 46%;
+            }
+    
+            &::before{
+                content: '';
+                display: inline-block;
+                width: 300px;
+                height: 400px;
+                background-image: url("../img/index/rankBar.png");
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+            }
+        }
+    }
+    
+    @media all and (max-width: 1300px) {
+        .rank .nameList::before {
+            width: 250px;
+        }
+
+        .third{
+            top: 62%;
+        }
+    }
+    @media all and (max-width: 1200px) {
+        .rank .nameList::before,.nameList p {
+            display: none;
+        }
+    }
+}
