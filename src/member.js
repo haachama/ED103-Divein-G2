@@ -134,6 +134,25 @@ $(function () {
 //map
 (function($){
     $(document).ready(function(){
+        //標註
+        var layer = new ol.layer.Vector({
+            source: new ol.source.Vector()
+        })
+        // 创建一个Feature，并设置好在地图上的位置
+        var anchor = new ol.Feature({
+            geometry: new ol.geom.Point([120.365428, 22.344879])
+        });
+        // 设置样式，在样式中就可以设置图标
+        anchor.setStyle(new ol.style.Style({
+            image: new ol.style.Icon({
+            src: './img/member/tag/Shinnosuke4.png'
+            })
+        }));
+        // 添加到之前的创建的layer中去
+        layer.getSource().addFeature(anchor);
+
+
+        //地圖位置
         $('#mapIdSLC').height(window.innerHeight);
         $('#mapIdKD').height(window.innerHeight);
         $('#mapIdLD').height(window.innerHeight);
@@ -146,15 +165,17 @@ $(function () {
             layers: [
               new ol.layer.Tile({
                 source: new ol.source.OSM()
-              })
+              }),
+              layer
             ],
             view: new ol.View({
-              center: ol.proj.fromLonLat([120.375456, 22.329162]),
-              zoom: 13.5
+                projection: 'EPSG:4326',
+                center: [120.375456, 22.329162],
+                zoom: 13.5
             })
         });
 
-        //墾丁
+        // 墾丁
         var mapIdKD = new ol.Map({
             target: 'mapIdKD',
             layers: [
@@ -168,7 +189,7 @@ $(function () {
             })
         });
 
-        //綠島
+        // 綠島
         var mapIdLD = new ol.Map({
             target: 'mapIdLD',
             layers: [
@@ -182,7 +203,7 @@ $(function () {
             })
         });
 
-        //蘭嶼
+        // 蘭嶼
         var mapIdLU = new ol.Map({
             target: 'mapIdLU',
             layers: [
@@ -196,7 +217,7 @@ $(function () {
             })
         });
 
-        //東北角
+        // 東北角
         var mapIdDBG = new ol.Map({
             target: 'mapIdDBG',
             layers: [
@@ -210,6 +231,7 @@ $(function () {
             })
         });
 
+        //讓頁簽中的地圖顯示
         $(".memberTab").click(function(){
             mapIdSLC.hidden = false;
             mapIdKD.hidden = false;
@@ -244,8 +266,10 @@ $(function () {
             mapIdDBG.hidden = false;
             mapIdDBG.updateSize();
         });
-        });
-   })($)
+
+        //標註
+    });
+})($)
 
    $(function () {
        //課程評鑑星星
