@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import Parallax from 'parallax-js';
 import TimelineMax from 'gsap';
-
+import ScrollMagic from 'scrollmagic';
 
 $(function () {
 
@@ -180,7 +180,7 @@ $(function () {
 var light = document.getElementsByClassName("light")[0];
 var courseBox = document.getElementsByClassName("courseBox");
 
-function stopAnimation(){
+function stopAnimation() {
     light.style.animationPlayState = 'paused';
 }
 
@@ -258,3 +258,24 @@ function mobileFish() {
 }
 
 mobileFish();
+
+
+// shop draw line
+// var controller = new ScrollMagic.Controller();
+
+// var drawLine = new TimelineMax();
+// drawLine.to('.mask .line', 0.5, {
+//     backgroundSize: "100% 100%"
+// }).to('.watch .line', 0.5, {
+//     backgroundSize: "100% 100%"
+// }).to('.gloves .line', 0.5, {
+//     backgroundSize: "100% 100%"
+// }).to('.frogshoes .line', 0.5, {
+//     backgroundSize: "100% 100%"
+// })
+
+// var scense011 = new ScrollMagic.Scene({
+//     triggerElement:'#triggerShop',
+//     triggerHook: 0.5,     //調整觸發點的位置，0(top) ~ 1(bottom) 之間，預設是0.5
+//     reverse: false,      //動畫執行完不返回原點，預設為true
+// }).setTween(drawLine).addIndicators().addTo(controller);

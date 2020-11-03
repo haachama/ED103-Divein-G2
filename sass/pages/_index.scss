@@ -751,6 +751,7 @@
         margin: 20px auto 0;
         display: flex;
         justify-content: center;
+        position: relative;
 
         .demoMan {
 
@@ -775,18 +776,7 @@
                 text-align: center;
             }
 
-            div {
-                margin-bottom: 30px;
-
-                @include breakpoint (992) {
-                    display: inline-block;
-                    margin: 10px 40px;
-                }
-
-                @include breakpoint (577) {
-                    margin: 20px;
-                }
-            }
+            
 
             span {
                 color: $keyWhite;
@@ -802,9 +792,127 @@
 
             }
 
+            
+            .item .line{
+                display: inline-block;
+                position: absolute;
+                background-repeat: no-repeat;
+                background-position: 0% 0%;
+                background-image: linear-gradient($keyWhite,$keyWhite);
+                background-size: 0% 100%;
+                transition:background-size linear .5s;
+            }
+
+            .mask {
+                margin-left: 140px;
+                position: relative;
+
+                @include breakpoint (992) {
+                    margin-left: 0px;
+                }
+
+                .line {
+                    left: -108%;
+                    top: 30%;
+                    width: 300px;
+                    height: 2px;
+                    transform: rotate(9deg);
+
+                    @include breakpoint (992) {
+                        display: none;
+                    }
+                }
+
+                &:hover .line{
+                    animation: drawAline .5s linear 1 normal forwards;
+                }
+            }
+
+
+            .watch {
+                margin-left: 80px;
+                position: relative;
+
+                @include breakpoint (992) {
+                    margin-left: 0px;
+                }
+
+                .line {
+                    left: -54%;
+                    top: 52%;
+                    width: 181px;
+                    height: 2px;
+
+                    @include breakpoint (992) {
+                        display: none;
+                    }
+                }
+
+                &:hover .line{
+                    animation: drawAline .5s linear 1 normal forwards;
+                }
+            }
+
+            .gloves {
+                margin-left: 200px;
+                position: relative;
+
+                @include breakpoint (992) {
+                    margin-left: 0px;
+                }
+
+                .line {
+                    left: -146%;
+                    top: 0%;
+                    width: 320px;
+                    height: 2px;
+                    transform: rotate(16deg);
+
+                    @include breakpoint (992) {
+                        display: none;
+                    }
+                }
+                &:hover .line{
+                    animation: drawAline .5s linear 1 normal forwards;
+                }
+            }
+
+            .frogshoes {
+                position: relative;
+
+                @include breakpoint (992) {
+                    margin-left: 0px;
+                }
+
+                .line {
+                    left: -32%;
+                    top: 30%;
+                    width: 134px;
+                    height: 2px;
+                    transform: rotate(9deg);
+
+                    @include breakpoint (992) {
+                        display: none;
+                    }
+                }
+                &:hover .line{
+                    animation: drawAline .5s linear 1 normal forwards;
+                }
+            }
+
             .item {
+                margin-bottom: 30px;
+
+                @include breakpoint (992) {
+                    display: inline-block;
+                    margin: 10px 40px;
+                }
+
+                @include breakpoint (577) {
+                    margin: 30px;
+                }
                 @include breakpoint (376) {
-                    margin: 10px 0;
+                    margin: 10px;
                 }
 
                 a,
@@ -819,109 +927,13 @@
                 a {
                     margin-right: 30px;
                     display: inline-block;
-                }
-            }
 
-            .mask {
-                margin-left: 140px;
-                position: relative;
-
-                @include breakpoint (992) {
-                    margin-left: 0px;
-                }
-
-
-                &::before {
-                    content: '';
-                    display: inline-block;
-                    position: absolute;
-                    left: -108%;
-                    top: 30%;
-                    width: 300px;
-                    height: 2px;
-                    transform: rotate(9deg);
-                    background-color: $keyWhite;
-
-                    @include breakpoint (992) {
-                        display: none;
-                    }
-                }
-            }
-
-            .watch {
-                margin-left: 80px;
-                position: relative;
-
-                @include breakpoint (992) {
-                    margin-left: 0px;
-                }
-
-
-                &::before {
-                    content: '';
-                    display: inline-block;
-                    position: absolute;
-                    left: -54%;
-                    top: 52%;
-                    width: 181px;
-                    height: 2px;
-                    background-image: linear-gradient($keyWhite, $keyWhite);
-                    background-size: 10% 100%;
-
-                    @include breakpoint (992) {
-                        display: none;
+                    @include breakpoint (577) {
+                        margin: 0px;
                     }
                 }
 
-            }
-
-            .gloves {
-                margin-left: 200px;
-                position: relative;
-
-                @include breakpoint (992) {
-                    margin-left: 0px;
-                }
-
-                &::before {
-                    content: '';
-                    display: inline-block;
-                    position: absolute;
-                    left: -146%;
-                    top: 0%;
-                    width: 320px;
-                    height: 2px;
-                    transform: rotate(16deg);
-                    background-color: $keyWhite;
-
-                    @include breakpoint (992) {
-                        display: none;
-                    }
-                }
-            }
-
-            .frogshoes {
-                position: relative;
-
-                @include breakpoint (992) {
-                    margin-left: 0px;
-                }
-
-                &::before {
-                    content: '';
-                    display: inline-block;
-                    position: absolute;
-                    left: -32%;
-                    top: 30%;
-                    width: 134px;
-                    height: 2px;
-                    transform: rotate(9deg);
-                    background-color: $keyWhite;
-
-                    @include breakpoint (992) {
-                        display: none;
-                    }
-                }
+               
             }
         }
     }
