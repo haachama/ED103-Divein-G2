@@ -561,5 +561,41 @@
     }
 }
 
+@keyframes cardMove{
+    0%{
+        transform: translate(-2px);
+    }
+    25%{
+        transform: translate(0px);
+    }
+    50%{
+        transform: translate(2px);
+    }
+    75%{
+        transform: translate(0px);
+    }
+    100%{
+        transform: translate(-2px);
+    }
+}
+
+@keyframes detectLight{
+    0%{
+        height: 85%;
+	    transform: rotate(50deg);
+    }
+    33%{
+        height: 65%;
+	    transform: rotate(30deg);
+    }
+    66%{
+        height: 65%;
+	    transform: rotate(-5deg);
+    }
+    100%{
+        height: 72%;
+	    transform: rotate(-35deg);
+    }
+}
 
 

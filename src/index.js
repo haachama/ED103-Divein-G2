@@ -176,6 +176,45 @@ $(function () {
 
 });
 
+// detectLight
+var light = document.getElementsByClassName("light")[0];
+var courseBox = document.getElementsByClassName("courseBox");
+
+function stopAnimation(){
+    light.style.animationPlayState = 'paused';
+}
+
+courseBox[0].addEventListener("mouseenter", function () {
+    light.style.height = "85%";
+    light.style.transform = "rotate(50deg)";
+    stopAnimation()
+}, false)
+
+courseBox[1].addEventListener("mouseenter", function () {
+    light.style.height = "65%";
+    light.style.transform = "rotate(30deg)";
+    stopAnimation()
+}, false)
+
+courseBox[2].addEventListener("mouseenter", function () {
+    light.style.height = "65%";
+    light.style.transform = "rotate(-5deg)";
+    stopAnimation()
+}, false)
+
+courseBox[3].addEventListener("mouseenter", function () {
+    light.style.height = "72%";
+    light.style.transform = "rotate(-35deg)";
+    stopAnimation()
+}, false)
+
+
+for (let i = 0; i < courseBox.length; i++) {
+    courseBox[i].addEventListener("mouseleave", function () {
+        light.style.animationPlayState = 'running';
+    }, false)
+}
+
 
 // parallax fish
 var scene = document.getElementById('scene');
@@ -214,14 +253,6 @@ function mobileFish() {
         $('.fishTurtle').css({
             top: '150px',
             left: '250px'
-        })
-    } else {
-        $('.fishNemo').css({
-            display: 'inline-block',
-        })
-        $('.fishTurtle').css({
-            top: '100px',
-            left: '350px'
         })
     }
 }
