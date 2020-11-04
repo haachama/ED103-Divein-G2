@@ -1,0 +1,227 @@
+.cart {
+
+    .title {
+        text-align: center;
+        margin: 30px;
+    }
+
+    .container {
+        max-width: 1200px;
+        box-sizing: border-box;
+        width: 100%;
+        margin: auto;
+
+        .wrap{
+            border-radius: 5px 5px 0 0;
+            background-color: #fdf6e7;
+
+            .listHeader{
+                display: flex;
+                text-align: center;
+                background-color: $keyBlue;
+                font-weight: bold;
+                padding: 10px 0;
+                border-radius: 5px 5px 0 0;
+                justify-content: space-around;
+                @include breakpoint(992){
+                    h4{
+                        font-size: 18px;
+                    }
+                }
+                @include breakpoint(577){
+                    h4{
+                        font-size: 14px;
+                    }
+                }
+            }
+            .listRow{
+                .prodInfo{
+                    align-items: center;
+                    display: flex;
+                    justify-content: space-around;
+                    color: $keyBlack;
+                    padding: 20px 0;
+                    border-bottom: 1px solid $keyBlack;
+                    .prodPic{
+                        width: 5%;
+                    }
+                    @include breakpoint(577){
+                        div{
+                            font-size: 14px;
+                        }
+                    }
+                }
+                .fa-trash {
+                    cursor: pointer;
+        
+                    &:hover {
+                        color: #E6AE2C;
+                    }
+                }
+            }
+        }            
+    }
+
+    .totalContent {
+        margin: auto;
+        padding: 30px;
+        background-color: #fdf6e7;
+        color: $keyBlack;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        
+        .gamePlay {
+            .demo-btn{
+                width: 80px;
+            }
+        }
+        
+        .calc{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            @include breakpoint(767){
+                align-items: flex-start;
+            }
+            p{
+            margin: 5px;
+            }
+        }
+    }
+
+    span {
+        color: red;
+    }
+
+    .cartBtn {
+        width: 100%;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+
+        .bubbleBtn {
+            margin: 30px;
+        }
+    }
+
+    .buyMore,
+    .toBack{
+
+        .button--bubble__container .effect-button,
+        .button--bubble__effect-container .circle {
+            background: #176587;
+        }
+
+        .button--bubble:hover {
+            color: #176587;
+        }
+
+        .button--bubble:hover+.button--bubble__effect-container .circle {
+            background: #fefefe;
+        }
+
+        //觸摸時背景顏色
+        .button--bubble:hover+.button--bubble__effect-container .button {
+            background: #fefefe;
+        }
+    }
+
+    //收件人、信用卡資訊欄
+    .writeInfo{
+        margin-bottom: 50px;
+        p,h4{
+            padding: 8px;
+            color: $keyBlack;
+        }
+        .information{
+            max-width: 1200px;
+            box-sizing: border-box;
+            padding: 10px;
+            margin: auto;
+            position: relative;
+            width: 100%;
+            h3{
+                text-align: center;
+                background-color: $keyBlue;
+                border-radius: 5px 5px 0 0;
+                padding: 10px;
+            }
+        }
+        .wrap{
+            display: flex;
+            flex-wrap: wrap;
+            padding: 10px;
+            justify-content: space-around;
+            background-color: #fdf6e7;
+            
+            .creditCard input{
+                margin: 2px 0;
+                width: 60px;
+            }
+        }
+        .subBtn{
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+            .bubbleBtn{
+                margin:0 30px;
+            }
+        }
+    }
+
+
+    //結帳後的視窗
+    // .orderConfirm {
+    //     display: none;
+    //     position: fixed;
+    //     width: 100%;
+    //     top: 0;
+    //     bottom: 0;
+    //     left: 0;
+    //     right: 0;
+    //     margin: auto;
+    //     z-index: 2;
+    // }
+
+
+    .lightbox1{
+        background-color: #fdf6e7;
+        max-width: 500px;
+    }
+    .confirmContainer {
+        box-sizing: border-box;
+        padding: 10px;
+
+        p {
+            color: $keyBlack;
+            text-align: left;
+        }
+
+        .confirmTitle {
+            padding-top: 10px;
+        }
+
+        .rewrite {
+            @include other-button(100px, 30px, 2px, 2px);
+        }
+
+        .confirmBtn {
+            @include other-button(100px, 30px, 2px, 2px);
+            background-color: $keyYellow;
+            border: 1px solid $keyYellow;
+            &:hover {
+                background-color:  rgb(224, 168, 36);
+                border: 1px solid  rgb(201, 151, 34);
+            }
+            &:active{
+                background-color: $keyYellow;
+            }
+            &:focus{
+                background-color: $keyYellow;
+            }
+        }
+    }
+
+}

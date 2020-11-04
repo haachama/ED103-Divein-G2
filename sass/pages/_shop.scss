@@ -1,10 +1,206 @@
-.shop{
+.shop {
 
-    // 請勿超出大括號
+    .shop_nav a {
+        color: $keyBlue;
+    }
+
+    .bgBlack {
+        width: 80%;
+        margin: auto;
+        // background-color: rgba(22, 24, 29, .9);
+
+        .shopH2 {
+            text-align: center;
+            padding: 30px 0;
+        }
+
+    }
+
+    .oneee {
+        margin-top: 60px;
+    }
+
+    .itemType {
+        width: 100%;
+        max-width: 1200px;
+        margin: auto;
+
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+            max-width: 1200px;
+
+            li {
+                width: 80px;
+                text-align: center;
+                border: 2px solid $keyWhite;
+                font-size: $baseFz;
+                margin: 20px;
+                padding: 8px 10px;
+                color: $keyWhite;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: $keyWhite;
+                    color: $keyBlue;
+                }
+            }
+
+        }
+    }
+
+    .itemList {
+        margin: auto;
+        position: relative;
+
+        // .demomanIn {
+        //     width: 150px;
+        //     position: absolute;
+        //     top: 40%;
+        //     left: 50%;
+        //     transform: translate(-50%, -50%);
+        //     @include breakpoint(767){
+        //         display: none;
+        //     }
+        // }
+    }
+
+    .product {
+        width: 100%;
+        max-width: 1200px;
+        margin: auto;
+        // border: 1px solid red;
+    }
+
+    .productUp,
+    .productDown {
+        color: $keyWhite;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .productDown {
+        padding-bottom: 100px;
+    }
+
+    .art {
+        flex: 1;
+        position: relative;
+        border: 2px solid seashell;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        margin: 20px;
+        background-color:rgb(22, 24, 29);
+        &:hover::before{
+            top: -35px;
+        }  
+        &::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 60px;
+            height: 60px;
+            z-index: -1;
+            background-repeat: no-repeat;
+            background-image: url(../img/shop/watermom.png);
+            transition: top .3s;
+        }
+        .itemName,
+        .NT {
+
+            font-size: 1.5*$baseFz;
+            font-weight: 600;
+            text-align: center;
+            margin: 10px;
+        }
+
+        .NT {
+            font-weight: 400;
+        }
+
+        .addNumber {
+            text-align: center;
+            margin-bottom: 20px;
+
+            input {
+                width: 75px;
+                text-align: center;
+            }
+
+            .fas {
+                cursor: pointer;
+            }
+        }
+
+        .fa-heart {
+            position: absolute;
+            top: 7%;
+            right: 7%;
+            cursor: pointer;
+            font-size: 24px;
+
+            &:hover {
+                color: red;
+            }
+        }
+    }
+
+
+    .item img {
+        width: 150px;
+        padding: 30px;
+    }
+
+    .shopBtn {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin: 5px auto;
+        text-align: center;
+
+        .detail {
+
+            .button--bubble__container .effect-button,
+            .button--bubble__effect-container .circle {
+                background: #176587;
+            }
+
+            .button--bubble:hover {
+                color: #176587;
+            }
+
+            .button--bubble:hover+.button--bubble__effect-container .circle {
+                background: #fefefe;
+            }
+
+            //觸摸時背景顏色
+            .button--bubble:hover+.button--bubble__effect-container .button {
+                background: #fefefe;
+            }
+        }
+    }
+
+    .bubbleBtn {
+        width: 100px;
+        box-sizing: border-box;
+        margin: 0 10px;
+    }
+
+    .button {
+        padding: 12px 10px;
+        font-size: 12px;
+
+    }
 
 
 
-
-
+    .button--bubble__container {
+        width: 100%;
+    }
 
 }

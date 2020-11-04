@@ -43,7 +43,7 @@ h1{
     }
 
     a:hover {
-        color: $keyBlue;
+        font-weight: 700;
     }
 
     li::before,a{
@@ -169,6 +169,10 @@ h1{
         transform: translate(-40%);
 
         li {
+            display: none;
+        }
+
+        li:nth-child(1).show{
             display: none;
         }
     }
