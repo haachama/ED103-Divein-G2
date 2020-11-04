@@ -261,24 +261,28 @@ var select = new Vue({
     },
 });
 
+
+
+
 function doFirst() {
             //先跟HTML畫面產生關聯，再建事件聆聽功能
             document.getElementById('biologicalBtnJSAnn').onchange = checkBiological;
             checkBiological();
         }
 function checkBiological() {
-    let diveAreas = ['bi1', 'bi2', 'bi3', 'bi4', 'bi5'];
-    let mapping = ['東北角','墾丁','小琉球','綠島','蘭嶼'];
-    let selected = document.getElementById("diveArea").options[document.getElementById("diveArea").selectedIndex].text;
+    let animals = ['animal1', 'animal2', 'animal3', 'animal4', 'animal5', 'animal6', 'animal7', 'animal8', 'animal9', 'animal10', 'animal11', 'animal12'];
+    //取input的id
+    for (let i = 0; i < animals.length; i++) {
 
-    for (let i = 0; i < diveAreas.length; i++) {
-        let yourSelect = document.getElementById(diveAreas[i]);
-        if (selected == mapping[i]) {
-            yourSelect.style.display = 'inline-block';
-        } else {
-            yourSelect.style.display = 'none';
+        document.getElementById('biologicalAddImg').innerHTML = show;
+
+        if ( form.animals[i].checked ) {
+            show = `<img src='./img/diary/${animals[i]}.png' >`;
         }
     }
 }
 window.addEventListener('load', doFirst);
+
+
+
     

@@ -52,7 +52,7 @@
 
     <!-- 篩選 -->
     <div class="diaryAdd_formAddAll">
-        <form action="" class="formf">
+        <form action="" class="formf" id="formName">
             <div class="diaryAddA"> <!-- 區塊A_日誌-->
                 <!-- 日誌名稱 -->
                 <div class="diaryAddName">
@@ -136,7 +136,7 @@
                         <div class="demo-btn mainBtn_3 biologicalBtnCssAnn">選擇圖鑑</div>
                     </div>
                     <div class="biologicalAddImg">
-                        <!-- innerHTML -->
+                        <!-- innerHTML = img -->
                     </div>
                     <div class="biologicalCssaAnn lightbox-block3">
                         <div class="biologicalCssbAnn lightbox3">
@@ -146,18 +146,18 @@
                             <h3>生物圖鑑</h3>
                             <div class="biologicalCsscAnn inlightbox-form3">
                                 <ul>
-                                    <li><label><input id="bi1" name="animals-01" value="1" type="checkbox"><img src="./img/diary/animals-01.png" alt=""></label></li>
-                                    <li><label><input id="bi2" name="animals-02" value="2" type="checkbox"><img src="./img/diary/animals-02.png" alt=""></label></li>
-                                    <li><label><input id="bi3" name="animals-03" value="3" type="checkbox"><img src="./img/diary/animals-03.png" alt=""></label></li>
-                                    <li><label><input id="bi4" name="animals-04" value="4" type="checkbox"><img src="./img/diary/animals-04.png" alt=""></label></li>
-                                    <li><label><input id="bi5" name="animals-05" value="5" type="checkbox"><img src="./img/diary/animals-05.png" alt=""></label></li>
-                                    <li><label><input id="bi6" name="animals-06" value="6" type="checkbox"><img src="./img/diary/animals-06.png" alt=""></label></li>
-                                    <li><label><input id="bi7" name="animals-07" value="7" type="checkbox"><img src="./img/diary/animals-07.png" alt=""></label></li>
-                                    <li><label><input id="bi8" name="animals-08" value="8" type="checkbox"><img src="./img/diary/animals-08.png" alt=""></label></li>
-                                    <li><label><input id="bi9" name="animals-09" value="9" type="checkbox"><img src="./img/diary/animals-09.png" alt=""></label></li>
-                                    <li><label><input id="bi10" name="animals-10" value="10" type="checkbox"><img src="./img/diary/animals-10.png" alt=""></label></li>
-                                    <li><label><input id="bi11" name="animals-11" value="11" type="checkbox"><img src="./img/diary/animals-11.png" alt=""></label></li>
-                                    <li><label><input id="bi12" name="animals-12" value="12" type="checkbox"><img src="./img/diary/animals-12.png" alt=""></label></li>
+                                    <li><label><input id="animal1" name="animals" value="1" type="checkbox"><img src="./img/diary/animal1.png" id="animalImg1"></label></li>
+                                    <li><label><input id="animal2" name="animals" value="2" type="checkbox"><img src="./img/diary/animal2.png" id="animalImg2"></label></li>
+                                    <li><label><input id="animal3" name="animals" value="3" type="checkbox"><img src="./img/diary/animal3.png" id="animalImg3"></label></li>
+                                    <li><label><input id="animal4" name="animals" value="4" type="checkbox"><img src="./img/diary/animal4.png" id="animalImg4"></label></li>
+                                    <li><label><input id="animal5" name="animals" value="5" type="checkbox"><img src="./img/diary/animal5.png" id="animalImg5"></label></li>
+                                    <li><label><input id="animal6" name="animals" value="6" type="checkbox"><img src="./img/diary/animal6.png" id="animalImg6"></label></li>
+                                    <li><label><input id="animal7" name="animals" value="7" type="checkbox"><img src="./img/diary/animal7.png" id="animalImg7"></label></li>
+                                    <li><label><input id="animal8" name="animals" value="8" type="checkbox"><img src="./img/diary/animal8.png" id="animalImg8"></label></li>
+                                    <li><label><input id="animal9" name="animals" value="9" type="checkbox"><img src="./img/diary/animal9.png" id="animalImg9"></label></li>
+                                    <li><label><input id="animal10" name="animals" value="10" type="checkbox"><img src="./img/diary/animal10.png" id="animalImg10"></label></li>
+                                    <li><label><input id="animal11" name="animals" value="11" type="checkbox"><img src="./img/diary/animal11.png" id="animalImg11"></label></li>
+                                    <li><label><input id="animal12" name="animals" value="12" type="checkbox"><img src="./img/diary/animal12.png" id="animalImg12"></label></li>
                                     <li><input id="biologicalBtnJSAnn" class="submitbtn3" name="" type="button" value="選擇"></li>
                                 </ul>
                             </div>
@@ -178,7 +178,7 @@
                 <div>
                     <p><i class="fas fa-camera-retro"></i>
                         <label for="fileBtn" class="demo-btn" >上傳照片</label>
-                        <input type="file" name="fileBtn" id="fileBtn">
+                        <input type="file" name="fileBtn" id="fileBtn" >
                     </p>
                 </div>
             </div>
