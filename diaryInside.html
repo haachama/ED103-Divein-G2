@@ -19,7 +19,7 @@
         <div class="pageLeft"><!-- 左側 -->
             <div class="pageLeftImg"><img src="./img/diary/spotGiLittle-04.png" class="image"></div>
             <div id="app" class="pageLeftLine"> <!-- D3 -->
-                <svg width="500" height="270">
+                <svg id="resizeAuto"> <!-- JS用的id -->
                     <g style="transform: translate(0, 10px)">
                     <path :d="line" />
                     </g>

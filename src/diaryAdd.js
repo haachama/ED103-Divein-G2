@@ -265,20 +265,18 @@ var select = new Vue({
 
 
 function doFirst() {
-            //先跟HTML畫面產生關聯，再建事件聆聽功能
-            document.getElementById('biologicalBtnJSAnn').onchange = checkBiological;
-            checkBiological();
+            document.getElementById('biologicalBtnJSAnn').onclick = checkBiological;
         }
 function checkBiological() {
-    let animals = ['animal1', 'animal2', 'animal3', 'animal4', 'animal5', 'animal6', 'animal7', 'animal8', 'animal9', 'animal10', 'animal11', 'animal12'];
-    //取input的id
+    let animals = ['animal1', 'animal2', 'animal3', 'animal4', 'animal5', 'animal6', 'animal7', 'animal8', 'animal9', 'animal10', 'animal11', 'animal12']; //id
+    let show = "";
+    
     for (let i = 0; i < animals.length; i++) {
-
-        document.getElementById('biologicalAddImg').innerHTML = show;
-
-        if ( form.animals[i].checked ) {
-            show = `<img src='./img/diary/${animals[i]}.png' >`;
+        let list = document.getElementById(animals[i]);
+        if ( list.checked ) {
+            show += `<img src='./img/diary/${animals[i]}.png' style="width:80px">`;
         }
+        document.getElementById('biologicalAddImg').innerHTML = show;
     }
 }
 window.addEventListener('load', doFirst);
