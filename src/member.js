@@ -138,17 +138,31 @@ $(function () {
         var layer = new ol.layer.Vector({
             source: new ol.source.Vector()
         })
-        // 创建一个Feature，并设置好在地图上的位置
+        // 創建一個Feature，並設好在地圖上的位置
         var anchor = new ol.Feature({
             geometry: new ol.geom.Point([120.365428, 22.344879])
         });
-        // 设置样式，在样式中就可以设置图标
+        // 設置樣式，在樣式中設置圖標
         anchor.setStyle(new ol.style.Style({
             image: new ol.style.Icon({
-            src: './img/member/tag/Shinnosuke4.png'
+            src: './img/member/tag/Shinnosuke4.png',
+            // anchor: [0.5, 0.9],  //錨點位置
+            // rotation: Math.PI / 4,   //傾斜
             })
         }));
-        // 添加到之前的创建的layer中去
+
+        // var i = 0;
+        // var j = 45;
+
+        // iconFeature.setStyle(function () {
+        //     var x = Math.sin((i * Math.PI) / 180) * 3;
+        //     var y = Math.sin((j * Math.PI) / 180) * 4;
+        //     anchor.getImage().setScale([x, y]);
+        //     anchor.getText().setScale([x, y]);
+        //     return anchor;
+        // });
+        
+        // 添加到之前的創建的layer中去
         layer.getSource().addFeature(anchor);
 
 
