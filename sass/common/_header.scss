@@ -3,7 +3,9 @@ header {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    position: relative;
+    position: sticky;
+    top:0;  
+    z-index: 5;
 
     h1,div,button{
         vertical-align: middle;
@@ -13,6 +15,11 @@ header {
 h1{
     font-size: 0;
 }
+
+nav{
+    position: relative;
+}
+
 
 .logo {
     img {

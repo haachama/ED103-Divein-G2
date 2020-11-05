@@ -43,7 +43,6 @@
 
     @media all and (max-width: 376px) {
         .downH3 {
-            top: 200px;
             font-size: 16px;
         }
     }
@@ -68,11 +67,11 @@
             background-repeat: no-repeat;
             background-image: url('../img/index/diveinlogo_big.png');
             opacity: 1;
-            z-index: 19;
+            z-index: 2;
             top: 370px;
             left: 120px;
 
-            @include breakpoint (376) {
+            @include breakpoint (577) {
                 width: 150px;
             }
         }
@@ -98,7 +97,7 @@
             background-size: cover;
             background-repeat: no-repeat;
             background-image: url('../img/index/waves/water_waves.png');
-            z-index: 14;
+            z-index: 2;
         }
 
         @media all and (max-width: 1920px) {
@@ -397,12 +396,11 @@
         position: relative;
 
         @include breakpoint (992) {
-            width: 400px;
+            width: 300px;
             margin-top: 0;
         }
 
         @include breakpoint (376) {
-            width: 300px;
             height: 300px;
         }
 
@@ -460,12 +458,9 @@
         height: 400px;
 
         @include breakpoint (992) {
-            width: 400px;
-        }
-
-        @include breakpoint (376) {
             width: 300px;
         }
+
     }
 
     .container::after {
@@ -488,6 +483,7 @@
     .weatherNow {
         width: 100%;
         text-align: center;
+        margin: 20px 0 0px;
 
         .fas {
             margin: 15px;
@@ -497,6 +493,10 @@
                 font-size: $baseFz;
             }
         }
+
+        p{
+            font-size: 0.75*$baseFz;
+        }
     }
 
     .spotBtn {
@@ -504,7 +504,7 @@
         justify-content: center;
 
         .bubbleBtn {
-            margin: 30px;
+            margin: 30px 15px;
         }
 
         .button {
@@ -727,6 +727,10 @@
                 color: #666666;
                 font-size: 14px;
                 line-height: 1.8em;
+
+                @include breakpoint (577){
+                    display: block;
+                }
             }
 
             p {
@@ -909,7 +913,7 @@
                 }
 
                 @include breakpoint (577) {
-                    margin: 30px;
+                    margin: 20px;
                 }
                 @include breakpoint (376) {
                     margin: 10px;
@@ -979,7 +983,7 @@
         color: #fefefe;
         height: 425px;
 
-        @include breakpoint (376) {
+        @include breakpoint (577) {
             height: auto;
         }
 
