@@ -54,7 +54,7 @@
                     <div class="prodNumber">2</div>
                     <div class="subTotal">17200</div>
                     <div class="trashcan">
-                        <i class="fas fa-trash" id="trash1"></i>
+                        <i class="fas fa-trash" id="trash2"></i>
                     </div>
                 </div>
             </div>
@@ -100,7 +100,7 @@
                     </span>
                 </span>
             </div>
-            <div class="bubbleBtn billSet">
+            <div class="bubbleBtn thebill">
                 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="goo">
                     <defs>
                         <filter id="goo">
@@ -261,51 +261,11 @@
         </div>
     </div>
 
-
-    <!-- <div class="orderConfirm">
-        <div class="confirmContainer">
-            <p class="confirmTitle">請確認您的資料</p>
-            <p class="confirmTitle">收件人資訊：</p>
-            <p>姓名：</p>
-            <p>行動電話：</p>
-            <p>地址：</p>
-            <p class="confirmTitle">信用卡資訊：</p>
-            <p>信用卡帳號：</p>
-            <p>有效期限：</p>
-            <button class="rewrite">重新填寫</button>
-            <button class="confirmBtn">確認送出</button>
-        </div>
-    </div> -->
-
-
-
     @@include('./layout/footer.html')
     <script src="./js/shop.js"></script>
     <script src="./js/bubbleBtn.js"></script>
     <script>
-        // function doFirst(){
-        //     let faTrash = document.getElementsByClassName('fa-trash');
-
-
-
-        //     for(let i = 0; i<faTrash.length; i++){
-        //         faTrash[i].addEventListener('click',function(){
-        //             let aid = this.id;
-        //             // let index = ;
-        //             garbageCan(aid);
-        //         });
-        //     }
-
-        //     function garbageCan(aid){
-        //         // if(`row${}`=){
-
-        //             if (aid.slice(-1)==`$`)
-
-        //         // }
-        //     }
-        // }
-        // window.addEventListener('load',doFirst);
-
+       
     </script>
     <script>
         $(function () {
@@ -325,6 +285,31 @@
             });
         });
     </script>
+
+    
+    <script>
+        function doFirst(){
+            let billSet = document.getElementsByClassName('billSet')[0];
+            document.getElementsByClassName('billSet')[0].style.visibility = 'hidden';
+            let thebill = document.getElementsByClassName('thebill')[0];
+            thebill.addEventListener('click',appear);
+            let cartBtn = document.getElementsByClassName('cartBtn')[0];
+            function appear(){
+                billSet.style.visibility = 'visible';
+                cartBtn.style.visibility = 'hidden';
+            }
+            let toBack = document.getElementsByClassName('toBack')[0];
+            toBack.onclick = function(){
+                billSet.style.visibility = 'hidden';
+                cartBtn.style.visibility = 'visible';
+            }
+
+            // let faTrash = document.
+        }
+
+        window.addEventListener('load',doFirst);
+    </script>
+
 </body>
 
 </html>
