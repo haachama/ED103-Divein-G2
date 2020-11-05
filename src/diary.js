@@ -263,8 +263,12 @@ var vm = new Vue({
             return {
                 options: [
                     {
-                        value: "東北角",
-                        text: "東北角"
+                        value: "綠島",
+                        text: "綠島"
+                    },
+                    {
+                        value: "蘭嶼",
+                        text: "蘭嶼"
                     },
                     {
                         value: "墾丁",
@@ -275,25 +279,11 @@ var vm = new Vue({
                         text: "小琉球"
                     },
                     {
-                        value: "綠島",
-                        text: "綠島"
-                    },
-                    {
-                        value: "蘭嶼",
-                        text: "蘭嶼"
+                        value: "東北角",
+                        text: "東北角"
                     },
                 ],
-                areas: [{
-                        selected: "東北角",
-                        diveArea: [{key:"和美",value:"和美"}, {key:"龍洞",value:"龍洞"}, {key:"潮境公園",value:"潮境公園"}, {key:"鼻頭角",value:"鼻頭角"}],
-                    },
-                    {
-                        selected: "墾丁",
-                        diveArea: [{key:"後壁湖",value:"後壁湖"}, {key:"出水口",value:"出水口"}, {key:"雙峰藍洞",value:"雙峰藍洞"}, {key:"北岸花園",value:"北岸花園"}],
-                    }, {
-                        selected: "小琉球",
-                        diveArea: [{key:"花瓶岩",value:"花瓶岩"}, {key:"美人洞",value:"美人洞"}, {key:"衫福沈船",value:"衫福沈船"}, {key:"鎮海艦",value:"鎮海艦"}, {key:"厚石礁群",value:"厚石礁群"}],
-                    },
+                areas: [
                     {
                         selected: "綠島",
                         diveArea: [{key:"海底教堂",value:"海底教堂"},{key:"鋼鐵礁",value:"鋼鐵礁"}, {key:"石朗大香菇",value:"石朗大香菇"}, {key:"海底大峽谷",value:"海底大峽谷"}, {key:"雞仔礁",value:"雞仔礁"}],
@@ -302,6 +292,17 @@ var vm = new Vue({
                         selected: "蘭嶼",
                         diveArea: [{key:"母雞岩",value:"母雞岩"}, {key:"八代灣沉船",value:"八代灣沉船"}, {key:"椰油斷層",value:"椰油斷層"}, {key:"野銀小峽谷",value:"野銀小峽谷"}, {key:"四條溝",value:"四條溝"}],
                     },
+                    {
+                        selected: "墾丁",
+                        diveArea: [{key:"後壁湖",value:"後壁湖"}, {key:"出水口",value:"出水口"}, {key:"雙峰藍洞",value:"雙峰藍洞"}, {key:"合界",value:"合界"}],
+                    }, {
+                        selected: "小琉球",
+                        diveArea: [{key:"花瓶岩",value:"花瓶岩"}, {key:"美人洞",value:"美人洞"}, {key:"衫福沈船",value:"衫福沈船"}, {key:"鎮海艦",value:"鎮海艦"}, {key:"厚石礁群",value:"厚石礁群"}],
+                    },
+                    {
+                        selected: "東北角",
+                        diveArea: [{key:"和美",value:"和美"}, {key:"龍洞",value:"龍洞"}, {key:"潮境公園",value:"潮境公園"}, {key:"鼻頭角",value:"鼻頭角"}],
+                    }
                 ],
                 value: "",
             };

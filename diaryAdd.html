@@ -169,7 +169,54 @@
             <div class="process"> <!-- 區塊D_潛水過程 -->
                 <p class="processP">潛水過程</p>
                 <div class="processrange">
-                    <input type="range" data-orientation="vertical">
+                    <p>深度(M)</p>
+                    <div class="rangeBlock">
+                        <!--深度柯度-->
+                        <div class="depthBlock">  
+                            <span>0</span>
+                            <span>10</span>
+                            <span>20</span>
+                            <span>30</span>
+                            <span>40</span>
+                            <span>50</span>
+                        </div>
+                        <!--拉桿區-->
+                        <div class="Block">
+                            <div class="annBlock">
+                                <div class="ann">
+                                    <input class="range" type="range" min="0" max="50" value="0" step="1" onmousemove="rangevalue.value=value" ontouchmove="rangevalue.value=value"/>
+                                    <output id="rangevalue"></output>
+                                </div>
+                                <div class="ann">
+                                    <input class="range" type="range" min="0" max="50" value="0" step="1" onmousemove="rangevalue2.value=value" ontouchmove="rangevalue2.value=value"/>
+                                    <output id="rangevalue2"></output>
+                                </div>
+                                <div class="ann">
+                                    <input class="range" type="range" min="0" max="50" value="0" step="1" onmousemove="rangevalue3.value=value" ontouchmove="rangevalue3.value=value"/>
+                                    <output id="rangevalue3"></output>
+                                </div>
+                                <div class="ann">
+                                    <input class="range" type="range" min="0" max="50" value="0" step="1" onmousemove="rangevalue4.value=value" ontouchmove="rangevalue4.value=value"/>
+                                    <output id="rangevalue4"></output>
+                                </div>
+                                <div class="ann">
+                                    <input class="range" type="range" min="0" max="50" value="0" step="1" onmousemove="rangevalue5.value=value" ontouchmove="rangevalue5.value=value"/>
+                                    <output id="rangevalue5"></output>
+                                </div>
+                            </div>
+                            <!--潛水時間長度-->
+                            <div class="timeBlock">
+                                <span class="zone">0</span>
+                                <!-- to: ann~ 這邊的span裡面要放以使用者填寫潛水時間的平均分鐘數 --> 
+                                <span>10</span>
+                                <span>20</span>
+                                <span>30</span>
+                                <span>40</span>
+                                <span>50</span>
+                            </div>
+                            <p>分鐘(m)</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 

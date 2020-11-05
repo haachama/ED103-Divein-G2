@@ -1799,7 +1799,6 @@
                 }
 
                 .climateB {
-
                     // border: 1px solid wheat;
                     div {
                         // border: 1px solid blue;
@@ -1892,54 +1891,170 @@
                 padding: 10px;
             }
             .processrange{
-                .group{
-                    display: inline-block;
-                    margin: 50px 0;
-                    .slidecontainer{
-                        display: inline-block;
-                        width: 20px;
-                        height: 150px;
-                        padding: 0;
-                    .slider {
-                        -webkit-appearance: none;  /* Override default CSS styles */
-                        appearance: none;
-                        height: 15px; /* Specified height */
-                        background: #d3d3d3; /* Grey background */
-                        outline: none; /* Remove outline */
-                        opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-                        -webkit-transition: .2s; /* 0.2 seconds transition on hover */  
-                        width: 150px;
+                // border: 1px solid yellow;
+                padding: 20px 10px;
+                background-color: $keyBlack;
+                color: $keyWhite;  
+                width: 100%;
+                max-width: 100%; //coco說要改的寬
+                margin: 0 auto;
+                .rangeBlock{
+                    // border: 1px solid yellow;
+                    overflow: hidden;
+                    display: flex;
+                    flex-direction: row;
+                    .depthBlock{
+                        // border:1px solid red;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        height: 258px;
+                        text-align: right;
+                        width: 5%;
+                        margin-right: 3px;
+                    }
+                    .Block{
+                        // border:1px solid greenyellow;
+                        width: 95%;
+                        background-color: $keyBlack;
+                    .annBlock{
+                        background-color: $keyBlack;
+                        border-left: 3px solid $keyWhite;
+                        border-bottom: 3px solid $keyWhite;
+                        padding: 3px 0px  0px 0px;
+                        width: 100%;
                         margin: 0;
-                        transition: opacity .2s;
-                        transform-origin: 100px 0px;
-                        transform: rotate(-90deg);
-                        }
-                
-                    /* Mouse-over effects */
-                    .slider:hover {
-                        opacity: 1; /* Fully shown on mouse-over */
-                        }
-                
-                    /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */ 
-                    .slider::-webkit-slider-thumb {
-                        -webkit-appearance: none; /* Override default look */
-                        appearance: none;
-                        width: 40px; /* Set a specific slider handle width */
-                        height: 40px; /* Slider handle height */
-                        border-radius: 50%;
-                        background: #4CAF50; /* Green background */
-                        cursor: pointer; /* Cursor on hover */
-                        }
-                
-                    .slider::-moz-range-thumb {
-                        width: 10px; /* Set a specific slider handle width */
-                        height: 10px; /* Slider handle height */
-                        background: #4CAF50; /* Green background */
-                        cursor: pointer; /* Cursor on hover */
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-around;
+                        .ann{
+                            width:20px;
+                            height: 250px;
+                            text-align: left;
+                            display: inline-block;
+                            margin: 0 20px 0 10px;
+                            position: relative;
+                            //------input
+                            .range{
+                                -webkit-appearance: none;
+                                vertical-align: middle;
+                                width:250px;
+                                outline: none;
+                                border: none;
+                                padding: 0;
+                                background: none;
+                                transform-origin: 10px 0px;
+                                transform: rotate(90deg);
+                                // margin: 20px;
+                            }
+                            .range::-webkit-slider-runnable-track {
+                                background-color: #606670;
+                                height: 6px;
+                                border-radius: 3px;
+                                border: 1px solid transparent;
+                            }
+                            .range[disabled]::-webkit-slider-runnable-track {
+                                border: 1px solid #606670;
+                                background-color: transparent;
+                                opacity: 0.4;
+                            }
+                            .range::-moz-range-track {
+                                background-color: #606670;
+                                height: 6px;
+                                border-radius: 3px;
+                                border: none;
+                            }
+                            .range::-ms-track {
+                                color: transparent;
+                                border: none;
+                                background: none;
+                                height: 6px;
+                            }
+                            .range::-ms-fill-lower { 
+                                background-color: #d7dbdd;
+                                border-radius: 3px;
+                            }
+                            .range::-ms-fill-upper { 
+                                background-color: #d7dbdd;
+                                border-radius: 3px;
+                            }
+                            .range::-ms-tooltip {
+                                display: none; /* display and visibility only */ 
+                            }
+                            .range::-webkit-slider-thumb {
+                                -webkit-appearance: none !important;
+                                border-radius: 100%;
+                                background-color: #176587;
+                                height: 20px;
+                                width: 20px;
+                                margin-top: -7px;
+                                box-shadow: 0 0 5px rgba(0,0,0,.5);
+                            }
+                            .range[disabled]::-webkit-slider-thumb {
+                                background-color: transparent;
+                                border: 1px solid #d7dbdd;
+                                box-shadow: none;
+                            }
+                            .range::-moz-range-thumb {
+                                border-radius: 20px;
+                                height: 20px;
+                                width: 20px;
+                                border: none;
+                                background: none;
+                                background-color: #176587;
+                            }
+                            .range::-ms-thumb { 
+                                border-radius: 100%;
+                                background-color: #176587;
+                                height: 20px;
+                                width: 20px; 
+                                border: none;
+                            }
+                            .range:active::-webkit-slider-thumb {
+                                outline: none;
+                            } 
+                            .range:active::-moz-range-thumb {
+                                outline: none;
+                            }
+                            .range:active::-ms-thumb {
+                                border: none;
+                            }
+                            //------output
+                            output {
+                                border: 1px solid #d7dbdd;
+                                color: rgb(233, 231, 231);
+                                font-family: 'Lato', sans-serif;
+                                font-size: 12px;
+                                padding: .4em .4em;
+                                border-radius: 3px;
+                                position: absolute;
+                                top: 0px;
+                                left: 20px;
+                                // transform: translate(-50px, -50px);
+                            }
                         }
                     }
+                    .timeBlock{
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-around;
+                        // border: 1px solid red;
+                        width: 100%;
+                        margin: 0 auto;
+                        position: relative;
+                        .zone{
+                            position: absolute;
+                            left: -5px;
+                            top: 0;
+                        }
+                    }
+                    p{
+                        text-align: right;
+                        margin: 0;
+                    }
+                    }
                 }
-            }
+                }
         }
 
         .diaryAddImg {
