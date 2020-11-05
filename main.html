@@ -8,6 +8,7 @@
     <link rel="Shortcut Icon" href="./img/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="./fontawesome/css/all.css">
     <link rel="stylesheet" href="./css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>海中日子</title>
 </head>
 
@@ -17,7 +18,7 @@
     <h3 class="topH3">今天我想來點自由配潛水</h3>
 
     @@include('./layout/indexWave.html')
-    
+
 
     <h2>潛點推薦</h2>
 
@@ -112,8 +113,8 @@
             <span class="light"></span>
             <div class="courseBox">
                 <a class="animal" href="./course.html">
-                    <img class="windows" src="./img/index/window_new-01.png" >
-                    <img class="subLife" src="./img/index/fish_1018A.png" >
+                    <img class="windows" src="./img/index/window_new-01.png">
+                    <img class="subLife" src="./img/index/fish_1018A.png">
                 </a>
                 <div class="courseTxt">
                     體驗潛水
@@ -121,8 +122,8 @@
             </div>
             <div class="courseBox">
                 <a class="animal" href="./course.html">
-                    <img class="windows" src="./img/index/window_new-01.png" >
-                    <img class="subLife" src="./img/index/fish_1018B.png" >
+                    <img class="windows" src="./img/index/window_new-01.png">
+                    <img class="subLife" src="./img/index/fish_1018B.png">
                 </a>
                 <div class="courseTxt">
                     OW證照
@@ -130,8 +131,8 @@
             </div>
             <div class="courseBox">
                 <a class="animal" href="./course.html">
-                    <img class="windows" src="./img/index/window_new-01.png" >
-                    <img class="subLife" src="./img/index/fish_1018C.png" >
+                    <img class="windows" src="./img/index/window_new-01.png">
+                    <img class="subLife" src="./img/index/fish_1018C.png">
                 </a>
                 <div class="courseTxt">
                     AOW證照
@@ -139,8 +140,8 @@
             </div>
             <div class="courseBox">
                 <a class="animal" href="./course.html">
-                    <img class="windows" src="./img/index/window_new-01.png" >
-                    <img class="subLife" src="./img/index/fish_1018D.png" >
+                    <img class="windows" src="./img/index/window_new-01.png">
+                    <img class="subLife" src="./img/index/fish_1018D.png">
                 </a>
                 <div class="courseTxt">
                     OW+AOW
@@ -149,7 +150,7 @@
         </div>
 
         <div class="courseList">
-            
+
             <div class="post-module">
                 <a href="javascript:;">
                     <div class="thumbnail">
@@ -159,7 +160,7 @@
                         </div>
                         <img src="./img/index/course3.jpg" />
                     </div>
-      
+
                     <div class="post-content">
                         <div class="category">綠島</div>
                         <span class="title">OW考照班</span>
@@ -179,7 +180,7 @@
                         </div>
                         <img src="./img/index/course3.jpg" />
                     </div>
-      
+
                     <div class="post-content">
                         <div class="category">綠島</div>
                         <span class="title">OW考照班</span>
@@ -199,7 +200,7 @@
                         </div>
                         <img src="./img/index/course3.jpg" />
                     </div>
-      
+
                     <div class="post-content">
                         <div class="category">綠島</div>
                         <span class="title">OW考照班</span>
@@ -210,48 +211,56 @@
                     </div>
                 </a>
             </div>
-        
-            
-     
+
+
+
         </div>
 
 
     </div>
 
     <h2>潛水商城</h2>
-    
+
     <div class="shop">
         <div class="demoMan">
             <img src="./img/index/demoman.png">
         </div>
         <div class="itemList">
-            <div class="mask item">
+            <div class="mask item mainBtn_1">
                 <span class="line"></span>
-                <a href="./shop.html">
-                    <img src="./img/index/shopMask.png">
-                </a>
+                <!-- <a href="./shop.html"> -->
+                <img src="./img/index/shopMask.png">
+                <!-- </a> -->
                 <span>面鏡</span>
             </div>
-            <div class="watch item">
+            <div class="watch item mainBtn_1">
                 <span class="line"></span>
                 <a href="./shop.html">
                     <img src="./img/index/shoeWatch.png">
                 </a>
                 <span>潛水錶</span>
             </div>
-            <div class="gloves item">
+            <div class="gloves item mainBtn_1">
                 <span class="line"></span>
                 <a href="./shop.html">
                     <img src="./img/index/shopGlove.png">
                 </a>
                 <span>手套</span>
             </div>
-            <div class="frogshoes item">
+            <div class="frogshoes item mainBtn_1">
                 <span class="line"></span>
                 <a href="./shop.html">
                     <img src="./img/index/shopShoe.png">
                 </a>
                 <span>蛙鞋</span>
+            </div>
+            <div class="lightbox-block1">
+                <div class="lightbox1">
+                    <div class="button_closeBox1">
+                        <button type="button" class="btn_modal_close">✖</button>
+                    </div>
+                    <h3>商品詳情</h3>
+                </div>
             </div>
         </div>
 
@@ -308,7 +317,7 @@
                     <p>日誌類型<span>旅潛</span></p>
                     <p>潛水區域<span>墾丁</span></p>
                     <p>潛水地點<span>出海口</span></p>
-                
+
                     <p>最大深度<span>33.2米</span></p>
                     <p>平均深度<span>23米</span></p>
                     <p>潛水時間<span>45分</span></p>
@@ -316,21 +325,21 @@
                         <p>
                             <i class="fas fa-sun"></i>
                             <span>晴</span>
-                         </p>
-                         <p>
+                        </p>
+                        <p>
                             <i class="fas fa-eye"></i>
                             <span>33.2米</span>
-                         </p>
-                         <p>
+                        </p>
+                        <p>
                             <i class="fas fa-temperature-high"></i>
                             <span>23度</span>
-                         </p>
-                         <p>
+                        </p>
+                        <p>
                             <i class="fas fa-temperature-low"></i>
                             <span>45度</span>
-                         </p>
+                        </p>
                     </div>
-                 
+
                 </div>
                 <div class="sublife">
                     <p>海洋生物</p>
@@ -438,7 +447,7 @@
                     </a>
                 </div>
             </div>
-           
+
         </div>
     </div>
 
@@ -461,7 +470,7 @@
                         </filter>
                     </defs>
                 </svg>
-        
+
                 <span class="button--bubble__container">
                     <a href="./gameIntro.html" class="button button--bubble">
                         進入遊戲
@@ -469,8 +478,8 @@
                     <span class="button--bubble__effect-container">
                         <span class="circle top-left"></span>
                         <span class="circle top-left"></span>
-                        <span class="circle top-left"></span> 
-                        <span class="button effect-button"></span> 
+                        <span class="circle top-left"></span>
+                        <span class="button effect-button"></span>
                         <span class="circle bottom-right"></span>
                         <span class="circle bottom-right"></span>
                         <span class="circle bottom-right"></span>
@@ -489,5 +498,24 @@
 
     @@include('./layout/footer.html')
     <script src="./js/index.js"></script>
+    <script>
+        $(function () {
+
+            // 開啟 Modal 彈跳視窗
+            $(".mainBtn_1").on("click", function () {
+                $(".lightbox-block1").addClass("-openbox");
+            });
+
+            // 關閉 Modal
+            $(".btn_modal_close").on("click", function () {
+                $(".lightbox-block1").addClass("-opacity-zero");
+                // 設定隔一秒後，移除相關 class
+                setTimeout(function () {
+                    $(".lightbox-block1").removeClass("-openbox -opacity-zero");
+                }, 1000);
+            });
+        });
+    </script>
 </body>
+
 </html>

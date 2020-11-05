@@ -40,7 +40,7 @@
                     <div class="prodNumber">2</div>
                     <div class="subTotal">17200</div>
                     <div class="trashcan">
-                        <i class="fas fa-trash" id="trash1"></i>
+                        <i class="fas fa-trash"></i>
                     </div>
                 </div>
             </div>
@@ -54,7 +54,7 @@
                     <div class="prodNumber">2</div>
                     <div class="subTotal">17200</div>
                     <div class="trashcan">
-                        <i class="fas fa-trash" id="trash2"></i>
+                        <i class="fas fa-trash"></i>
                     </div>
                 </div>
             </div>
@@ -303,10 +303,21 @@
                 billSet.style.visibility = 'hidden';
                 cartBtn.style.visibility = 'visible';
             }
-
-            // let faTrash = document.
+      
         }
 
+        window.addEventListener('load',doFirst);
+    </script>
+    <script>
+        function doFirst(){
+            let trashCanList = document.getElementsByClassName('fa-trash');
+            for(i=0;i<trashCanList.length;i++){
+                trashCanList[i].addEventListener('click',remove);
+            }
+            function remove(e){
+                e.target.parentNode.parentNode.parentNode.remove();
+            }
+        }
         window.addEventListener('load',doFirst);
     </script>
 

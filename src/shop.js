@@ -23,8 +23,22 @@ $(function () {
         }
     });
 
+    //5-1 lightbox  商城查看詳情
+    // 開啟 Modal 彈跳視窗
+    $(".mainBtn_1").on("click", function(){
+        $(".lightbox-block1").addClass("-openbox");
+    });
 
-    // 5-2 lightbox
+    // 關閉 Modal
+    $(".btn_modal_close").on("click", function(){
+        $(".lightbox-block1").addClass("-opacity-zero");
+        // 設定隔一秒後，移除相關 class
+        setTimeout(function(){
+            $(".lightbox-block1").removeClass("-openbox -opacity-zero");
+        }, 1000);
+    });
+
+    // 5-2 lightbox  購物車詳細資料
     // 開啟 Modal 彈跳視窗
     $(".mainBtn_2").on("click", function(){
         $(".lightbox-block2").addClass("-openbox");
