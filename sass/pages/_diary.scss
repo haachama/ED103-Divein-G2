@@ -1844,15 +1844,23 @@
             }
             .panel {  //lightbox
                 border: 1px solid green;
-                height: 120px;
                 // display: none;
                 .diaryAddBiological{
-                    border: 1px solid orangered;
+                    // border: 1px solid orangered;
                     i {
                         // border: 1px solid orangered;
                         font-size: 20px;
-                        padding-right: 5px;
+                        padding: 0px 5px;
+                        vertical-align: middle;
                     }
+                    .biologicalBtnCssAnn{
+                        display: inline-block;
+                        margin: 0;
+                    }
+                }
+                .biologicalAddImg{  //innerHTML
+                    width: 100%;
+                    border: 1px solid wheat;
                 }
                 .biologicalCssaAnn .biologicalCssbAnn .biologicalCsscAnn{ //設圖片大小
                     ul {
@@ -2008,11 +2016,79 @@
 
 @media all and (max-width: 1200px) {}
 
-@media all and (max-width: 991px) {}
+@media all and (max-width: 991px) {
+    .diaryAdd_formAddAll {  //圖鑑的圖片100px
+        .formf {
+            // border: 1px solid orange;
+            width: 100%;
+            .biological {
+                //區塊C_遇見生物
+                // border: 1px solid green;
+                .biologicalP {
+                    // border: 1px solid green;
+                }
+                .panel {  //lightbox
+                    // border: 1px solid green;
+                    .diaryAddBiological{
+                        // border: 1px solid orangered;
+                    }
+                    .biologicalAddImg{
+                        // border: 1px solid green;
+                    }
+                    .biologicalCssaAnn .biologicalCssbAnn .biologicalCsscAnn{ //設圖片大小
+                        ul {
+                            width: 100%; //原是60%
+                            li {
+                                // border: 1px solid orangered;
+                                display: inline-block;
+                                max-width: 100px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 
-@media all and (max-width: 768px) {}
+@media all and (max-width: 768px) {
+    
+}
 
-@media all and (max-width: 576px) {}
+@media all and (max-width: 576px) {
+    .diaryAdd_formAddAll {  //圖鑑的圖片100px
+        .formf {
+            // border: 1px solid orange;
+            width: 100%;
+            .biological {
+                //區塊C_遇見生物
+                // border: 1px solid green;
+                .biologicalP {
+                    // border: 1px solid green;
+                }
+                .panel {  //lightbox
+                    // border: 1px solid green;
+                    .diaryAddBiological{
+                        // border: 1px solid orangered;
+                    }
+                    .biologicalAddImg{
+                        // border: 1px solid green;
+                    }
+                    .biologicalCssaAnn .biologicalCssbAnn .biologicalCsscAnn{ //設圖片大小
+                        ul {
+                            width: 100%; //原是60%
+                            li {
+                                // border: 1px solid orangered;
+                                display: inline-block;
+                                max-width: 80px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 
 @media all and (max-width: 375px) {}
 
