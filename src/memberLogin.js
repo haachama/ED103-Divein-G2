@@ -1,9 +1,9 @@
 import $ from "jquery";
-import {TweenMax, TimelineMax} from "gsap";
+// import {TweenMax, TimelineMax} from "gsap";
 
 $(function () {
 
-//登入
+//登入&註冊切換
 var mfc = $(".memberFromChangeBtn");
 var mfa = $(".memberFromArea");
 var mltOne = $(".mltOne");
@@ -11,6 +11,12 @@ var mltTwo =  $(".mltTwo");
 
 $("#memberRegistered").click(function(){
   $(".memLogRegArea").addClass("memberMove");
+    mfc.removeClass("memberMove");
+    mfc.removeClass("memberPasForgot");
+    mfa.removeClass("memberFromMove");
+    mfa.removeClass("memberFromPasMove");
+    mltOne.removeClass("memberPasForgot");
+    mltTwo.removeClass("memberPasForgot");
 });
 $("#memberLogin").click(function(){
   $(".memLogRegArea").removeClass("memberMove");
@@ -78,135 +84,39 @@ $("#ml").click(function(){
         $('.memberLoginBanner ul li').eq(index).fadeIn(600).siblings().fadeOut(600);  
     }
     pic();
+});
 
-  //按鈕
-    $('.button--bubble').each(function () {
-        var $circlesTopLeft = $(this).parent().find('.circle.top-left');
-        var $circlesBottomRight = $(this).parent().find('.circle.bottom-right');
+$(function () {
+  //會員登入
 
-        var tl = new TimelineMax();
-        var tl2 = new TimelineMax();
+  //教練登入
 
-        var btTl = new TimelineMax({
-            paused: true
-        });
+  //查詢密碼
 
-        tl.to($circlesTopLeft, 1.2, {
-            x: -25,
-            y: -25,
-            scaleY: 2,
-            ease: SlowMo.ease.config(0.1, 0.7, false)
-        });
-        tl.to($circlesTopLeft.eq(0), 0.1, {
-            scale: 0.2,
-            x: '+=6',
-            y: '-=2'
-        });
-        tl.to($circlesTopLeft.eq(1), 0.1, {
-            scaleX: 1,
-            scaleY: 0.8,
-            x: '-=10',
-            y: '-=7'
-        }, '-=0.1');
-        tl.to($circlesTopLeft.eq(2), 0.1, {
-            scale: 0.2,
-            x: '-=15',
-            y: '+=6'
-        }, '-=0.1');
-        tl.to($circlesTopLeft.eq(0), 1, {
-            scale: 0,
-            x: '-=5',
-            y: '-=15',
-            opacity: 0
-        });
-        tl.to($circlesTopLeft.eq(1), 1, {
-            scaleX: 0.4,
-            scaleY: 0.4,
-            x: '-=10',
-            y: '-=10',
-            opacity: 0
-        }, '-=1');
-        tl.to($circlesTopLeft.eq(2), 1, {
-            scale: 0,
-            x: '-=15',
-            y: '+=5',
-            opacity: 0
-        }, '-=1');
+  //註冊帳號
 
-        var tlBt1 = new TimelineMax();
-        var tlBt2 = new TimelineMax();
+  //註冊檢查帳號是否重複
+  function checkId(){
+    //產生XMLHttpRequest物件
+    let xhr = new XMLHttpRequest();
 
-        tlBt1.set($circlesTopLeft, {
-            x: 0,
-            y: 0,
-            rotation: -45
-        });
-        tlBt1.add(tl);
-
-        tl2.set($circlesBottomRight, {
-            x: 0,
-            y: 0
-        });
-        tl2.to($circlesBottomRight, 1.1, {
-            x: 30,
-            y: 30,
-            ease: SlowMo.ease.config(0.1, 0.7, false)
-        });
-        tl2.to($circlesBottomRight.eq(0), 0.1, {
-            scale: 0.2,
-            x: '-=6',
-            y: '+=3'
-        });
-        tl2.to($circlesBottomRight.eq(1), 0.1, {
-            scale: 0.8,
-            x: '+=7',
-            y: '+=3'
-        }, '-=0.1');
-        tl2.to($circlesBottomRight.eq(2), 0.1, {
-            scale: 0.2,
-            x: '+=15',
-            y: '-=6'
-        }, '-=0.2');
-        tl2.to($circlesBottomRight.eq(0), 1, {
-            scale: 0,
-            x: '+=5',
-            y: '+=15',
-            opacity: 0
-        });
-        tl2.to($circlesBottomRight.eq(1), 1, {
-            scale: 0.4,
-            x: '+=7',
-            y: '+=7',
-            opacity: 0
-        }, '-=1');
-        tl2.to($circlesBottomRight.eq(2), 1, {
-            scale: 0,
-            x: '+=15',
-            y: '-=5',
-            opacity: 0
-        }, '-=1');
-
-        tlBt2.set($circlesBottomRight, {
-            x: 0,
-            y: 0,
-            rotation: 45
-        });
-        tlBt2.add(tl2);
-
-        btTl.add(tlBt1);
-        btTl.to($(this).parent().find('.button.effect-button'), 0.8, {
-            scaleY: 1.1
-        }, 0.1);
-        btTl.add(tlBt2, 0.2);
-        btTl.to($(this).parent().find('.button.effect-button'), 1.8, {
-            scale: 1,
-            ease: Elastic.easeOut.config(1.2, 0.4)
-        }, 1.2);
-
-        btTl.timeScale(2.6);
-
-        $(this).on('mouseover', function () {
-            btTl.restart();
-        });
-    });
+    //註冊callback function 
+    xhr.onload = function(){
+        if( xhr.status == 200){ //status : OK
+            document.getElementById("idMsg").innerText = xhr.responseText;
+        }else{
+            alert( xhr.status);
+        }
+    }  
+    //設定好所要連結的程式
+    xhr.open("post", "memberLogin.php", true);
+    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+    //送出資料
+    let data_info =`memId=${document.getElementById("memId").value}`;
+    xhr.send(data_info);
+  } 
+  //點擊查詢動作
+  window.addEventListener("load", function(){
+    document.getElementById("btnCheckId").addEventListener("click", checkId, false);
+  }, false)
 });

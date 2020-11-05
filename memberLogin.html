@@ -29,12 +29,14 @@
                 <div class="memberFromArea">
                   <form class="memberFromAreaTextOne" action="index.html" method="post">
                     <!-- 密碼查詢 -->
+                    <input type="hidden" name="action" value="pawQuery">
                     <input type="test" class="demo-input1" placeholder="會員帳號" />
                     <input type="test" class="demo-input1" placeholder="會員信箱" />
                     <button type="button" name="button" class="memberLoginButton demo-btn">查詢</button>
                   </form>
                   <form class="memberFromAreaTextTwo" action="index.html" method="post">
                     <!-- 會員登入 -->
+                    <input type="hidden" name="action" value="memberLogin">
                     <input type="test" class="demo-input1" placeholder="會員帳號" />
                     <input type="password" class="demo-input5" placeholder="會員密碼" />
                     <p id="memberPasForgot">忘記密碼了嗎?</p>
@@ -42,6 +44,7 @@
                   </form>
                   <form class="memberFromAreaTextThree" action="index.html" method="post">
                     <!-- 教練登入 -->
+                    <input type="hidden" name="action" value="coachLogin">
                     <input type="test" class="demo-input1" placeholder="教練帳號" />
                     <input type="password" class="demo-input5" placeholder="教練密碼" />
                     <button type="button" name="button" class="memberLoginButton demo-btn">登入</button>
@@ -54,16 +57,19 @@
                 <h4>註冊</h4>
               </div>
               <div class="memberFromRegArea">
-                <form class="" action="index.html" method="post">
+                <form action="index.html" method="post">
                   <div class="memberRegisteredArea">
-                    <input type="text" class="demo-input1" placeholder="會員帳號" />
+                    <input type="hidden" name="action" value="registered">
+                    <input type="text" id="memId" class="demo-input1" placeholder="會員帳號" />
+                    <input type="button" id="btnCheckId" value="檢查">
+                    <span id="idMsg"></span>
                     <input type="password" class="demo-input5" placeholder="會員密碼" />
                     <input type="password" class="demo-input5" placeholder="密碼確認" />
                     <input type="text" class="demo-input1" placeholder="會員姓名" />
                     <input type="text" class="demo-input1" placeholder="會員暱稱" />
                     <input type="text" class="demo-input1" placeholder="Email" />
                   </div>
-                  <button type="button" name="button" class="memberLoginButton demo-btn">註冊</button>
+                  <a href="./memberLogin.html"><button type="button" name="button" class="memberLoginButton demo-btn">註冊</button></a>
                 </form>
               </div>
             </div>
