@@ -1,5 +1,4 @@
 import $ from "jquery";
-// import {TweenMax, TimelineMax} from "gsap";
 
 $(function () {
 
@@ -96,27 +95,27 @@ $(function () {
   //註冊帳號
 
   //註冊檢查帳號是否重複
-  function checkId(){
+  function memberRegCheckId(){
     //產生XMLHttpRequest物件
-    let xhr = new XMLHttpRequest();
+    let mric = new XMLHttpRequest();
 
     //註冊callback function 
-    xhr.onload = function(){
-        if( xhr.status == 200){ //status : OK
-            document.getElementById("idMsg").innerText = xhr.responseText;
+    mric.onload = function(){
+        if( mric.status == 200){ //status : OK
+            document.getElementById("idMsg").innerText = mric.responseText;
         }else{
-            alert( xhr.status);
+            alert( mric.status);
         }
     }  
     //設定好所要連結的程式
-    xhr.open("post", "memberRegIdCheck.php", true);
-    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+    mric.open("post", "memberRegIdCheck.php", true);
+    mric.setRequestHeader("content-type", "application/x-www-form-urlencoded");
     //送出資料
-    let data_info =`memId=${document.getElementById("memId").value}`;
-    xhr.send(data_info);
+    let data_info =`memId=${document.getElementById("RegMemId").value}`;
+    mric.send(data_info);
   } 
   //點擊查詢動作
   window.addEventListener("load", function(){
-    document.getElementById("btnCheckId").addEventListener("click", checkId, false);
+    document.getElementById("btnCheckId").addEventListener("click", memberRegCheckId, false);
   }, false)
 });

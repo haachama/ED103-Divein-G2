@@ -30,24 +30,24 @@
                   <form class="memberFromAreaTextOne" action="index.html" method="post">
                     <!-- 密碼查詢 -->
                     <span id="memberPswError"></span>
-                    <input type="test" class="demo-input1" placeholder="會員帳號" />
-                    <input type="test" class="demo-input1" placeholder="會員信箱" />
-                    <button type="button" name="button" class="memberLoginButton demo-btn">查詢</button>
+                    <input type="test" id="CheckMemId" class="demo-input1" placeholder="會員帳號" />
+                    <input type="test" id="CheckMemMail" class="demo-input1" placeholder="會員信箱" />
+                    <button type="button" id="CheckMemPsw" name="button" class="memberLoginButton demo-btn">查詢</button>
                   </form>
                   <form class="memberFromAreaTextTwo" action="index.html" method="post">
                     <!-- 會員登入 -->
                     <span id="memberIdError"></span>
-                    <input type="test" class="demo-input1" placeholder="會員帳號" />
-                    <input type="password" class="demo-input5" placeholder="會員密碼" />
+                    <input type="test" id="LogMemId" class="demo-input1" placeholder="會員帳號" />
+                    <input type="password" id="LogMemPsw" class="demo-input5" placeholder="會員密碼" />
                     <p id="memberPasForgot">忘記密碼了嗎?</p>
-                    <button type="button" name="button" class="memberLoginButton demo-btn">登入</button>
+                    <button type="button" id="LoginMember" name="button" class="memberLoginButton demo-btn">登入</button>
                   </form>
                   <form class="memberFromAreaTextThree" action="index.html" method="post">
                     <!-- 教練登入 -->
                     <span id="coachIdError"></span>
-                    <input type="test" class="demo-input1" placeholder="教練帳號" />
-                    <input type="password" class="demo-input5" placeholder="教練密碼" />
-                    <button type="button" name="button" class="memberLoginButton demo-btn">登入</button>
+                    <input type="test" id="LoginCoachId" class="demo-input1" placeholder="教練帳號" />
+                    <input type="password" id="LoginCoachPsw" class="demo-input5" placeholder="教練密碼" />
+                    <button type="button" id="LoginCoach" name="button" class="memberLoginButton demo-btn">登入</button>
                   </form>
                 </div>
               </div>
@@ -60,14 +60,14 @@
                 <form action="index.html" method="post">
                   <div class="memberRegisteredArea">
                     <input type="hidden" name="action" value="registered">
-                    <input type="text" id="memId" class="demo-input1" placeholder="會員帳號" />
+                    <input type="text" id="RegMemId" class="demo-input1" placeholder="會員帳號" />
                     <input type="button" id="btnCheckId" value="檢查">
                     <span id="idMsg"></span>
-                    <input type="password" class="demo-input5" placeholder="會員密碼" />
-                    <input type="password" class="demo-input5" placeholder="密碼確認" />
-                    <input type="text" class="demo-input1" placeholder="會員姓名" />
-                    <input type="text" class="demo-input1" placeholder="會員暱稱" />
-                    <input type="text" class="demo-input1" placeholder="Email" />
+                    <input type="password" id="RegMemPsw" class="demo-input5" placeholder="會員密碼" />
+                    <input type="password" id="RegMemIdCheck" class="demo-input5" placeholder="密碼確認" />
+                    <input type="text" id="RegMemName" class="demo-input1" placeholder="會員姓名" />
+                    <input type="text" id="RegMemNickName" class="demo-input1" placeholder="會員暱稱" />
+                    <input type="text" id="RegMemMail" class="demo-input1" placeholder="Email" />
                   </div>
                   <a href="./memberLogin.html"><button type="button" name="button" class="memberLoginButton demo-btn">註冊</button></a>
                 </form>
