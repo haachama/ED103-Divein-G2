@@ -22,8 +22,8 @@ $(function () {
             $('.nav').addClass('hide')
         }
     });
-
-    //5-1 lightbox  商城查看詳情
+    // 5-1
+    
     // 開啟 Modal 彈跳視窗
     $(".mainBtn_1").on("click", function(){
         $(".lightbox-block1").addClass("-openbox");
@@ -37,6 +37,7 @@ $(function () {
             $(".lightbox-block1").removeClass("-openbox -opacity-zero");
         }, 1000);
     });
+    
 
     // 5-2 lightbox  購物車詳細資料
     // 開啟 Modal 彈跳視窗
