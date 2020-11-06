@@ -322,6 +322,17 @@
       select {
          padding: 3px 15px;
       }
+
+      [name="classQuota"]{
+         text-align: center;
+      }
+      .courseMinus,.coursePlus{
+         height:30px;
+
+      }
+      .courseMinus:hover, .coursePlus:hover{
+         cursor: pointer;
+      }
    }
 
 

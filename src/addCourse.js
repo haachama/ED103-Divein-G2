@@ -37,6 +37,9 @@ $(function () {
         })
     })
 
+
+
+
     // ripples套件
     $('body').ripples({
         resolution: 1280,
@@ -72,13 +75,34 @@ startDate.onchange = function(e){
     var computedDate = new Date(sDate);
 // todo 天數變數
     var endDate = new Date(computedDate.getFullYear(),computedDate.getMonth(),computedDate.getDate()+2);
-    // console.log(' --- year : ' +  date.getFullYear())
-    // console.log(' --- month : ' +  date.getMonth())
-    // console.log(' --- day : ' +  date.getDate()+2)
-    // console.log(' --- newdate : ' +  newdate)
 
     var finishDate = document.getElementById('finishDate');
     finishDate.value = endDate.yyyymmdd();
 }
 
 
+
+// 課程名額
+var coursePlus = document.getElementsByClassName("coursePlus")[0];
+var courseMinus = document.getElementsByClassName("courseMinus")[0];
+var classQuota = document.getElementsByName("classQuota")[0];
+
+coursePlus.addEventListener("click",function(){
+    var curNumber = classQuota.value;
+
+    var addNum = ++curNumber;
+
+    classQuota.value = addNum;
+
+},false)
+
+
+courseMinus.addEventListener("click",function(){
+    var curNumber = classQuota.value;
+    var minusNum = --curNumber;
+    if(minusNum <= 0){
+        minusNum = 0;
+    }
+    classQuota.value = minusNum;
+
+},false)
