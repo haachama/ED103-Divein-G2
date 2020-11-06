@@ -22,12 +22,33 @@ $(function () {
             $('.nav').addClass('hide')
         }
     });
+
     // 5-1
-    
     // 開啟 Modal 彈跳視窗
-    $(".mainBtn_1").on("click", function(){
-        $(".lightbox-block1").addClass("-openbox");
-    });
+    var mainButton = document.getElementsByClassName("mainBtn_1");
+    var lightbox = document.getElementsByClassName("lightbox-block1")[0];
+
+    var lightboxH3 = lightbox.getElementsByTagName("h3")[0];
+
+    for(var i=0; i<mainButton.length; i++){
+        mainButton[i].addEventListener("click",openLightbox,false);
+    }
+
+
+    function openLightbox(){
+        lightbox.classList.add("-openbox");
+        console.log(this)
+        var parent = this.parentNode.parentNode;
+
+        let title = parent.children[0].innerText;
+
+        lightboxH3.innerHTML = title;
+
+    }
+
+    // $(".mainBtn_1").on("click", function(){
+    //     $(".lightbox-block1").addClass("-openbox");
+    // });
 
     // 關閉 Modal
     $(".btn_modal_close").on("click", function(){
