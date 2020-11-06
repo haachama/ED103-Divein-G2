@@ -111,7 +111,7 @@
     }
     .memberFromArea{
         position: absolute;
-        top: -280px;
+        top: -270px;
         left: 8%;
         transition: all 0.6s ease-in-out;
     }
@@ -123,10 +123,10 @@
     }
     
     .memberFromArea.memberFromMove{
-        top: -520px;
+        top: -530px;
     }
     .memberFromArea.memberFromPasMove{
-        top: -30px;
+        top: -45px;
     }
     
     .memberFrom{
@@ -151,8 +151,7 @@
         width: 100%;
     }
     
-    #idMsg{
-        display: inline-block;
+    #idMsg, #memberPswError, #memberIdError, #coachIdError{
         font-size: 10px;
         color: #930000;
     }
@@ -301,7 +300,7 @@
     }
 
     .memberLoginButton{
-        margin-top: 20px;
+        margin-top: 5px;
 
         .button--bubble__container{
             height: 30px;

@@ -109,7 +109,7 @@ $(function () {
         }
     }  
     //設定好所要連結的程式
-    xhr.open("post", "memberLogin.php", true);
+    xhr.open("post", "memberRegIdCheck.php", true);
     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
     //送出資料
     let data_info =`memId=${document.getElementById("memId").value}`;
