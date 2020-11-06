@@ -45,9 +45,9 @@ gulp.task('default', function () {
     browserSync.init({
         server: {
             baseDir: "./app",
-            index: "spot.html",
+            index: "spot.html"
         }
     });
     gulp.watch(['sass/*.scss' , 'sass/**/*.scss'], ['sass']).on('change', reload);
-    gulp.watch(['*.html', '**/*.html'], ['fileinclude']).on('change', reload);
+    gulp.watch(['./*.html', './layout/*.html'], ['fileinclude']).on('change', reload);
 });
