@@ -5,6 +5,7 @@ $('.button--bubble').each(function () {
     var $circlesTopLeft = $(this).parent().find('.circle.top-left');
     var $circlesBottomRight = $(this).parent().find('.circle.bottom-right');
 
+
     var tl = new TweenMax();
     var tl2 = new TweenMax();
 

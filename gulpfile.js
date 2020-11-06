@@ -28,7 +28,7 @@ gulp.task('clear', function () {
 
 // html template
 gulp.task('fileinclude', function () {
-    gulp.src(['*.html'])
+    gulp.src(['./*.html'])
         .pipe(fileinclude({
             prefix: '@@',
             basepath: '@file'
