@@ -45,7 +45,11 @@ gulp.task('default', function () {
     browserSync.init({
         server: {
             baseDir: "./app",
+<<<<<<< HEAD
             index: "memberLogin.html",
+=======
+            index: "main.html"
+>>>>>>> dev
         }
     });
     gulp.watch(['sass/*.scss' , 'sass/**/*.scss'], ['sass']).on('change', reload);

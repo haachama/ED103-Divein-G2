@@ -1,5 +1,5 @@
 .cart {
-
+    
     .title {
         text-align: center;
         margin: 30px;
@@ -107,7 +107,7 @@
 
     .buyMore,
     .toBack{
-
+        
         .button--bubble__container .effect-button,
         .button--bubble__effect-container .circle {
             background: #176587;
@@ -128,62 +128,53 @@
     }
 
     //收件人、信用卡資訊欄
-    .writeInfo{
-        margin-bottom: 50px;
-        p,h4{
-            padding: 8px;
-            color: $keyBlack;
-        }
-        .information{
-            max-width: 1200px;
-            box-sizing: border-box;
-            padding: 10px;
-            margin: auto;
-            position: relative;
-            width: 100%;
-            h3{
-                text-align: center;
-                background-color: $keyBlue;
-                border-radius: 5px 5px 0 0;
+    .billSet{
+        
+        .writeInfo{
+            margin-bottom: 50px;
+            p,h4{
+                padding: 8px;
+                color: $keyBlack;
+            }
+            .information{
+                max-width: 1200px;
+                box-sizing: border-box;
                 padding: 10px;
+                margin: auto;
+                position: relative;
+                width: 100%;
+                h3{
+                    text-align: center;
+                    background-color: $keyBlue;
+                    border-radius: 5px 5px 0 0;
+                    padding: 10px;
+                }
             }
-        }
-        .wrap{
-            display: flex;
-            flex-wrap: wrap;
-            padding: 10px;
-            justify-content: space-around;
-            background-color: #fdf6e7;
-            
-            .creditCard input{
-                margin: 2px 0;
-                width: 60px;
+            .wrap{
+                display: flex;
+                flex-wrap: wrap;
+                padding: 10px;
+                justify-content: space-around;
+                background-color: #fdf6e7;
+                
+                .creditCard input{
+                    margin: 2px 0;
+                    width: 60px;
+                }
             }
-        }
-        .subBtn{
-            width: 50%;
-            display: flex;
-            justify-content: center;
-            margin: 20px;
-            .bubbleBtn{
-                margin:0 30px;
+            .subBtn{
+                width: 50%;
+                display: flex;
+                justify-content: center;
+                margin: 20px;
+                .bubbleBtn{
+                    margin:0 30px;
+                }
             }
         }
     }
 
 
-    //結帳後的視窗
-    // .orderConfirm {
-    //     display: none;
-    //     position: fixed;
-    //     width: 100%;
-    //     top: 0;
-    //     bottom: 0;
-    //     left: 0;
-    //     right: 0;
-    //     margin: auto;
-    //     z-index: 2;
-    // }
 
 
     .lightbox1{
