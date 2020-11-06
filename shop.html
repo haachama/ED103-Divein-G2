@@ -4,16 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./fontawesome/css/all.css">
+    <link rel="icon" href="./img/favicon.ico" type="image/x-icon" />
+    <link rel="Shortcut Icon" href="./img/favicon.ico" type="image/x-icon" />
     
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./fontawesome/css/all.css">  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <title>購物商城</title>
+    <title>海中日子 | 購物商城</title>
 </head>
 
 <body class="shop">
     @@include('./layout/header.html')
-
+    <div class="lightbox-block1">
+        <div class="lightbox1">
+            <div class="button_closeBox1">
+                <button type="button" class="btn_modal_close">✖</button>
+            </div>
+            <h3>游得真慢</h3>
+            <p>此裝備因沒有明顯推力，容易造成新手在海裡停滯不前，是高手用來享受海底世界穿的，新手建議直上8700元的神速蛙鞋。</p>
+        </div>
+    </div>
 
     <div class="bgBlack oneee">
         <div class="shopH2">
@@ -30,13 +40,12 @@
         </div>
 
         <div class="itemList">
-            <img class="demomanIn" src="./img/shop/demomanblue.png" alt="">
             <div class="product">
                 <div class="productUp">
                     <div class="art">
                         <span class="itemName">水中看得清</span>
                         <div class="item">
-                            <img src="./img/shop/mask4@2x.png" alt="">
+                            <img src="./img/shop/mask1@2x.png" alt="">
                         </div>
                         <span class="NT">NT$8700</span>
                         <div class="addNumber">
@@ -109,7 +118,7 @@
                     <div class="art">
                         <span class="itemName">水中看得見</span>
                         <div class="item">
-                            <img src="./img/shop/mask1@2x.png" alt="">
+                            <img src="./img/shop/mask2@2x.png" alt="">
                         </div>
                         <span class="NT">NT$6600</span>
                         <div class="addNumber">
@@ -184,7 +193,7 @@
                     <div class="art">
                         <span class="itemName">水中看得到</span>
                         <div class="item">
-                            <img src="./img/shop/mask2@2x.png" alt="">
+                            <img src="./img/shop/mask3@2x.png" alt="">
                         </div>
                         <span class="NT">NT$2150</span>
                         <div class="addNumber">
@@ -257,7 +266,7 @@
                     <div class="art">
                         <span class="itemName">眼睛進水啦</span>
                         <div class="item">
-                            <img src="./img/shop/mask3@2x.png" alt="">
+                            <img src="./img/shop/mask4@2x.png" alt="">
                         </div>
                         <span class="NT">NT$1290</span>
                         <div class="addNumber">
@@ -333,9 +342,7 @@
     </div>
 
     <div class="bgBlack">
-
         <div class="itemList">
-            <img class="demomanIn" src="./img/shop/demomanblue.png" alt="">
             <div class="product">
                 <div class="productUp">
                     <div class="art">
@@ -638,7 +645,6 @@
     </div>
     <div class="bgBlack">
         <div class="itemList">
-            <img class="demomanIn" src="./img/shop/demomanblue.png" alt="">
             <div class="product">
                 <div class="productUp">
                     <div class="art">
@@ -941,7 +947,6 @@
     </div>
     <div class="bgBlack">
         <div class="itemList">
-            <img class="demomanIn" src="./img/shop/demomanblue.png" alt="">
             <div class="product">
                 <div class="productUp">
                     <div class="art">
@@ -1177,7 +1182,7 @@
                             <i class="fas fa-plus"></i>
                         </div>
                         <div class="shopBtn">
-                            <div class="bubbleBtn detail">
+                            <div class="bubbleBtn detail mainBtn_1">
                                 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="goo">
                                     <defs>
                                         <filter id="goo">
@@ -1241,10 +1246,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> 
     @@include('./layout/footer.html')
     <script src="./js/shop.js"></script>
     <script src="./js/bubbleBtn.js"></script>
 </body>
-
+ 
 </html>

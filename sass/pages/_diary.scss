@@ -1,8 +1,857 @@
-.diary{
-
-    // 請勿超出大括號
+.diary{ // 請勿超出大括號
 
 
+// --------------------日誌卡片<共用的css> 有用到的頁面 diary.html 、 diaryInside.html 
+    .diaryCenter {
+        // border: 1px solid red;
+        max-width: 80%;
+        margin: 0px auto 150px;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+
+        .diarySolid {
+            // border: 1px solid black;
+            width: 350px;
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 0px 20px 20px 20px;
+
+            a {
+                .imgContent {
+                    // border: 1px solid red;
+                    width: 100%;
+                    position: relative;
+
+                    .imgSolid {
+                        // border: 1px solid green;
+                        width: 100%;
+                        height: 200px;
+                        overflow: hidden;
+
+                        img {
+                            vertical-align: top;
+                        }
+                    }
+
+                    .diaryTitleA {
+                        // border: 1px solid purple;
+                        position: absolute;
+                        top: 0;
+                        display: flex;
+                        width: 100%;
+                        justify-content: space-between;
+                        align-items: center;
+                        padding: 15px 15px;
+
+                        .diaryTitleFlex {
+                            // border: 1px solid gold;
+                            display: flex;
+                            align-items: center;
+
+                            .userLogo {
+                                // border: 1px solid olivedrab;
+                                width: 50px;
+                                border-radius: 90px;
+                                overflow: hidden;
+
+                                img {
+                                    vertical-align: top;
+                                }
+                            }
+
+                            .userName {
+                                // border: 1px solid yellow;
+                                padding-left: 10px;
+                                color: $keyWhite;
+                            }
+                        }
+
+                        .userText {
+                            // border: 1px solid pink;
+                            color: $keyWhite;
+                        }
+                    }
+
+                    .diaryTitleB {
+                        // border: 1px solid purple;
+                        position: absolute;
+                        bottom: 0;
+
+                        .diaryTitleText {
+                            // border: 1px solid grey;
+                            padding: 0px 15px 15px 15px;
+                            color: $keyWhite;
+                        }
+
+                        .diaryTitleDate {
+                            // border: 1px solid greenyellow;
+                            padding: 0px 15px 15px 15px;
+                            color: $keyWhite;
+                        }
+                    }
+                }
+            }
+
+            // 卡片文字內容
+            .diaryText {
+                // border: 1px solid black;
+                width: 100%;
+                padding: 10px;
+                background-color: $keyWhite;
+
+                .diaryTextData {
+                    // border: 1px solid yellowgreen;
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-evenly;
+
+                    div:first-child p:nth-child(2) span:nth-child(1) {
+                        color: #467500;
+                        font-size: 26px;
+                    }
+
+                    div {
+
+                        // border: 1px solid purple;
+                        p:nth-child(1) {
+                            // border: 1px solid blue;
+                            color: $keyGray;
+                            font-size: 10px;
+                            text-align: center;
+                            padding: 15px 0px 5px 0px;
+                        }
+
+                        p:nth-child(2) {
+                            // border: 1px solid blue;
+                            color: $keyBlue;
+                            text-align: center;
+                            padding: 10px 0px;
+
+                            span:nth-child(1) {
+                                // border: 1px solid blue;
+                                font-size: 26px;
+                                color: $keyBlue;
+                            }
+
+                            span:nth-child(2) {
+                                // border: 1px solid orange;
+                                font-size: $baseFz; //16px
+                                color: $keyBlue;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .diaryTextP {
+                // border: 1px solid orange;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .diaryTextPP {
+                    // border: 1px solid green;
+                    padding: 10px 0px 10px 10px;
+                    width: 100%;
+                    overflow: hidden;
+                    color: $keyBlue;
+                }
+
+                i {
+                    // border: 1px solid blue;
+                    color: $keyBlue;
+                }
+            }
+        }
+    }
+
+    @media all and (max-width: 1600px) {
+        // 日誌卡片<共用的css>_diary.html頁面
+        .diaryCenter {
+            // border: 1px solid red;
+            width: 90%;
+        }
+    }
+
+
+// -----------------------篩選_diary.html
+    // codepen區
+    .diaryAmount {
+        border: 1px solid red;
+        height: 90%;
+        .cursor,
+        .cursor2,
+        .cursor3 {
+            position: fixed;
+            border-radius: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            pointer-events: none;
+            left: -100px;
+            top: 50%;
+            mix-blend-mode: difference;
+        }
+
+        .cursor {
+            background-color: #fff;
+            height: 0;
+            width: 0;
+            z-index: 99999;
+        }
+
+        .cursor2,
+        .cursor3 {
+            height: 36px;
+            width: 36px;
+            z-index: 99998;
+            -webkit-transition: all 0.3s ease-out;
+            transition: all 0.3s ease-out
+        }
+
+        .cursor2.hover,
+        .cursor3.hover {
+            -webkit-transform: scale(2) translateX(-25%) translateY(-25%);
+            transform: scale(2) translateX(-25%) translateY(-25%);
+            border: none
+        }
+
+        // .cursor2{
+        //     border: 2px solid #fff;
+        //     box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
+        // }
+        .cursor2.hover {
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 0 0 rgba(255, 255, 255, 0.2);
+        }
+
+        /* #Slider
+        ================================================== */
+
+        .section {
+            position: relative;
+            width: 100%;
+            display: block;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        /* Case Study Showcase
+        ================================================== */
+
+        .case-study-wrapper {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: 10;
+            width: auto;
+            margin: 0;
+            padding: 0;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            list-style: none;
+        }
+
+        .case-study-wrapper .case-study-name {
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .case-study-wrapper .case-study-name a {
+            //區域文字
+            position: relative;
+            list-style: none;
+            margin: 0 auto;
+            display: inline-block;
+            text-align: center;
+            padding: 0;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 5vh;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: 3px;
+            color: $keyBlue;
+            text-decoration: none;
+            -webkit-transition: all 300ms linear;
+            transition: all 300ms linear;
+            text-decoration: none;
+        }
+
+        .case-study-wrapper .case-study-name a:hover {
+            text-decoration: none;
+        }
+
+        .case-study-wrapper .case-study-name.active a {
+            color: #fff;
+        }
+
+        .case-study-wrapper .case-study-name a:before {
+            position: absolute;
+            content: '';
+            left: 50%;
+            bottom: 0;
+            height: 6px;
+            width: 0;
+            transform: translateX(-50%);
+            background: linear-gradient(45deg, #f19872, $keyYellow);
+            -webkit-transition: all 200ms linear;
+            transition: all 200ms linear;
+        }
+
+        .case-study-wrapper .case-study-name:nth-child(2) a:before {
+            background: linear-gradient(45deg, #f19872, $keyYellow);
+        }
+
+        .case-study-wrapper .case-study-name:nth-child(3) a:before {
+            background: linear-gradient(45deg, #f19872, $keyYellow);
+        }
+
+        .case-study-wrapper .case-study-name:nth-child(4) a:before {
+            background: linear-gradient(45deg, #f19872, $keyYellow);
+        }
+
+        .case-study-wrapper .case-study-name.active a:before {
+            width: 100%;
+        }
+
+        .case-study-images {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            z-index: 2;
+        }
+
+        .case-study-images li {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            list-style: none;
+            -webkit-transition: all 300ms linear;
+            transition: all 300ms linear;
+        }
+
+        .case-study-images li .img-hero-background {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            list-style: none;
+            opacity: 0;
+            -webkit-transform: translateY(60px);
+            transform: translateY(60px);
+            -webkit-transition: all 300ms linear;
+            transition: all 300ms linear;
+        }
+
+        .case-study-images li.show .img-hero-background {
+            // border: 1px solid red;
+            opacity: 1;
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+        }
+
+        .case-study-images li .hero-number-back {
+            // border: 1px solid red;
+            position: absolute;
+            top: 25%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            display: block;
+            list-style: none;
+            opacity: 0;
+            font-size: 4vw;
+            line-height: 1;
+            color: $transparentWhite;
+            // -webkit-text-stroke: 4px rgba(0,0,0,.7);
+            z-index: 1;
+            -webkit-transition: all 300ms linear;
+            transition: all 300ms linear;
+        }
+
+        .case-study-images li .hero-number {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            width: 40px;
+            margin-left: -70px;
+            display: block;
+            letter-spacing: 2px;
+            text-align: center;
+            list-style: none;
+            opacity: 0;
+            font-size: 13px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 300;
+            line-height: 1;
+            color: #fff;
+            z-index: 6;
+            -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+            -webkit-transition: all 300ms linear;
+            transition: all 300ms linear;
+        }
+
+        .case-study-images li .hero-number-fixed {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            margin-left: 30px;
+            width: 40px;
+            text-align: center;
+            display: block;
+            letter-spacing: 2px;
+            list-style: none;
+            font-size: 13px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 300;
+            line-height: 1;
+            color: #fff;
+            z-index: 6;
+            -webkit-transition: all 300ms linear;
+            transition: all 300ms linear;
+        }
+
+        .case-study-images li .hero-number-fixed:before {
+            position: absolute;
+            content: '';
+            top: 50%;
+            left: -60px;
+            width: 60px;
+            height: 1px;
+            z-index: 1;
+            background-color: rgba(255, 255, 255, .4);
+            -webkit-transition: all 300ms linear;
+            transition: all 300ms linear;
+        }
+
+        .case-study-images li.show .hero-number {
+            opacity: 1;
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+        }
+
+        .case-study-images li.show .hero-number-back {
+            opacity: 1;
+        }
+
+        .case-study-images li .img-hero-background div img {
+            // border: 1px solid red;
+            width: 100%;
+            height: auto;
+            display: block;
+            transform: scale(0.6, 1.7);
+            transform-origin: center top;
+            -webkit-transition: all 300ms ease;
+            transition: all 300ms ease;
+        }
+
+        .case-study-images li.show .img-hero-background div img {
+            transform: scale(1);
+        }
+
+        .case-study-images li:nth-child(1) .img-hero-background div {
+            // border: 1px solid red;
+            position: absolute;
+            width: 20%;
+            top: 12%;
+            left: 8%;
+            display: block;
+        }
+
+        .case-study-images li:nth-child(1) .img-hero-background div:nth-child(2) {
+            // border: 1px solid red;
+            width: 23%;
+            top: 22%;
+            left: 60%;
+        }
+
+        .case-study-images li:nth-child(1) .img-hero-background div:nth-child(3) {
+            // border: 1px solid red;
+            width: 18%;
+            top: 55%;
+            left: 75%;
+        }
+
+        .case-study-images li:nth-child(1) .img-hero-background div:nth-child(4) {
+            // border: 1px solid red;
+            width: 16%;
+            top: 44%;
+            left: 25%;
+        }
+
+        .case-study-images li:nth-child(2) .img-hero-background div {
+            // border: 1px solid red;
+            position: absolute;
+            width: 18%;
+            top: 7%;
+            left: 8%;
+            display: block;
+        }
+
+        .case-study-images li:nth-child(2) .img-hero-background div:nth-child(2) {
+            // border: 1px solid red;
+            width: 19%;
+            top: 38%;
+            left: 27%;
+        }
+
+        .case-study-images li:nth-child(2) .img-hero-background div:nth-child(3) {
+            // border: 1px solid red;
+            width: 16%;
+            top: 17%;
+            left: 72%;
+        }
+
+        .case-study-images li:nth-child(2) .img-hero-background div:nth-child(4) {
+            // border: 1px solid red;
+            width: 20%;
+            top: 54%;
+            left: 57%;
+        }
+
+        .case-study-images li:nth-child(3) .img-hero-background div {
+            // border: 1px solid red;
+            position: absolute;
+            width: 16%;
+            top: 9%;
+            left: 8%;
+            display: block;
+        }
+
+        .case-study-images li:nth-child(3) .img-hero-background div:nth-child(2) {
+            // border: 1px solid red;
+            width: 16%;
+            top: 40%;
+            left: 29%;
+        }
+
+        .case-study-images li:nth-child(3) .img-hero-background div:nth-child(3) {
+            // border: 1px solid red;
+            width: 17%;
+            top: 11%;
+            left: 59%;
+        }
+
+        .case-study-images li:nth-child(3) .img-hero-background div:nth-child(4) {
+            // border: 1px solid red;
+            width: 18%;
+            top: 34%;
+            left: 75%;
+        }
+
+        .case-study-images li:nth-child(4) .img-hero-background div {
+            // border: 1px solid red;
+            position: absolute;
+            width: 20%;
+            top: 12%;
+            left: 8%;
+            display: block;
+        }
+
+        .case-study-images li:nth-child(4) .img-hero-background div:nth-child(2) {
+            // border: 1px solid red;
+            width: 17%;
+            top: 22%;
+            left: 60%;
+        }
+
+        .case-study-images li:nth-child(4) .img-hero-background div:nth-child(3) {
+            // border: 1px solid red;
+            width: 20%;
+            top: 58%;
+            left: 75%;
+        }
+
+        .case-study-images li:nth-child(4) .img-hero-background div:nth-child(4) {
+            // border: 1px solid red;
+            width: 18%;
+            top: 34%;
+            left: 27%;
+        }
+
+        .case-study-images li:nth-child(5) .img-hero-background div {
+            // border: 1px solid red;
+            position: absolute;
+            width: 18%;
+            top: 7%;
+            left: 8%;
+            display: block;
+        }
+
+        .case-study-images li:nth-child(5) .img-hero-background div:nth-child(2) {
+            // border: 1px solid red;
+            width: 19%;
+            top: 30%;
+            left: 27%;
+        }
+
+        .case-study-images li:nth-child(5) .img-hero-background div:nth-child(3) {
+            // border: 1px solid red;
+            width: 20%;
+            top: 10%;
+            left: 72%;
+        }
+
+        .case-study-images li:nth-child(5) .img-hero-background div:nth-child(4) {
+            // border: 1px solid red;
+            width: 20%;
+            top: 34%;
+            left: 67%;
+        }
+
+        /* #Media
+        ================================================== */
+
+        @media (max-width: 991px) {
+            .case-study-images li .hero-number-back {
+                font-size: 8vw;
+            }
+        }
+
+        @media (max-width: 767px) {
+
+            .case-study-images li:nth-child(1) .img-hero-background div,
+            .case-study-images li:nth-child(2) .img-hero-background div,
+            .case-study-images li:nth-child(3) .img-hero-background div,
+            .case-study-images li:nth-child(4) .img-hero-background div,
+            .case-study-images li:nth-child(5) .img-hero-background div {
+                width: calc(100% - 40px);
+                top: 50%;
+                left: 20px;
+                transform: translateY(-50%);
+            }
+
+            .case-study-images li:nth-child(1) .img-hero-background div:nth-child(2),
+            .case-study-images li:nth-child(1) .img-hero-background div:nth-child(3),
+            .case-study-images li:nth-child(1) .img-hero-background div:nth-child(4),
+            .case-study-images li:nth-child(2) .img-hero-background div:nth-child(2),
+            .case-study-images li:nth-child(2) .img-hero-background div:nth-child(3),
+            .case-study-images li:nth-child(2) .img-hero-background div:nth-child(4),
+            .case-study-images li:nth-child(3) .img-hero-background div:nth-child(2),
+            .case-study-images li:nth-child(3) .img-hero-background div:nth-child(3),
+            .case-study-images li:nth-child(3) .img-hero-background div:nth-child(4),
+            .case-study-images li:nth-child(4) .img-hero-background div:nth-child(2),
+            .case-study-images li:nth-child(4) .img-hero-background div:nth-child(3),
+            .case-study-images li:nth-child(4) .img-hero-background div:nth-child(4),
+            .case-study-images li:nth-child(5) .img-hero-background div:nth-child(2),
+            .case-study-images li:nth-child(5) .img-hero-background div:nth-child(3),
+            .case-study-images li:nth-child(5) .img-hero-background div:nth-child(4) {
+                display: none;
+            }
+        }
+
+        .switch-wrap {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            -webkit-transition: all 300ms linear;
+            transition: all 300ms linear;
+        }
+
+        #switch,
+        #circle {
+            cursor: pointer;
+            -webkit-transition: all 300ms linear;
+            transition: all 300ms linear;
+        }
+
+        #switch {
+            width: 70px;
+            height: 8px;
+            margin: 0 auto;
+            text-align: center;
+            border: 2px solid #000;
+            border-radius: 27px;
+            background: #8167a9;
+            position: relative;
+            display: inline-block;
+        }
+
+        #circle {
+            position: absolute;
+            top: -11px;
+            left: 0;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            box-shadow: 0 4px 4px rgba(26, 53, 71, 0.25), 0 0 0 1px rgba(26, 53, 71, 0.07);
+            background: #fff;
+        }
+
+        .switched {
+            border-color: #8167a9 !important;
+            background: #000 !important;
+        }
+
+        .switched #circle {
+            left: 44px;
+            background: #000;
+        }
+
+
+        body.light {
+            background: #f2f5f5;
+        }
+
+        body.light .cursor {
+            mix-blend-mode: normal;
+        }
+
+        body.light .cursor2 {
+            border: 2px solid #000;
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+            mix-blend-mode: normal;
+        }
+
+        body.light .cursor2.hover {
+            background: rgba(0, 0, 0, .15);
+            box-shadow: 0 0 0 rgba(255, 255, 255, 0.2);
+            border-color: transparent;
+            mix-blend-mode: normal;
+        }
+
+        body.light .case-study-images li .hero-number-back {
+            -webkit-text-stroke: 4px #ccc;
+        }
+
+        body.light .case-study-images li .hero-number {
+            color: #212121;
+        }
+
+        body.light .case-study-images li .hero-number-fixed {
+            color: #212121;
+        }
+
+        body.light .case-study-images li .hero-number-fixed:before {
+            background-color: rgba(0, 0, 0, .4);
+        }
+
+        body.light .case-study-wrapper .case-study-name a {
+            color: #777777;
+        }
+
+        body.light .case-study-wrapper .case-study-name.active a {
+            color: #000;
+        }
+    }
+
+    // 所有日誌 Title_diary.html頁面
+    .diary_diaryTitleH3 {
+        // border: 1px solid black;
+        display: flex;
+        padding: 10px 0px 10px 30px;
+        justify-content: space-between;
+        margin: 80px auto 80px;
+        max-width: 80%;
+        position: relative;
+
+        h3 {
+            color: $keyWhite;
+        }
+
+        .button--bubble {
+            //btn按鈕破版調整
+            left: -50%;
+        }
+
+        .button--bubble__effect-container {
+            //btn按鈕破版調整
+            left: -100%;
+        }
+    }
+
+    // 篩選_diary.html頁面
+    .diary_formSelect {
+        // border: 1px solid blue;
+        margin: 80px auto 150px;
+        max-width: 80%;
+        padding: 30px 0px 30px 80px;
+        background-color: $keyBlack;
+        border-radius: 5px;
+
+        .diarySelect {
+            // border: 1px solid orangered;
+            padding: 15px 0px;
+            color: $keyWhite;
+            #diarySelect {
+                // border: 1px solid orangered;
+                @include input-text($w:160px,$h:30px);
+                padding: 0px;
+            }
+        }
+
+        .diveAreaSelect {
+            // border: 1px solid blue;
+            padding: 15px 0px;
+            color: $keyWhite;
+            #diveArea {
+                // border: 1px solid yellow;
+                @include input-text($w:160px,$h:30px);
+                padding: 0px;
+            }
+        }
+        label {
+            // border: 1px solid yellowgreen;
+            p{
+                display: inline-block;
+                input{
+                    // border: 1px solid white;
+                    @include input-checkbox($w:25px,$h:30px,$margin-R:5px);
+                    margin-left: 15px;
+                }
+            }
+        }
+    }
+
+
+    @media all and (max-width: 1200px) {
+        // 篩選_diary.html頁面
+        .diary_formSelect {
+            // border: 1px solid blue;
+            max-width: 90%;
+            .diarySelect {
+                // border: 1px solid orangered;
+                padding: 15px 0px;
+                color: $keyWhite;
+            }
+            label {
+                // border: 1px solid yellowgreen;
+                p{
+                    display: inline-block;
+                    input{
+                        // border: 1px solid white;
+                        margin-left: 15px;
+                    }
+                }
+            }
+        }
+    }
+
+    @media all and (max-width: 375px) {
+        // 篩選_diary.html頁面
+        .diary_formSelect {
+            // border: 1px solid blue;
+            max-width: 90%;
+            label {
+                // border: 1px solid yellowgreen;
+                p{
+                    display: block;
+                }
+            }
+        }
+    }
 
 
 
@@ -10,19 +859,1240 @@
 
 
 
+
+// ------------------------內頁_diaryInside.html頁面
+    .diaryInsidePage {
+        // border: 1px solid black;
+        margin: 0 auto;
+        max-width: 80%;
+        display: flex;
+        margin: 80px auto;
+
+        .pageLeft {
+            // border: 1px solid red;
+            padding: 10px;
+            flex: 50%;
+
+            .pageLeftImg {
+                // border: 1px solid green;
+                img {
+                    vertical-align: top;
+                }
+            }
+
+            .pageLeftLine {
+                border: 1px solid #9DB86D;
+                svg{
+                    margin: 25px;
+                }
+                path{
+                    fill: none;
+                    stroke: #76BF8A;
+                    stroke-width: 5px;
+                }
+            }
+        }
+
+        .pageRight {
+            // border: 1px solid purple;
+            padding: 10px;
+            flex: 50%;
+            hr {
+                border: 0;
+                background-color: $transparentWhite;
+                height: 1px;
+            }
+
+            // 分享
+            .share {
+                // border: 1px solid orange;
+                width: 100%;
+                display: flex;
+                justify-content: flex-end;
+                align-items: flex-end;
+                padding-right: 5px;
+                padding-bottom: 10px;
+
+                div:nth-child(1) span:nth-child(1) {
+                    //檢舉
+                    // border: 1px solid red;
+                    font-size: 14px;
+                }
+                div {
+                    // border: 1px solid blue;
+                    padding: 5px;
+                    span {
+                        // border: 1px solid green;
+                        font-size: 20px;
+                    }
+                }
+            }
+
+            // user
+            .rightTitle {
+                // border: 1px solid blue;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+
+                .rightNameImg {
+                    // border: 1px solid orange;
+                    display: flex;
+                    align-items: center;
+
+                    .rightImg {
+                        // border: 1px solid rgb(163, 117, 163);
+                        width: 80px;
+                    }
+
+                    .rightName {
+                        // border: 1px solid green;
+                        padding-left: 10px;
+
+                        p:nth-child(1) {
+                            // border: 1px solid red;
+                            font-size: 40px;
+                            padding-bottom: 10px;
+                        }
+
+                        p {
+                            // border: 1px solid orange;
+                            color: $keyWhite;
+                        }
+                    }
+                }
+
+                .rightNameText {
+
+                    // border: 1px solid red;
+                    p:nth-child(1) {
+                        // border: 1px solid red;
+                        font-size: 40px;
+                        padding-bottom: 10px;
+                    }
+
+                    p {
+                        // border: 1px solid green;
+                        color: $keyWhite;
+                        text-align: right;
+                    }
+                }
+            }
+
+            // 潛點資訊
+            .rightInformation {
+                // border: 1px solid blue;
+                width: 100%;
+                padding: 10px 0px;
+                display: flex;
+                justify-content: space-around;
+
+                div {
+
+                    // border: 1px solid orange;
+                    p:nth-child(2) {
+                        font-size: 24px;
+                        padding: 10px 0px;
+                    }
+
+                    p {
+                        // border: 1px solid orange;
+                        text-align: center;
+                        color: $keyWhite;
+                    }
+                }
+            }
+
+            // 資料
+            .rightData {
+                // border: 1px solid black;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px 0px;
+
+                .rightDataA {
+                    // border: 1px solid $keyWhite;
+                    flex: 50%;
+                    display: flex;
+                    justify-content: space-around;
+
+                    div {
+
+                        // border: 1px solid gray;
+                        p:nth-child(2) {
+                            font-size: 28px;
+                            padding: 10px 0px;
+                        }
+
+                        p {
+                            // border: 1px solid rgb(51, 141, 153);
+                            color: $keyWhite;
+                            text-align: center;
+                        }
+
+                        span:nth-child(2) {
+                            font-size: 16px;
+                        }
+                    }
+                }
+
+                .rightDataB {
+                    border-left: 1px solid $keyWhite;
+                    flex: 50%;
+                    display: flex;
+                    justify-content: space-around;
+
+                    div {
+
+                        // border: 1px solid gray;
+                        p:nth-child(2) {
+                            font-size: 28px;
+                            padding: 10px 0px;
+                        }
+
+                        p {
+                            // border: 1px solid rgb(51, 141, 153);
+                            color: $keyWhite;
+                            text-align: center;
+
+                            span:nth-child(2) {
+                                font-size: 16px;
+                            }
+
+                            i {
+                                font-size: 20px;
+                                // border: 1px solid gray;
+                            }
+                        }
+
+                        span:nth-child(2) {
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+
+            // 圖鑑
+            .biological {
+                // border: 1px solid blue;
+                color: $keyWhite;
+                width: 100%;
+                padding: 10px 0px;
+            }
+
+            .rightPicture {
+                // border: 1px solid blue;
+                display: flex;
+
+                div {
+                    // border: 1px solid goldenrod;
+                    width: 120px;
+                }
+            }
+
+            // 日誌
+            .rightContent {
+                // border: 1px solid black;
+                width: 100%;
+                padding: 10px;
+
+                p {
+                    // border: 1px solid rgb(226, 119, 119);
+                    color: $keyWhite;
+                }
+            }
+        }
+    }
+
+    .diaryInside_controlBtn {
+        // border: 1px solid black;
+        max-width: 100%;
+        display: flex;
+        justify-content: center;
+        margin: 0px auto 80px auto;
+
+        div:nth-child(1) {
+            margin-right: 100px;
+        }
+    }
+
+    // 課程卡片  < coco的code >
+    .spotPushBlock {
+        // border: 1px solid yellow;
+        max-width: 90%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        margin: $spotMargin auto 120px;
+        padding: $spotPadding;
+        text-align: center;
+        flex-wrap: wrap;
+    }
+
+    .spotPush {
+        // border: 1px solid yellow;
+        width: 350px;
+        border-radius: 10px;
+        // box-shadow: $keyWhite 2px 2px 2px;
+        margin: 0px 0px 20px;
+        overflow: hidden;
+
+        >a {
+            color: $keyBlue;
+            text-align: left;
+
+            .spotPushTital {
+                // border: 1px solid yellow;
+                background-image: url("./../img/diary/spotBanner_5.jpg");
+                background-repeat: no-repeat;
+                background-size: 100%;
+                width: 100%;
+                height: 200px;
+
+                >h4 {
+                    padding: $spotPadding;
+                    color: $keyWhite;
+                }
+            }
+
+            .spotPushMain {
+                // border: 1px solid orange;
+                background-color: $keyWhite;
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+
+                .spotPushListText {
+                    width: 100%;
+                    text-align: left;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+
+                    h4 {
+                        // padding: $spotPadding 0;
+                        line-height: $lineH;
+                    }
+
+                    h5 {
+                        font-size: $baseFz - 10;
+                        // padding: 0 0 $spotPadding 0;
+                    }
+                }
+
+                &:last-child {
+                    // border: 1px solid green;
+                    text-align: center;
+                    padding: $spotPadding;
+
+                    img {
+                        width: $memimgW*2;
+                        border-radius: 50%;
+                        padding: $spotPadding;
+                    }
+                }
+            }
+        }
+    }
+
+
+    @media all and (max-width: 1600px) {
+        .diaryInsidePage {
+            // border: 1px solid green;
+            .pageLeft {
+                // border: 1px solid red;
+
+                .pageLeftImg {
+                    // border: 1px solid green;
+                    img {
+                        // border: 1px solid green;
+                    }
+                }
+                .pageLeftLine {
+                    // border: 1px solid red;
+                    canvas {
+                        width: 100%;
+                        // height: 200px;
+                    }
+                }
+            }
+
+            .pageRight {
+                // border: 1px solid purple;
+                hr {
+                    // border: 1px solid purple;
+                }
+
+                // 分享
+                .share {
+                    // border: 1px solid orange;
+
+                    div:nth-child(1) span:nth-child(1) {
+                        //檢舉
+                        // border: 1px solid red;
+                    }
+                    div {
+                        // border: 1px solid blue;
+                        span {
+                            // border: 1px solid green;
+                        }
+                    }
+                }
+
+                // user
+                .rightTitle {
+                    flex-direction: column;
+                    .rightNameImg {
+                        // border: 1px solid orange;
+                        display: flex;
+                        align-items: center;
+
+                    }
+
+                    .rightNameText {
+                        // border: 1px solid red;
+                        padding: 25px 0px 20px;
+                        display: flex; //加
+                        width: 100%; //加
+                        justify-content: space-between;
+                        align-items: flex-end;
+
+                        p:nth-child(1) {
+                            // border: 1px solid red;
+                            font-size: 40px;
+                            padding-bottom: 0px; //改
+                        }
+
+                        p {
+                            // border: 1px solid green;
+                            color: $keyWhite;
+                            text-align: right;
+                        }
+                    }
+                }
+
+                // 潛點資訊
+                .rightInformation {
+                    // border: 1px solid blue;
+                    div {
+                        // border: 1px solid orange;
+                        p:nth-child(2) {
+                            font-size: 24px;
+                            padding: 10px 0px;
+                        }
+
+                        p {
+                            // border: 1px solid orange;
+                            text-align: center;
+                            color: $keyWhite;
+                        }
+                    }
+                }
+
+                // 資料
+                .rightData {
+                    // border: 1px solid black;
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    // align-items: center;
+                    padding: 10px 0px;
+
+                    .rightDataA {
+                        // border: 1px solid $keyWhite;
+                        // flex: 50%;
+                        // display: flex;
+                        // justify-content: space-around;
+                        width: 100%;
+                        padding-bottom: 15px;
+                    }
+
+                    .rightDataB {
+                        border-left: none;
+                        border-top: 1px solid $keyWhite;
+                        // flex: 50%;
+                        // display: flex;
+                        // justify-content: space-around;
+                        width: 100%;
+                        padding-top: 15px;
+                    }
+                }
+
+                // 圖鑑
+                .biological {
+                    // border: 1px solid blue;
+                    color: $keyWhite;
+                    width: 100%;
+                    padding: 10px 0px;
+                }
+
+                .rightPicture {
+                    // border: 1px solid blue;
+                    display: flex;
+
+                    div {
+                        // border: 1px solid goldenrod;
+                        width: 120px;
+                    }
+                }
+
+                // 日誌
+                .rightContent {
+                    // border: 1px solid black;
+                    p {
+                        // border: 1px solid rgb(226, 119, 119);
+                    }
+                }
+            }
+        }
+
+        .diaryInside_controlBtn {
+            // border: 1px solid black;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin: 0px auto 80px auto;
+
+            div:nth-child(1) {
+                margin-right: 100px;
+            }
+        }
+
+        // 課程卡片 < coco的code >
+        .spotPushBlock {
+            // border: 1px solid yellow;
+            width: 90%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            margin: $spotMargin auto 120px;
+            padding: $spotPadding;
+            text-align: center;
+            flex-wrap: wrap;
+        }
+    }
+
+    @media all and (max-width: 1200px) {
+        //這裡要改(上半部)
+        .diaryInsidePage {
+            // border: 1px solid yellow;
+            margin: 0 auto;
+            max-width: 70%;
+            display: flex;
+            margin: 80px auto;
+            flex-direction: column;
+        }
+    }
+
+    @media all and (max-width: 768px) {
+        //這裡要改(上半部)
+        .diaryInsidePage {
+            max-width: 90%;
+            .pageRight {
+                // border: 1px solid purple;
+                padding: 10px;
+                flex: 50%;
+            }
+        }
+    }
+
+    @media all and (max-width: 576px) {
+
+        //這裡要改(上半部)
+        .diaryInsidePage {
+            // border: 1px solid orangered;
+            margin: 0 auto;
+            max-width: 95%;
+            display: flex;
+            margin: 80px auto;
+
+            .pageLeft {
+                // border: 1px solid red;
+                padding: 10px;
+                flex: 50%;
+            }
+
+            .pageRight {
+                // border: 1px solid purple;
+                padding: 10px;
+                flex: 50%;
+
+                // user
+                .rightTitle {
+                    // border: 1px solid blue;
+                    // width: 100%;
+                    // display: flex;
+                    // justify-content: space-between;
+                    // align-items: flex-start;
+                    flex-direction: column;
+
+                    .rightNameImg {
+                        // border: 1px solid orange;
+                        display: flex;
+                        align-items: center;
+
+                    }
+
+                    .rightNameText {
+                        // border: 1px solid red;
+                        padding: 25px 0px 20px;
+                        display: flex; //加
+                        width: 100%; //加
+                        justify-content: space-between;
+                        align-items: flex-end;
+
+                        p:nth-child(1) {
+                            // border: 1px solid red;
+                            font-size: 40px;
+                            padding-bottom: 0px; //改
+                        }
+
+                        p {
+                            // border: 1px solid green;
+                            color: $keyWhite;
+                            text-align: right;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media all and (max-width: 375px) {
+
+        //這裡要改(上半部)
+        .diaryInsidePage {
+            // border: 1px solid black;
+            margin: 0 auto;
+            max-width: 90%;
+            display: flex;
+            margin: 80px auto;
+
+            .pageLeft {
+                // border: 1px solid red;
+                padding: 10px;
+                flex: 50%;
+            }
+
+            .pageRight {
+                // border: 1px solid purple;
+                padding: 10px;
+                flex: 50%;
+
+                // user
+                .rightTitle {
+                    // border: 1px solid blue;
+                    // width: 100%;
+                    // display: flex;
+                    // justify-content: space-between;
+                    // align-items: flex-start;
+                    flex-direction: column;
+
+                    .rightNameImg {
+                        // border: 1px solid orange;
+                        display: flex;
+                        align-items: center;
+                    }
+
+                    .rightNameText {
+                        // border: 1px solid red;
+                        padding: 25px 0px 20px;
+                        display: flex;
+                        width: 100%;
+                        justify-content: space-between;
+                        align-items: flex-start; //改
+                        flex-direction: column; //加
+
+                        p:nth-child(1) {
+                            // border: 1px solid red;
+                            font-size: 40px;
+                            padding-bottom: 0px; //改
+                        }
+
+                        p {
+                            // border: 1px solid green;
+                            color: $keyWhite;
+                            text-align: right;
+                        }
+                    }
+                }
+
+                // 資料
+                .rightData {
+                    // border: 1px solid black;
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    // align-items: center;
+                    padding: 10px 0px;
+
+                    .rightDataA {
+                        // border: 1px solid $keyWhite;
+                        // flex: 50%;
+                        // display: flex;
+                        // justify-content: space-around;
+                        width: 100%;
+                        padding-bottom: 15px;
+                    }
+
+                    .rightDataB {
+                        border-left: none;
+                        border-top: 1px solid $keyWhite;
+                        // flex: 50%;
+                        // display: flex;
+                        // justify-content: space-around;
+                        width: 100%;
+                        padding-top: 15px;
+                    }
+                }
+            }
+        }
+        .diaryInside_controlBtn {
+            // border: 1px solid green;
+            div:nth-child(1) {
+                margin-right: 35px;
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+// ------------------------新增_diaryAdd.html頁面
+.diaryAddTitleH3 {
+    // border: 1px solid orange;
+    display: flex;
+    padding: 10px 0px 10px 30px;
+    justify-content: space-between;
+    margin: 80px auto 80px;
+    max-width: 1200px;
+    position: relative;
+
+    h3 {
+        // border: 1px solid green;
+        color: $keyWhite;
+        i {
+            // border: 1px solid green;
+            color: $keyWhite;
+            padding-left: 20px;
+        }
+    }
+
+    .button--bubble {
+        //btn按鈕破版調整
+        left: -50%;
+    }
+
+    .button--bubble__effect-container {
+        //btn按鈕破版調整
+        left: -100%;
+    }
 }
 
+.diaryAdd_formAddAll {
+    // border: 1px solid orangered;
+    margin: 50px auto;
+    max-width: 1200px;
 
-.diaryInside{
+    .formf {
+        // border: 1px solid orange;
+        width: 100%;
 
+        .diaryAddA {
+            //區塊A_日誌
+            // border: 1px solid green;
+            width: 100%;
+            background-color: $keyBlack;
+            border-radius: 10px;
+            margin: 30px auto 0px;
+            padding: 30px;
 
+            .diaryAddName {
+                //日誌名稱
+                // border: 1px solid purple;
+                color: $keyWhite;
+                width: 100%;
+                padding: 20px 0px;
 
+                p {
+                    // border: 1px solid blue;
+                    display: inline-block;
+                }
 
+                input {
+                    // border: 1px solid blue;
+                    @include input-text($w:160px,$h:30px);
+                    padding: 0px;
+                }
+            }
 
+            .diaryAddType {
+                //日誌類型
+                // border: 1px solid green;
+                color: $keyWhite;
+                width: 100%;
+                padding: 20px 0px;
 
+                p {
+                    // border: 1px solid palevioletred;
+                    display: inline-block;
+                }
 
+                select {
+                    // border: 1px solid blue;
+                    @include input-text($w:160px,$h:30px);
+                    padding: 0px;
+                }
+            }
 
+            .diaryAddArea {
+                //潛水區域
+                // border: 1px solid blue;
+                color: $keyWhite;
+                width: 100%;
+                padding: 20px 0px;
 
+                p {
+                    // border: 1px solid palevioletred;
+                    display: inline-block;
+                }
 
+                #diveArea {
+                    // border: 1px solid yellow;
+                    @include input-text($w:160px,$h:30px);
+                    padding: 0px;
+                }
+            }
+
+            .diaryAddPlace {
+                //潛水地點
+                // border: 1px solid purple;
+                color: $keyWhite;
+                width: 100%;
+                padding: 20px 0px;
+
+                p {
+                    // border: 1px solid palevioletred;
+                    display: inline-block;
+                }
+
+                label {
+                    // border: 1px solid yellowgreen;
+                    p{
+                        display: inline-block;
+                        input{
+                            // border: 1px solid white;
+                            @include input-checkbox($w:25px,$h:30px,$margin-R:5px);
+                            margin-left: 15px;
+                        }
+                    }
+                }
+            }
+
+            .diaryAddTime {
+                //潛水時間
+                // border: 1px solid orange;
+                color: $keyWhite;
+                width: 100%;
+                padding: 20px 0px;
+
+                p {
+                    // border: 1px solid olive;
+                    display: inline-block;
+                }
+
+                input {
+                    // border: 1px solid blue;
+                    @include input-number($w:160px,$h:30px);
+                    padding: 0px;
+                }
+            }
+
+            .diaryDate {
+                //入水日期
+                // border: 1px solid palevioletred;
+                color: $keyWhite;
+                width: 100%;
+                padding: 20px 0px;
+
+                p {
+                    // border: 1px solid blue;
+                    display: inline-block;
+                }
+
+                input {
+                    // border: 1px solid blue;
+                    @include input-date($w:160px,$h:30px);
+                    padding: 0px;
+                }
+            }
+        }
+
+        .climate {
+            //區塊B__氣候條件
+            // border: 1px solid purple;
+            width: 100%;
+            background-color: $keyBlack;
+            border-radius: 10px;
+            margin: 30px auto 30px;
+            padding: 30px;
+
+            .climateP {
+                // border: 1px solid green;
+                width: 100%;
+                color: $keyWhite;
+                padding: 10px;
+            }
+
+            .climateflex {
+                // border: 1px solid blue;
+                width: 100%;
+                display: flex;
+                justify-content: space-evenly;
+
+                .climateA {
+
+                    // border: 1px solid wheat;
+                    div {
+
+                        // border: 1px solid blue;
+                        p {
+                            // border: 1px solid palevioletred;
+                            color: $keyWhite;
+                            display: inline-block;
+                            padding: 20px 0px;
+
+                            i {
+                                // border: 1px solid blue;
+                                font-size: 20px;
+                                padding-right: 5px;
+                            }
+                        }
+
+                        select {
+                            // border: 1px solid blue;
+                            @include input-text($w:160px,$h:30px);
+                            padding: 0px;
+                        }
+
+                        input {
+                            // border: 1px solid blue;
+                            @include input-number($w:160px,$h:30px);
+                            padding: 0px;
+                        }
+                    }
+                }
+
+                .climateB {
+
+                    // border: 1px solid wheat;
+                    div {
+                        // border: 1px solid blue;
+                        color: $keyWhite; //度
+
+                        p {
+                            // border: 1px solid palevioletred;
+                            color: $keyWhite;
+                            display: inline-block;
+                            padding: 20px 0px;
+
+                            i {
+                                // border: 1px solid blue;
+                                font-size: 20px;
+                                padding-right: 5px;
+                            }
+                        }
+
+                        input {
+                            // border: 1px solid blue;
+                            @include input-number($w:160px,$h:30px);
+                            padding: 0px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .biological {
+            //區塊C_遇見生物
+            // border: 1px solid green;
+            width: 100%;
+            background-color: $keyBlack;
+            border-radius: 10px;
+            margin: 30px auto 0px;
+            padding: 30px;
+
+            .biologicalP {
+                // border: 1px solid green;
+                width: 100%;
+                color: $keyWhite;
+                padding: 10px;
+            }
+            .panel {  //lightbox
+                border: 1px solid green;
+                // display: none;
+                .diaryAddBiological{
+                    // border: 1px solid orangered;
+                    i {
+                        // border: 1px solid orangered;
+                        font-size: 20px;
+                        padding: 0px 5px;
+                        vertical-align: middle;
+                    }
+                    .biologicalBtnCssAnn{
+                        display: inline-block;
+                        margin: 0;
+                    }
+                }
+                .biologicalAddImg{  //innerHTML
+                    width: 100%;
+                    border: 1px solid wheat;
+                }
+                .biologicalCssaAnn .biologicalCssbAnn .biologicalCsscAnn{ //設圖片大小
+                    ul {
+                        width: 100%; //原是60%
+                        li {
+                            // border: 1px solid orangered;
+                            display: inline-block;
+                            max-width: 150px;
+                            }
+                    }
+                }
+            }
+        }
+
+        .process {
+            //區塊D_潛水過程
+            // border: 1px solid green;
+            width: 100%;
+            background-color: $keyBlack;
+            border-radius: 10px;
+            margin: 30px auto 0px;
+            padding: 30px;
+
+            .processP {
+                // border: 1px solid green;
+                width: 100%;
+                color: $keyWhite;
+                padding: 10px;
+            }
+            .processrange{
+                .group{
+                    display: inline-block;
+                    margin: 50px 0;
+                    .slidecontainer{
+                        display: inline-block;
+                        width: 20px;
+                        height: 150px;
+                        padding: 0;
+                    .slider {
+                        -webkit-appearance: none;  /* Override default CSS styles */
+                        appearance: none;
+                        height: 15px; /* Specified height */
+                        background: #d3d3d3; /* Grey background */
+                        outline: none; /* Remove outline */
+                        opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+                        -webkit-transition: .2s; /* 0.2 seconds transition on hover */  
+                        width: 150px;
+                        margin: 0;
+                        transition: opacity .2s;
+                        transform-origin: 100px 0px;
+                        transform: rotate(-90deg);
+                        }
+                
+                    /* Mouse-over effects */
+                    .slider:hover {
+                        opacity: 1; /* Fully shown on mouse-over */
+                        }
+                
+                    /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */ 
+                    .slider::-webkit-slider-thumb {
+                        -webkit-appearance: none; /* Override default look */
+                        appearance: none;
+                        width: 40px; /* Set a specific slider handle width */
+                        height: 40px; /* Slider handle height */
+                        border-radius: 50%;
+                        background: #4CAF50; /* Green background */
+                        cursor: pointer; /* Cursor on hover */
+                        }
+                
+                    .slider::-moz-range-thumb {
+                        width: 10px; /* Set a specific slider handle width */
+                        height: 10px; /* Slider handle height */
+                        background: #4CAF50; /* Green background */
+                        cursor: pointer; /* Cursor on hover */
+                        }
+                    }
+                }
+            }
+        }
+
+        .diaryAddImg {
+            //潛水照片_潛水照片
+            // border: 1px solid green;
+            width: 100%;
+            background-color: $keyBlack;
+            border-radius: 10px;
+            margin: 30px auto 0px;
+            padding: 30px;
+
+            .diaryAddImgP {
+                // border: 1px solid green;
+                width: 100%;
+                color: $keyWhite;
+                padding: 10px;
+            }
+
+            div {
+                // border: 1px solid green;
+                width: 100%;
+                padding: 10px;
+
+                p {
+                    color: $keyWhite;
+
+                    i {
+                        // border: 1px solid blue;
+                        font-size: 20px;
+                        padding-right: 5px;
+                    }
+
+                    #fileBtn{
+                        display: none; //上傳鈕隱藏
+                    }
+                }
+            }
+        }
+
+        .diaryAddContent {
+            //區塊F_內容撰寫
+            // border: 1px solid green;
+            width: 100%;
+            background-color: $keyBlack;
+            border-radius: 10px;
+            margin: 30px auto 0px;
+            padding: 30px;
+
+            .diaryAddContentP {
+                // border: 1px solid green;
+                width: 100%;
+                color: $keyWhite;
+                padding: 10px;
+            }
+
+            .diaryAddText {
+                textarea {
+                    // border: 1px solid orangered;
+                    width: 100%;
+                }
+            }
+        }
+
+        //送出按鈕
+        .submitData {
+            // border: 1px solid orange;
+            width: 100%;
+            text-align: center;
+            padding: 50px 0px;
+            
+            
+        }
+    }
+}
+
+@media all and (max-width: 1200px) {}
+
+@media all and (max-width: 991px) {
+    .diaryAdd_formAddAll {  //圖鑑的圖片100px
+        .formf {
+            // border: 1px solid orange;
+            width: 100%;
+            .biological {
+                //區塊C_遇見生物
+                // border: 1px solid green;
+                .biologicalP {
+                    // border: 1px solid green;
+                }
+                .panel {  //lightbox
+                    // border: 1px solid green;
+                    .diaryAddBiological{
+                        // border: 1px solid orangered;
+                    }
+                    .biologicalAddImg{
+                        // border: 1px solid green;
+                    }
+                    .biologicalCssaAnn .biologicalCssbAnn .biologicalCsscAnn{ //設圖片大小
+                        ul {
+                            width: 100%; //原是60%
+                            li {
+                                // border: 1px solid orangered;
+                                display: inline-block;
+                                max-width: 100px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media all and (max-width: 768px) {
     
+}
+
+@media all and (max-width: 576px) {
+    .diaryAdd_formAddAll {  //圖鑑的圖片100px
+        .formf {
+            // border: 1px solid orange;
+            width: 100%;
+            .biological {
+                //區塊C_遇見生物
+                // border: 1px solid green;
+                .biologicalP {
+                    // border: 1px solid green;
+                }
+                .panel {  //lightbox
+                    // border: 1px solid green;
+                    .diaryAddBiological{
+                        // border: 1px solid orangered;
+                    }
+                    .biologicalAddImg{
+                        // border: 1px solid green;
+                    }
+                    .biologicalCssaAnn .biologicalCssbAnn .biologicalCsscAnn{ //設圖片大小
+                        ul {
+                            width: 100%; //原是60%
+                            li {
+                                // border: 1px solid orangered;
+                                display: inline-block;
+                                max-width: 80px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media all and (max-width: 375px) {}
+
+
+
+
 }

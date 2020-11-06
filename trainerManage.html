@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/favicon.ico" type="image/x-icon" />
+    <link rel="Shortcut Icon" href="./img/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./fontawesome/css/all.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>海中日子 | 管理課表</title>
+</head>
+<body class="trainerManage">
+    @@include('./layout/header.html')
+
+    <main>
+        @@include('./layout/trainerAside.html')
+
+        <div class="info">
+            <div class="month">
+                <i class="fas fa-angle-left"></i>
+                <span>September, 2020</span>
+                <i class="fas fa-angle-right"></i>
+            </div>
+
+            <div class="tab_container">
+
+                <div class="tab_list_block">
+                    <ul class="tab_list">
+                        <li><a href="#" data-target="register" class="tab -on">報名中</a></li>
+                        <li><a href="#" data-target="audit" class="tab">審核中</a></li>
+                        <li><a href="#" data-target="return" class="tab">退回</a></li>
+                        <li><a href="#" data-target="finished" class="tab">已結訓</a></li>
+                    </ul>
+                </div>
+    
+                <div class="tab_contents" >
+    
+                    <div class="tab register -on">
+                        <div class="course full">
+                            <div class="imgContainer">
+                                <img src="./img/trainer/coast.jpg">
+                            </div>
+                            <div class="courseInfo">
+                                <p>潛水體驗班</p>
+                                <p>上課日期：09/20 - 09/24</p>
+                                <p>上課地點：大白沙</p>
+                                <p>學員人數：5 / 5 人</p>
+                            </div>
+                            <button class="btn nameBtn">查看名單</button>
+                        </div>
+                        <div class="course">
+                            <div class="imgContainer">
+                                <img src="./img/trainer/coast.jpg">
+                            </div>
+                            <div class="courseInfo">
+                                <p>潛水體驗班</p>
+                                <p>上課日期：09/20 - 09/24</p>
+                                <p>上課地點：大白沙</p>
+                                <p>學員人數：0 / 5 人</p>
+                            </div>
+                            <button class="btn">查看名單</button>
+                        </div>
+                        <div class="course">
+                            <div class="imgContainer">
+                                <img src="./img/trainer/coast.jpg">
+                            </div>
+                            <div class="courseInfo">
+                                <p>潛水體驗班</p>
+                                <p>上課日期：09/20 - 09/24</p>
+                                <p>上課地點：大白沙</p>
+                                <p>學員人數：0 / 5 人</p>
+                            </div>
+                            <button class="btn">查看名單</button>
+                        </div>
+                        <div class="course">
+                            <div class="imgContainer">
+                                <img src="./img/trainer/coast.jpg">
+                            </div>
+                            <div class="courseInfo">
+                                <p>潛水體驗班</p>
+                                <p>上課日期：09/20 - 09/24</p>
+                                <p>上課地點：大白沙</p>
+                                <p>學員人數：0 / 5 人</p>
+                            </div>
+                            <button class="btn">查看名單</button>
+                        </div>
+                        
+                    </div>
+    
+                    <div class="tab audit">
+                        <div class="course">
+                            <div class="imgContainer">
+                                <img src="./img/trainer/coast.jpg">
+                            </div>
+                            <div class="courseInfo">
+                                <p>潛水體驗班</p>
+                                <p>上課日期：09/20 - 09/24</p>
+                                <p>上課地點：大白沙</p>
+                                <p>學員人數：0 / 5 人</p>
+                            </div>
+                            <button class="btn">課程異動</button>
+                        </div>
+                        <div class="course">
+                            <div class="imgContainer">
+                                <img src="./img/trainer/coast.jpg">
+                            </div>
+                            <div class="courseInfo">
+                                <p>潛水體驗班</p>
+                                <p>上課日期：09/20 - 09/24</p>
+                                <p>上課地點：大白沙</p>
+                                <p>學員人數：0 / 5 人</p>
+                            </div>
+                            <button class="btn">課程異動</button>
+                        </div>
+                    </div>
+
+                    <div class="tab return">
+                        <div class="course"></div>
+                    </div>
+    
+                    <div class="tab finished">
+                        <div class="course">
+                            <div class="imgContainer">
+                                <img src="./img/trainer/coast.jpg">
+                            </div>
+                            <div class="courseInfo">
+                                <p>潛水體驗班</p>
+                                <p>上課日期：09/20 - 09/24</p>
+                                <p>上課地點：大白沙</p>
+                                <p>學員人數：0 / 5 人</p>
+                            </div>
+                            <button class="btn finishBtn">查看名單</button>
+                        </div>
+                    </div>
+
+
+                </div>
+
+               
+                @@include('./layout/trainerNameList.html')
+                @@include('./layout/trainerStudentAudit.html')
+
+            </div>
+
+            <ul class="pagination">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
+        </div>
+
+
+    </main>
+
+    @@include('./layout/footer.html')
+    <script src="./js/trainerManage.js"></script>
+</body>
+</html>
