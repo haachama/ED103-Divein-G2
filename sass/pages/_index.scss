@@ -815,7 +815,7 @@
                 }
 
                 .line {
-                    left: -108%;
+                    left: -122%;
                     top: 30%;
                     width: 300px;
                     height: 2px;
@@ -841,7 +841,7 @@
                 }
 
                 .line {
-                    left: -54%;
+                    left: -60%;
                     top: 52%;
                     width: 181px;
                     height: 2px;
@@ -865,7 +865,7 @@
                 }
 
                 .line {
-                    left: -146%;
+                    left: -170%;
                     top: 0%;
                     width: 320px;
                     height: 2px;
@@ -888,7 +888,7 @@
                 }
 
                 .line {
-                    left: -32%;
+                    left: -34%;
                     top: 30%;
                     width: 134px;
                     height: 2px;
@@ -918,7 +918,7 @@
                     margin: 10px;
                 }
 
-                a,
+                img,
                 span {
                     vertical-align: middle;
                 }
@@ -926,6 +926,10 @@
                 img {
                     width: 130px;
                     padding: 0;
+
+                    &:hover{
+                        cursor: pointer;
+                    }
                 }
 
                 a {
@@ -942,6 +946,86 @@
         }
     }
 
+    .lightbox-block2{
+        .lightbox2{
+            width: 40%;
+
+            @include breakpoint (992) {
+                width: 60%;
+            }
+
+            @include breakpoint (767) {
+                width: 80%;
+            }
+        }
+    }
+    .art{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h3{
+            margin-top: 0;
+            font-size: 1.375*$baseFz;
+            color: $keyBlack;
+        }
+    
+        .itemName,.NT{
+            font-size: 1.25*$baseFz;
+            font-weight: 600;
+            text-align: center;
+            margin: 20px;
+        }
+
+        .descript{
+            width:60%;
+            text-align: left;
+            color: $keyBlack;
+
+            @include breakpoint (767) {
+                width:80%;
+            }
+        }
+    
+        .addNumber{
+            text-align: center;
+            margin: 40px 0;
+            input{
+                width: 100px;
+                text-align: center;
+                margin: 0 10px;
+            }
+            .fas{
+                cursor: pointer;
+                font-size: 16px;
+            }
+        }
+
+        .button:hover {
+            color: $keyWhite;
+            cursor: pointer;
+        }
+
+        //按鈕hover文字顏色
+        .button--bubble:hover {
+            background: none;
+        }
+
+        //觸時泡泡顏色
+        .button--bubble:hover+.button--bubble__effect-container .circle {
+            background: $keyYellow;
+        }
+        //觸摸時背景顏色
+        .button--bubble:hover+.button--bubble__effect-container .button {
+            background: $keyYellow;
+        }
+        
+    }
+    
+    .item img{
+        width: 100px;
+    }
+    
     .shopBtn {
         text-align: center;
         margin: 50px;
@@ -1239,10 +1323,17 @@
             }
 
             .third{
-                top: 62%;
+                top: 66%;
                 left: 46%;
             }
-    
+
+            @media all and (max-width: 1300px){
+                .third{
+                    top: 62%;
+                    left: 46%;
+                }
+            } 
+
             &::before{
                 content: '';
                 display: inline-block;
