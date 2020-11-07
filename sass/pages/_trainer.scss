@@ -64,9 +64,9 @@
 
       p {
          margin: 20px 10px;
-      }      
+      }
 
-      .btn{
+      .btn {
          @include other-button;
       }
    }
@@ -265,10 +265,11 @@
 }
 
 .addCourse {
-   main{
+   main {
       min-height: calc(100vh - 166px);
       margin-bottom: 30px;
    }
+
    .addTitle {
       margin: 20px 15% 30px;
    }
@@ -276,9 +277,9 @@
    .content {
       width: 70%;
       margin: 0 auto;
-      background-color: rgba(22 , 24, 29, .8);
+      background-color: rgba(22, 24, 29, .8);
       color: $keyWhite;
-      padding:20px 5%;
+      padding: 20px 5%;
       border-radius: 15px;
 
 
@@ -287,14 +288,14 @@
          width: 90%;
       }
 
-      .mustWrite{
+      .mustWrite {
          color: $keyYellow;
          padding-left: 2px;
       }
 
       .second,
       .third,
-      .date{
+      .date {
          display: flex;
          justify-content: space-between;
 
@@ -316,7 +317,7 @@
             display: block;
          }
 
-         input[type="text"]{
+         input[type="text"] {
             font-family: monospace;
             padding: 0;
          }
@@ -326,15 +327,18 @@
          padding: 3px 15px;
       }
 
-      [name="classQuota"]{
+      [name="classQuota"] {
          text-align: center;
       }
 
-      .courseMinus,.coursePlus{
-         height:30px;
+      .courseMinus,
+      .coursePlus {
+         height: 30px;
 
       }
-      .courseMinus:hover, .coursePlus:hover{
+
+      .courseMinus:hover,
+      .coursePlus:hover {
          cursor: pointer;
       }
 
@@ -346,13 +350,13 @@
       justify-content: center;
       text-align: center;
 
-      div{
+      div {
          border-radius: 50%;
          width: 130px;
          height: 130px;
          margin: 0 30px;
 
-         &:hover{
+         &:hover {
             cursor: pointer;
          }
 
@@ -362,12 +366,12 @@
             margin: 20px;
          }
 
-         [type="radio"]{
+         [type="radio"] {
             visibility: hidden;
          }
       }
 
-      div.border{
+      div.border {
          border: 2px solid $keyWhite;
       }
    }
@@ -378,12 +382,13 @@
    }
 
 
-   .saveBtn,.cancelBtn {
+   .saveBtn,
+   .cancelBtn {
       @include other-button;
       margin: 0 10px;
 
       @include breakpoint (577) {
-         margin:10px ;
+         margin: 10px;
 
       }
    }
@@ -627,7 +632,8 @@
       position: relative;
    }
 
-   .nameList,.auditList {
+   .nameList,
+   .auditList {
       width: 100%;
       position: absolute;
       top: 15%;
@@ -671,16 +677,18 @@
       display: inline-block;
    }
 
-   .auditList{
+   .auditList {
 
-      .avatar{
-         th:first-child,td:first-child{
+      .avatar {
+
+         th:first-child,
+         td:first-child {
             @include breakpoint (577) {
                display: none;
             }
          }
-   
-         td{
+
+         td {
             @include breakpoint (577) {
                padding: 5px;
             }
@@ -688,10 +696,11 @@
       }
    }
 
-   .fa-check{
+   .fa-check {
       color: rgb(233, 72, 72);
    }
-   .fa-times{
+
+   .fa-times {
       color: rgb(12, 180, 130);
    }
 
