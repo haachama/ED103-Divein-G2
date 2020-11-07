@@ -287,6 +287,22 @@ $(function () {
         }, 100);
     });
 
+    // shop lightbox
+    // 開啟 Modal 彈跳視窗
+    $(".shopBtn").on("click", function(){
+        $(".lightbox-block2.shopDemo").addClass("-openbox");
+    });
+
+    // 關閉 Modal
+    $(".btn_modal_close").on("click", function(){
+        $(".lightbox-block2.shopDemo").addClass("-opacity-zero");
+        // 設定隔一秒後，移除相關 class
+            setTimeout(function(){
+            $(".lightbox-block2.shopDemo").removeClass("-openbox -opacity-zero");
+            }, 1000);
+    });
+ 
+
 });
 
 // detectLight
