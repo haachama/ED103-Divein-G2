@@ -1,7 +1,6 @@
 import $ from 'jquery';
 import Parallax from 'parallax-js';
 import TimelineMax from 'gsap';
-import ScrollMagic from 'scrollmagic';
 
 $(function () {
 
@@ -25,7 +24,7 @@ $(function () {
         }
     });
 
-    $('.memCart li:first-child').addClass("hide");
+    $('.memCart .userName').addClass("hide");
 
 
     // bubbleBtn
@@ -278,13 +277,29 @@ $(function () {
         }
     });
 
-
     // courseList
     $('.post-module').hover(function () {
         $(this).find('.description').stop().animate({
             height: "toggle",
             opacity: "toggle"
         }, 100);
+    });
+
+    // shop lightbox
+    $(".itemList img").on("click", function(){
+        $(".lightbox-block2").addClass("-openbox");
+        
+        let productID = $(this).parent().parent().attr('id');
+        $('.art [name="lightbox"]').val(productID);
+    });
+
+    // 關閉 Modal
+    $(".btn_modal_close").on("click", function(){
+        $(".lightbox-block2").addClass("-opacity-zero");
+        // 設定隔一秒後，移除相關 class
+        setTimeout(function(){
+        $(".lightbox-block2").removeClass("-openbox -opacity-zero");
+        }, 1000);
     });
 
 });
@@ -373,22 +388,27 @@ function mobileFish() {
 mobileFish();
 
 
-// shop draw line
-// var controller = new ScrollMagic.Controller();
+// add product to cart
+var shopAdd = document.getElementsByClassName("shopAdd")[0];
+var shopMinus = document.getElementsByClassName("shopMinus")[0];
+var number = document.getElementsByName("number")[0];
 
-// var drawLine = new TimelineMax();
-// drawLine.to('.mask .line', 0.5, {
-//     backgroundSize: "100% 100%"
-// }).to('.watch .line', 0.5, {
-//     backgroundSize: "100% 100%"
-// }).to('.gloves .line', 0.5, {
-//     backgroundSize: "100% 100%"
-// }).to('.frogshoes .line', 0.5, {
-//     backgroundSize: "100% 100%"
-// })
+shopAdd.addEventListener("click",function(){
+    var curNumber = number.value;
 
-// var scense011 = new ScrollMagic.Scene({
-//     triggerElement:'#triggerShop',
-//     triggerHook: 0.5,     //調整觸發點的位置，0(top) ~ 1(bottom) 之間，預設是0.5
-//     reverse: false,      //動畫執行完不返回原點，預設為true
-// }).setTween(drawLine).addIndicators().addTo(controller);
+    var addNum = ++curNumber;
+
+    number.value = addNum;
+
+},false)
+
+
+shopMinus.addEventListener("click",function(){
+    var curNumber = number.value;
+    var minusNum = --curNumber;
+    if(minusNum <= 0){
+        minusNum = 0;
+    }
+    number.value = minusNum;
+
+},false)

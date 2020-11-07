@@ -225,40 +225,88 @@
             <img src="./img/index/demoman.png">
         </div>
         <div class="itemList">
-            <div class="mask item">
+            <div class="mask item" id="mask">
                 <span class="line"></span>
-                <a href="./shop.html">
+                <div>
                     <img src="./img/index/shopMask.png">
-                </a>
-                <span>面鏡</span>
+                    <span>面鏡</span>
+                </div>
             </div>
-            <div class="watch item">
+            <div class="watch item" id="watch">
                 <span class="line"></span>
-                <a href="./shop.html">
+                <div>
                     <img src="./img/index/shoeWatch.png">
-                </a>
-                <span>潛水錶</span>
+                    <span>潛水錶</span>
+                </div>
             </div>
-            <div class="gloves item">
+            <div class="gloves item" id="gloves">
                 <span class="line"></span>
-                <a href="./shop.html">
+                <div>
                     <img src="./img/index/shopGlove.png">
-                </a>
-                <span>手套</span>
+                    <span>手套</span>
+                </div>
             </div>
-            <div class="frogshoes item">
+            <div class="frogshoes item" id="frogshoes">
                 <span class="line"></span>
-                <a href="./shop.html">
+                <div>
                     <img src="./img/index/shopShoe.png">
-                </a>
-                <span>蛙鞋</span>
+                    <span>蛙鞋</span>
+                </div>
             </div>
         </div>
+    </div>
 
+    <div class="lightbox-block2">
+        <div class="lightbox2">
+            <div class="button_closeBox2">
+                <button type="button" class="btn_modal_close">✖</button>
+            </div>
+            <div class="art">
+                <span class="itemName">水中看得清</span>
+                <div class="item">
+                    <img src="./img/shop/mask4@2x.png">
+                    <input type="hidden" name="lightbox" value="">
+                </div>
+                <span class="NT">NT$8700</span>
+                <p class="descript">水中看得清顧名思義就是水中看的很清楚，就算在海裡也好像視力2.0一般，只要戴上它沒有什麼是看不見的，買就對了!</p>
+                <div class="addNumber">
+                    <i class="fas fa-minus shopMinus"></i>
+                    <input type="text" value="1" name="number">
+                    <i class="fas fa-plus shopAdd"></i>
+                </div>
+                
+                <div class="bubbleBtn addCart">
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="goo">
+                        <defs>
+                            <filter id="goo">
+                                <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                                <feColorMatrix in="blur" mode="matrix"
+                                    values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+                                <feComposite in="SourceGraphic" in2="goo" />
+                            </filter>
+                        </defs>
+                    </svg>
 
+                    <span class="button--bubble__container">
+                        <div class="button button--bubble">
+                            加入購物車
+                        </div>
+                        <span class="button--bubble__effect-container">
+                            <span class="circle top-left"></span>
+                            <span class="circle top-left"></span>
+                            <span class="circle top-left"></span>
 
+                            <span class="button effect-button"></span>
 
-
+                            <span class="circle bottom-right"></span>
+                            <span class="circle bottom-right"></span>
+                            <span class="circle bottom-right"></span>
+                        </span>
+                    </span>
+                </div>
+                
+            </div>
+        </div>
     </div>
 
     <div class="bubbleBtn shopBtn">
@@ -274,7 +322,7 @@
         </svg>
 
         <span class="button--bubble__container">
-            <a href="#campaign" class="button button--bubble">
+            <a href="./shop.html" class="button button--bubble">
                 查看更多
             </a>
             <span class="button--bubble__effect-container">
