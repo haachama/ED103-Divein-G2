@@ -276,7 +276,7 @@
    .content {
       width: 70%;
       margin: 0 auto;
-      background-color: $keyBlack;
+      background-color: rgba(22 , 24, 29, .8);
       color: $keyWhite;
       padding:20px 5%;
       border-radius: 15px;
@@ -309,8 +309,11 @@
          }
 
          input[type=file] {
-            width: 80px;
+            width: 173px;
             padding: 0;
+            background: none;
+            border: none;
+            display: block;
          }
 
          input[type="text"]{
@@ -326,6 +329,7 @@
       [name="classQuota"]{
          text-align: center;
       }
+
       .courseMinus,.coursePlus{
          height:30px;
 
@@ -333,6 +337,7 @@
       .courseMinus:hover, .coursePlus:hover{
          cursor: pointer;
       }
+
    }
 
 

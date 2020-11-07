@@ -23,19 +23,19 @@
                 <div class="lessonType">
                     <div>
                         <img src="./img/addCourse/typeExperience.png">體驗潛水
-                        <input type="radio" name="lessonType" value="體驗潛水">
+                        <input type="radio" name="lessonType" value="0">
                     </div>
                     <div>
                         <img src="./img/addCourse/typeOw.png">OW
-                        <input type="radio" name="lessonType" value="OW">
+                        <input type="radio" name="lessonType" value="1">
                     </div>
                     <div>
                         <img src="./img/addCourse/typeAow.png">AOW
-                        <input type="radio" name="lessonType" value="AOW">
+                        <input type="radio" name="lessonType" value="2">
                     </div>
                     <div>
                         <img src="./img/addCourse/typeOwAow.png">OW + AOW
-                        <input type="radio" name="lessonType" value="OW + AOW">
+                        <input type="radio" name="lessonType" value="3">
                     </div> 
                 </div>
             </section>
@@ -69,21 +69,21 @@
                         <option value="5">雞仔礁</option>
                     </select>
                 </div>
-                <div>添加照片<br><input type="file"></div>
+                <div>添加照片<input type="file" name="classImage"></div>
             </section>
 
             <section class="date">
                 <div>
-                    開課日期<span class="mustWrite">*</span><br><input type="date" name="courseDate" id="startDate">
+                    開課日期<span class="mustWrite">*</span><br><input type="date" name="courseDate" id="courseDate">
                 </div>
                 <div>
-                    結訓日期<span class="mustWrite">*</span><br><input type="text" value="--/--/--" id="finishDate" name="endDate" readonly>
+                    結訓日期<span class="mustWrite">*</span><br><input type="text" value="--/--/--" id="endDate" name="endDate" readonly>
                 </div>
                 <div>
-                    報名起始日期<span class="mustWrite">*</span><br><input type="date">
+                    報名起始日期<span class="mustWrite">*</span><br><input type="date" name="startDate" id="startDate">
                 </div>
                 <div>
-                    報名截止日期<span class="mustWrite">*</span><br><input type="date">
+                    報名截止日期<span class="mustWrite">*</span><br><input type="text" name="deadLine" id="deadLine" value="--/--/--" readonly>
                 </div>
             </section>
 
