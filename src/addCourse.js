@@ -1,6 +1,7 @@
 import $ from 'jquery';
 require("./jquery.ripples.js");
-
+var courseNo = 0;
+var computedDate = "";
 $(function () {
     // hamburger icon 的切換
     $("button.hamburger").on("click", function () {
@@ -23,6 +24,7 @@ $(function () {
     });
 
     // 選擇課程種類
+    
     $('.lessonType div').each(function(){
 
         $(this).on("click",function(e){
@@ -34,11 +36,11 @@ $(function () {
             }
             $(this).toggleClass("border");
             $(this).find('[type="radio"]')[0].checked = true;  
+
+            courseNo = $(this).find('[type="radio"]')[0].value - 1;
+
         })
     })
-
-
-
 
     // ripples套件
     $('body').ripples({
@@ -50,11 +52,9 @@ $(function () {
     $('canvas').css({
         position:"fixed",
     })
-
-
 })
 
-var courseNo = 0;
+
 Date.prototype.yyyymmdd = function() {
 var mm = this.getMonth() + 1; 
 var dd = this.getDate();
@@ -67,17 +67,28 @@ return [this.getFullYear(),
         ].join('');
 };
 
+var courseDate = document.getElementById('courseDate');
+
+courseDate.onchange = function(e){
+    
+    var cDate = e.target.value;
+    computedDate = new Date(cDate);
+    
+    var finishDate = new Date(computedDate.getFullYear(),computedDate.getMonth(),computedDate.getDate() + parseInt(courseNo));
+    
+    var endDate = document.getElementById('endDate');
+    endDate.value = finishDate.yyyymmdd();
+}
+
 var startDate = document.getElementById('startDate');
-
 startDate.onchange = function(e){
-
     var sDate = e.target.value;
-    var computedDate = new Date(sDate);
-// todo 天數變數
-    var endDate = new Date(computedDate.getFullYear(),computedDate.getMonth(),computedDate.getDate()+2);
+    var computedSDate = new Date(sDate);
 
-    var finishDate = document.getElementById('finishDate');
-    finishDate.value = endDate.yyyymmdd();
+    var deadlineDay = new Date(computedSDate.getFullYear(),computedSDate.getMonth(),computedDate.getDate() - 1);
+
+    var deadLine = document.getElementById('deadLine');
+    deadLine.value = deadlineDay.yyyymmdd();
 }
 
 
@@ -106,3 +117,5 @@ courseMinus.addEventListener("click",function(){
     classQuota.value = minusNum;
 
 },false)
+
+
