@@ -40,14 +40,25 @@ gulp.task('fileinclude', function () {
 
 var reload = browserSync.reload;
 
-// 瀏覽器
+// 瀏覽器_coco mac環境
 gulp.task('default', function () {
     browserSync.init({
-        server: {
-            baseDir: "./app",
-            index: "spot.html"
-        }
+        proxy: "http://localhost/ED103-Divein_try/app/spotRefer.html",
+        // proxy: "http://localhost/ED103-Divein_try/app/spot.html",
+        
+        
     });
-    gulp.watch(['sass/*.scss' , 'sass/**/*.scss'], ['sass']).on('change', reload);
-    gulp.watch(['./*.html', './layout/*.html'], ['fileinclude']).on('change', reload);
+    gulp.watch(['sass/*.scss' , 'sass/**/*.scss'], ['sass']).on('change', browserSync.reload);
+    gulp.watch(['./*.html', './layout/*.html',"./app/*.php"], ['fileinclude']).on('change', browserSync.reload);
 });
+
+// gulp.task('default', function () {
+//     browserSync.init({
+//         server: {
+//             baseDir: "./app",
+//             index: "spot.html"
+//         }
+//     });
+//     gulp.watch(['sass/*.scss' , 'sass/**/*.scss'], ['sass']).on('change', reload);
+//     gulp.watch(['./*.html', './layout/*.html'], ['fileinclude']).on('change', reload);
+// });
