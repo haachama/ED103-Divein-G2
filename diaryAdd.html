@@ -82,7 +82,7 @@
                 <!-- 潛水地點 -->
                 <div class="diaryAddPlace">
                     <p>潛水地點<span> *</span></p>
-                    <label v-for="item in show" :key="item.key"><p><input type="checkbox" :name="item.value" :value="item.value" />{{ item.value }}</p></label>
+                    <label v-for="item in show" :key="item.key"><p><input type="checkbox" :name="item.value" :value="item.value" />{{ item.key }}</p></label>
                     
                 </div>
                 <!-- 潛水時間 -->
@@ -158,7 +158,7 @@
                                     <li><label><input id="animal10" name="animals" value="10" type="checkbox"><img src="./img/diary/animal10.png" id="animalImg10"></label></li>
                                     <li><label><input id="animal11" name="animals" value="11" type="checkbox"><img src="./img/diary/animal11.png" id="animalImg11"></label></li>
                                     <li><label><input id="animal12" name="animals" value="12" type="checkbox"><img src="./img/diary/animal12.png" id="animalImg12"></label></li>
-                                    <li><input id="biologicalBtnJSAnn" class="submitbtn3" name="" type="button" value="選擇"></li>
+                                    <li><input id="biologicalBtnJSAnn" class="submitbtn3"  type="button" value="選擇"></li>
                                 </ul>
                             </div>
                         </div>

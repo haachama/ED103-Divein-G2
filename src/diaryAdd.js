@@ -201,45 +201,45 @@ var select = new Vue({
         return {
             options: [
                 {
-                    value: "綠島",
+                    value: "1",
                     text: "綠島"
                 },
                 {
-                    value: "蘭嶼",
+                    value: "2",
                     text: "蘭嶼"
                 },
                 {
-                    value: "墾丁",
+                    value: "3",
                     text: "墾丁"
                 },
                 {
-                    value: "小琉球",
+                    value: "4",
                     text: "小琉球"
                 },
                 {
-                    value: "東北角",
+                    value: "5",
                     text: "東北角"
                 },
             ],
             areas: [
                 {
-                    selected: "綠島",
-                    diveArea: [{key:"海底教堂",value:"海底教堂"},{key:"鋼鐵礁",value:"鋼鐵礁"}, {key:"石朗大香菇",value:"石朗大香菇"}, {key:"海底大峽谷",value:"海底大峽谷"}, {key:"雞仔礁",value:"雞仔礁"}],
+                    selected: "1", //綠島
+                    diveArea: [{key:"海底教堂",value:"1"},{key:"鋼鐵礁",value:"2"}, {key:"石朗大香菇",value:"3"}, {key:"海底大峽谷",value:"4"}, {key:"雞仔礁",value:"5"}],
                 },
                 {
-                    selected: "蘭嶼",
-                    diveArea: [{key:"母雞岩",value:"母雞岩"}, {key:"八代灣沉船",value:"八代灣沉船"}, {key:"椰油斷層",value:"椰油斷層"}, {key:"野銀小峽谷",value:"野銀小峽谷"}, {key:"四條溝",value:"四條溝"}],
+                    selected: "2", //蘭嶼
+                    diveArea: [{key:"母雞岩",value:"6"}, {key:"八代灣沉船",value:"7"}, {key:"椰油斷層",value:"8"}, {key:"野銀小峽谷",value:"9"}, {key:"四條溝",value:"10"}],
                 },
                 {
-                    selected: "墾丁",
-                    diveArea: [{key:"後壁湖",value:"後壁湖"}, {key:"出水口",value:"出水口"}, {key:"雙峰藍洞",value:"雙峰藍洞"}, {key:"合界",value:"合界"}],
+                    selected: "3", //墾丁
+                    diveArea: [{key:"後壁湖",value:"11"}, {key:"出水口",value:"12"}, {key:"雙峰藍洞",value:"13"}, {key:"合界",value:"14"}],
                 }, {
-                    selected: "小琉球",
-                    diveArea: [{key:"花瓶岩",value:"花瓶岩"}, {key:"美人洞",value:"美人洞"}, {key:"衫福沈船",value:"衫福沈船"}, {key:"鎮海艦",value:"鎮海艦"}, {key:"厚石礁群",value:"厚石礁群"}],
+                    selected: "4", //小琉球
+                    diveArea: [{key:"花瓶岩",value:"15"}, {key:"美人洞",value:"16"}, {key:"衫福沈船",value:"17"}, {key:"鎮海艦",value:"18"}, {key:"厚石礁群",value:"19"}],
                 },
                 {
-                    selected: "東北角",
-                    diveArea: [{key:"和美",value:"和美"}, {key:"龍洞",value:"龍洞"}, {key:"潮境公園",value:"潮境公園"}, {key:"鼻頭角",value:"鼻頭角"}],
+                    selected: "5", //東北角
+                    diveArea: [{key:"和美",value:"20"}, {key:"龍洞",value:"21"}, {key:"潮境公園",value:"22"}, {key:"鼻頭角",value:"23"}],
                 }
             ],
             value: "",
@@ -250,6 +250,7 @@ var select = new Vue({
             if (this.value == "") {
                 return [];
             } else {
+
                 // for (let index = 0; index < this.areas.length; index++) {
                 //   const element = this.areas[index];
                 //   if (element.selected == this.value) {
@@ -269,7 +270,7 @@ function doFirst() {
             document.getElementById('biologicalBtnJSAnn').onclick = checkBiological;
         }
 function checkBiological() {
-    let animals = ['animal1', 'animal2', 'animal3', 'animal4', 'animal5', 'animal6', 'animal7', 'animal8', 'animal9', 'animal10', 'animal11', 'animal12']; //id
+    let animals = ['animal1', 'animal2', 'animal3', 'animal4', 'animal5', 'animal6', 'animal7', 'animal8', 'animal9', 'animal10', 'animal11', 'animal12']; //input id
     let show = "";
     
     for (let i = 0; i < animals.length; i++) {
@@ -284,4 +285,33 @@ window.addEventListener('load', doFirst);
 
 
 
+
+
+
+// function doFirst2() {  //換背景色
     
+//     let animalImgsid=['animalImg1','animalImg2','animalImg3','animalImg4','animalImg5','animalImg6','animalImg7','animalImg8','animalImg9','animalImg10','animalImg11','animalImg12'];
+//     document.querySelectorAll(animalImgsid[i]).focus = changbgcolor;
+//     // for (let i = 0; i < animalImgsid.length; i++) {
+//     //     let listimg = document.getElementById(animalImgsid[i]);
+//     //     document.getElementById(listimg).focus = changbgcolor;
+//     // }
+//     // document.getElementById(listimg[i]).focus = changbgcolor;
+    
+// }
+// function changbgcolor(){
+//     let animals = ['animal1', 'animal2', 'animal3', 'animal4', 'animal5', 'animal6', 'animal7', 'animal8', 'animal9', 'animal10', 'animal11', 'animal12']; //input id
+//     let animalImgs=['animalImg1','animalImg2','animalImg3','animalImg4','animalImg5','animalImg6','animalImg7','animalImg8','animalImg9','animalImg10','animalImg11','animalImg12'];
+//     for (let i = 0; i < animals.length; i++) {
+//         let list = document.getElementById(animals[i]);
+//         let listimg = document.getElementById(animalImgs[i]);
+//         if ( list.checked ) {
+//             listimg.style.backgroundColor = 'red';
+                // 改色的f
+//         }
+//     }
+// }
+// window.addEventListener('load', doFirst2);
+
+
+// listimg.style.backgroundColor = 'red';

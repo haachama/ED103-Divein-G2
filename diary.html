@@ -181,10 +181,10 @@
 
     <!-- 篩選 -->
     <div class="diary_formSelect">
-        <form action="">
+        <form>
             <div class="diarySelect">日誌篩選
                 <select id="diarySelect">
-                    <option value="no">選擇類型</option>
+                    <option value="">選擇類型</option>
                     <option value="0">旅遊潛水</option>
                     <option value="1">課程潛水</option>
                 </select>
@@ -197,7 +197,7 @@
                         {{ i.text }}
                     </option>
                 </select>
-                <label v-for="item in show" :key="item.key"><p><input type="checkbox" :name="item.value" :value="item.value" />{{ item.value }}</p></label>
+                <label v-for="item in show" :key="item.key"><p><input type="checkbox" name="divepoint[]" :value="item.value" id="diveid"/>{{ item.key }}</p></label>
             </div>
         </form>
     </div>

@@ -1151,7 +1151,7 @@
 
             .spotPushTital {
                 // border: 1px solid yellow;
-                background-image: url("./../img/diary/spotBanner_5.jpg");
+                background-image: url("./../img/diary/diaryphoto5.png");
                 background-repeat: no-repeat;
                 background-size: 100%;
                 width: 100%;
@@ -1869,7 +1869,18 @@
                             // border: 1px solid orangered;
                             display: inline-block;
                             max-width: 150px;
+                            position: relative;
+                            input[name="animals"]{
+                                position: absolute;
+                                top:50%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                                z-index: -1; //input藏img後
                             }
+                            img{
+                                // border: 1px solid orangered;
+                            }
+                        }
                     }
                 }
             }
