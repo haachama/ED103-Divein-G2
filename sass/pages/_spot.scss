@@ -1,17 +1,28 @@
+*{
+    box-sizing: border-box;
+}
 .spot{
-    *{
-        box-sizing: border-box;
-    }
     // 第一頁－所有的共同屬性
     width: 100%;
+    height: 100vh;
     background-image: url("../img/spot/spotBanner_1-1.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    
+    header{
+        position: fixed;
+        width: 100%;
+        ul li:first-child a{
+            font-weight: 700;
+        }
+    }
     .spotMain{
         color: $keyWhite;
-        min-height: calc(100vh - 100px);
-        // border: 1px solid greenyellow;
+        // max-height: 100%;
+        min-height: 100vh;
+        section{
+            // border: 5px solid rgb(54, 182, 15);
+            padding-top: 80px;
+        }
     }
 
     //頁籤 內容部分
@@ -19,7 +30,7 @@
         // border: 1px solid skyblue;
         width: $spotareaW;
         margin: 0 auto;
-        padding: 50px 20px 20px 20px;
+        padding: 50px 20px 0px 20px;
         @include breakpoint (992){
             width: 100%;
             text-align: center;
@@ -27,6 +38,7 @@
         .spotarea{
             // background: purple;
             width: 100%;
+            height: 100%;
             @include margin-auto(0);
             font-size: 0;
             //頁籤功能
@@ -38,349 +50,354 @@
             display: inline-block;
             vertical-align: top;
 
-        }   
-        .spotRight{
-            // border: 1px solid yellow;
-            width: 40%;
-            @include breakpoint (992){
-                width: 100%;
-                margin: 0 auto;
-                text-align: center;
-            }
-            >h5{
-                font-size: $baseFz;
-                line-height: $lineH+10;
-                margin-bottom: $spotMargin;
-                color: $transparentWhite;
-            }
         }
-        .spotRightblock{
-            // border: 1px solid yellow;
-            padding: $spotPadding 0;
-            font-size: $baseFz;
-            @include breakpoint(992){
-                margin: 0 auto;
-            }
-            ul{
-                display: flex;
-                flex-direction: row;
-                justify-items: baseline;
-                @include breakpoint(992){
-                    display: block;
-                }
-                li{
-                    display: inline-block;
-                }
-            }
-        }
-        .spotWeather{
-            border-radius: 10px;
-            background-color: rgba(254, 254, 254, 0.377);
-            padding: $spotPadding;
-            margin-bottom: $spotPadding;
-            display: inline-block;
-            @include breakpoint(992){
-                // width: 40%;
-                margin: 0;
-                // border: 1px solid yellow;
-            }
-            ul{
-                font-size: $baseFz - 10;
-                @include breakpoint(992){
-                    padding: 0 10px;
-                }
-                li{
-                    padding: 0 2px;
-                    vertical-align: middle;
-    
-                    .fas{
-                        font-size: $baseFz+2 ;
-                        margin: 0 5px;
-                        @include breakpoint(992){
-                            font-size: $baseFz - 10;
-                            vertical-align: middle;
-                        }
-                    }
-                }
-            }
-        }
-        .spotData{
-            @include breakpoint(992){
-                padding-left: $rwdSpotPadding;
-            }
-            ul{
-                li{
-                    // border: 1px solid rgb(252, 145, 6);
-                    font-size: $baseFz;
-                    display: inline-block;
-                    margin: 0 5px;
-                    padding: 0 $spotPadding 0 2px ;
-                    color: $transparentWhite;
-                }
-                .spotDataNum{
-                    font-size: $baseFz + 15 ;
-                    padding-right: 0;
-                    margin: 0;
-                    color: $keyWhite;
-                }
-            }
-        }
-        .spotFont{
-            border: 0;
-            display: block;
+    }
+
+    .spotRight{
+        // border: 1px solid yellow;
+        width: 40%;
+        @include breakpoint (992){
             width: 100%;
-            p{            
-                width: 100%;
-                line-height: $lineH;
-            }
+            margin: 0 auto;
+            text-align: center;
         }
-        .spotPush{
-            // border: 1px solid rgb(252, 145, 6);
-            width: 60%;
+        >h5{
+            font-size: $baseFz;
+            line-height: $lineH+10;
+            margin-bottom: $spotMargin;
+            color: $transparentWhite;
+        }
+    }
+    .spotRightblock{
+        // border: 1px solid yellow;
+        padding: $spotPadding 0;
+        font-size: $baseFz;
+        @include breakpoint(992){
+            margin: 0 auto;
+        }
+        ul{
             display: flex;
             flex-direction: row;
+            justify-items: baseline;
             @include breakpoint(992){
-                text-align: center;
-                justify-content: center;
+                display: block;
             }
-    
+            li{
+                display: inline-block;
+            }
         }
-        .spotPushBlock{
-            border-radius: 5px;
-            margin: 0px 10px 0 0;
-            // background-color: rgba(78, 142, 179, .5);
-            width: 20%;
-            overflow: hidden;
-            span{
-                text-align: center;
-                font-size: 10px;
+    }
+    .spotWeather{
+        border-radius: 10px;
+        background-color: rgba(254, 254, 254, 0.377);
+        padding: $spotPadding;
+        margin-bottom: $spotPadding;
+        display: inline-block;
+        vertical-align: middle;
+
+        @include breakpoint(992){
+            // width: 40%;
+            margin: 0;
+            // border: 1px solid yellow;
+        }
+        ul{
+            font-size: $baseFz - 10;
+            @include breakpoint(992){
+                padding: 0 10px;
+            }
+            li{
+                padding: 0 2px;
+                vertical-align: middle;
+
+                .fas{
+                    font-size: $baseFz - 2;
+                    margin: 5px;
+                    vertical-align: middle;
+                    @include breakpoint(992){
+                        font-size: $baseFz - 10;
+                        vertical-align: middle;
+                    }
+                }
+            }
+        }
+    }
+    .spotData{
+        @include breakpoint(992){
+            padding-left: $rwdSpotPadding;
+        }
+        ul{
+            li{
+                // border: 1px solid rgb(252, 145, 6);
+                font-size: $baseFz;
+                display: inline-block;
+                margin: 0 5px;
+                padding: 0 $spotPadding 0 2px ;
                 color: $transparentWhite;
             }
-            
-            a{
-                display: inline-block;
-                width: 100%;
-            }
-    
-            .spotPushImg{
-                width: 100%;
-                overflow: hidden;
-                opacity: 0.8;
-                &:hover{
-                    opacity: 1;
-                }
+            .spotDataNum{
+                font-size: $baseFz + 15 ;
+                padding-right: 0;
+                margin: 0;
+                color: $keyWhite;
             }
         }
-        .spotMore_rwd{
-            display: none;
-            @include breakpoint (992){
-                display: block;
-                font-size: 30px;
-                padding: 30px 0;
-                animation:box .8s infinite;
-                position: relative; 
-                i{
-                    position: absolute;
-                    top: 0;
-                    left: 50%;
-                    transform: translate(-50% , 0);
-                    @keyframes box{
-                        0%{
-                            top:50px;
-                        }
-                        20%{
-                            border-radius:2px;  /*從 20% 的地方才開始變形*/
-                        }
-                        50%{
-                            top:80px; 
-                            border-bottom-right-radius:25px;
-                        }
-                        80%{
-                            border-radius:2px;  /*到 80% 的地方恢復原狀*/
-                        }
-                        100%{
-                            top:50px;
-                        }
+    }
+    .spotFont{
+        border: 0;
+        display: block;
+        width: 100%;
+        p{            
+            width: 100%;
+            line-height: $lineH;
+        }
+    }
+    .spotPush{
+        // border: 1px solid rgb(252, 145, 6);
+        width: 60%;
+        display: flex;
+        flex-direction: row;
+        @include breakpoint(992){
+            text-align: center;
+            justify-content: center;
+        }
+
+    }
+    .spotPushBlock{
+        border-radius: 5px;
+        margin: 0px 10px 0 0;
+        // background-color: rgba(78, 142, 179, .5);
+        width: 20%;
+        overflow: hidden;
+        span{
+            text-align: center;
+            font-size: 10px;
+            color: $transparentWhite;
+        }
+        
+        a{
+            display: inline-block;
+            width: 100%;
+        }
+
+        .spotPushImg{
+            width: 100%;
+            overflow: hidden;
+            opacity: 0.8;
+            &:hover{
+                opacity: 1;
+            }
+        }
+    }
+    .spotMore_rwd{
+        display: none;
+        @include breakpoint (992){
+            display: block;
+            font-size: 30px;
+            padding: 30px 0;
+            animation:box .8s infinite;
+            position: relative; 
+            i{
+                position: absolute;
+                top: 0;
+                left: 50%;
+                transform: translate(-50% , 0);
+                @keyframes box{
+                    0%{
+                        top:50px;
+                    }
+                    20%{
+                        border-radius:2px;  /*從 20% 的地方才開始變形*/
+                    }
+                    50%{
+                        top:80px; 
+                        border-bottom-right-radius:25px;
+                    }
+                    80%{
+                        border-radius:2px;  /*到 80% 的地方恢復原狀*/
+                    }
+                    100%{
+                        top:50px;
                     }
                 }
             }
-            
         }
-        .spotLeft{
+        
+    }
+    .spotLeft{
+        // border: 1px solid rgb(252, 145, 6);
+        width: 60%;
+        // height: 100%;
+        // max-width: ;
+        
+        @include breakpoint (1200){
+            // padding-top: 50px;
+        }
+        @include breakpoint (992){
+            width: 100%;
+            margin: 5% auto;
+        }
+        .spotLeftImage{
+            display: flex;
             // border: 1px solid rgb(252, 145, 6);
-            width: 60%;
-            @include breakpoint (1200){
-                padding-top: 50px;
-            }
+            width: 90%;
+            margin-left: auto;
             @include breakpoint (992){
                 width: 100%;
-                margin: 5% auto;
             }
-            .spotLeftImage{
-                display: flex;
-                width: 90%;
-                margin-left: auto;
-                @include breakpoint (992){
+            a{
+                // border: 1px solid rgb(216, 17, 183);
+                display: block;
+                margin: $spotImgMargin $spotImgMargin 0 0;
+                overflow: hidden;
+                font-size: 0;
+                
+                //嘗試動畫效果
+                .spotLeftImageAd {
+                    font-size: 0;
+                    width: 100%;
+                    position: relative;
+                    
+                    span{
+                        background-color: $keyBlue;
+                        border-radius: 0 0 15px 0;
+                        font-size: $baseFz - 5;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        padding: $spotPadding;
+                        color: $transparentWhite;
+                    }
+                }
+                .slider_container {
+                    width: 100%;
+                    font-size: 0;
+                    margin: auto;
+                    position: relative;
+                }
+                
+                &:hover .slider_container .sw {
+                    position: absolute;
+                    width: 100%;
+                    opacity: 0;
+                    animation-name: gradient;
+                    animation-duration: 4s;
+                    animation-timing-function: linear;
+                    animation-iteration-count: infinite;
+        
+                }
+                &:hover span{
+                    color: $keyWhite;
+                }
+
+                @keyframes gradient {
+                    0% {
+                        opacity: 1;
+                        filter: blur(0px);
+                        transform: scale(1);
+                    }
+                
+                    20% {
+                        opacity: 1;
+                        filter: blur(0px);
+                        transform: scale(1);
+                    }
+                
+                    25% {
+                        opacity: 0;
+                        filter: blur(10px);
+                        transform: scale(1.1);
+                    }
+                
+                    95% {
+                        opacity: 0;
+                        filter: blur(10px);
+                        transform: scale(0.9);
+                    }
+                
+                    100% {
+                        opacity: 1;
+                        filter: blur(0px);
+                        transform: scale(1);
+                    }
+                }
+                .slider_container .sw:first-child {
+                    animation-delay: -0.75s;
+                }
+                
+                .slider_container .sw:nth-child(2) {
+                    animation-delay: -3.75s;
+                }
+                
+                .slider_container .sw:nth-child(3) {
+                    animation-delay: -2.75s;
+                }
+                
+                .slider_container .sw:last-child {
+                    animation-delay: -1.75s;
+                }
+                
+                .slider_container .sw:nth-child(2),
+                .slider_container .sw:nth-child(3),
+                .slider_container .sw:last-child {
+                    opacity: 1;
+                    height: 0;
+                }
+                img{
                     width: 100%;
                 }
-                a{
-                    // border: 1px solid rgb(216, 17, 183);
-                    display: block;
-                    margin: $spotImgMargin $spotImgMargin 0 0;
-                    overflow: hidden;
-                    font-size: 0;
-                    
-                    //嘗試動畫效果
-                    .spotLeftImageAd {
-                        font-size: 0;
-                        // border: 1px solid rgb(216, 17, 183);
-                        width: 100%;
-                        position: relative;
-                        
-                        span{
-                            // background-color:  rgba(254, 254, 254, 0.377);
-                            background-color: $keyBlue;
-                            border-radius: 0 0 15px 0;
-                            font-size: $baseFz - 5;
-                            position: absolute;
-                            top: 0;
-                            left: 0;
-                            padding: $spotPadding;
-                            color: $transparentWhite;
-                        }
-                    }
-                    .slider_container {
-                        width: 100%;
-                        font-size: 0;
-                        margin: auto;
-                        position: relative;
-                    }
-                    
-                    &:hover .slider_container .sw {
-                        position: absolute;
-                        width: 100%;
-                        opacity: 0;
-                        animation-name: gradient;
-                        animation-duration: 4s;
-                        animation-timing-function: linear;
-                        animation-iteration-count: infinite;
-            
-                    }
-                    &:hover span{
-                        color: $keyWhite;
-                    }
-    
-                    @keyframes gradient {
-                        0% {
-                            opacity: 1;
-                            filter: blur(0px);
-                            transform: scale(1);
-                        }
-                    
-                        20% {
-                            opacity: 1;
-                            filter: blur(0px);
-                            transform: scale(1);
-                        }
-                    
-                        25% {
-                            opacity: 0;
-                            filter: blur(10px);
-                            transform: scale(1.1);
-                        }
-                    
-                        95% {
-                            opacity: 0;
-                            filter: blur(10px);
-                            transform: scale(0.9);
-                        }
-                    
-                        100% {
-                            opacity: 1;
-                            filter: blur(0px);
-                            transform: scale(1);
-                        }
-                    }
-                    .slider_container .sw:first-child {
-                        animation-delay: -0.75s;
-                    }
-                    
-                    .slider_container .sw:nth-child(2) {
-                        animation-delay: -3.75s;
-                    }
-                    
-                    .slider_container .sw:nth-child(3) {
-                        animation-delay: -2.75s;
-                    }
-                    
-                    .slider_container .sw:last-child {
-                        animation-delay: -1.75s;
-                    }
-                    
-                    .slider_container .sw:nth-child(2),
-                    .slider_container .sw:nth-child(3),
-                    .slider_container .sw:last-child {
-                        opacity: 1;
-                        height: 0;
-                    }
+                
+            }
+        }
+        //四張spotLeftTopA
+        .spotLeftTwoPic_Rl{
+            // padding-top: 14px;
+            // background-color: rgb(120, 104, 190);
+            a{
+                
+                &:first-child{
+                    width: 75.6%;
                     img{
                         width: 100%;
                     }
-                    
                 }
-            }
-            //四張spotLeftTopA
-            .spotLeftTwoPic_Rl{
-                padding-top: 11px;
-                // background-color: rgb(120, 104, 190);
-                a{
-                    
-                    &:first-child{
-                        width: 75.6%;
-                        img{
-                            width: 100%;
-                        }
+                &:last-child{
+                    width: 30%;
+                    img{
+                        width: 100%;
                     }
-                    &:last-child{
-                        width: 30%;
-                        img{
-                            width: 100%;
-                        }
-                    }
-                }
-            }
-            //四張 
-            .spotLeftTwoPic_Lr{
-                padding-bottom: 11px;
-                a{
-                    // border: 1px solid rgb(252, 145, 6);
-                    &:first-child{
-                        width: 30%;
-                    }
-                    &:last-child{
-                        width: 75.5%;
-                    }
-                }
-            }
-            //五張spotLeftTop
-            .spotLeftTwoPic{
-                a {
-                    width: 50%;
-                }
-            }
-            //五張
-            .spotLeftThreePic{
-                a{
-                    flex: 3;
                 }
             }
         }
-    } 
+        //四張 
+        .spotLeftTwoPic_Lr{
+            padding-bottom: 11px;
+            a{
+                // border: 1px solid rgb(252, 145, 6);
+                &:first-child{
+                    width: 30%;
+                }
+                &:last-child{
+                    width: 75.5%;
+                }
+            }
+        }
+        //五張spotLeftTop
+        .spotLeftTwoPic{
+            a {
+                width: 50%;
+            }
+        }
+        //五張
+        .spotLeftThreePic{
+            a{
+                flex: 3;
+            }
+        }
+    }
+
     //頁籤 標題部分
     .spotListBlock{
         // border: 1px solid red;
-        // padding: 2% 0;
-        width: 100%;
         display: block;
         .spotList{
             display: flex;
@@ -429,8 +446,6 @@
         }
     }   
 }
-
-
 //==============潛點內頁==============
 .spotRefer{
     .spotRefre_Main{
@@ -728,11 +743,13 @@
             display: block;
             width: 100%;
             text-align: left;
+            font-size: 12px;
             ul{
                 display: flex;
                 flex-direction: row;
                 width: 100%;
                 border-bottom: 0.5px solid $keyGray;
+                font-size: 12px;
                 &:last-child{
                     border-bottom: 0;
                 }
@@ -747,6 +764,7 @@
                 }
             }
             li{
+                font-size: 12px;
                 flex: 8;
                 justify-self: center;
                 padding: $spotPadding 0;

@@ -61,104 +61,64 @@
 
         <section class="spotRefre_weather spotRefre_right">
             <div class="spotRefreIntor">
-                <h3>綠島-鋼鐵礁</h3>
+                <h3>綠島-鋼鐵礁</h3><input type="hidden" value="467660" id="spotStationId"><input type="hidden" value="WRA007" id="spotStationId_sea">
                 <p>綠島鋼鐵礁是一座利用廢棄輪胎及鋼鐵架製作而成的人工魚礁，因有許多珊瑚附生，及眾多海洋生物棲息，而吸引眾多到綠島潛水的潛水客到此朝聖。<br>當然也不能忘記另一個綠島明星，那就可愛的圓眼燕魚啦！幸運的話可是在船上就看得到牠們的身影了呢～綠島鋼鐵礁的最大深度約為30米，是綠島船潛的熱門潛點。</p>
             </div>
             <div class="spotWeatherTab">
                 <div class="weather_list">
                     <ul>
-                        <li><a href="" class="weathers -iAmHere" data-target="weatherNow">即時氣象</a></li>
-                        <li><a href="" class="weathers" data-target="weatherFuture">未來一週</a></li>
+                        <li><a href="" class="weathers -iAmHere" data-target="weatherNow" >即時氣象</a></li>
+                        <li><a href="" class="weathers" data-target="weatherFuture" value="10014">未來一週</a></li>
                     </ul>
                 </div>
                 <div class="weather_block weatherNow -iAmHere">
-                    <div class="weather_block_inside">2020/09/09</div>
+                    <div class="weather_block_inside" id="today"></div>
                     <div class="weather_block_inside">
                         <div class="spotWeatherText spotWeatherText_right">
-                            <i class="fas fa-sun fa-4x"></i>
-                            <h5>晴天</h5>
+                            <i class="fas weatherString fa-4x"></i>
+                            <h5></h5>
                         </div>
                         <div class="spotWeatherText spotWeatherText_left">
                             <div>
-                                <div class="weather_main">
+                                <div class="weather_main TEMP">
                                     <h6>氣溫</h6>
-                                    <h5>36度</h5>
+                                    <h5></h5>
                                 </div>
-                                <div class="weather_main">
+                                <div class="weather_main WDIR">
                                     <h6>風向</h6>
-                                    <h5>東北風</h5>
+                                    <h5></h5>
                                 </div>
-                                <div class="weather_main">
+                                <div class="weather_main UV">
                                     <h6>紫外線指數</h6>
-                                    <h5>過量</h5>
+                                    <h5></h5>
                                 </div>
                             </div>
                             <div>
-                                <div class="weather_main">
+                                <div class="weather_main sea_tmp">
                                     <h6>海溫</h6>
-                                    <h5>25度</h5>
+                                    <h5></h5>
                                 </div>
-                                <div class="weather_main">
+                                <div class="weather_main water">
                                     <h6>浪況</h6>
-                                    <h5>20cm</h5>
+                                    <h5></h5>
                                 </div>
-                                <div class="weather_main">
+                                <div class="weather_main 24R">
                                     <h6>累積雨量</h6>
-                                    <h5>2.0mm</h5>
+                                    <h5></h5>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="weather_block weatherFuture">
-                    <div class="weather_block_inside">2020/09/09 ot 2020/09/16</div>
+                    <div class="weather_block_inside" id="weekDay"></div>
                     <div class="weather_block_inside">
-                        <div class="spotWeatherfuture">
-                            <ul class="futureDays">
-                                <li class="titleTR">日期</li>
-                                <li>9/10</li>
-                                <li>9/11</li>
-                                <li>9/12</li>
-                                <li>9/13</li>
-                                <li>9/14</li>
-                                <li>9/15</li>
-                                <li>9/16</li>
-                            </ul>
-                            <ul class="futureDays">
-                                <li class="titleTR"><i class="fas fa-temperature-high"></i></li>
-                                <li>20度</li>
-                                <li>20度</li>
-                                <li>20度</li>
-                                <li>20度</li>
-                                <li>20度</li>
-                                <li>20度</li>
-                                <li>20度</li>
-                            </ul>
-                            <ul>
-                                <li class="titleTR"><i class="fas fa-wind"></i></li>
-                                <li>東北風</li>
-                                <li>東北風</li>
-                                <li>東北風</li>
-                                <li>東北風</li>
-                                <li>東北風</li>
-                                <li>東北風</li>
-                                <li>東北風</li>
-                            </ul>
-                            <ul>
-                                <li class="titleTR"><i class="fas fa-umbrella"></i></li>
-                                <li>20%</li>
-                                <li>20%</li>
-                                <li>20%</li>
-                                <li>20%</li>
-                                <li>20%</li>
-                                <li>20%</li>
-                                <li>20%</li>
-                            </ul>
+                        <div class="spotWeatherfuture" id="spotWeatherfuture">
                         </div>
                     </div>
                 </div>
                 <div class="weatherDataFrom">
-                    <p>資料來源：<a href="https://www.cwb.gov.tw/V8/C/ " target="_blank">中央氣象局（今日更新時間: 21:50)</a></p>
+                    <p>資料來源：<a href="https://www.cwb.gov.tw/V8/C/ " target="_blank" >中央氣象局<span id="timeNow"></span></a></p>
                 </div>
             </div>
         </section>
@@ -284,10 +244,6 @@
         </section>
 
     </main>
-
-
-
-
 
 
     @@include('./layout/footer.html')
