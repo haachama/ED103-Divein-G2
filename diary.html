@@ -183,10 +183,10 @@
 
     <!-- 篩選 -->
     <div class="diary_formSelect">
-        <form action="">
+        <form>
             <div class="diarySelect">日誌篩選
                 <select id="diarySelect">
-                    <option value="no">選擇類型</option>
+                    <option value="">選擇類型</option>
                     <option value="0">旅遊潛水</option>
                     <option value="1">課程潛水</option>
                 </select>
@@ -199,7 +199,7 @@
                         {{ i.text }}
                     </option>
                 </select>
-                <label v-for="item in show" :key="item.key"><p><input type="checkbox" :name="item.value" :value="item.value" />{{ item.value }}</p></label>
+                <label v-for="item in show" :key="item.key"><p><input type="checkbox" name="divepoint[]" :value="item.value" id="diveid"/>{{ item.key }}</p></label>
             </div>
         </form>
     </div>
@@ -214,7 +214,7 @@
                 <div class="imgContent">
                     <div class="imgSolid">
                         <!-- 規範img -->
-                        <img src="./img/diary/spotGiLittle-04.png" class="image">
+                        <img src="./img/diary/diaryphoto1.png" class="image">
                     </div>
                     <div class="diaryTitleA">
                         <div class="diaryTitleFlex">
@@ -261,7 +261,7 @@
                 <div class="imgContent">
                     <div class="imgSolid">
                         <!-- 規範img -->
-                        <img src="./img/diary/spotLyLittle-01.png" class="image">
+                        <img src="./img/diary/diaryphoto2.png" class="image">
                     </div>
                     <div class="diaryTitleA">
                         <div class="diaryTitleFlex">
@@ -308,7 +308,7 @@
                 <div class="imgContent">
                     <div class="imgSolid">
                         <!-- 規範img -->
-                        <img src="./img/diary/spotEncLittle-04.png" class="image">
+                        <img src="./img/diary/diaryphoto4.png" class="image">
                     </div>
                     <div class="diaryTitleA">
                         <div class="diaryTitleFlex">
