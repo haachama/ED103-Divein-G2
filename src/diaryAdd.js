@@ -1,9 +1,9 @@
     import {TweenMax, TimelineMax} from "gsap";
     import Vue from "vue";
-    import rangeslider from "rangeslider.js";
-    // require("jquery.ripples.js");
+    require("./jquery.ripples.js");
 
-$(function () {
+$(function(){
+
     //水波紋
     $('body').ripples({
         resolution: 1280,
@@ -13,9 +13,8 @@ $(function () {
     $('canvas').css({
         position:"fixed",
     });
-});
 
-$(function(){
+
     // 開啟 Modal 彈跳視窗
     $(".mainBtn_3").on("click", function(){
         $(".lightbox-block3").addClass("-openbox");
