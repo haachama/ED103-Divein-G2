@@ -36,6 +36,7 @@
             }
             .listRow{
                 .prodInfo{
+                    text-align: center;
                     align-items: center;
                     display: flex;
                     justify-content: space-around;
@@ -43,7 +44,10 @@
                     padding: 20px 0;
                     border-bottom: 1px solid $keyBlack;
                     .prodPic{
-                        width: 5%;
+                        width: 7%;
+                        img{
+                            max-width: 100%;
+                        }
                     }
                     @include breakpoint(577){
                         div{

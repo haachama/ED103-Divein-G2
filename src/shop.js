@@ -1,10 +1,11 @@
 import $ from "jquery";
-import  { TweenMax, TimelineMax } from "gsap";
+import { TweenMax, TimelineMax } from "gsap";
+
 
 var storage = sessionStorage;
 
-function doFirst(){
-    if(storage['addItemList'] == null){
+function doFirst() {
+    if (storage['addItemList'] == null) {
         // 等同於設置一個 key為 addItemList，值為空字串
         storage['addItemList'] = '';    // storage.setItem('addItemList','');
     }
@@ -14,10 +15,10 @@ function doFirst(){
 
     for (let i = 0; i < list.length; i++) {
 
-        list[i].addEventListener('click',function(){
+        list[i].addEventListener('click', function () {
 
             // 獲取商品的資訊 value="水中看的清|mask1@2x.png|8700
-            let diveInfo = document.querySelector(`#${this.id} input`).value; 
+            let diveInfo = document.querySelector(`#${this.id} input`).value;
             // 執行addItem函數，傳入id值、商品的資訊
             addItem(this.id, diveInfo);
         });
@@ -26,11 +27,10 @@ function doFirst(){
 // 按下加入購物車按鈕時，會於左上角顯示商品圖片、資訊
 // 動態新增商品圖片與資訊
 function addItem(itemId, itemValue) {
-    alert(`${itemId} : ${itemValue}`); 
-    let newItem = document.getElementById('newItem');   
+    let newItem = document.getElementById('newItem');
 
     let image = document.createElement('img');
-    image.src = './img/'+ itemValue.split('|')[1];
+    image.src = './img/shop/' + itemValue.split('|')[1];
 
     let title = document.createElement('span');
     title.innerText = itemValue.split('|')[0];
@@ -39,23 +39,23 @@ function addItem(itemId, itemValue) {
     // 字串切割成陣列，還是字串型態，若要加總需轉型成數字
     price.innerText = parseInt(itemValue.split('|')[2]);
 
-    // 判斷顯示處是否已有商品資訊(孫子標籤，包含換行的空格)，若有要先刪除
-    if(newItem.hasChildNodes()){
-        while(newItem.childNodes.length >= 1 ){
-            // 使用while迴圈，只要大於1就刪掉，程式一次一次運行就可以完全清除包含空格節點
-            newItem.removeChild(newItem.firstChild);
-        }
-    }
+    // // 判斷顯示處是否已有商品資訊(孫子標籤，包含換行的空格)，若有要先刪除
+    // if (newItem.hasChildNodes()) {
+    //     while (newItem.childNodes.length >= 1) {
+    //         // 使用while迴圈，只要大於1就刪掉，程式一次一次運行就可以完全清除包含空格節點
+    //         newItem.removeChild(newItem.firstChild);
+    //     }
+    // }
 
     // 再顯示新加入的商品資訊
-    newItem.appendChild(image);
-    newItem.appendChild(title);
-    newItem.appendChild(price);
+    // newItem.appendChild(image);
+    // newItem.appendChild(title);
+    // newItem.appendChild(price);
 
     // 存入storage
-    if(storage[itemId]){
+    if (storage[itemId]) {
         alert('You have checked.');
-    }else{
+    } else {
         // storage['addItemList'] += itemId + ',';
         // 另外創建一個真正的購買順序
         storage['addItemList'] += `${itemId}, `;
@@ -67,7 +67,7 @@ function addItem(itemId, itemValue) {
     let itemString = storage.getItem('addItemList'); //給key值，傳回value
     // alert(itemString); "A1001, A1005, A1006, A1002";
     // substr 返回擷取的字串，四個分隔號會分割成五個值的陣列，故最後的分隔號不計算，就可避免多一個空值
-    let items = itemString.substr(0,itemString.length-2).split(', ');   
+    let items = itemString.substr(0, itemString.length - 2).split(', ');
     //console.log(items);  // [A1001,A1005,A1006,A1002]
 
     subtotal = 0;
@@ -77,25 +77,15 @@ function addItem(itemId, itemValue) {
         let itemPrice = parseInt(itemInfo.split('|')[2]);  //value="Formosa|formosa.jpg|5000" 價格的部分
 
         subtotal += itemPrice;
-        
+
     }
 
 
-    document.getElementById('itemCount').innerText = items.length;
-    document.getElementById('subtotal').innerText = subtotal;
+    // document.getElementById('itemCount').innerText = items.length;
+    // document.getElementById('subtotal').innerText = subtotal;
 }
 
-
-
 window.addEventListener('load', doFirst);
-
-
-
-
-
-
-
-
 
 
 $(function () {
@@ -128,11 +118,11 @@ $(function () {
     var lightboxH3 = lightbox.getElementsByTagName("h3")[0];
     var lightboxP = lightbox.getElementsByTagName("p")[0];
 
-    for(var i=0; i<mainButton.length; i++){
-        mainButton[i].addEventListener("click",openLightbox,false);
+    for (var i = 0; i < mainButton.length; i++) {
+        mainButton[i].addEventListener("click", openLightbox, false);
     }
 
-    function openLightbox(){
+    function openLightbox() {
         lightbox.classList.add("-openbox");
         console.log(this)
         var parent = this.parentNode.parentNode;
@@ -148,14 +138,14 @@ $(function () {
     // });
 
     // 關閉 Modal
-    $(".btn_modal_close").on("click", function(){
+    $(".btn_modal_close").on("click", function () {
         $(".lightbox-block1").addClass("-opacity-zero");
         // 設定隔一秒後，移除相關 class
-        setTimeout(function(){
+        setTimeout(function () {
             $(".lightbox-block1").removeClass("-openbox -opacity-zero");
         }, 1000);
     });
-    
+
 
 
 
@@ -164,14 +154,14 @@ $(function () {
     $('.button--bubble').each(function () {
         var $circlesTopLeft = $(this).parent().find('.circle.top-left');
         var $circlesBottomRight = $(this).parent().find('.circle.bottom-right');
-    
+
         var tl = new TimelineMax();
         var tl2 = new TimelineMax();
-    
+
         var btTl = new TimelineMax({
             paused: true
         });
-    
+
         tl.to($circlesTopLeft, 1.2, {
             x: -25,
             y: -25,
@@ -213,17 +203,17 @@ $(function () {
             y: '+=5',
             opacity: 0
         }, '-=1');
-    
+
         var tlBt1 = new TimelineMax();
         var tlBt2 = new TimelineMax();
-    
+
         tlBt1.set($circlesTopLeft, {
             x: 0,
             y: 0,
             rotation: -45
         });
         tlBt1.add(tl);
-    
+
         tl2.set($circlesBottomRight, {
             x: 0,
             y: 0
@@ -266,14 +256,14 @@ $(function () {
             y: '-=5',
             opacity: 0
         }, '-=1');
-    
+
         tlBt2.set($circlesBottomRight, {
             x: 0,
             y: 0,
             rotation: 45
         });
         tlBt2.add(tl2);
-    
+
         btTl.add(tlBt1);
         btTl.to($(this).parent().find('.button.effect-button'), 0.8, {
             scaleY: 1.1
@@ -283,27 +273,27 @@ $(function () {
             scale: 1,
             ease: Elastic.easeOut.config(1.2, 0.4)
         }, 1.2);
-    
+
         btTl.timeScale(2.6);
-    
+
         $(this).on('mouseover', function () {
             btTl.restart();
         });
     });
 });
 
-$(function(){
+$(function () {
 
     // 開啟 Modal 彈跳視窗
-    $(".sent").on("click", function(){
+    $(".sent").on("click", function () {
         $(".lightbox-block1").addClass("-openbox");
     });
 
     // 關閉 Modal
-    $(".btn_modal_close").on("click", function(){
+    $(".btn_modal_close").on("click", function () {
         $(".lightbox-block1").addClass("-opacity-zero");
         // 設定隔一秒後，移除相關 class
-        setTimeout(function(){
+        setTimeout(function () {
             $(".lightbox-block1").removeClass("-openbox -opacity-zero");
         }, 1000);
     });

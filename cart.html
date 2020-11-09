@@ -30,7 +30,7 @@
                 <h4>小計</h4>
                 <h4>刪除</h4>
             </div>
-            <div class="listRow">
+            <!-- <div class="listRow">
                 <div class="prodInfo">
                     <div class="prodPic">
                         <img src="./img/shop/mask4@2x.png" alt="">
@@ -43,21 +43,7 @@
                         <i class="fas fa-trash"></i>
                     </div>
                 </div>
-            </div>
-            <div class="listRow">
-                <div class="prodInfo">
-                    <div class="prodPic">
-                        <img src="./img/shop/mask4@2x.png" alt="">
-                    </div>
-                    <div class="prodName">水中看得清</div>
-                    <div class="prodPrice">8600</div>
-                    <div class="prodNumber">2</div>
-                    <div class="subTotal">17200</div>
-                    <div class="trashcan">
-                        <i class="fas fa-trash"></i>
-                    </div>
-                </div>
-            </div>
+            </div> -->
             <!-- 動態新增開始 -->
             <!-- <div class="listRow">
                 <div class="prodInfo">
@@ -82,7 +68,7 @@
                 <button class="demo-btn">前往遊戲</button>
             </div>
             <div class="calc">
-                <p class="bill">您購買了<span>4</span>樣物品，總金額為：$<span>34800</span></p>
+                <p class="bill">您購買了<span>4</span>樣物品，總金額為：$<span id="allTotal">0</span></p>
                 <p class="point">您目前持有點數：<span>100</span></p>
                 <p class="total">總計：$<span>34700</span></p>
             </div>
@@ -281,7 +267,7 @@
     <script src="./js/cart.js"></script>
     <script src="./js/bubbleBtn.js"></script>
     <script>
-       
+
     </script>
     <script>
         $(function () {
@@ -302,41 +288,177 @@
         });
     </script>
 
-    
+
     <script>
-        function doFirst(){
+        function doFirst() {
             let billSet = document.getElementsByClassName('billSet')[0];
             document.getElementsByClassName('billSet')[0].style.visibility = 'hidden';
             let thebill = document.getElementsByClassName('thebill')[0];
-            thebill.addEventListener('click',appear);
+            thebill.addEventListener('click', appear);
             let cartBtn = document.getElementsByClassName('cartBtn')[0];
-            function appear(){
+            function appear() {
                 billSet.style.visibility = 'visible';
                 cartBtn.style.visibility = 'hidden';
             }
             let toBack = document.getElementsByClassName('toBack')[0];
-            toBack.onclick = function(){
+            toBack.onclick = function () {
                 billSet.style.visibility = 'hidden';
                 cartBtn.style.visibility = 'visible';
             }
-      
+
         }
 
-        window.addEventListener('load',doFirst);
+        window.addEventListener('load', doFirst);
     </script>
     <script>
-        function doFirst(){
+        function doFirst() {
             let trashCanList = document.getElementsByClassName('fa-trash');
-            for(i=0;i<trashCanList.length;i++){
-                trashCanList[i].addEventListener('click',remove);
+            for (i = 0; i < trashCanList.length; i++) {
+                trashCanList[i].addEventListener('click', remove);
             }
-            function remove(e){
+            function remove(e) {
                 e.target.parentNode.parentNode.parentNode.remove();
             }
         }
-        window.addEventListener('load',doFirst);
+        window.addEventListener('load', doFirst);
     </script>
 
+
+    <script>
+        var storage = sessionStorage;
+
+        function doFirst() {
+            let itemString = storage.getItem('addItemList'); //給key值，傳回value
+            // alert(itemString); "A1001, A1005, A1006, A1002";
+            // substr 返回擷取的字串，四個分隔號會分割成五個值的陣列，故最後的分隔號不計算，就可避免多一個空值
+            let items = itemString.substr(0, itemString.length - 2).split(', ');
+            // [A1001,A1005,A1006,A1002]
+
+            // 使用全域物件
+            newlistRow = document.createElement('div');
+            newlistRow.className = 'listRow';
+
+
+            // 將table放進section，再將section放進cartList
+
+            document.getElementsByClassName('wrap')[0].appendChild(newlistRow);
+
+            total = 0;
+
+            // 每購買一個品項，就呼叫函數創建
+            for (let i = 0; i < items.length; i++) {
+                // items[0] = A1001，傳回 value值 Formosa|formosa.jpg|5000
+                let itemInfo = storage.getItem(items[i]);
+
+                createlistRow(items[i], itemInfo);
+
+                let itemPrice = parseInt(itemInfo.split('|')[2]);  //value="Formosa|formosa.jpg|5000" 價格的部分
+                total += itemPrice;
+            }
+
+            document.getElementById('allTotal').innerText = total;
+        }
+
+        function createlistRow(itemId, itemValue) {
+            newprodInfo = document.createElement('div');
+            newprodInfo.className = 'prodInfo';
+            newprodPic = document.createElement('div');
+            newprodPic.className = 'prodPic';
+            newImg = document.createElement('img');
+            newprodName = document.createElement('div');
+            newprodName.className = 'prodName';
+            newprodPrice = document.createElement('div');
+            newprodPrice.className = 'prodPrice';
+            newprodNumber = document.createElement('div');
+            newprodNumber.className = 'prodNumber';
+            newsubTotal = document.createElement('div');
+            newsubTotal.className = 'subTotal';
+            newtrashcan = document.createElement('div');
+            newtrashcan.className = 'trashcan';
+            newfas = document.createElement('i');
+            newfas.className = 'fas , fa-trash';
+            // alert(`${itemId}:${itemValue}`);
+            let itemTitle = itemValue.split('|')[0];
+            let itemImage = './img/shop/' + itemValue.split('|')[1];
+            let itemPrice = parseInt(itemValue.split('|')[2]);
+
+            // 建立每個品項的清單區域-----
+
+            newlistRow.appendChild(newprodInfo);
+
+
+
+            // 建立商品圖片-----
+            newprodInfo.appendChild(newprodPic);
+            newprodPic.appendChild(newImg);
+            newImg.src = itemImage
+            newImg.width = "100%";   //HTMl 屬性不用單位
+
+
+
+            // 建立商品名稱-----
+            newprodInfo.appendChild(newprodName);
+            newprodName.innerText = itemTitle;
+            newprodName.id = itemId;
+
+            // 建立商品價格-----
+            newprodInfo.appendChild(newprodPrice);
+            newprodPrice.innerText = itemPrice;
+
+
+            // 建立商品數量-----
+            // let itemCount = document.createElement('input');
+            // itemCount.type = 'number';
+            // itemCount.value = 1;
+            // itemCount.min = 0;
+            // itemCount.addEventListener('input',changeItemCount);
+
+            newprodInfo.appendChild(newprodNumber);
+
+            newprodNumber.innerText = 1;
+
+            newsubTotal.innerText = itemPrice * parseInt(newprodNumber.innerText);
+            // 建立商品小計-----td
+            newprodInfo.appendChild(newsubTotal);
+
+
+            // 建立刪除按鈕-----
+            newprodInfo.appendChild(newtrashcan);
+            newtrashcan.appendChild(newfas);
+
+        }
+
+        // 商品數量變數相關
+        // function changeItemCount() {
+        //     let itemString = storage.getItem('addItemList'); //給key值，傳回value
+        //     let items = itemString.substr(0, itemString.length - 2).split(', ');
+
+        //     let itemId = this.parentNode.previousSibling.previousSibling.previousSibling.id;
+        //     let thisItem = storage.getItem(itemId);  //得到value值
+
+        //     let itemPrice = parseInt(thisItem.split('|')[2])  //取得每個商品價格
+        //     newCount = this.value;
+        //     let newPrice = itemPrice * newCount;
+
+        //     let subtotal = this.parentNode.previousSibling;
+        //     subtotal.innerText = newPrice;
+
+        //     let allSubtotal = document.querySelectorAll('.subtotal');
+
+        //     total = 0;
+
+        //     for (let i = 0; i < items.length; i++) {
+        //         price = parseInt(allSubtotal[i].innerText);
+        //         total += price;
+        //     }
+
+        //     document.getElementById('total').innerText = total;
+        // }
+
+
+        window.addEventListener('load', doFirst);
+    </script>
+    
 
 </body>
 
