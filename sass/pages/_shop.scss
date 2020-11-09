@@ -76,7 +76,6 @@
 
     .productUp,
     .productDown {
-        color: $keyWhite;
         display: flex;
         flex-wrap: wrap;
     }
@@ -144,10 +143,13 @@
             cursor: pointer;
             font-size: 24px;
 
-            &:hover {
-                color: red;
-            }
+            // &:hover {
+            //     color: red;
+            // }
         }
+        // .redFill{
+        //     color: red;
+        // }
     }
 
 
