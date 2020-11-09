@@ -275,6 +275,10 @@ function checkBiological() {
     for (let i = 0; i < animals.length; i++) {
         let list = document.getElementById(animals[i]);
         if ( list.checked ) {
+            // console.log('this.nextSibing--'+this.nextSibling);
+            // console.log('this--'+ this);
+            // let img = this.nextSibling;
+            // img.style.backgroundColor = 'rgba(0,0,0,.5)';
             show += `<img src='./img/diary/${animals[i]}.png' style="width:80px">`;
         }
         document.getElementById('biologicalAddImg').innerHTML = show;
@@ -283,7 +287,27 @@ function checkBiological() {
 window.addEventListener('load', doFirst);
 
 
+var inputs = document.getElementsByName("animals");
+var biologicalCsscAnn =document.getElementsByClassName("biologicalCsscAnn")[0];
+var imgs = biologicalCsscAnn.getElementsByTagName("img");
+console.log(imgs);
 
+
+for(var i=0; i<inputs.length; i++){
+   console.log(imgs[i]);
+
+    inputs[i].addEventListener("change",function(){
+        // for(var j=0; j<imgs.length; j++){
+
+            if(this.checked){ //input
+                console.log(this);
+                console.log(imgs[i]);
+                imgs[i].style.backgroundColor = 'rgba(0,0,0,.5)';
+                
+            }
+        // }
+    },false);
+}
 
 
 
