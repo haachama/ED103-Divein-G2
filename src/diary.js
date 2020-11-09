@@ -263,45 +263,46 @@ var vm = new Vue({
             return {
                 options: [
                     {
-                        value: "東北角",
-                        text: "東北角"
-                    },
-                    {
-                        value: "墾丁",
-                        text: "墾丁"
-                    },
-                    {
-                        value: "小琉球",
-                        text: "小琉球"
-                    },
-                    {
-                        value: "綠島",
+                        value: "1",
                         text: "綠島"
                     },
                     {
-                        value: "蘭嶼",
+                        value: "2",
                         text: "蘭嶼"
                     },
+                    {
+                        value: "3",
+                        text: "墾丁"
+                    },
+                    {
+                        value: "4",
+                        text: "小琉球"
+                    },
+                    {
+                        value: "5",
+                        text: "東北角"
+                    },
                 ],
-                areas: [{
-                        selected: "東北角",
-                        diveArea: [{key:"和美",value:"和美"}, {key:"龍洞",value:"龍洞"}, {key:"潮境公園",value:"潮境公園"}, {key:"鼻頭角",value:"鼻頭角"}],
+                areas: [
+                    {
+                        selected: "1", //綠島
+                        diveArea: [{key:"海底教堂",value:"1"},{key:"鋼鐵礁",value:"2"}, {key:"石朗大香菇",value:"3"}, {key:"海底大峽谷",value:"4"}, {key:"雞仔礁",value:"5"}],
                     },
                     {
-                        selected: "墾丁",
-                        diveArea: [{key:"後壁湖",value:"後壁湖"}, {key:"出水口",value:"出水口"}, {key:"雙峰藍洞",value:"雙峰藍洞"}, {key:"北岸花園",value:"北岸花園"}],
+                        selected: "2", //蘭嶼
+                        diveArea: [{key:"母雞岩",value:"6"}, {key:"八代灣沉船",value:"7"}, {key:"椰油斷層",value:"8"}, {key:"野銀小峽谷",value:"9"}, {key:"四條溝",value:"10"}],
+                    },
+                    {
+                        selected: "3", //墾丁
+                        diveArea: [{key:"後壁湖",value:"11"}, {key:"出水口",value:"12"}, {key:"雙峰藍洞",value:"13"}, {key:"合界",value:"14"}],
                     }, {
-                        selected: "小琉球",
-                        diveArea: [{key:"花瓶岩",value:"花瓶岩"}, {key:"美人洞",value:"美人洞"}, {key:"衫福沈船",value:"衫福沈船"}, {key:"鎮海艦",value:"鎮海艦"}, {key:"厚石礁群",value:"厚石礁群"}],
+                        selected: "4", //小琉球
+                        diveArea: [{key:"花瓶岩",value:"15"}, {key:"美人洞",value:"16"}, {key:"衫福沈船",value:"17"}, {key:"鎮海艦",value:"18"}, {key:"厚石礁群",value:"19"}],
                     },
                     {
-                        selected: "綠島",
-                        diveArea: [{key:"海底教堂",value:"海底教堂"},{key:"鋼鐵礁",value:"鋼鐵礁"}, {key:"石朗大香菇",value:"石朗大香菇"}, {key:"海底大峽谷",value:"海底大峽谷"}, {key:"雞仔礁",value:"雞仔礁"}],
-                    },
-                    {
-                        selected: "蘭嶼",
-                        diveArea: [{key:"母雞岩",value:"母雞岩"}, {key:"八代灣沉船",value:"八代灣沉船"}, {key:"椰油斷層",value:"椰油斷層"}, {key:"野銀小峽谷",value:"野銀小峽谷"}, {key:"四條溝",value:"四條溝"}],
-                    },
+                        selected: "5", //東北角
+                        diveArea: [{key:"和美",value:"20"}, {key:"龍洞",value:"21"}, {key:"潮境公園",value:"22"}, {key:"鼻頭角",value:"23"}],
+                    }
                 ],
                 value: "",
             };
@@ -323,3 +324,41 @@ var vm = new Vue({
             },
         },
     });
+
+
+
+let prodRows;
+window.addEventListener("load", function(){
+	//------------------------showProducts
+	// function showProducts(){
+	// 	let html = "<table align='center'>";
+	// 	for(let i=0; i<prodRows.length; i++){
+	// 		html += `<tr><td>${prodRows[i].pname}</td><td>${prodRows[i].diarySelect}</td><td>${prodRows[i].author}</td><td><img width="50" src="images/${prodRows[i].image}"></td></tr>`;
+	// 	}
+	// 	html += "</table>";
+	// 	document.getElementById("showPanel").innerHTML = html;
+	// }
+	//------------------------getProducts
+	function getProducts(){
+		let diarySelect = document.getElementById("diarySelect").value;
+		// let diveid = document.querySelectorAll('#diveid').value; //2
+		let xhr = new XMLHttpRequest();
+		xhr.onload = function(){
+			prodRows = JSON.parse(xhr.responseText);
+			// showProducts();
+			console.log(prodRows);
+		}
+        // let url = `diaryQuery.php?diarySelect=${diarySelect}&diveid=${diveid}`; //2
+		let url = `diaryQuery.php?diarySelect=${diarySelect}`;
+        
+		xhr.open("get", url,false);
+		xhr.send(null);	
+	}
+
+	getProducts();
+
+	//------------------------filter diarySelect under ???
+	document.getElementById("diarySelect").onchange = getProducts;
+	//------------------------filter diveids
+// 	document.getElementById("diveid").onchange = getProducts; //2
+}, false);
