@@ -111,7 +111,7 @@
     }
     .memberFromArea{
         position: absolute;
-        top: -270px;
+        top: -240px;
         left: 8%;
         transition: all 0.6s ease-in-out;
     }
@@ -123,10 +123,10 @@
     }
     
     .memberFromArea.memberFromMove{
-        top: -530px;
+        top: -495px;
     }
     .memberFromArea.memberFromPasMove{
-        top: -45px;
+        top: -30px;
     }
     
     .memberFrom{
@@ -241,7 +241,7 @@
         height: 100%;
         overflow: hidden;
         transition: transform 0.6s ease-in-out;
-        z-index: 100;
+        z-index: 4;
     }
     
     .memLogRegArea.memberMove .overlayContainer{
