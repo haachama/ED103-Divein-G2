@@ -195,7 +195,7 @@ $(function(){
     $("a.spotRefrList").on("click", function(rs){
         rs.preventDefault();
     
-        $(this).closest(".spotRefreTab_rwd").find("a").removeClass("spotShow");
+        $(this).closest(".spotReferTab_rwd").find("a").removeClass("spotShow");
         $(this).closest("a").addClass("spotShow");
         
         $("section").removeClass("spotShow");

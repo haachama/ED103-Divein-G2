@@ -10,7 +10,6 @@ $sql = "select a. * , b.diveName , c.diveAreaName
 $animals = $pdo->query($sql);
 $animalRows = $animals->fetchAll(PDO::FETCH_ASSOC);
 echo json_encode($animalRows);
-
 } catch (PDOException $e){
     $e->getMessage();
 }

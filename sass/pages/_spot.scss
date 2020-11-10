@@ -448,7 +448,7 @@
 }
 //==============潛點內頁==============
 .spotRefer{
-    .spotRefre_Main{
+    .spotRefer_Main{
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -464,7 +464,7 @@
     }
 
     //潛點照片－rwd
-    .spotRefre_Contain_rwd{
+    .spotRefer_Contain_rwd{
         display: none;
         width: 100%;
         text-align: center;
@@ -473,7 +473,7 @@
             color: $keyWhite;
             line-height: $lineH*2;
         }
-        .spotRefreImg{
+        .spotReferImg{
             width: 90%;
             margin: 0 auto;
             display: block;
@@ -484,7 +484,7 @@
     }
 
     //內頁頁籤-rwd
-    .spotRefreTab_rwd{
+    .spotReferTab_rwd{
         display: none;
         width: 100%;
         // border: 1px solid red;
@@ -520,7 +520,7 @@
     }
     
     //rwd才需要出現
-    .spotRefre_intor{
+    .spotRefer_intor{
         display: none;
         @include breakpoint (992){
             width: 100%;
@@ -537,7 +537,7 @@
     }
         
     //網頁版左側
-    .spotRefre_left{
+    .spotRefer_left{
         // border: 1px solid rgb(33, 12, 153);
         width: 55%;
         max-width: 800px;
@@ -547,13 +547,13 @@
             width: 100%;
         }
         //潛點照片&潛點標題--踩點的人
-        .spotRefre_Contain{
+        .spotRefer_Contain{
             display: block;
             width: 100%;
             @include breakpoint(992){
                 display: none;
             }
-            .spotRefreImg{
+            .spotReferImg{
                 width: 90%;
                 margin: 0 auto;
                 // border: 1px solid orange;
@@ -565,7 +565,7 @@
                 text-align: center;
             }
         }
-        .spotRefre_left_spotHere{
+        .spotRefer_left_spotHere{
             width: 90%;
             margin: 0 auto;
             .spotHereBlock{
@@ -630,7 +630,7 @@
 
         
     //網頁版右邊
-    .spotRefre_right{
+    .spotRefer_right{
         width: 45%;
         max-width: 700px;
         padding: 0 30px;
@@ -645,7 +645,7 @@
         }
 
         //網頁版右邊－潛點介紹
-        .spotRefreIntor{
+        .spotReferIntor{
             // border: 1px solid red;
             width: 100%;
             padding: $spotPadding;
@@ -806,7 +806,7 @@
     }
 
     //你將會看到
-    .spotRefre_Animal{
+    .spotRefer_Animal{
         // border: 1px solid greenyellow;
         width: 100%;
         background: linear-gradient(to bottom, transparent 52%, $keyBlack 30px);
@@ -842,7 +842,7 @@
     }
 
     //留言
-    .spotRefre_Msg{
+    .spotRefer_Com{
         // border: 1px solid greenyellow;
         width: 100%;
         color: $keyWhite;
@@ -856,14 +856,14 @@
         }
     }
     //所有留言
-    .spotMsgBlock{
+    .spotComBlock{
         width: 80%;
         margin: 0 auto;
         @include breakpoint (767){
             width: 100%; 
         }
     }
-    .spotMsg{
+    .spotCom{
         // border: 1px solid red;
         display: flex;
         flex-direction: row;
@@ -878,7 +878,7 @@
             padding: $spotPadding;
         }
         
-        .spotMsgText{
+        .spotComText{
             padding: $spotPadding;
             display: flex;
             flex-direction: row;
@@ -916,14 +916,14 @@
             }
         }
     }
-    .spotMsgMoreBtn{
+    .spotComMoreBtn{
         margin: $rwdSpotMargin*2;
         text-align: center;
     }
         
 
     //檢舉留言
-    .reportMsg{
+    .reportCom{
         form{
             text-align: left;
             width: 60%;
@@ -939,7 +939,7 @@
     }
 
     //送出留言
-    .spotMsgSend{
+    .spotComSend{
         // border: 1px solid blue;
         margin: 0 auto;
         width: 80%;
@@ -952,7 +952,7 @@
             border-radius: 50%; 
         }
     
-        .spotMsgSendText{
+        .spotComSendText{
             // border: 1px solid greenyellow;
             position: relative;
             // background-color: rebeccapurple;
@@ -989,11 +989,11 @@
 
 @media all and (max-width: 992px){
    .spotRefer{
-        .spotRefre_here,
-        .spotRefre_intor,
-        .spotRefre_weather,
-        .spotRefre_Animal,
-        .spotRefre_Msg{
+        .spotRefer_here,
+        .spotRefer_intor,
+        .spotRefer_weather,
+        .spotRefer_Animal,
+        .spotRefer_Com{
             display: none;
             margin: 20px auto;
             padding: $spotPadding;
