@@ -30,8 +30,8 @@
                 <h4>小計</h4>
                 <h4>刪除</h4>
             </div>
-            <!-- <div class="listRow">
-                動態新增開始
+            <!--動態新增開始
+             <div class="listRow">
                 <div class="prodInfo">
                         <div class="prodPic">
                             <img src="./img/shop/mask4@2x.png" alt="">
@@ -48,9 +48,9 @@
                             <i class="fas fa-trash"></i>
                         </div>
                     </div>
-                </div> -->
-            <!-- 動態新增結束 -->
-            
+                </div>
+            動態新增結束 -->
+
         </div>
 
         <div class="totalContent">
@@ -59,7 +59,7 @@
                 <button class="demo-btn">前往遊戲</button>
             </div>
             <div class="calc">
-                <p class="bill">您購買了<span>4</span>樣物品，總金額為：$<span id="allTotal">0</span></p>
+                <p class="bill">您購買了<span id="countItems">0</span>項物品，總金額為：$<span id="allTotal">0</span></p>
                 <p class="point">您目前持有點數：<span>100</span></p>
                 <p class="total">總計：$<span>34700</span></p>
             </div>
@@ -299,33 +299,19 @@
 
         window.addEventListener('load', doFirst);
     </script>
-    <script>
-        function doFirst() {
-            let trashCanList = document.getElementsByClassName('fa-trash');
-            for (i = 0; i < trashCanList.length; i++) {
-                trashCanList[i].addEventListener('click', remove);
-            }
-            function remove(e) {
-                e.target.parentNode.parentNode.parentNode.remove();
-            }
-        }
-        window.addEventListener('load', doFirst);
-    </script>
 
 
     <script>
         var storage = sessionStorage;
 
         function doFirst() {
-             
-
 
             let itemString = storage.getItem('addItemList'); //給key值，傳回value
             // alert(itemString); "A1001, A1005, A1006, A1002";
             // substr 返回擷取的字串，四個分隔號會分割成五個值的陣列，故最後的分隔號不計算，就可避免多一個空值
             let items = itemString.substr(0, itemString.length - 2).split(', ');
             // [A1001,A1005,A1006,A1002]
-
+            let newPrice = 0;
             // 使用全域物件
             newlistRow = document.createElement('div');
             newlistRow.className = 'listRow';
@@ -418,7 +404,8 @@
                 newtrashcan.className = 'trashcan';
                 newfas = document.createElement('i');
                 newfas.className = 'fas , fa-trash';
-                // alert(`${itemId}:${itemValue}`);
+                newtrashcan.addEventListener('click',deleteItem);
+
                 let itemTitle = itemValue.split('|')[0];
                 let itemImage = './img/shop/' + itemValue.split('|')[1];
                 let itemPrice = parseInt(itemValue.split('|')[2]);
@@ -463,6 +450,11 @@
                 // 建立刪除按鈕-----
                 newprodInfo.appendChild(newtrashcan);
                 newtrashcan.appendChild(newfas);
+                
+
+
+                countItems = 0;
+                document.getElementById('countItems').innerHTML = items.length;
 
             }
 
@@ -476,30 +468,49 @@
                 let thisItem = storage.getItem(itemId);  //得到value值
                 let itemPrice = parseInt(thisItem.split('|')[2])  //取得每個商品價格
                 let subtotal = this.parentNode.nextSibling;
+                // console.log(subtotal.innerText);
                 newCount = parseInt(inputN.value);
-                let newPrice = itemPrice * newCount;
+                newPrice = itemPrice * newCount;
 
-                subtotal.innerText = newPrice;
-
-                let allSubtotal = parseInt(subtotal);
-
-                total = 0;
-
-                for (let i = 0; i < items.length; i++) {
-                    console.log(items.length);
-                    price = parseInt(allSubtotal.innerText);
-                    total += price;
+                let newPri = 0;
+                subtotal.innerText = parseInt(newPrice);
+                for (let i = 0; i < document.getElementsByClassName('subTotal').length; i++) {
+                    newPri += parseInt(document.getElementsByClassName('subTotal')[i].innerText);
                 }
-
-                document.getElementById('allTotal').innerText = total;
+                // console.log(newPri);
+                document.getElementById('allTotal').innerText = newPri;
             }
 
-            
-           
+            function deleteItem() {
+                let FAQ = document.getElementsByClassName('fa-trash')[0];
+            //     for (f = 0; f < FAQ.length; f++) {
+            //         FAQ[f].addEventListener('click', remove);
+            // }
+                // 1. 先扣除總金額
+                let itemValue = storage.getItem(FAQ);
+                newPri -= parseInt(itemValue.split('|')[2]) * newCount;
+                
+
+                document.getElementById('allTotal').innerText = newPri;
+
+                // 2. 清除storage的資料
+                storage.removeItem(FAQ);
+                storage['addItemList'] = storage.getItem('addItemList').replace(`${FAQ}, `, '');
+
+
+                // 3. 刪掉該筆tr
+                document.getElementsByClassName('fa-trash').parentNode.parentNode.removeChild(this.parentNode.parentNode);
+                // 法一
+                // this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);
+
+                // 法二
+                // document.getElementById(itemId).parentNode.parentNode.removeChild(this.parentNode.parentNode);
+
+                // 法三
+                // document.getElementById('newTable').removeChild(this.parentNode.parentNode);
+            }
+
         }
-
-
-
         window.addEventListener('load', doFirst);
     </script>
 
