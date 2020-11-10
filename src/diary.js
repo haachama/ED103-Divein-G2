@@ -327,43 +327,71 @@ var vm = new Vue({
 
 
 
-let prodRows;
-window.addEventListener("load", function(){
-	//------------------------showProducts
-	// function showProducts(){
-	// 	let html = "<table align='center'>";
-	// 	for(let i=0; i<prodRows.length; i++){
-	// 		html += `<tr><td>${prodRows[i].pname}</td><td>${prodRows[i].diarySelect}</td><td>${prodRows[i].author}</td><td><img width="50" src="images/${prodRows[i].image}"></td></tr>`;
-	// 	}
-	// 	html += "</table>";
-	// 	document.getElementById("showPanel").innerHTML = html;
-	// }
-	//------------------------getProducts
-	function getProducts(){
-		let diarySelect = document.getElementById("diarySelect").value;
-        let diveid = document.querySelector('#diveid').value; //2
-        // let diveid = document.getElementById('diveid').value;
-        console.log(diveid);
-		let xhr = new XMLHttpRequest();
-		xhr.onload = function(){
-			prodRows = JSON.parse(xhr.responseText);
-			// showProducts();
-			console.log(prodRows);
-		}
-        let url = `diaryQuery.php?diarySelect=${diarySelect}&diveid=${diveid}`; //2
-		// let url = `diaryQuery.php?diarySelect=${diarySelect}`;
+// let prodRows;
+// window.addEventListener("load", function(){
+// 	//------------------------showProducts
+// 	// function showProducts(){
+// 	// 	let html = "<table align='center'>";
+// 	// 	for(let i=0; i<prodRows.length; i++){
+// 	// 		html += `<tr><td>${prodRows[i].pname}</td><td>${prodRows[i].diarySelect}</td><td>${prodRows[i].author}</td><td><img width="50" src="images/${prodRows[i].image}"></td></tr>`;
+// 	// 	}
+// 	// 	html += "</table>";
+// 	// 	document.getElementById("showPanel").innerHTML = html;
+// 	// }
+// 	//------------------------getProducts
+// 	function getProducts(){
+// 		let diarySelect = document.getElementById("diarySelect").value;
+//         let diveid = document.getElementsByClassName("diveclass"); //2
+//         // let diveid = document.getElementById('diveid').value;
+//         console.log(diveid);
+// 		let xhr = new XMLHttpRequest();
+// 		xhr.onload = function(){
+// 			prodRows = JSON.parse(xhr.responseText);
+// 			// showProducts();
+// 			console.log(prodRows);
+// 		}
+//         // let url = `diaryQuery.php?diarySelect=${diarySelect}&diveid=${diveid}`; //2
+// 		let url = `diaryQuery.php?diarySelect=${diarySelect}`;
         
-		xhr.open("get", url,false);
-		xhr.send(null);	
-	}
+// 		xhr.open("get", url,false);
+// 		xhr.send(null);	
+// 	}
 
-	getProducts();
+// 	getProducts();
 
-	//------------------------filter diarySelect under ???
-	document.getElementById("diarySelect").onchange = getProducts;
-	//------------------------filter diveids
-	document.getElementById("diveid").onchange = getProducts; //2
-}, false);
+// 	//------------------------filter diarySelect under ???
+// 	document.getElementById("diarySelect").onchange = getProducts;
+// 	//------------------------filter diveids
+// 	// document.getElementById("diveid").onchange = getProducts; //2
+// }, false);
+
+
+
+// $('#diarySelect').on("change",function(){
+//     var diarySelect = this.value;
+//     console.log("hih")
+//     $.ajax({
+//         url:`http://localhost/ED103-Divein-G2/app/diaryQuery.php?diarySelect=${diarySelect}`,
+//         // url:'diaryQuery.php?diarySelect=' + diarySelect,
+//         type: 'GET',
+//         dataType: 'text',
+//         success: function(data){
+//             // var content = "";
+//             // console.log("--- paul data : " + data);
+//             var result = JSON.parse(data);
+//             // for(var i = 0 ; i<result.length ; i++){
+
+//             //     content += "<option value=" +result[i]['diveNo'] +">" + result[i]['diveName']+"</option>"
+//             // }
+//             // $('.diveNo').html(content);
+//             console.log(result);
+//         },
+//         error: function (data) {
+//             console.log('出錯啦 data : ' + JSON.stringify(data));
+//         },
+//     })
+// })
+
 
 
 
@@ -379,4 +407,4 @@ window.addEventListener("load", function(){
 //                     console.log(data);
 //                 })
 //             .catch((err) => {console.log(err)});
-//         }
+//         };
