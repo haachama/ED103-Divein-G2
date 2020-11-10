@@ -43,7 +43,7 @@ var reload = browserSync.reload;
 // 瀏覽器_coco mac環境
 gulp.task('default', function () {
     browserSync.init({
-        proxy: "http://localhost/ED103-Divein_try/app/spotRefer.html",
+        proxy: "http://localhost/divein-G2/app/spotRefer.html",
         // proxy: "http://localhost/ED103-Divein_try/app/spot.html",
         
         
@@ -56,7 +56,7 @@ gulp.task('default', function () {
 //     browserSync.init({
 //         server: {
 //             baseDir: "./app",
-//             index: "spot.html"
+//             index: "spotRefer.html"
 //         }
 //     });
 //     gulp.watch(['sass/*.scss' , 'sass/**/*.scss'], ['sass']).on('change', reload);

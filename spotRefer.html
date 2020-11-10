@@ -125,11 +125,11 @@
 
         <section class="spotRefre_Animal">
             <h3>你將會看到．．．</h3>
-            <div class="spotAnimal">
-                <img src="./img/animals/animals-05.png" alt="">
+            <div class="spotAnimal" id="showAnimalRows">
+                <!-- <img src="./img/animals/animals-05.png" alt="">
                 <img src="./img/animals/animals-02.png" alt="">
                 <img src="./img/animals/animals-03.png" alt="">
-                <img src="./img/animals/animals-04.png" alt="">
+                <img src="./img/animals/animals-04.png" alt=""> -->
             </div>
         </section>
         
@@ -248,5 +248,38 @@
 
     @@include('./layout/footer.html')
     <script src="./js/spotRefer.js"></script>
+
+    <script>
+        //－－－－－－你將會看到
+        let animalRows;
+        window.addEventListener("load", function(){
+            //－－－－－－show 動物照片
+            function showAnimals(){
+                let html = "";
+                for(let i=0; i< animalRows.length; i++){
+                    html +=`<img src="./img/animals/${animalRows[i].animalPic}" alt="">`;
+                    
+                }
+                document.getElementById("showAnimalRows").innerHTML = html;
+            }
+            //－－－－－－取得資料庫照片
+            console.log(animalRows);
+            let xhr = new XMLHttpRequest();
+	        xhr.onload = function(){
+                animalRows = JSON.parse(xhr.responseText);
+                showAnimals();
+                console.log(animalRows);
+            }
+
+            xhr.open("get", "getAnimal.php", false);
+            xhr.send(null);
+
+
+        },false);
+        
+    </script>
+
+
+
 </body>
 </html>

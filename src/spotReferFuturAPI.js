@@ -138,8 +138,6 @@ $(document).ready(function(){
         
     };
 
-
-
     //印出資料來源
     var timeN = new Date();
     var timeFormat =

@@ -42,8 +42,6 @@ $(document).ready(function(){
 
     $('.weathers').on('click',function(){
         spotStationId = $('#spotStationId').val();
-        console.log(spotStationId);
-
         
         $.ajax({
             url: 'https://opendata.cwb.gov.tw/api/v1/rest/datastore/O-A0003-001?Authorization=CWB-D686A3C5-20C3-4D99-8F69-3FC7C831D0CA&format=JSON&elementName=TIME,WDIR,TEMP,24R,H_UVI,Weather',
@@ -74,12 +72,9 @@ $(document).ready(function(){
 
     //第一區  天氣  氣溫 風戲 紫外線指數 累積雨量
     function getInfoONE(data){
-        
-        console.log('123');
         let location = data.records.location;
             
         for (var i = 0; i < location.length; i++) {
-
 
             if (location[i].stationId == spotStationId) { 
                 // alert(location[i].locationName);
@@ -172,7 +167,6 @@ $(document).ready(function(){
     //第二區 浪高 海溫
     function getInfoTWO(data){
         spotStationId_sea = $('#spotStationId_sea').val();
-        console.log(spotStationId_sea);
 
         let location = data.records.location;   
 
