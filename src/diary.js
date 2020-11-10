@@ -341,15 +341,17 @@ window.addEventListener("load", function(){
 	//------------------------getProducts
 	function getProducts(){
 		let diarySelect = document.getElementById("diarySelect").value;
-		// let diveid = document.querySelectorAll('#diveid').value; //2
+        let diveid = document.querySelector('#diveid').value; //2
+        // let diveid = document.getElementById('diveid').value;
+        console.log(diveid);
 		let xhr = new XMLHttpRequest();
 		xhr.onload = function(){
 			prodRows = JSON.parse(xhr.responseText);
 			// showProducts();
 			console.log(prodRows);
 		}
-        // let url = `diaryQuery.php?diarySelect=${diarySelect}&diveid=${diveid}`; //2
-		let url = `diaryQuery.php?diarySelect=${diarySelect}`;
+        let url = `diaryQuery.php?diarySelect=${diarySelect}&diveid=${diveid}`; //2
+		// let url = `diaryQuery.php?diarySelect=${diarySelect}`;
         
 		xhr.open("get", url,false);
 		xhr.send(null);	
@@ -360,5 +362,21 @@ window.addEventListener("load", function(){
 	//------------------------filter diarySelect under ???
 	document.getElementById("diarySelect").onchange = getProducts;
 	//------------------------filter diveids
-// 	document.getElementById("diveid").onchange = getProducts; //2
+	document.getElementById("diveid").onchange = getProducts; //2
 }, false);
+
+
+
+// document.getElementById('diarySelect').addEventListener('onchange',getJson);
+
+//         function getJson(){
+//             let diarySelect = document.getElementById("diarySelect").value;
+//             fetch(`diaryQuery.php?diarySelect=${diarySelect}`)
+//             .then(function(res){
+//                     return res.json();
+//                 })
+//                 .then(function(data){
+//                     console.log(data);
+//                 })
+//             .catch((err) => {console.log(err)});
+//         }

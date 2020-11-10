@@ -286,33 +286,51 @@ function checkBiological() {
 }
 window.addEventListener('load', doFirst);
 
+//---------------------------------------------------------------------------------------
+// let All = document.querySelectorAll([name="animals"]);
+// console.log(All);
 
-var inputs = document.getElementsByName("animals");
-var biologicalCsscAnn =document.getElementsByClassName("biologicalCsscAnn")[0];
-var imgs = biologicalCsscAnn.getElementsByTagName("img");
-console.log(imgs);
+$(".abc").click(function(){
+    $(this).toggleClass("-o");
+});
 
 
-for(var i=0; i<inputs.length; i++){
-   console.log(imgs[i]);
+// function imgclick(){
+//     var abc = document.getElementsByClassName("abc");
+//     abc.οnclick = function(){
+//         this.classList.add("-o");
+//     }
+// };
+// imgclick();
 
-    inputs[i].addEventListener("change",function(){
-        // for(var j=0; j<imgs.length; j++){
+//----------------------------------------------------------------------------------------
 
-            if(this.checked){ //input
-                console.log(this);
-                console.log(imgs[i]);
-                imgs[i].style.backgroundColor = 'rgba(0,0,0,.5)';
+// var inputs = document.getElementsByName("animals");
+// var biologicalCsscAnn =document.getElementsByClassName("biologicalCsscAnn")[0];
+// var imgs = biologicalCsscAnn.getElementsByTagName("img");
+// console.log(imgs);
+
+
+// for(var i=0; i<inputs.length; i++){
+//    console.log(imgs[i]);
+
+//     inputs[i].addEventListener("change",function(){
+//         // for(var j=0; j<imgs.length; j++){
+
+//             if(this.checked){ //input
+//                 console.log(this);
+//                 console.log(imgs[i]);
+//                 imgs[i].style.backgroundColor = 'rgba(0,0,0,.5)';
                 
-            }
-        // }
-    },false);
-}
+//             }
+//         // }
+//     },false);
+// }
 
-
+// -----------------------------------------------------
 
 // function doFirst2() {  //換背景色
-    
+
 //     let animalImgsid=['animalImg1','animalImg2','animalImg3','animalImg4','animalImg5','animalImg6','animalImg7','animalImg8','animalImg9','animalImg10','animalImg11','animalImg12'];
 //     document.querySelectorAll(animalImgsid[i]).focus = changbgcolor;
 //     // for (let i = 0; i < animalImgsid.length; i++) {
@@ -320,7 +338,7 @@ for(var i=0; i<inputs.length; i++){
 //     //     document.getElementById(listimg).focus = changbgcolor;
 //     // }
 //     // document.getElementById(listimg[i]).focus = changbgcolor;
-    
+
 // }
 // function changbgcolor(){
 //     let animals = ['animal1', 'animal2', 'animal3', 'animal4', 'animal5', 'animal6', 'animal7', 'animal8', 'animal9', 'animal10', 'animal11', 'animal12']; //input id

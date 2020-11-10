@@ -1,56 +1,34 @@
-<?php 
+<?php
 $dsn = "mysql:host=localhost;port=3308;dbname=ed103g2;charset=utf8";  //3308
 $user = "root";
 $password = "";
-$options = array(PDO::ATTR_CASE=>PDO::CASE_NATURAL, PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION );
+$options = array(PDO::ATTR_CASE => PDO::CASE_NATURAL, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
 $pdo = new PDO($dsn, $user, $password, $options);
 
-if($_GET["diarySelect"]!=""){
-	$cond1 = "diarySelect<{$_GET["diarySelect"]}";
-}else{
-	$cond1 = 1;
+$sql = " SELECT a.* FROM personaldiary a 
+LEFT JOIN divespots b ON a.diveNo = b.diveNo
+LEFT JOIN divearea c ON c.diveAreaNo = b.diveAreaNo
+WHERE 1=1 "; //所有
+// 潛點diveNo
+if (!empty($_GET["diveid"])) {
+
+    $diveNos = implode(",", $_GET["diveid"]);
+    $sql = $sql . ' AND b.diveNo in ( ' . $diveNos . ' )';
+}
+// 課程或旅潛diaryType
+if (!empty($_GET["diarySelect"])) {
+
+    $sql = $sql . ' AND a.diaryType = ' . $_GET["diarySelect"];
+}
+// 潛域diveAreaNo
+if (!empty($_GET["diveArea"])) {
+
+    $sql = $sql . ' AND c.diveAreaNo = ' . $_GET["diveArea"];
 }
 
-// if($_GET["divepoint"]!=""){
-// 	$cond2 = "divepoint={$_GET["divepoint"]}";
-// }else{
-// 	$cond2 = 1;
-// }
-// $sql = "select * from products where $cond1 and $cond2 ";
+$dia = $pdo->prepare($sql);
+$dia->execute();
+$diaRow = $dia->fetchAll(PDO::FETCH_ASSOC);
 
-// 1 課程或旅潛的篩選
-$sql = "SELECT *
-FROM personaldiary AS p
-WHERE `p`.`diaryType` = $cond1";
 
-// 2 潛域1-5號的篩選(單選) ans是潛點14
-$sql = "SELECT *
-FROM personaldiary AS p
-WHERE `p`.`diveNo` IN (
-    SELECT `d`.`diveNo`
-    FROM divespots AS d
-    WHERE `d`.`diveAreaNo` = 14
-)";
-
-// 3 潛點1-23號的篩選(複選)  ans是潛點14
-$sql = "SELECT *
-FROM personaldiary AS p
-WHERE `p`.`diveNo` IN (
-    SELECT `d`.`diveNo`
-    FROM divespots AS d
-    WHERE `d`.`diveNo` = 3
-)";
-
-//合併2  董董要我改成where 接複選三個... 
-$sql = "SELECT *
-FROM personaldiary AS p
-WHERE `p`.`diaryType` = 1 and `p`.`diveNo` IN (
-    SELECT `d`.`diveNo`
-    FROM divespots AS d
-    WHERE `d`.`diveAreaNo` = 14
-)";
-
-$products = $pdo->query($sql);
-$prodRows = $products->fetchAll(PDO::FETCH_ASSOC);
-echo json_encode($prodRows);
-?>
+echo json_encode($diaRow);

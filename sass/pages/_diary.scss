@@ -1873,16 +1873,16 @@
                             // border: 1px solid orangered;
                             display: inline-block;
                             max-width: 150px;
-                            position: relative;
                             input[name="animals"]{
-                                position: absolute;
-                                top:50%;
-                                left: 50%;
-                                transform: translate(-50%, -50%);
-                                z-index: -1; //input藏img後
+                                display: none; //input藏input
                             }
                             img{
                                 // border: 1px solid orangered;
+                                // background-color: #fefefe;
+                            }
+                            .-o{
+                                background-color: #176587;
+                                border-radius: 10px;
                             }
                         }
                     }
@@ -2103,7 +2103,8 @@
                     }
 
                     #fileBtn{
-                        display: none; //上傳鈕隱藏
+                        // display: none; //上傳鈕隱藏
+                        background-color: $keyBlack;
                     }
                 }
             }
