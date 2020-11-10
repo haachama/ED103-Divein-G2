@@ -31,35 +31,26 @@
                 <h4>刪除</h4>
             </div>
             <!-- <div class="listRow">
+                動態新增開始
                 <div class="prodInfo">
-                    <div class="prodPic">
-                        <img src="./img/shop/mask4@2x.png" alt="">
+                        <div class="prodPic">
+                            <img src="./img/shop/mask4@2x.png" alt="">
+                        </div>
+                        <div class="prodName">水中看得清</div>
+                        <div class="prodPrice">8600</div>
+                        <div class="prodNumber">
+                            <i class="fas fa-minus"></i>
+                            <input type="text" value="1" readonly="readonly" name="number">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="subTotal">17200</div>
+                        <div class="trashcan">
+                            <i class="fas fa-trash"></i>
+                        </div>
                     </div>
-                    <div class="prodName">水中看得清</div>
-                    <div class="prodPrice">8600</div>
-                    <div class="prodNumber">2</div>
-                    <div class="subTotal">17200</div>
-                    <div class="trashcan">
-                        <i class="fas fa-trash"></i>
-                    </div>
-                </div>
-            </div> -->
-            <!-- 動態新增開始 -->
-            <!-- <div class="listRow">
-                <div class="prodInfo">
-                    <div class="prodPic">
-                        <img src="./img/shop/mask4@2x.png" alt="">
-                    </div>
-                    <div class="prodName">水中看得清</div>
-                    <div class="prodPrice">8600</div>
-                    <div class="prodNumber">2</div>
-                    <div class="subTotal">17200</div>
-                    <div class="trashcan">
-                        <i class="fas fa-trash"></i>
-                    </div>
-                </div>
-            </div> -->
+                </div> -->
             <!-- 動態新增結束 -->
+            
         </div>
 
         <div class="totalContent">
@@ -266,9 +257,7 @@
     @@include('./layout/footer.html')
     <script src="./js/cart.js"></script>
     <script src="./js/bubbleBtn.js"></script>
-    <script>
 
-    </script>
     <script>
         $(function () {
 
@@ -328,6 +317,9 @@
         var storage = sessionStorage;
 
         function doFirst() {
+             
+
+
             let itemString = storage.getItem('addItemList'); //給key值，傳回value
             // alert(itemString); "A1001, A1005, A1006, A1002";
             // substr 返回擷取的字串，四個分隔號會分割成五個值的陣列，故最後的分隔號不計算，就可避免多一個空值
@@ -357,108 +349,160 @@
             }
 
             document.getElementById('allTotal').innerText = total;
+
+            //加減
+            let plus = document.getElementsByClassName('fa-plus');
+            let minus = document.getElementsByClassName('fa-minus');
+            // for (let p = 0; p < plus.length; p++) {
+            //     plus[p].addEventListener('click', plus1);
+            // }
+            function plus1(e) {
+                var nowValue = parseInt(e.target.parentNode.getElementsByTagName('input')[0].value);
+                nowValue = ++nowValue;
+                e.target.parentNode.getElementsByTagName('input')[0].value = nowValue;
+            }
+            // for (let m = 0; m < minus.length; m++) {
+            //     minus[m].addEventListener('click', minus1);
+            // }
+            function minus1(e) {
+                let nowValue = parseInt(e.target.parentNode.getElementsByTagName('input')[0].value);
+                nowValue -= 1;
+
+                if (nowValue < 1) {
+                    nowValue = 1;
+                }
+                e.target.parentNode.getElementsByTagName('input')[0].value = nowValue;
+            }
+
+
+
+            function createlistRow(itemId, itemValue) {
+                newprodInfo = document.createElement('div');
+                newprodInfo.className = 'prodInfo';
+
+                newprodPic = document.createElement('div');
+                newprodPic.className = 'prodPic';
+
+                newImg = document.createElement('img');
+
+                newprodName = document.createElement('div');
+                newprodName.className = 'prodName';
+
+                newprodPrice = document.createElement('div');
+                newprodPrice.className = 'prodPrice';
+
+                newprodNumber = document.createElement('div');
+                newprodNumber.className = 'prodNumber';
+
+                newfasMinus = document.createElement('i');
+                newfasMinus.addEventListener('click', minus1);
+                newfasMinus.addEventListener('click', changeItemCount);
+                newfasMinus.className = 'fas , fa-minus';
+
+                newprodInput = document.createElement('input');
+                newprodInput.type = 'text';
+                newprodInput.value = '1';
+                newprodInput.min = '0';
+                newprodInput.addEventListener('input', changeItemCount);
+
+                newfasPlus = document.createElement('i');
+                newfasPlus.addEventListener('click', plus1);
+                newfasPlus.addEventListener('click', changeItemCount);
+                newfasPlus.className = 'fas , fa-plus';
+
+
+                newsubTotal = document.createElement('div');
+                newsubTotal.className = 'subTotal';
+
+                newtrashcan = document.createElement('div');
+                newtrashcan.className = 'trashcan';
+                newfas = document.createElement('i');
+                newfas.className = 'fas , fa-trash';
+                // alert(`${itemId}:${itemValue}`);
+                let itemTitle = itemValue.split('|')[0];
+                let itemImage = './img/shop/' + itemValue.split('|')[1];
+                let itemPrice = parseInt(itemValue.split('|')[2]);
+
+                // 建立每個品項的清單區域-----
+
+                newlistRow.appendChild(newprodInfo);
+
+
+
+                // 建立商品圖片-----
+                newprodInfo.appendChild(newprodPic);
+                newprodPic.appendChild(newImg);
+                newImg.src = itemImage
+                newImg.width = "100%";   //HTMl 屬性不用單位
+
+
+
+                // 建立商品名稱-----
+                newprodInfo.appendChild(newprodName);
+                newprodName.innerText = itemTitle;
+                newprodName.id = itemId;
+
+                // 建立商品價格-----
+                newprodInfo.appendChild(newprodPrice);
+                newprodPrice.innerText = itemPrice;
+
+
+                // 建立商品數量-----
+                newprodInfo.appendChild(newprodNumber);
+                newprodNumber.appendChild(newfasMinus);
+                newprodNumber.appendChild(newprodInput);
+                newprodNumber.appendChild(newfasPlus);
+
+                // newprodNumber.innerText = 1;
+
+                newsubTotal.innerText = itemPrice;
+                // 建立商品小計-----td
+                newprodInfo.appendChild(newsubTotal);
+
+
+                // 建立刪除按鈕-----
+                newprodInfo.appendChild(newtrashcan);
+                newtrashcan.appendChild(newfas);
+
+            }
+
+            // 商品數量變數相關
+            function changeItemCount() {
+                let itemString = storage.getItem('addItemList'); //給key值，傳回value
+                // let items = itemString.substr(0, itemString.length - 2).split(', ');
+                let prodNumber = this.parentNode;
+                let inputN = prodNumber.getElementsByTagName("input")[0]
+                let itemId = this.parentNode.previousSibling.previousSibling.id;
+                let thisItem = storage.getItem(itemId);  //得到value值
+                let itemPrice = parseInt(thisItem.split('|')[2])  //取得每個商品價格
+                let subtotal = this.parentNode.nextSibling;
+                newCount = parseInt(inputN.value);
+                let newPrice = itemPrice * newCount;
+
+                subtotal.innerText = newPrice;
+
+                let allSubtotal = parseInt(subtotal);
+
+                total = 0;
+
+                for (let i = 0; i < items.length; i++) {
+                    console.log(items.length);
+                    price = parseInt(allSubtotal.innerText);
+                    total += price;
+                }
+
+                document.getElementById('allTotal').innerText = total;
+            }
+
+            
+           
         }
 
-        function createlistRow(itemId, itemValue) {
-            newprodInfo = document.createElement('div');
-            newprodInfo.className = 'prodInfo';
-            newprodPic = document.createElement('div');
-            newprodPic.className = 'prodPic';
-            newImg = document.createElement('img');
-            newprodName = document.createElement('div');
-            newprodName.className = 'prodName';
-            newprodPrice = document.createElement('div');
-            newprodPrice.className = 'prodPrice';
-            newprodNumber = document.createElement('div');
-            newprodNumber.className = 'prodNumber';
-            newsubTotal = document.createElement('div');
-            newsubTotal.className = 'subTotal';
-            newtrashcan = document.createElement('div');
-            newtrashcan.className = 'trashcan';
-            newfas = document.createElement('i');
-            newfas.className = 'fas , fa-trash';
-            // alert(`${itemId}:${itemValue}`);
-            let itemTitle = itemValue.split('|')[0];
-            let itemImage = './img/shop/' + itemValue.split('|')[1];
-            let itemPrice = parseInt(itemValue.split('|')[2]);
-
-            // 建立每個品項的清單區域-----
-
-            newlistRow.appendChild(newprodInfo);
-
-
-
-            // 建立商品圖片-----
-            newprodInfo.appendChild(newprodPic);
-            newprodPic.appendChild(newImg);
-            newImg.src = itemImage
-            newImg.width = "100%";   //HTMl 屬性不用單位
-
-
-
-            // 建立商品名稱-----
-            newprodInfo.appendChild(newprodName);
-            newprodName.innerText = itemTitle;
-            newprodName.id = itemId;
-
-            // 建立商品價格-----
-            newprodInfo.appendChild(newprodPrice);
-            newprodPrice.innerText = itemPrice;
-
-
-            // 建立商品數量-----
-            // let itemCount = document.createElement('input');
-            // itemCount.type = 'number';
-            // itemCount.value = 1;
-            // itemCount.min = 0;
-            // itemCount.addEventListener('input',changeItemCount);
-
-            newprodInfo.appendChild(newprodNumber);
-
-            newprodNumber.innerText = 1;
-
-            newsubTotal.innerText = itemPrice * parseInt(newprodNumber.innerText);
-            // 建立商品小計-----td
-            newprodInfo.appendChild(newsubTotal);
-
-
-            // 建立刪除按鈕-----
-            newprodInfo.appendChild(newtrashcan);
-            newtrashcan.appendChild(newfas);
-
-        }
-
-        // 商品數量變數相關
-        // function changeItemCount() {
-        //     let itemString = storage.getItem('addItemList'); //給key值，傳回value
-        //     let items = itemString.substr(0, itemString.length - 2).split(', ');
-
-        //     let itemId = this.parentNode.previousSibling.previousSibling.previousSibling.id;
-        //     let thisItem = storage.getItem(itemId);  //得到value值
-
-        //     let itemPrice = parseInt(thisItem.split('|')[2])  //取得每個商品價格
-        //     newCount = this.value;
-        //     let newPrice = itemPrice * newCount;
-
-        //     let subtotal = this.parentNode.previousSibling;
-        //     subtotal.innerText = newPrice;
-
-        //     let allSubtotal = document.querySelectorAll('.subtotal');
-
-        //     total = 0;
-
-        //     for (let i = 0; i < items.length; i++) {
-        //         price = parseInt(allSubtotal[i].innerText);
-        //         total += price;
-        //     }
-
-        //     document.getElementById('total').innerText = total;
-        // }
 
 
         window.addEventListener('load', doFirst);
     </script>
-    
+
 
 </body>
 

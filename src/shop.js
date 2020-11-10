@@ -27,17 +27,17 @@ function doFirst() {
 // 按下加入購物車按鈕時，會於左上角顯示商品圖片、資訊
 // 動態新增商品圖片與資訊
 function addItem(itemId, itemValue) {
-    let newItem = document.getElementById('newItem');
+    // let newItem = document.getElementById('newItem');
 
-    let image = document.createElement('img');
-    image.src = './img/shop/' + itemValue.split('|')[1];
+    // let image = document.createElement('img');
+    // image.src = './img/shop/' + itemValue.split('|')[1];
 
-    let title = document.createElement('span');
-    title.innerText = itemValue.split('|')[0];
+    // let title = document.createElement('span');
+    // title.innerText = itemValue.split('|')[0];
 
-    let price = document.createElement('span');
-    // 字串切割成陣列，還是字串型態，若要加總需轉型成數字
-    price.innerText = parseInt(itemValue.split('|')[2]);
+    // let price = document.createElement('span');
+    // // 字串切割成陣列，還是字串型態，若要加總需轉型成數字
+    // price.innerText = parseInt(itemValue.split('|')[2]);
 
     // // 判斷顯示處是否已有商品資訊(孫子標籤，包含換行的空格)，若有要先刪除
     // if (newItem.hasChildNodes()) {
