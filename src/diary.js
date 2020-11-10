@@ -295,7 +295,8 @@ var vm = new Vue({
                     {
                         selected: "3", //墾丁
                         diveArea: [{key:"後壁湖",value:"11"}, {key:"出水口",value:"12"}, {key:"雙峰藍洞",value:"13"}, {key:"合界",value:"14"}],
-                    }, {
+                    },
+                    {
                         selected: "4", //小琉球
                         diveArea: [{key:"花瓶岩",value:"15"}, {key:"美人洞",value:"16"}, {key:"衫福沈船",value:"17"}, {key:"鎮海艦",value:"18"}, {key:"厚石礁群",value:"19"}],
                     },
@@ -305,6 +306,7 @@ var vm = new Vue({
                     }
                 ],
                 value: "",
+                prodRows: "",  //這是ajax的
             };
         },
         computed: {
@@ -312,7 +314,6 @@ var vm = new Vue({
                 if (this.value == "") {
                     return [];
                 } else {
-
                     // for (let index = 0; index < this.areas.length; index++) {
                     //   const element = this.areas[index];
                     //   if (element.selected == this.value) {
@@ -322,7 +323,67 @@ var vm = new Vue({
                     return this.areas.filter((x) => x.selected == this.value)[0].diveArea;
                 }
             },
+                //------------------------showProducts
+                // function showProducts(){
+                // 	let html = "<table align='center'>";
+                // 	for(let i=0; i<prodRows.length; i++){
+                // 		html += `<tr><td>${prodRows[i].pname}</td><td>${prodRows[i].diarySelect}</td><td>${prodRows[i].author}</td><td><img width="50" src="images/${prodRows[i].image}"></td></tr>`;
+                // 	}
+                // 	html += "</table>";
+                // 	document.getElementById("showPanel").innerHTML = html;
+                // }
+                //------------------------getProducts
+                getProducts(){
+                    let diarySelect = document.getElementById("diarySelect").value;
+                    let diveid = document.getElementsByClassName("diveclass"); //object
+
+                    //兩個篩選可能都為空，所以要判斷
+                    var diaryQueryString ='';
+                    var divedQueryString ='';
+                    if(diarySelect != null){
+                        diaryQueryString =  `&diarySelect=${diarySelect}`;
+                    }
+                    if(diveid.length > 0){
+                        for(var i = 0; i<diveid.length ; i++){
+
+                            if( diveid[i].checked){
+                                divedQueryString = `${divedQueryString}"&diveid[]="${diveid[i].value}` //複選的字串串接
+                            }
+                        }
+                    }
+
+                    for(var i=0;i<diveid.length;i++){
+                        console.log(diveid[i]);
+                    }
+                    let xhr = new XMLHttpRequest();
+                    xhr.onload = function(){
+                        prodRows = JSON.parse(xhr.responseText);
+                        // showProducts();
+                        console.log(prodRows);
+                    }
+                    // let url = `diaryQuery.php?diarySelect=${diarySelect}&diveid[]=${diveid}`; //2
+                    let url = `diaryQuery.php?${diaryQueryString}${divedQueryString}`;
+                    //?diveNo[]=1&diveNo[]=2  --> 這是網頁會印出的結果
+                    // let url = `diaryQuery.php?diarySelect=${diarySelect}`;
+                    
+                    xhr.open("get", url,false);
+                    xhr.send(null);	
+                }
+
+                //------------------------filter diarySelect under ???
+                // document.getElementById("diarySelect").onchange = getProducts;
+                // console.log('--- paul : ' +  document.getElementById("diarySelect").innerHTML)
+                //------------------------filter diveids
+                // document.getElementsByClassName("diveclass").onchange = getProducts; //2
+            
+                // console.log('size : ' +  document.getElementsByClassName("diveclass").length )
+                // document.getElementsByClassName("diveclass").onchange = function(){
+                    // alert('1')
         },
+        mounted:function(){
+            console.log("hi")  //這是測試的
+        }
+            // }, false),
     });
 
 

@@ -197,7 +197,7 @@
                         {{ i.text }}
                     </option>
                 </select>
-                <label v-for="item in show" :key="item.key"><p><input type="checkbox" name="divepoint[]" :value="item.value" class="diveclass"/>{{ item.key }}</p></label>
+                <label v-for="item in show" :key="item.key"><p><input type="checkbox" name="diveid[]" :value="item.value" class="diveclass"/>{{ item.key }}</p></label>
             </div>
         </form>
     </div>
@@ -352,47 +352,55 @@
     <script src="./js/diary.js"></script>
     <script>
 
-        let prodRows;
-        window.addEventListener("load", function(){
-            //------------------------showProducts
-            // function showProducts(){
-            // 	let html = "<table align='center'>";
-            // 	for(let i=0; i<prodRows.length; i++){
-            // 		html += `<tr><td>${prodRows[i].pname}</td><td>${prodRows[i].diarySelect}</td><td>${prodRows[i].author}</td><td><img width="50" src="images/${prodRows[i].image}"></td></tr>`;
-            // 	}
-            // 	html += "</table>";
-            // 	document.getElementById("showPanel").innerHTML = html;
-            // }
-            //------------------------getProducts
-            function getProducts(){
-                let diarySelect = document.getElementById("diarySelect").value;
-                let diveid = document.getElementsByClassName("diveclass"); //2 object
-                
-                for(var i=0;i<diveid.length;i++){
-                    console.log(diveid[i]);
-                }
-                // let diveidarr = Array.from(diveid);
-                // console.log(typeof diveidarr);
-                let xhr = new XMLHttpRequest();
-                xhr.onload = function(){
-                    prodRows = JSON.parse(xhr.responseText);
-                    // showProducts();
-                    console.log(prodRows);
-                }
-                let url = `diaryQuery.php?diarySelect=${diarySelect}&diveid=${diveid}`; //2
-                // let url = `diaryQuery.php?diarySelect=${diarySelect}`;
-                
-                xhr.open("get", url,false);
-                xhr.send(null);	
-            }
 
-            getProducts();
+        // let prodRows;
+        // window.addEventListener("load", function(){
+        //     //------------------------showProducts
+        //     // function showProducts(){
+        //     // 	let html = "<table align='center'>";
+        //     // 	for(let i=0; i<prodRows.length; i++){
+        //     // 		html += `<tr><td>${prodRows[i].pname}</td><td>${prodRows[i].diarySelect}</td><td>${prodRows[i].author}</td><td><img width="50" src="images/${prodRows[i].image}"></td></tr>`;
+        //     // 	}
+        //     // 	html += "</table>";
+        //     // 	document.getElementById("showPanel").innerHTML = html;
+        //     // }
+        //     //------------------------getProducts
+        //     function getProducts(){
+        //         let diarySelect = document.getElementById("diarySelect").value;
+        //         let diveid = document.getElementsByClassName("diveclass"); //2 object
+                
+        //         for(var i=0;i<diveid.length;i++){
+        //             console.log(diveid[i]);
+        //         }
+        //         // let diveidarr = Array.from(diveid);
+        //         // console.log(typeof diveidarr);
+        //         let xhr = new XMLHttpRequest();
+        //         xhr.onload = function(){
+        //             prodRows = JSON.parse(xhr.responseText);
+        //             // showProducts();
+        //             console.log(prodRows);
+        //         }
+        //         let url = `diaryQuery.php?diarySelect=${diarySelect}&diveid=${diveid}`; //2
+        //         // let url = `diaryQuery.php?diarySelect=${diarySelect}`;
+                
+        //         xhr.open("get", url,false);
+        //         xhr.send(null);	
+        //     }
 
-            //------------------------filter diarySelect under ???
-            document.getElementById("diarySelect").onchange = getProducts;
-            //------------------------filter diveids
-            document.getElementsByClassName("diveclass").onchange = getProducts; //2
-        }, false);
+        //     getProducts();
+
+        //     //------------------------filter diarySelect under ???
+        //     document.getElementById("diarySelect").onchange = getProducts;
+        //    console.log('--- paul : ' +  document.getElementById("diarySelect").innerHTML)
+        //     //------------------------filter diveids
+        //     // document.getElementsByClassName("diveclass").onchange = getProducts; //2
+           
+        //    console.log('size : ' +  document.getElementsByClassName("diveclass").length )
+        //     document.getElementsByClassName("diveclass").onchange = function(){
+        //         alert('1')
+
+        //     }
+        // }, false);
 
     </script>
 </body>

@@ -82,7 +82,7 @@
                 <!-- 潛水地點 -->
                 <div class="diaryAddPlace">
                     <p>潛水地點<span> *</span></p>
-                    <label v-for="item in show" :key="item.key"><p><input type="checkbox" :name="item.value" :value="item.value" />{{ item.key }}</p></label>
+                    <label v-for="item in show" :key="item.key"><p><input type="radio" :name="item.name" :value="item.value" />{{ item.key }}</p></label>
                     
                 </div>
                 <!-- 潛水時間 -->

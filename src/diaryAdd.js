@@ -223,28 +223,28 @@ var select = new Vue({
             areas: [
                 {
                     selected: "1", //綠島
-                    diveArea: [{key:"海底教堂",value:"1"},{key:"鋼鐵礁",value:"2"}, {key:"石朗大香菇",value:"3"}, {key:"海底大峽谷",value:"4"}, {key:"雞仔礁",value:"5"}],
+                    diveArea: [{key:"海底教堂",value:"1",name:"green"},{key:"鋼鐵礁",value:"2",name:"green"}, {key:"石朗大香菇",value:"3",name:"green"}, {key:"海底大峽谷",value:"4",name:"green"}, {key:"雞仔礁",value:"5",name:"green"}],
                 },
                 {
                     selected: "2", //蘭嶼
-                    diveArea: [{key:"母雞岩",value:"6"}, {key:"八代灣沉船",value:"7"}, {key:"椰油斷層",value:"8"}, {key:"野銀小峽谷",value:"9"}, {key:"四條溝",value:"10"}],
+                    diveArea: [{key:"母雞岩",value:"6",name:"lanyu"}, {key:"八代灣沉船",value:"7",name:"lanyu"}, {key:"椰油斷層",value:"8",name:"lanyu"}, {key:"野銀小峽谷",value:"9",name:"lanyu"}, {key:"四條溝",value:"10",name:"lanyu"}],
                 },
                 {
                     selected: "3", //墾丁
-                    diveArea: [{key:"後壁湖",value:"11"}, {key:"出水口",value:"12"}, {key:"雙峰藍洞",value:"13"}, {key:"合界",value:"14"}],
+                    diveArea: [{key:"後壁湖",value:"11",name:"kenting"}, {key:"出水口",value:"12",name:"kenting"}, {key:"雙峰藍洞",value:"13",name:"kenting"}, {key:"合界",value:"14",name:"kenting"}],
                 }, {
                     selected: "4", //小琉球
-                    diveArea: [{key:"花瓶岩",value:"15"}, {key:"美人洞",value:"16"}, {key:"衫福沈船",value:"17"}, {key:"鎮海艦",value:"18"}, {key:"厚石礁群",value:"19"}],
+                    diveArea: [{key:"花瓶岩",value:"15",name:"xiaoliuqiu"}, {key:"美人洞",value:"16",name:"xiaoliuqiu"}, {key:"衫福沈船",value:"17",name:"xiaoliuqiu"}, {key:"鎮海艦",value:"18",name:"xiaoliuqiu"}, {key:"厚石礁群",value:"19",name:"xiaoliuqiu"}],
                 },
                 {
                     selected: "5", //東北角
-                    diveArea: [{key:"和美",value:"20"}, {key:"龍洞",value:"21"}, {key:"潮境公園",value:"22"}, {key:"鼻頭角",value:"23"}],
+                    diveArea: [{key:"和美",value:"20",name:"northeast"}, {key:"龍洞",value:"21",name:"northeast"}, {key:"潮境公園",value:"22",name:"northeast"}, {key:"鼻頭角",value:"23",name:"northeast"}],
                 }
             ],
             value: "",
         };
     },
-    computed: {
+    computed: { //實體建立完成後
         show() {
             if (this.value == "") {
                 return [];

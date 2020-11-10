@@ -10,7 +10,7 @@ LEFT JOIN divespots b ON a.diveNo = b.diveNo
 LEFT JOIN divearea c ON c.diveAreaNo = b.diveAreaNo
 WHERE 1=1 "; //所有
 // 潛點diveNo
-if (!empty($_GET["diveid"])) {
+if (!empty($_GET["diveid"])) { //對應js的宣告
 
     $diveNos = implode(",", $_GET["diveid"]);
     $sql = $sql . ' AND b.diveNo in ( ' . $diveNos . ' )';
