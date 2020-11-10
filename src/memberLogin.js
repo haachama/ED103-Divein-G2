@@ -94,55 +94,66 @@ $(function () {
 //------------------------------------------------------------------------------------------
 
 $(function () {
-  function $id(id){
-    return document.getElementById(id);
-  }	
+  // function $id(id){
+  //   return document.getElementById(id);
+  // }	
   //============查詢密碼============
-  function memberPswChick(){
-    let CheckMemId = $id("CheckMemId").value;
-    let CheckMemMail = $id("CheckMemMail").value;
-    let mpc = new XMLHttpRequest();
+  // function memberPswChick(){
+  //   let CheckMemId = $id("CheckMemId").value;
+  //   let CheckMemMail = $id("CheckMemMail").value;
+  //   let mpc = new XMLHttpRequest();
 
-    mpc.open("Post", "memberPswCheck.php", true);
-    mpc.setRequestHeader("content-type","application/x-www-form-urlencoded");
-    let data_info = `memId=${CheckMemId}&memMail=${CheckMemMail}`;
-    mpc.send(data_info);
-  }
-  window.addEventListener("load", function(){
-    document.getElementById("CheckMemPsw").addEventListener("click", memberPswChick, false);
-  }, false)
+  //   mpc.open("Post", "memberPswCheck.php", true);
+  //   mpc.setRequestHeader("content-type","application/x-www-form-urlencoded");
+  //   let data_info = `memId=${CheckMemId}&memMail=${CheckMemMail}`;
+  //   mpc.send(data_info);
+  // }
+  // window.addEventListener("load", function(){
+  //   document.getElementById("CheckMemPsw").addEventListener("click", memberPswChick, false);
+  // }, false)
 
   //============註冊帳號============
-  function memberReg(){
-    let RegMemId = $id("RegMemId").value;
-    let RegMemPsw = $id("RegMemPsw").value;
-    let RegMemIdCheck = $id("RegMemIdCheck").value;
-    let RegMemName = $id("RegMemName").value;
-    let RegMemNickName = $id("RegMemNickName").value;
-    let RegMemMail = $id("RegMemMail").value;
-    let mr = new XMLHttpRequest();
+  function memberRag(){
+    var RegMemId = $("#RegMemId").val();
+    var RegMemPsw = $("#RegMemPsw").val();
+    var RegMemName = $("#RegMemName").val();
+    var RegMemNickName = $("#RegMemNickName").val();
+    var RegMemMail = $("#RegMemMail").val();
 
-    // mr.onload = function(){
-    //   if( mr.status == 200){ //status : OK
-    //       document.getElementById("idMsg").innerText = mr.responseText;
-    //   }else{
-    //       alert( mr.status);
-    //   }
-    // } 
-
-    if(RegMemIdCheck /= RegMemPsw){
-      $id("pswMsg").innerHTML = '密碼不相同！';
-    }else{
-      //設定好所要連結的程式
-      mr.open("post", "memberReg.php", true);
-      mr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-      let data_info = `memId=${RegMemId}&memPsw=${RegMemPsw}&memName=${RegMemName}&memNickName=${RegMemNickName}&memMail=${RegMemMail}`;
-      mr.send(data_info);
-    }
+    $.ajax({
+      url:"./memberRag.php",
+      type: 'GET',
+      data: {
+        memId:RegMemId,
+        memPsw:RegMemPsw,
+        memName:RegMemName,
+        memNickName:RegMemNickName,
+        memMail:RegMemMail,
+      },
+      dataType: 'json',
+      // success:function(){
+      //   alert("成功");
+      // },
+      // error:function(){
+      //   alert("失敗");
+      // }, 
+    });
   }
-  window.addEventListener("load", function(){
-    document.getElementById("btnReg").addEventListener("click", memberReg, false);
-  }, false)
+
+  var RMP = $("#RegMemPsw").val();
+  var RMC = $("#RegMemIdCheck").val();
+  $("#btnReg").click(function(){
+    
+    if(RMC /= RMP){
+      $("#pswMsg").html("密碼不相同！");}
+    // }else{
+    //   $("#pswMsg").innerHTML = '';
+    //   memberRag();
+    // }
+  });
+  
+
+  
 
   //============註冊-檢查帳號是否重複============
 
