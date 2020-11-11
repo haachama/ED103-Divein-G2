@@ -41,14 +41,7 @@ $(function () {
     });
 
     // 關閉 Modal
-    $(".btn_modal_close").on("click", function () {
-        $(".lightbox-nameList").addClass("-opacity-zero");
-        // 設定隔一秒後，移除相關 class
-        setTimeout(function () {
-            $(".lightbox-nameList").removeClass("-openbox -opacity-zero");
-        }, 1000);
-    });
-    $(".submitbtn2").on("click", function () {
+    $(".nameClose").on("click", function () {
         $(".lightbox-nameList").addClass("-opacity-zero");
         // 設定隔一秒後，移除相關 class
         setTimeout(function () {
@@ -64,21 +57,13 @@ $(function () {
     });
 
     // 關閉 Modal
-    $(".btn_modal_close").on("click", function () {
+    $(".auditClose").on("click", function () {
         $(".lightbox-auditList").addClass("-opacity-zero");
         // 設定隔一秒後，移除相關 class
         setTimeout(function () {
             $(".lightbox-auditList").removeClass("-openbox -opacity-zero");
         }, 1000);
     });
-    $(".submitbtn2").on("click", function () {
-        $(".lightbox-auditList").addClass("-opacity-zero");
-        // 設定隔一秒後，移除相關 class
-        setTimeout(function () {
-            $(".lightbox-auditList").removeClass("-openbox -opacity-zero");
-        }, 1000);
-    });
-
 
 
 });
