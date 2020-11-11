@@ -1873,7 +1873,7 @@
                             // border: 1px solid orangered;
                             display: inline-block;
                             max-width: 150px;
-                            input[name="animals"]{
+                            input[name="animals[]"]{
                                 display: none; //input藏input
                             }
                             img{

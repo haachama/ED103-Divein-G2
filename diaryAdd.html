@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TimelineLite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     <title>海中日子 | 新增日誌</title>
 </head>
@@ -52,17 +53,17 @@
 
     <!-- 篩選 -->
     <div class="diaryAdd_formAddAll">
-        <form action="" class="formf" id="formName">
+        <form action="" method="post" class="formf" id="formName" enctype="multipart/form-data">
             <div class="diaryAddA"> <!-- 區塊A_日誌-->
                 <!-- 日誌名稱 -->
                 <div class="diaryAddName">
                     <p>日誌名稱<span> *</span></p>
-                    <input type="text" placeholder="請輸入日誌名稱" onfocus="this.placeholder=''" onblur="this.placeholder='請輸入日誌名稱'">
+                    <input name="diaryName" type="text" placeholder="請輸入日誌名稱" onfocus="this.placeholder=''" onblur="this.placeholder='請輸入日誌名稱'">
                 </div>
                 <!-- 日誌類型 -->
                 <div class="diaryAddType">
                     <p>日誌類型<span> *</span></p>
-                    <select name="" id="">
+                    <select name="diaryType" id="">
                         <option value="no">選擇類型</option>
                         <option value="1">旅遊潛水</option>
                         <option value="2">課程潛水</option>
@@ -88,12 +89,12 @@
                 <!-- 潛水時間 -->
                 <div class="diaryAddTime">
                     <p>潛水時間<span> *</span></p>
-                    <input type="number" placeholder="1.0" step="0.5" min="0">分鐘<!-- 允許小數1位 -->
+                    <input name="diaryDiveTime" type="number" placeholder="1.0" step="0.5" min="0">分鐘<!-- 允許小數1位 -->
                 </div>
                 <!-- 入水日期 -->
                 <div class="diaryDate">
                     <p>入水日期<span> *</span></p>
-                    <input type="date">
+                    <input type="date"name="diaryPlayDate">
                 </div>
             </div>
             
@@ -101,28 +102,28 @@
                 <p class="climateP">氣候條件</p>
                 <div class="climateflex">
                     <div class="climateA">
-                        <div>
+                        <div class="formWeather1">
                             <p><i class="fas fa-sun"></i>當日天氣</p>
-                            <select name="" id="">
+                            <select name="diaryWeather" id="">
                                 <option value="no">選擇天氣</option>
                                 <option value="1">晴</option>
                                 <option value="2">雨</option>
                                 <option value="3">多雲</option>
                             </select>
                         </div>
-                        <div>
+                        <div class="formWeather2">
                             <p><i class="fas fa-eye"></i>能&nbsp;見&nbsp;度</p>
-                            <input type="number" placeholder="1.0" step="0.5" min="0"><!-- 允許小數1位 -->
+                            <input type="number" placeholder="1.0" step="0.5" min="0" name="diaryVisibility"><!-- 允許小數1位 -->
                         </div>
                     </div>
                     <div class="climateB">
-                        <div>
+                        <div class="formWeather3">
                             <p><i class="fas fa-temperature-high"></i>當日氣溫</p>
-                            <input type="number" placeholder="1.0" step="0.5" >度<!-- 允許小數1位 -->
+                            <input type="number" placeholder="1.0" step="0.5" name="diaryTemp">度<!-- 允許小數1位 -->
                         </div>
-                        <div>
+                        <div class="formWeather4">
                             <p><i class="fas fa-temperature-low"></i>最低水溫</p>
-                            <input type="number" placeholder="1.0" step="0.5" >度<!-- 允許小數1位 -->
+                            <input type="number" placeholder="1.0" step="0.5" name="diaryWaterTemp">度<!-- 允許小數1位 -->
                         </div>
                     </div>
                 </div>
@@ -146,18 +147,18 @@
                             <h3>生物圖鑑</h3>
                             <div class="biologicalCsscAnn inlightbox-form3">
                                 <ul>
-                                    <li><label><input id="animal1" name="animals" value="1" type="checkbox"><img src="./img/diary/animal1.png" class="abc" id="animalImg1"></label></li>
-                                    <li><label><input id="animal2" name="animals" value="2" type="checkbox"><img src="./img/diary/animal2.png" class="abc" id="animalImg2"></label></li>
-                                    <li><label><input id="animal3" name="animals" value="3" type="checkbox"><img src="./img/diary/animal3.png" class="abc" id="animalImg3"></label></li>
-                                    <li><label><input id="animal4" name="animals" value="4" type="checkbox"><img src="./img/diary/animal4.png" class="abc" id="animalImg4"></label></li>
-                                    <li><label><input id="animal5" name="animals" value="5" type="checkbox"><img src="./img/diary/animal5.png" class="abc" id="animalImg5"></label></li>
-                                    <li><label><input id="animal6" name="animals" value="6" type="checkbox"><img src="./img/diary/animal6.png" class="abc" id="animalImg6"></label></li>
-                                    <li><label><input id="animal7" name="animals" value="7" type="checkbox"><img src="./img/diary/animal7.png" class="abc" id="animalImg7"></label></li>
-                                    <li><label><input id="animal8" name="animals" value="8" type="checkbox"><img src="./img/diary/animal8.png" class="abc" id="animalImg8"></label></li>
-                                    <li><label><input id="animal9" name="animals" value="9" type="checkbox"><img src="./img/diary/animal9.png" class="abc" id="animalImg9"></label></li>
-                                    <li><label><input id="animal10" name="animals" value="10" type="checkbox"><img src="./img/diary/animal10.png" class="abc" id="animalImg10"></label></li>
-                                    <li><label><input id="animal11" name="animals" value="11" type="checkbox"><img src="./img/diary/animal11.png" class="abc" id="animalImg11"></label></li>
-                                    <li><label><input id="animal12" name="animals" value="12" type="checkbox"><img src="./img/diary/animal12.png" class="abc" id="animalImg12"></label></li>
+                                    <li><label><input id="animal1" name="animals[]" value="1" type="checkbox"><img src="./img/diary/animal1.png" class="abc" id="animalImg1"></label></li>
+                                    <li><label><input id="animal2" name="animals[]" value="2" type="checkbox"><img src="./img/diary/animal2.png" class="abc" id="animalImg2"></label></li>
+                                    <li><label><input id="animal3" name="animals[]" value="3" type="checkbox"><img src="./img/diary/animal3.png" class="abc" id="animalImg3"></label></li>
+                                    <li><label><input id="animal4" name="animals[]" value="4" type="checkbox"><img src="./img/diary/animal4.png" class="abc" id="animalImg4"></label></li>
+                                    <li><label><input id="animal5" name="animals[]" value="5" type="checkbox"><img src="./img/diary/animal5.png" class="abc" id="animalImg5"></label></li>
+                                    <li><label><input id="animal6" name="animals[]" value="6" type="checkbox"><img src="./img/diary/animal6.png" class="abc" id="animalImg6"></label></li>
+                                    <li><label><input id="animal7" name="animals[]" value="7" type="checkbox"><img src="./img/diary/animal7.png" class="abc" id="animalImg7"></label></li>
+                                    <li><label><input id="animal8" name="animals[]" value="8" type="checkbox"><img src="./img/diary/animal8.png" class="abc" id="animalImg8"></label></li>
+                                    <li><label><input id="animal9" name="animals[]" value="9" type="checkbox"><img src="./img/diary/animal9.png" class="abc" id="animalImg9"></label></li>
+                                    <li><label><input id="animal10" name="animals[]" value="10" type="checkbox"><img src="./img/diary/animal10.png" class="abc" id="animalImg10"></label></li>
+                                    <li><label><input id="animal11" name="animals[]" value="11" type="checkbox"><img src="./img/diary/animal11.png" class="abc" id="animalImg11"></label></li>
+                                    <li><label><input id="animal12" name="animals[]" value="12" type="checkbox"><img src="./img/diary/animal12.png" class="abc" id="animalImg12"></label></li>
                                     <li><input id="biologicalBtnJSAnn" class="submitbtn3"  type="button" value="選擇"></li>
                                 </ul>
                                 
@@ -172,7 +173,7 @@
                 <div class="processrange">
                     <p>深度(M)</p>
                     <div class="rangeBlock">
-                        <!--深度柯度-->
+                        <!--深度刻度-->
                         <div class="depthBlock">  
                             <span>0</span>
                             <span>10</span>
@@ -185,23 +186,23 @@
                         <div class="Block">
                             <div class="annBlock">
                                 <div class="ann">
-                                    <input class="range" type="range" min="0" max="50" value="0" step="1" onmousemove="rangevalue.value=value" ontouchmove="rangevalue.value=value"/>
+                                    <input name="diaryPoint1" class="range range1" type="range" min="0" max="50" value="0" step="1" onmousemove="rangevalue.value=value" ontouchmove="rangevalue.value=value"/>
                                     <output id="rangevalue"></output>
                                 </div>
                                 <div class="ann">
-                                    <input class="range" type="range" min="0" max="50" value="0" step="1" onmousemove="rangevalue2.value=value" ontouchmove="rangevalue2.value=value"/>
+                                    <input name="diaryPoint2" class="range range2" type="range" min="0" max="50" value="0" step="1" onmousemove="rangevalue2.value=value" ontouchmove="rangevalue2.value=value"/>
                                     <output id="rangevalue2"></output>
                                 </div>
                                 <div class="ann">
-                                    <input class="range" type="range" min="0" max="50" value="0" step="1" onmousemove="rangevalue3.value=value" ontouchmove="rangevalue3.value=value"/>
+                                    <input name="diaryPoint3" class="range range3" type="range" min="0" max="50" value="0" step="1" onmousemove="rangevalue3.value=value" ontouchmove="rangevalue3.value=value"/>
                                     <output id="rangevalue3"></output>
                                 </div>
                                 <div class="ann">
-                                    <input class="range" type="range" min="0" max="50" value="0" step="1" onmousemove="rangevalue4.value=value" ontouchmove="rangevalue4.value=value"/>
+                                    <input name="diaryPoint4" class="range range4" type="range" min="0" max="50" value="0" step="1" onmousemove="rangevalue4.value=value" ontouchmove="rangevalue4.value=value"/>
                                     <output id="rangevalue4"></output>
                                 </div>
                                 <div class="ann">
-                                    <input class="range" type="range" min="0" max="50" value="0" step="1" onmousemove="rangevalue5.value=value" ontouchmove="rangevalue5.value=value"/>
+                                    <input name="diaryPoint5" class="range range5" type="range" min="0" max="50" value="0" step="1" onmousemove="rangevalue5.value=value" ontouchmove="rangevalue5.value=value"/>
                                     <output id="rangevalue5"></output>
                                 </div>
                             </div>
@@ -234,11 +235,11 @@
             <div class="diaryAddContent"> <!-- 區塊F_內容撰寫 -->
                 <p class="diaryAddContentP">內容撰寫</p>
                 <div class="diaryAddText">
-                    <textarea name="" id="" cols="30" rows="10"></textarea>
+                    <textarea name="" id="" cols="30" rows="10" name="diaryText"></textarea>
                 </div>
             </div>
 
-            <p class="submitData"><input class="allData demo-btn" type="submit" value="新增日誌"></p>
+            <p class="submitData"><input class="allData demo-btn" name="submit" type="button" value="新增日誌"></p>
 
         </form>
     </div>
@@ -247,5 +248,56 @@
     <!-- js要修改 -->
     <script src="./js/jquery.ripples.js"></script>
     <script src="./js/diaryAdd.js"></script>
+    <script>
+
+        $('.allData').on('click',function(){
+            let diaryName = $(".diaryAddName input").val(); //日誌名稱
+            let diaryType = $(".diaryAddType select").val(); //日誌類型
+            let diveNo = $(".diaryAddPlace input").val(); //潛水區域的地點
+            let diaryDiveTime = $(".diaryAddTime input").val(); //潛水時間
+            let diaryPlayDate = $(".diaryDate input").val(); //入水日期
+            let diaryWeather = $(".formWeather1 select").val(); //當日天氣
+            let diaryVisibility = $(".formWeather2 input").val(); //能見度
+            let diaryTemp = $(".formWeather3 input").val(); //當日氣溫
+            let diaryWaterTemp = $(".formWeather4 input").val(); //最低水溫
+            let diaryText = $(".diaryAddText textarea").val(); //內容
+            let diaryPoint1 = $(".range1").val(); //潛點1
+            let diaryPoint2 = $(".range2").val(); //潛點2
+            let diaryPoint3 = $(".range3").val(); //潛點3
+            let diaryPoint4 = $(".range4").val(); //潛點4
+            let diaryPoint5 = $(".range5").val(); //潛點5
+            // let diaryPicsNo = $("#fileBtn").val();//上傳圖片
+            var formData = new FormData($('form')[0]); //上傳圖片
+            formData.append('fileBtn',$(':file')[0].files[0]); //:file是簡化寫法(input type=File)  //第一個[0]是將JQ的物件，轉成JS的DOM物件
+            // console.log(formData);
+
+            $.ajax({ //文字傳送
+                type: "post",
+                url: "diaryInsert.php",
+                dataType: "json",
+                data:{
+                    diaryName:diaryName,
+                    diaryType:diaryType,
+                    diveNo:diveNo,
+                    diaryDiveTime:diaryDiveTime,
+                    diaryPlayDate:diaryPlayDate,
+                    diaryWeather:diaryWeather,
+                    diaryVisibility:diaryVisibility,
+                    diaryTemp:diaryTemp,
+                    diaryWaterTemp:diaryWaterTemp,
+                    diaryText:diaryText,
+                    diaryPoint1:diaryPoint1,
+                    diaryPoint2:diaryPoint2,
+                    diaryPoint3:diaryPoint3,
+                    diaryPoint4:diaryPoint4,
+                    diaryPoint5:diaryPoint5,
+                    diaryPicsNo:diaryPicsNo,
+                    formData:formData,
+                },
+                contentType: false,
+                processData: false,      
+            });
+        });
+    </script>
 </body>
 </html>

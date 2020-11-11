@@ -323,7 +323,11 @@ var vm = new Vue({
                     return this.areas.filter((x) => x.selected == this.value)[0].diveArea;
                 }
             },
-                //------------------------showProducts
+        },
+        methods:{
+            // console.log("hi")這是測試的
+
+             //------------------------showProducts
                 // function showProducts(){
                 // 	let html = "<table align='center'>";
                 // 	for(let i=0; i<prodRows.length; i++){
@@ -334,9 +338,10 @@ var vm = new Vue({
                 // }
                 //------------------------getProducts
                 getProducts(){
+                    // alert
                     let diarySelect = document.getElementById("diarySelect").value;
                     let diveid = document.getElementsByClassName("diveclass"); //object
-
+                    //for...in
                     //兩個篩選可能都為空，所以要判斷
                     var diaryQueryString ='';
                     var divedQueryString ='';
@@ -370,18 +375,15 @@ var vm = new Vue({
                     xhr.send(null);	
                 }
 
-                //------------------------filter diarySelect under ???
+                // ------------------------filter diarySelect under ???
                 // document.getElementById("diarySelect").onchange = getProducts;
                 // console.log('--- paul : ' +  document.getElementById("diarySelect").innerHTML)
-                //------------------------filter diveids
+                // ------------------------filter diveids
                 // document.getElementsByClassName("diveclass").onchange = getProducts; //2
             
                 // console.log('size : ' +  document.getElementsByClassName("diveclass").length )
                 // document.getElementsByClassName("diveclass").onchange = function(){
                 // alert('1')
-        },
-        mounted:function(){
-            console.log("hi")  //這是測試的
         }
             // }, false),
     });

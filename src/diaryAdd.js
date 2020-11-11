@@ -223,22 +223,22 @@ var select = new Vue({
             areas: [
                 {
                     selected: "1", //綠島
-                    diveArea: [{key:"海底教堂",value:"1",name:"green"},{key:"鋼鐵礁",value:"2",name:"green"}, {key:"石朗大香菇",value:"3",name:"green"}, {key:"海底大峽谷",value:"4",name:"green"}, {key:"雞仔礁",value:"5",name:"green"}],
+                    diveArea: [{key:"海底教堂",value:"1",name:"diveNo"},{key:"鋼鐵礁",value:"2",name:"diveNo"}, {key:"石朗大香菇",value:"3",name:"diveNo"}, {key:"海底大峽谷",value:"4",name:"diveNo"}, {key:"雞仔礁",value:"5",name:"diveNo"}],
                 },
                 {
                     selected: "2", //蘭嶼
-                    diveArea: [{key:"母雞岩",value:"6",name:"lanyu"}, {key:"八代灣沉船",value:"7",name:"lanyu"}, {key:"椰油斷層",value:"8",name:"lanyu"}, {key:"野銀小峽谷",value:"9",name:"lanyu"}, {key:"四條溝",value:"10",name:"lanyu"}],
+                    diveArea: [{key:"母雞岩",value:"6",name:"diveNo"}, {key:"八代灣沉船",value:"7",name:"diveNo"}, {key:"椰油斷層",value:"8",name:"diveNo"}, {key:"野銀小峽谷",value:"9",name:"diveNo"}, {key:"四條溝",value:"10",name:"diveNo"}],
                 },
                 {
                     selected: "3", //墾丁
-                    diveArea: [{key:"後壁湖",value:"11",name:"kenting"}, {key:"出水口",value:"12",name:"kenting"}, {key:"雙峰藍洞",value:"13",name:"kenting"}, {key:"合界",value:"14",name:"kenting"}],
+                    diveArea: [{key:"後壁湖",value:"11",name:"diveNo"}, {key:"出水口",value:"12",name:"diveNo"}, {key:"雙峰藍洞",value:"13",name:"diveNo"}, {key:"合界",value:"14",name:"diveNo"}],
                 }, {
                     selected: "4", //小琉球
-                    diveArea: [{key:"花瓶岩",value:"15",name:"xiaoliuqiu"}, {key:"美人洞",value:"16",name:"xiaoliuqiu"}, {key:"衫福沈船",value:"17",name:"xiaoliuqiu"}, {key:"鎮海艦",value:"18",name:"xiaoliuqiu"}, {key:"厚石礁群",value:"19",name:"xiaoliuqiu"}],
+                    diveArea: [{key:"花瓶岩",value:"15",name:"diveNo"}, {key:"美人洞",value:"16",name:"diveNo"}, {key:"衫福沈船",value:"17",name:"diveNo"}, {key:"鎮海艦",value:"18",name:"diveNo"}, {key:"厚石礁群",value:"19",name:"diveNo"}],
                 },
                 {
                     selected: "5", //東北角
-                    diveArea: [{key:"和美",value:"20",name:"northeast"}, {key:"龍洞",value:"21",name:"northeast"}, {key:"潮境公園",value:"22",name:"northeast"}, {key:"鼻頭角",value:"23",name:"northeast"}],
+                    diveArea: [{key:"和美",value:"20",name:"diveNo"}, {key:"龍洞",value:"21",name:"diveNo"}, {key:"潮境公園",value:"22",name:"diveNo"}, {key:"鼻頭角",value:"23",name:"diveNo"}],
                 }
             ],
             value: "",
@@ -280,6 +280,7 @@ function checkBiological() {
             // let img = this.nextSibling;
             // img.style.backgroundColor = 'rgba(0,0,0,.5)';
             show += `<img src='./img/diary/${animals[i]}.png' style="width:80px">`;
+            // `<input name="animals[]" value="${i+1}" type="hidden"><img src="./img/diary/${animals[i]}.png" style="width:80px"></img>`;
         }
         document.getElementById('biologicalAddImg').innerHTML = show;
     }
