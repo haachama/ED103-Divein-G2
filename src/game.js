@@ -648,8 +648,8 @@ function updateGameArea() {
     myGamePiece.speedY = 0;
     
     if (myGameArea.key && myGameArea.key == 37 ) {
-        // if( keyDown == false && (myGamePiece.x) >= (canvasWidth/2 -145)){ //正常程式碼
-        if( keyDown == false){  //突破系統限制用(開發者模式)
+        if( keyDown == false && (myGamePiece.x) >= (canvasWidth/2 -145)){ //正常程式碼
+        // if( keyDown == false){  //突破系統限制用(開發者模式)
             myGamePiece.speedX = -200;
             // alert(myGamePiece.speedX);
             keyDown = true;            
