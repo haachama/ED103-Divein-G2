@@ -174,23 +174,20 @@
             }
         }
     }
-
     .bubbleBtn {
         width: 100px;
         box-sizing: border-box;
         margin: 0 10px;
     }
-
     .button {
         padding: 12px 10px;
         font-size: 12px;
 
     }
-
-
-
     .button--bubble__container {
         width: 100%;
     }
-
+    .swal2-header h2::before{
+        content: none;
+    }
 }

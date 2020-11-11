@@ -1229,37 +1229,6 @@
         }
         window.addEventListener('load', doFirst);
     </script>
-
-    <script>
-        function doFirst() {
-            let plus = document.getElementsByClassName('fa-plus');
-            let minus = document.getElementsByClassName('fa-minus');
-
-            for (let p = 0; p < plus.length; p++) {
-                plus[p].addEventListener('click', plus1);
-            }
-            function plus1(e){
-                let nowValue = parseInt(e.target.parentNode.getElementsByTagName('input')[0].value);
-                nowValue += 1;
-                e.target.parentNode.getElementsByTagName('input')[0].value = nowValue;
-            }
-
-            for (let m = 0; m < minus.length; m++) {
-                minus[m].addEventListener('click', minus1);
-            }
-            function minus1(e){
-                let nowValue = parseInt(e.target.parentNode.getElementsByTagName('input')[0].value);
-                nowValue -= 1;
-
-                    if (nowValue<=1){
-                        nowValue = 1;
-                    }
-
-                e.target.parentNode.getElementsByTagName('input')[0].value = nowValue;     
-            }
-        }
-        window.addEventListener('load', doFirst);
-    </script>
 </body>
 
 </html>

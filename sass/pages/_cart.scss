@@ -115,8 +115,7 @@
         
         .calc{
             display: flex;
-            flex-direction: column;
-            align-items: flex-end;
+            align-items: center;
             @include breakpoint(767){
                 align-items: flex-start;
             }

@@ -1,3 +1,4 @@
+import Swal from "sweetalert2";
 import $ from "jquery";
 import { TweenMax, TimelineMax } from "gsap";
 
@@ -24,65 +25,26 @@ function doFirst() {
         });
     }
 }
-// 按下加入購物車按鈕時，會於左上角顯示商品圖片、資訊
-// 動態新增商品圖片與資訊
+
 function addItem(itemId, itemValue) {
-    // let newItem = document.getElementById('newItem');
-
-    // let image = document.createElement('img');
-    // image.src = './img/shop/' + itemValue.split('|')[1];
-
-    // let title = document.createElement('span');
-    // title.innerText = itemValue.split('|')[0];
-
-    // let price = document.createElement('span');
-    // // 字串切割成陣列，還是字串型態，若要加總需轉型成數字
-    // price.innerText = parseInt(itemValue.split('|')[2]);
-
-    // // 判斷顯示處是否已有商品資訊(孫子標籤，包含換行的空格)，若有要先刪除
-    // if (newItem.hasChildNodes()) {
-    //     while (newItem.childNodes.length >= 1) {
-    //         // 使用while迴圈，只要大於1就刪掉，程式一次一次運行就可以完全清除包含空格節點
-    //         newItem.removeChild(newItem.firstChild);
-    //     }
-    // }
-
-    // 再顯示新加入的商品資訊
-    // newItem.appendChild(image);
-    // newItem.appendChild(title);
-    // newItem.appendChild(price);
-
     // 存入storage
     if (storage[itemId]) {
-        alert('You have checked.');
+        Swal.fire('此商品已在購物車內！');
     } else {
         // storage['addItemList'] += itemId + ',';
         // 另外創建一個真正的購買順序
         storage['addItemList'] += `${itemId}, `;
         // 將商品資訊存入storage
         storage.setItem(itemId, itemValue);
+        Swal.fire({
+            position: 'center-center',
+            title: '商品已成功加入購物車！',
+            icon: 'success',
+            showConfirmButton: false,
+            timer: 1500
+          })
     }
 
-    // 計算購買數量和小計
-    let itemString = storage.getItem('addItemList'); //給key值，傳回value
-    // alert(itemString); "A1001, A1005, A1006, A1002";
-    // substr 返回擷取的字串，四個分隔號會分割成五個值的陣列，故最後的分隔號不計算，就可避免多一個空值
-    let items = itemString.substr(0, itemString.length - 2).split(', ');
-    //console.log(items);  // [A1001,A1005,A1006,A1002]
-
-    subtotal = 0;
-    for (let i = 0; i < items.length; i++) {
-        let itemInfo = storage.getItem(items[i]);  // A1001、A1005、A1006、A1002，傳回key值對應的value值給itemInfo
-        // 字串切割成陣列，還是字串，要做轉型才加總
-        let itemPrice = parseInt(itemInfo.split('|')[2]);  //value="Formosa|formosa.jpg|5000" 價格的部分
-
-        subtotal += itemPrice;
-
-    }
-
-
-    // document.getElementById('itemCount').innerText = items.length;
-    // document.getElementById('subtotal').innerText = subtotal;
 }
 
 window.addEventListener('load', doFirst);
@@ -93,7 +55,7 @@ $(function () {
     // hamburger icon 的切換
     $("button.hamburger").on("click", function () {
         $(this).toggleClass("is-active");
-        $('.nav').slideToggle("show");
+        $('.nav').toggleClass("show");
         $('.memCart li').toggleClass("show");
         $('header').toggleClass("bg")
     });

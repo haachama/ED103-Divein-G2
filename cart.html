@@ -60,8 +60,8 @@
             </div>
             <div class="calc">
                 <p class="bill">您購買了<span id="countItems">0</span>項物品，總金額為：$<span id="allTotal">0</span></p>
-                <p class="point">您目前持有點數：<span>100</span></p>
-                <p class="total">總計：$<span>34700</span></p>
+                <!-- <p class="point">您目前持有點數：<span>100</span></p>
+                <p class="total">總計：$<span>34700</span></p> -->
             </div>
         </div>
 
@@ -296,7 +296,6 @@
             }
 
         }
-
         window.addEventListener('load', doFirst);
     </script>
 
@@ -333,6 +332,39 @@
                 let itemPrice = parseInt(itemInfo.split('|')[2]);  //value="Formosa|formosa.jpg|5000" 價格的部分
                 total += itemPrice;
             }
+
+            // 刪除商品
+            
+            let trash = document.querySelectorAll('i.fa-trash');
+                for (let i = 0; i < trash.length; i++) {
+                trash[i].addEventListener('click', function () {
+                    // console.log(trash[i].parentNode.previousSibling.innerText);
+                    let productPrice = trash[i].parentNode.previousSibling.innerText;
+                    let InfoRow = trash[i].parentNode.parentNode;
+                    document.getElementsByClassName('listRow')[0].removeChild(InfoRow);
+                    document.getElementById('allTotal').innerText -= parseInt(productPrice);
+
+                    let productID = trash[i].parentNode.previousSibling.previousSibling.previousSibling.previousSibling.id;
+
+                    // // 清除storage的資料
+                    storage.removeItem(productID);
+                    storage['addItemList'] = storage.getItem('addItemList').replace(`${productID}, `, '');
+
+                    countItems = 0;
+                    itemString = storage.getItem('addItemList');
+                    // console.log(itemString);
+                    items = itemString.substr(0, itemString.length - 2).split(', ');
+                    console.log(items);
+                    console.log(typeof(items));
+                    if(storage['addItemList'] == null | storage['addItemList'] == ''){
+                        document.getElementById('countItems').innerHTML = 0;
+                    }else{
+                        document.getElementById('countItems').innerHTML = items.length;
+                    }
+                })
+            }
+
+
 
             document.getElementById('allTotal').innerText = total;
 
@@ -403,8 +435,8 @@
                 newtrashcan = document.createElement('div');
                 newtrashcan.className = 'trashcan';
                 newfas = document.createElement('i');
-                newfas.className = 'fas , fa-trash';
-                newtrashcan.addEventListener('click',deleteItem);
+                newfas.className = 'fas fa-trash';
+
 
                 let itemTitle = itemValue.split('|')[0];
                 let itemImage = './img/shop/' + itemValue.split('|')[1];
@@ -450,7 +482,7 @@
                 // 建立刪除按鈕-----
                 newprodInfo.appendChild(newtrashcan);
                 newtrashcan.appendChild(newfas);
-                
+
 
 
                 countItems = 0;
@@ -479,35 +511,6 @@
                 }
                 // console.log(newPri);
                 document.getElementById('allTotal').innerText = newPri;
-            }
-
-            function deleteItem() {
-                let FAQ = document.getElementsByClassName('fa-trash')[0];
-            //     for (f = 0; f < FAQ.length; f++) {
-            //         FAQ[f].addEventListener('click', remove);
-            // }
-                // 1. 先扣除總金額
-                let itemValue = storage.getItem(FAQ);
-                newPri -= parseInt(itemValue.split('|')[2]) * newCount;
-                
-
-                document.getElementById('allTotal').innerText = newPri;
-
-                // 2. 清除storage的資料
-                storage.removeItem(FAQ);
-                storage['addItemList'] = storage.getItem('addItemList').replace(`${FAQ}, `, '');
-
-
-                // 3. 刪掉該筆tr
-                document.getElementsByClassName('fa-trash').parentNode.parentNode.removeChild(this.parentNode.parentNode);
-                // 法一
-                // this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);
-
-                // 法二
-                // document.getElementById(itemId).parentNode.parentNode.removeChild(this.parentNode.parentNode);
-
-                // 法三
-                // document.getElementById('newTable').removeChild(this.parentNode.parentNode);
             }
 
         }

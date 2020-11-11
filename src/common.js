@@ -19,5 +19,4 @@ $(function () {
             $('.nav').addClass('hide')
         }
     });
-
 });
