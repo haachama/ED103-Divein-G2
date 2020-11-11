@@ -1,6 +1,7 @@
-import $ from 'jquery';
-import { TweenMax, TimelineMax } from 'gsap';
+// import $ from 'jquery';
+// import { TweenMax, TimelineMax } from 'gsap';
 
+"use strict";//嚴格模式
 
 //↓宣告要用到的全域變數
 var myGamePiece;
@@ -32,14 +33,458 @@ let rockTwo = 2; //石塊圖樣初值
 let rockThree = 1; //石塊圖樣初值
 let rockFour = 2; //石塊圖樣初值
 
+var roleColorValue = localStorage.getItem('roleColor');
+var mask = localStorage.getItem('mask');
+var air = localStorage.getItem('air');
+var shoe = localStorage.getItem('shoe');
+
+var roleImg = "./img/game/playRole.png";
+
+//↓角色圖片判定
+
+if(roleColorValue == 1){
+
+    if(mask == 10){
+        if(air == 10){
+            if(shoe == 10){
+                roleImg = "./img/game/roleImg/green-1-1-1.png";
+            }
+            if(shoe == 20){
+                roleImg = "./img/game/roleImg/green-1-1-2.png";
+            }
+            if(shoe == 40){
+                roleImg = "./img/game/roleImg/green-1-1-4.png";
+            }
+            if(shoe == 0){
+                roleImg = "./img/game/roleImg/green-1-1-0.png";
+            }
+        }
+        if(air == 20){
+            if(shoe == 10){
+                roleImg = "./img/game/roleImg/green-1-2-1.png";
+            }
+            if(shoe == 20){
+                roleImg = "./img/game/roleImg/green-1-2-2.png";
+            }
+            if(shoe == 0){
+                roleImg = "./img/game/roleImg/green-1-2-0.png";
+            }
+        }
+        if(air == 40){
+            roleImg = "./img/game/roleImg/green-1-4-0.png";
+        }
+        if(air == 0){
+            if(shoe == 10){
+                roleImg = "./img/game/roleImg/green-1-0-1.png";
+            }
+            if(shoe == 20){
+                roleImg = "./img/game/roleImg/green-1-0-2.png";
+            }
+            if(shoe == 40){
+                roleImg = "./img/game/roleImg/green-1-0-4.png";
+            }
+            if(shoe == 0){
+                roleImg = "./img/game/roleImg/green-1-0-0.png";
+            }
+        }
+    }
+    //↓20元面鏡
+    if(mask == 20){
+        if(air == 10){
+            if(shoe == 10){
+                roleImg = "./img/game/roleImg/green-2-1-1.png";
+            }
+            if(shoe == 20){
+                roleImg = "./img/game/roleImg/green-2-1-2.png";
+            }
+            if(shoe == 0){
+                roleImg = "./img/game/roleImg/green-2-1-0.png";
+            }
+        }
+        if(air == 20){
+            if(shoe == 10){
+                roleImg = "./img/game/roleImg/green-2-2-1.png";
+            }
+            if(shoe == 0){
+                roleImg = "./img/game/roleImg/green-2-2-0.png";
+            }
+        }
+        if(air == 0){
+            if(shoe == 10){
+                roleImg = "./img/game/roleImg/green-2-0-1.png";
+            }
+            if(shoe == 20){
+                roleImg = "./img/game/roleImg/green-2-0-2.png";
+            }
+            if(shoe == 0){
+                roleImg = "./img/game/roleImg/green-2-0-0.png";
+            }
+        }
+    }
+    //↓40元面鏡
+    if(mask == 40){
+        if(air == 10){
+            roleImg = "./img/game/roleImg/green-4-1-0.png";
+        }
+        if(air == 0){
+            if(shoe == 10){
+                roleImg = "./img/game/roleImg/green-4-0-1.png";
+            }
+            if(shoe == 0){
+                roleImg = "./img/game/roleImg/green-4-0-0.png";
+            }
+        }
+    }
+
+    //不戴面鏡
+    if(mask == 0){
+        if(air == 10){
+            if(shoe == 10){
+                roleImg = "./img/game/roleImg/green-0-1-1.png";
+            }
+            if(shoe == 20){
+                roleImg = "./img/game/roleImg/green-0-1-2.png";
+            }
+            if(shoe == 40){
+                roleImg = "./img/game/roleImg/green-0-1-4.png";
+            }
+            if(shoe == 0){
+                roleImg = "./img/game/roleImg/green-0-1-0.png";
+            }
+        }
+        if(air == 20){
+            if(shoe == 10){
+                roleImg = "./img/game/roleImg/green-0-2-1.png";
+            }
+            if(shoe == 20){
+                roleImg = "./img/game/roleImg/green-0-2-2.png";
+            }
+            if(shoe == 0){
+                roleImg = "./img/game/roleImg/green-0-2-0.png";
+            }
+        }
+        if(air == 40){
+            if(shoe == 10){
+                roleImg = "./img/game/roleImg/green-0-4-1.png";
+            }
+            if(shoe == 0){
+                roleImg = "./img/game/roleImg/green-0-4-0.png";
+            }
+        }
+        if(air == 0){
+            if(shoe == 10){
+                roleImg = "./img/game/roleImg/green-0-0-1.png";
+            }
+            if(shoe == 20){
+                roleImg = "./img/game/roleImg/green-0-0-2.png";
+            }
+            if(shoe == 40){
+                roleImg = "./img/game/roleImg/green-0-0-4.png";
+            }
+            if(shoe == 0){
+                roleImg = "./img/game/roleImg/green-0-0-0.png";
+            }
+        }
+    }
+}; 
+if(roleColorValue == 2){
+    if(mask == 10){
+        if(air == 10){
+            if(shoe == 10){
+                roleImg = "./img/game/roleImg/pink-1-1-1.png";
+            }
+            if(shoe == 20){
+                roleImg = "./img/game/roleImg/pink-1-1-2.png";
+            }
+            if(shoe == 40){
+                roleImg = "./img/game/roleImg/pink-1-1-4.png";
+            }
+            if(shoe == 0){
+                roleImg = "./img/game/roleImg/pink-1-1-0.png";
+            }
+        }
+        if(air == 20){
+            if(shoe == 10){
+                roleImg = "./img/game/roleImg/pink-1-2-1.png";
+            }
+            if(shoe == 20){
+                roleImg = "./img/game/roleImg/pink-1-2-2.png";
+            }
+            if(shoe == 0){
+                roleImg = "./img/game/roleImg/pink-1-2-0.png";
+            }
+        }
+        if(air == 40){
+            roleImg = "./img/game/roleImg/pink-1-4-0.png";
+        }
+        if(air == 0){
+            if(shoe == 10){
+                roleImg = "./img/game/roleImg/pink-1-0-1.png";
+            }
+            if(shoe == 20){
+                roleImg = "./img/game/roleImg/pink-1-0-2.png";
+            }
+            if(shoe == 40){
+                roleImg = "./img/game/roleImg/pink-1-0-4.png";
+            }
+            if(shoe == 0){
+                roleImg = "./img/game/roleImg/pink-1-0-0.png";
+            }
+        }
+    }
+    //↓20元面鏡
+    if(mask == 20){
+        if(air == 10){
+            if(shoe == 10){
+                roleImg = "./img/game/roleImg/pink-2-1-1.png";
+            }
+            if(shoe == 20){
+                roleImg = "./img/game/roleImg/pink-2-1-2.png";
+            }
+            if(shoe == 0){
+                roleImg = "./img/game/roleImg/pink-2-1-0.png";
+            }
+        }
+        if(air == 20){
+            if(shoe == 10){
+                roleImg = "./img/game/roleImg/pink-2-2-1.png";
+            }
+            if(shoe == 0){
+                roleImg = "./img/game/roleImg/pink-2-2-0.png";
+            }
+        }
+        if(air == 0){
+            if(shoe == 10){
+                roleImg = "./img/game/roleImg/pink-2-0-1.png";
+            }
+            if(shoe == 20){
+                roleImg = "./img/game/roleImg/pink-2-0-2.png";
+            }
+            if(shoe == 0){
+                roleImg = "./img/game/roleImg/pink-2-0-0.png";
+            }
+        }
+    }
+    //↓40元面鏡
+    if(mask == 40){
+        if(air == 10){
+            roleImg = "./img/game/roleImg/pink-4-1-0.png";
+        }
+        if(air == 0){
+            if(shoe == 10){
+                roleImg = "./img/game/roleImg/pink-4-0-1.png";
+            }
+            if(shoe == 0){
+                roleImg = "./img/game/roleImg/pink-4-0-0.png";
+            }
+        }
+    }
+
+    //不戴面鏡
+    if(mask == 0){
+        if(air == 10){
+            if(shoe == 10){
+                roleImg = "./img/game/roleImg/pink-0-1-1.png";
+            }
+            if(shoe == 20){
+                roleImg = "./img/game/roleImg/pink-0-1-2.png";
+            }
+            if(shoe == 40){
+                roleImg = "./img/game/roleImg/pink-0-1-4.png";
+            }
+            if(shoe == 0){
+                roleImg = "./img/game/roleImg/pink-0-1-0.png";
+            }
+        }
+        if(air == 20){
+            if(shoe == 10){
+                roleImg = "./img/game/roleImg/pink-0-2-1.png";
+            }
+            if(shoe == 20){
+                roleImg = "./img/game/roleImg/pink-0-2-2.png";
+            }
+            if(shoe == 0){
+                roleImg = "./img/game/roleImg/pink-0-2-0.png";
+            }
+        }
+        if(air == 40){
+            if(shoe == 10){
+                roleImg = "./img/game/roleImg/pink-0-4-1.png";
+            }
+            if(shoe == 0){
+                roleImg = "./img/game/roleImg/pink-0-4-0.png";
+            }
+        }
+        if(air == 0){
+            if(shoe == 10){
+                roleImg = "./img/game/roleImg/pink-0-0-1.png";
+            }
+            if(shoe == 20){
+                roleImg = "./img/game/roleImg/pink-0-0-2.png";
+            }
+            if(shoe == 40){
+                roleImg = "./img/game/roleImg/pink-0-0-4.png";
+            }
+            if(shoe == 0){
+                roleImg = "./img/game/roleImg/pink-0-0-0.png";
+            }
+        }
+    }
+}; 
+if(roleColorValue == 3){
+    if(mask == 10){
+        if(air == 10){
+            if(shoe == 10){
+                roleImg = "./img/game/roleImg/orange-1-1-1.png";
+            }
+            if(shoe == 20){
+                roleImg = "./img/game/roleImg/orange-1-1-2.png";
+            }
+            if(shoe == 40){
+                roleImg = "./img/game/roleImg/orange-1-1-4.png";
+            }
+            if(shoe == 0){
+                roleImg = "./img/game/roleImg/orange-1-1-0.png";
+            }
+        }
+        if(air == 20){
+            if(shoe == 10){
+                roleImg = "./img/game/roleImg/orange-1-2-1.png";
+            }
+            if(shoe == 20){
+                roleImg = "./img/game/roleImg/orange-1-2-2.png";
+            }
+            if(shoe == 0){
+                roleImg = "./img/game/roleImg/orange-1-2-0.png";
+            }
+        }
+        if(air == 40){
+            roleImg = "./img/game/roleImg/orange-1-4-0.png";
+        }
+        if(air == 0){
+            if(shoe == 10){
+                roleImg = "./img/game/roleImg/orange-1-0-1.png";
+            }
+            if(shoe == 20){
+                roleImg = "./img/game/roleImg/orange-1-0-2.png";
+            }
+            if(shoe == 40){
+                roleImg = "./img/game/roleImg/orange-1-0-4.png";
+            }
+            if(shoe == 0){
+                roleImg = "./img/game/roleImg/orange-1-0-0.png";
+            }
+        }
+    }
+    //↓20元面鏡
+    if(mask == 20){
+        if(air == 10){
+            if(shoe == 10){
+                roleImg = "./img/game/roleImg/orange-2-1-1.png";
+            }
+            if(shoe == 20){
+                roleImg = "./img/game/roleImg/orange-2-1-2.png";
+            }
+            if(shoe == 0){
+                roleImg = "./img/game/roleImg/orange-2-1-0.png";
+            }
+        }
+        if(air == 20){
+            if(shoe == 10){
+                roleImg = "./img/game/roleImg/orange-2-2-1.png";
+            }
+            if(shoe == 0){
+                roleImg = "./img/game/roleImg/orange-2-2-0.png";
+            }
+        }
+        if(air == 0){
+            if(shoe == 10){
+                roleImg = "./img/game/roleImg/orange-2-0-1.png";
+            }
+            if(shoe == 20){
+                roleImg = "./img/game/roleImg/orange-2-0-2.png";
+            }
+            if(shoe == 0){
+                roleImg = "./img/game/roleImg/orange-2-0-0.png";
+            }
+        }
+    }
+    //↓40元面鏡
+    if(mask == 40){
+        if(air == 10){
+            roleImg = "./img/game/roleImg/orange-4-1-0.png";
+        }
+        if(air == 0){
+            if(shoe == 10){
+                roleImg = "./img/game/roleImg/orange-4-0-1.png";
+            }
+            if(shoe == 0){
+                roleImg = "./img/game/roleImg/orange-4-0-0.png";
+            }
+        }
+    }
+
+    //不戴面鏡
+    if(mask == 0){
+        if(air == 10){
+            if(shoe == 10){
+                roleImg = "./img/game/roleImg/orange-0-1-1.png";
+            }
+            if(shoe == 20){
+                roleImg = "./img/game/roleImg/orange-0-1-2.png";
+            }
+            if(shoe == 40){
+                roleImg = "./img/game/roleImg/orange-0-1-4.png";
+            }
+            if(shoe == 0){
+                roleImg = "./img/game/roleImg/orange-0-1-0.png";
+            }
+        }
+        if(air == 20){
+            if(shoe == 10){
+                roleImg = "./img/game/roleImg/orange-0-2-1.png";
+            }
+            if(shoe == 20){
+                roleImg = "./img/game/roleImg/orange-0-2-2.png";
+            }
+            if(shoe == 0){
+                roleImg = "./img/game/roleImg/orange-0-2-0.png";
+            }
+        }
+        if(air == 40){
+            if(shoe == 10){
+                roleImg = "./img/game/roleImg/orange-0-4-1.png";
+            }
+            if(shoe == 0){
+                roleImg = "./img/game/roleImg/orange-0-4-0.png";
+            }
+        }
+        if(air == 0){
+            if(shoe == 10){
+                roleImg = "./img/game/roleImg/orange-0-0-1.png";
+            }
+            if(shoe == 20){
+                roleImg = "./img/game/roleImg/orange-0-0-2.png";
+            }
+            if(shoe == 40){
+                roleImg = "./img/game/roleImg/orange-0-0-4.png";
+            }
+            if(shoe == 0){
+                roleImg = "./img/game/roleImg/orange-0-0-0.png";
+            }
+        }
+    }
+};
+
+//遊戲
+
 function startGame() {
-    myGamePiece = new component(54, 70, "./img/game/playRole.png", (canvasWidth/2 - 15), (canvasHeight/12), "image"); // ←調整角色圖片
+    
+    myGamePiece = new component(54, 70, roleImg, (canvasWidth/2 - 15), (canvasHeight/12), "image"); // ←調整角色圖片
     myScore = new component("20px", "Consolas", "black", (canvasWidth - 160), 40, "text"); //←調整分數字體大小
     myBackground = new component(1920, 3000, "./img/game/gameBackgroundBlack.jpg", 0, 0, "background"); //←調整背景圖片
     myGameArea.start();
 }
-
-
 
 var myGameArea = {
     canvas: document.getElementById('canvas'), //定位畫布在html的位置
@@ -576,4 +1021,3 @@ $(function () {
     });
 
 })
-

@@ -134,17 +134,39 @@
             position: relative;
             display: inline-flex;
             width: 142px;
+            height: 242px;
             margin: auto 0;
+        }
+        .playRole img{
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
 
-            @include breakpoint (1200) {
-                width: 40%;
-            }
-
-            @include breakpoint (767) {
-                width: 30%;
-            }
+        .eye img {
+            display: none;
+            position: absolute;
+            top: 38px;
+            left: 12px;
+        }
+        
+        .back img {
+            display: none;
+            position: absolute;
+            top: 55px;
+            left: -50%;
+            z-index: -1;
+        }
+        
+        .foot img {
+            display: none;
+            position: absolute;
+            width: 135px;
+            height: 40px;
+            top: 190px;
         }
     }
+
 
     //角色能力圖
 
@@ -252,6 +274,7 @@
         width: 130px;
         height: 130px;
         text-align: center;
+        border-radius: 50%;
         background-image: url("../img/game/bubbleBackground.png");
         background-size: 100%;
         background-repeat: no-repeat;
@@ -286,27 +309,6 @@
 
     .price{
         display: block;
-    }
-  
-    //華晴的換裝程式碼
-    .eye img {
-        position: absolute;
-        top: 20px;
-        left: 15px;
-        transform: scale(1.15) rotate(170deg);
-    }
-    
-    .back img {
-        position: absolute;
-        top: 28%;
-        transform: translateX(-70%);
-        z-index: -1;
-    }
-    
-    .foot img {
-        position: absolute;
-        bottom: -30px;
-        transform: scale(1.7) rotate(12deg) translate(10px, 5px);
     }
     
     //規則
