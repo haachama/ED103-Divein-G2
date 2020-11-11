@@ -16,15 +16,15 @@
 
 <body class="member">
     @@include('./layout/header.html')
-    <div class="memberMain">
+    <div class="memberMain" id="app">
         <div class="memberAsideMenu">
             <div class="memberAsideMenuTitle"><a href="./trainerCenter.html">會員中心</a></div>
-            <div class="memberOption">
-                <p>Hello, Shizuka</p>
+            <div class="memberOption" v-for="user in users">
+                <p>Hello, {{ user.memName }}</p>
                 <div class="memberFile"><img src="./img/member/member/testg2.jpg"></div>
                 <ul class="memberPointPhone">
-                    <li><p>紅利點數：</p><span>800</span></li>
-                    <li><p>遊戲分數：</p><span>800</span></li>
+                    <li><p>紅利點數：</p><span>{{ user.points }}</span></li>
+                    <li><p>遊戲分數：</p><span>{{ user.memGamePoint }}</span></li>
                 </ul>
                 <ul class="memberInformation">
                     <li><a href="javascript:;" class="show_mif">個人資料</a></li>
@@ -35,8 +35,8 @@
                     </li>
                 </ul>
                 <ul class="memberPoint">
-                    <li><p>紅利點數：</p><span>800</span></li>
-                    <li><p>遊戲分數：</p><span>800</span></li>
+                    <li><p>紅利點數：</p><span>{{ user.points }}</span></li>
+                    <li><p>遊戲分數：</p><span>{{ user.memGamePoint }}</span></li>
                 </ul>
             </div>
         </div>
@@ -55,14 +55,14 @@
                 <div class="memberTabContents" >
     
                     <div class="memberTab Dia -on">
-                        <div class="memberCourse">
+                        <div class="memberCourse" v-for="d in diary">
                             <div class="memberImgContainer">
-                                <img src="./img/member/diary/pexels-richard-segal-1618606.jpg">
+                                <img :src="('./img/diary/'+d.diaryPicsNo)">
                             </div>
                             <div class="memberCourseInfo">
-                                <p>第一次潛水</p>
-                                <p>潛水日期：09/20 - 09/24</p>
-                                <p>潛水地點：大白沙</p>
+                                <p>{{ d.diaryName }}</p>
+                                <p>潛水時間：{{ d.diaryPlayDate }}</p>
+                                <p>潛水地點：{{ d.diveNo }}</p>
                             </div>
                             <div class="memberDiaBtn">
                                 <div class="memberDiaEditBtn demo-btn">
@@ -71,26 +71,26 @@
                                     </a>
                                 </div>
                                 <div class="memberDelBtn">
-                                    <i class="far fa-trash-alt DelDia"></i>
+                                    <i class="fas fa-trash DelDia"></i>
                                 </div>
                             </div>
                         </div>
-                        <ul class="memberPagination">
+                        <!-- <ul class="memberPagination">
                             <li>1</li>
                             <li>2</li>
                             <li>3</li>
-                        </ul>
+                        </ul> -->
                     </div>
     
                     <div class="memberTab Cor">
-                        <div class="memberCourse">
+                        <div class="memberCourse" v-for="dc in diveClass">
                             <div class="memberImgContainer">
                                 <img src="./img/member/course/divein_1.jpg">
                             </div>
                             <div class="memberCourseInfo">
-                                <p>潛水體驗班</p>
-                                <p>上課日期：09/20 - 09/24</p>
-                                <p>上課地點：大白沙</p>
+                                <p>{{ dc.courseOrderNo }}</p>
+                                <p>上課日期：{{ dc.registerDate }}</p>
+                                <p>上課地點：{{ dc.classNo }}</p>
                             </div>
                             <div class="memberCorBtn">
                                 <div class="memberCorInfBtn demo-btn">
@@ -103,41 +103,41 @@
                                 </div>
                             </div>
                         </div>
-                        <ul class="memberPagination">
+                        <!-- <ul class="memberPagination">
                             <li>1</li>
                             <li>2</li>
                             <li>3</li>
-                        </ul>
-                    </div>
-                    <div class="lightbox-block3">
-                        <div class="lightbox3">
-                            <div class="button_closeBox3">
-                                <button type="button" class="btn_modal_close">✖</button>
-                            </div>
-                            <h3>課程評鑑</h3>
-                            <form action="" class="inlightbox-form3">
-                                <ul class="pointCheckUl">
-                                    <li><p>教練分數：</p></li>
-                                    <li class="pointCheckLi">
-                                        <div class="pointCheckArea">
-                                            <div class="pointCheckColor"></div>
-                                            <div class="pointCheckRadio">
-                                                <input id="pl1" type="radio" value="1" name="pl">
-                                                <label for="pl1"><div class="pointCheckStar StarOne"><img src="./img/member/course/star-01.png"></div></label>
-                                                <input id="pl2" type="radio" value="2" name="pl">
-                                                <label for="pl2"><div class="pointCheckStar StarTwo"><img src="./img/member/course/star-01.png"></div></label>
-                                                <input id="pl3" type="radio" value="3" name="pl">
-                                                <label for="pl3"><div class="pointCheckStar StarThree"><img src="./img/member/course/star-01.png"></div></label>
-                                                <input id="pl4" type="radio" value="4" name="pl">
-                                                <label for="pl4"><div class="pointCheckStar StarFour"><img src="./img/member/course/star-01.png"></div></label>
-                                                <input id="pl5" type="radio" value="5" name="pl">
-                                                <label for="pl5"><div class="pointCheckStar StarFive"><img src="./img/member/course/star-01.png"></div></label>
+                        </ul> -->
+                        <div class="lightbox-block3">
+                            <div class="lightbox3">
+                                <div class="button_closeBox3">
+                                    <button type="button" class="btn_modal_close">✖</button>
+                                </div>
+                                <h3>課程評鑑</h3>
+                                <form action="" class="inlightbox-form3">
+                                    <ul class="pointCheckUl">
+                                        <li><p>教練分數：</p></li>
+                                        <li class="pointCheckLi">
+                                            <div class="pointCheckArea">
+                                                <div class="pointCheckColor"></div>
+                                                <div class="pointCheckRadio">
+                                                    <input id="pl1" type="radio" value="1" name="pl">
+                                                    <label for="pl1"><div class="pointCheckStar StarOne"><img src="./img/member/course/star-01.png"></div></label>
+                                                    <input id="pl2" type="radio" value="2" name="pl">
+                                                    <label for="pl2"><div class="pointCheckStar StarTwo"><img src="./img/member/course/star-01.png"></div></label>
+                                                    <input id="pl3" type="radio" value="3" name="pl">
+                                                    <label for="pl3"><div class="pointCheckStar StarThree"><img src="./img/member/course/star-01.png"></div></label>
+                                                    <input id="pl4" type="radio" value="4" name="pl">
+                                                    <label for="pl4"><div class="pointCheckStar StarFour"><img src="./img/member/course/star-01.png"></div></label>
+                                                    <input id="pl5" type="radio" value="5" name="pl">
+                                                    <label for="pl5"><div class="pointCheckStar StarFive"><img src="./img/member/course/star-01.png"></div></label>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </li>
-                                    <li class="pointButton"><input class="button btn_modal_close" type="button" value="送出"></li>
-                                </ul>
-                            </form>
+                                        </li>
+                                        <li class="pointButton"><input class="button btn_modal_close" type="button" value="送出"></li>
+                                    </ul>
+                                </form>
+                            </div>
                         </div>
                     </div>
     
@@ -189,17 +189,18 @@
                             <div class="memberOrdPrice"><p>訂單金額</p></div>
                         </div>
                         <hr>
-                        <div class="memberOrderContent">
-                            <div class="memberOrdNo"><p>001</p></div>
-                            <div class="memberOrdData"><p>2020/09/26</p></div>
-                            <div class="memberOrdName"><p>XXXXXXXXX</p></div>
-                            <div class="memberOrdPrice"><p>$80000</p></div>
-                        </div>
-                        <ul class="memberPagination">
+                        <div class="memberOrderContent" v-for="order in orders">
+                            <div class="memberOrdNo"><p>{{ order.orderNo }}</p></div>
+                            <div class="memberOrdData"><p>{{ order.itemNo }}</p></div>
+                            <div class="memberOrdName"><p>{{ order.itemNo }}</p></div>
+                            <div class="memberOrdPrice"><p>${{ order.itemPrice }}</p></div>
+
+                        <!-- <ul class="memberPagination">
                             <li>1</li>
                             <li>2</li>
                             <li>3</li>
-                        </ul>
+                        </ul> -->
+                        </div>
                     </div>
 
                     <div class="memberTab Fav">
@@ -210,12 +211,12 @@
                             <div class="memberOrdBtn"></div>
                         </div>
                         <hr> -->
-                        <div class="memberFavCourse">
+                        <div class="memberFavCourse"  v-for = "fav in favs">
                             <div class="memberFavContainerImg">
                                 <img src="./img/trainer/coast.jpg">
                             </div>
                             <div class="memberFavContainerName">
-                                <p>潛水體驗班</p>
+                                <p>{{ fav.favoriteNo }}</p>
                             </div>
                             <div class="memberFavContainerBtn">
                                 <div class="memberFavInfBtn demo-btn">
@@ -224,51 +225,15 @@
                                     </a>
                                 </div>
                                 <div class="memberDelBtn">
-                                    <i class="far fa-trash-alt DelFav"></i>
+                                    <i class="fas fa-trash DelFav"></i>
                                 </div>
                             </div>
                         </div>
-                        <div class="memberFavCourse">
-                            <div class="memberFavContainerImg">
-                                <img src="./img/trainer/coast.jpg">
-                            </div>
-                            <div class="memberFavContainerName">
-                                <p>潛水體驗班2</p>
-                            </div>
-                            <div class="memberFavContainerBtn">
-                                <div class="memberFavInfBtn demo-btn">
-                                    <a href="#campaign">
-                                        加入購物車
-                                    </a>
-                                </div>
-                                <div class="memberDelBtn">
-                                    <i class="far fa-trash-alt DelFav"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="memberFavCourse">
-                            <div class="memberFavContainerImg">
-                                <img src="./img/trainer/coast.jpg">
-                            </div>
-                            <div class="memberFavContainerName">
-                                <p>潛水體驗班3</p>
-                            </div>
-                            <div class="memberFavContainerBtn">
-                                <div class="memberFavInfBtn demo-btn">
-                                    <a href="#campaign">
-                                        加入購物車
-                                    </a>
-                                </div>
-                                <div class="memberDelBtn">
-                                    <i class="far fa-trash-alt DelFav"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <ul class="memberPagination">
+                        <!-- <ul class="memberPagination">
                             <li>1</li>
                             <li>2</li>
                             <li>3</li>
-                        </ul>
+                        </ul> -->
                     </div>
                 
                     <div class="memberInfor memberIF">
@@ -277,14 +242,14 @@
                         </div>
                         <div class="memberInforArea">
                             <form action="">
-                                <table>
+                                <table v-for="user in users">
                                     <tr>
                                         <th>會員帳號：</th>
-                                        <td>aaaaaa</td>
+                                        <td>{{ user.memId }}</td>
                                     </tr>
                                     <tr>
                                         <th>會員密碼：</th>
-                                        <td>******</td>
+                                        <td>{{ user.memPsw }}</td>
                                     </tr>
                                     <tr>
                                         <th></th>
@@ -292,19 +257,15 @@
                                     </tr>
                                     <tr>
                                         <th>會員姓名：</th>
-                                        <td>靜香</td>
-                                    </tr>
-                                    <tr>
-                                        <th>會員暱稱：</th>
-                                        <td>Shizuka</td>
+                                        <td>{{ user.memName }}</td>
                                     </tr>
                                     <tr>
                                         <th>OW證照：</th>
-                                        <td>a123123123</td>
+                                        <td>{{ user.licenseOw }}</td>
                                     </tr>
                                     <tr>
                                         <th>AOW證照：</th>
-                                        <td>審核未通過</td>
+                                        <td>{{ user.licenseAow }}</td>
                                     </tr>
                                     <tr>
                                         <th></th>
@@ -312,13 +273,14 @@
                                     </tr>
                                     <tr>
                                         <th>會員信箱：</th>
-                                        <td>aaa@a.com</td>
+                                        <td>{{ user.memMail }}</td>
                                     </tr>
                                 </table>
                             </form>
                         </div>
                         <div class="memberInforBtn">
-                            <button type="button" class="show_cmif demo-btn">編輯資料</button>
+                            <!-- <button type="button" class="show_cmif demo-btn">編輯資料</button> -->
+                            <button type="button" class="show_cmif demo-btn" @click="selectUser(user);" >編輯資料</button>
                         </div>
                     </div>
 
@@ -327,23 +289,22 @@
                             <h4>個人資料編輯</h4>
                         </div>
                         <div class="memberInforArea">
-                            <form action="">
-                                <table>
+                            <form action="#" method="POST">
+                                <table v-for="user in users">
                                     <tr>
                                         <th>會員姓名：</th>
-                                        <td>靜香</td>
-                                    </tr>
-                                    <tr>
-                                        <th>會員暱稱：</th>
-                                        <td><input type="text" class="demo-input1"></td>
+                                        <!-- <td><input type="text" class="demo-input1"></td> -->
+                                        <td><input type="text" class="demo-input1" v-model="currentUser.memName"></td>
                                     </tr>
                                     <tr>
                                         <th>會員信箱：</th>
-                                        <td><input type="text" class="demo-input1"></td>
+                                        <!-- <td><input type="text" class="demo-input1"></td> -->
+                                        <td><input type="text" class="demo-input1" v-model="currentUser.memMail"></td>
                                     </tr>
                                 </table>
                                 <div class="memberInforBtn">
-                                    <button type="button" class="show_mif demo-btn">確認修改</button>
+                                    <!-- <button type="button" class="show_mif demo-btn">確認修改</button> -->
+                                    <button type="button" class="show_mif demo-btn" @click="updateUsers();">確認修改</button>
                                 </div>
                             </form>
                         </div>

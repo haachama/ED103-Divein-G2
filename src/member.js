@@ -1,4 +1,8 @@
-import $ from "jquery";
+// import $ from "jquery";
+import Vue from 'vue'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+Vue.use(VueAxios, axios)
 
 $(function () {
     //導覽頁
@@ -404,3 +408,89 @@ $(function () {
         //   });
     });
 })($)
+
+let app = new Vue({
+    el: "#app",
+    data: {
+        users: [],
+        diary: [],
+        diveClass: [],
+        orders: [],
+
+        favs: [],
+
+        newUser: {memId: "", memPsw: "", memName: "", memMail: "",memAvatar: ""},
+        currentUser: {},
+    },
+    mounted: function(){
+        this.getAllUsers();
+        this.getAllDiary();
+        this.getAllClass();
+
+        this.getAllOrder();
+        this.getAllFavorite();
+    },
+    methods:{
+        //顯示會員個資
+        getAllUsers(){
+            axios.get("./member.php?action=memberRead").then(function(response){
+                app.users = response.data.users;
+            });
+        },
+
+        //修改會員資料與密碼(未完成)
+        updateUsers(){
+            var formData = app.toFormData(app.currentUser);
+            axios.get("./member.php?action=updateUsers", formData).then(function(){
+                app.currentUser = {};
+                app.getAllUsers();
+            });
+        },
+
+        toFormData(obj){
+            var fd = new FormData();
+            for(var i in obj){
+                fd.append(i,obj[i]);
+            }
+            return fd;
+        },
+        selectUser(user){
+            app.currentUser = user;
+        },
+
+        //顯示日誌
+        getAllDiary(){
+            axios.get("./member.php?action=diaryRead").then(function(response){
+                app.diary = response.data.diary;
+            });
+        },
+
+        //顯示課程
+        getAllClass(){
+            axios.get("./member.php?action=classRead").then(function(response){
+                app.diveClass = response.data.diveClass;
+            });
+        },
+
+        //顯示踩點
+        // getAllClass(){
+        //     axios.get("./member.php?action=classRead").then(function(response){
+        //         app.diveClass = response.data.diveClass;
+        //     });
+        // },
+
+        //顯示訂單
+        getAllOrder(){
+            axios.get("./member.php?action=Order").then(function(response){
+                app.orders = response.data.orders;
+            });
+        },
+
+        //顯示收藏
+        getAllFavorite(){
+            axios.get("./member.php?action=favorite").then(function(response){
+                app.favs = response.data.favs;
+            });
+        },
+    },
+});

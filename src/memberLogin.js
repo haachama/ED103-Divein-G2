@@ -2,24 +2,25 @@ import $ from "jquery";
 
 $(function () {
 //登入&註冊切換
-var mfc = $(".memberFromChangeBtn");
-var mfa = $(".memberFromArea");
-var mltOne = $(".mltOne");
-var mltTwo =  $(".mltTwo");
+  var mfc = $(".memberFromChangeBtn");
+  var mfa = $(".memberFromArea");
+  var mltOne = $(".mltOne");
+  var mltTwo =  $(".mltTwo");
+  var mlLRA = $(".memLogRegArea");
 
-$("#memberRegistered").click(function(){
-  $(".memLogRegArea").addClass("memberMove");
+  $("#memberRegistered").click(function(){
+    mlLRA.addClass("memberMove");
     mfc.removeClass("memberMove");
     mfc.removeClass("memberPasForgot");
     mfa.removeClass("memberFromMove");
     mfa.removeClass("memberFromPasMove");
     mltOne.removeClass("memberPasForgot");
     mltTwo.removeClass("memberPasForgot");
-});
-$("#memberLogin").click(function(){
-  $(".memLogRegArea").removeClass("memberMove");
-});
-$("#ml").click(function(){
+  });
+  $("#memberLogin").click(function(){
+    mlLRA.removeClass("memberMove");
+  });
+  $("#ml").click(function(){
     mfc.removeClass("memberMove");
     mfc.removeClass("memberPasForgot");
     mfa.removeClass("memberFromMove");
@@ -111,7 +112,9 @@ $(function () {
   // window.addEventListener("load", function(){
   //   document.getElementById("CheckMemPsw").addEventListener("click", memberPswChick, false);
   // }, false)
+});
 
+$(function () {
   //============註冊帳號============
   function memberRag(){
     var RegMemId = $("#RegMemId").val();
@@ -131,30 +134,38 @@ $(function () {
         memMail:RegMemMail,
       },
       dataType: 'json',
-      // success:function(){
-      //   alert("成功");
-      // },
+      success:function(response){
+        alert(response);
+      },
       // error:function(){
       //   alert("失敗");
       // }, 
     });
   }
 
-  var RMP = $("#RegMemPsw").val();
-  var RMC = $("#RegMemIdCheck").val();
   $("#btnReg").click(function(){
-    
-    if(RMC /= RMP){
-      $("#pswMsg").html("密碼不相同！");}
-    // }else{
-    //   $("#pswMsg").innerHTML = '';
-    //   memberRag();
-    // }
+    var RMP = $("#RegMemPsw").val();
+    var RMC = $("#RegMemIdCheck").val();
+
+    if(RMC != RMP){
+      $("#pswMsg").text("密碼不相同！");
+    }else{
+      memberRag();
+      $("#pswMsg").text("");
+      $("#idMsg").text("");
+      $("#RegMemId").val("");
+      $("#RegMemPsw").val("");
+      $("#RegMemIdCheck").val("");
+      $("#RegMemName").val("");
+      $("#RegMemNickName").val("");
+      $("#RegMemMail").val("");
+      $(".memLogRegArea").removeClass("memberMove");
+    }
   });
-  
+});
 
   
-
+$(function () {
   //============註冊-檢查帳號是否重複============
 
   function memberRegCheckId(){
