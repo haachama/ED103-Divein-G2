@@ -11,7 +11,7 @@ try{
     $failureReason= 0;
     $classImage= '';
     $sql = "insert into personaldiary(diaryNo,memNo,diaryName,diaryWriteDate,diaryType,diveNo,diaryDiveTime,diaryPlayDate,diaryWeather,diaryVisibility,diaryTemp,diaryWaterTemp,diaryText,diaryPoint1,diaryPoint2,diaryPoint3,diaryPoint4,diaryPoint5,diaryPicsNo) 
-                        values(:diaryNo,:memNo,:diaryName,:diaryWriteDate,:diaryType,:diveNo,:diaryDiveTime,:diaryPlayDate,:diaryWeather,:diaryVisibility,:diaryTemp,:diaryWaterTemp,:diaryText,:diaryPoint1,:diaryPoint2,:diaryPoint3,:diaryPoint4,:diaryPoint5,:diaryPicsNo)"; 
+                values(:diaryNo,:memNo,:diaryName,:diaryWriteDate,:diaryType,:diveNo,:diaryDiveTime,:diaryPlayDate,:diaryWeather,:diaryVisibility,:diaryTemp,:diaryWaterTemp,:diaryText,:diaryPoint1,:diaryPoint2,:diaryPoint3,:diaryPoint4,:diaryPoint5,:diaryPicsNo)"; 
     $class = $pdo->prepare($sql);
     $class->bindValue(":diaryNo", $_POST["diaryNo"]);
     $class->bindValue(":memNo", $_POST["memNo"]);
@@ -54,20 +54,20 @@ try{
                 echo "上傳失敗<br>";
             }
             break;
-        case UPLOAD_ERR_INI_SIZE:
-            echo "上傳的檔案過大，不得超過",ini_get("upload_max_filesize"),"<br>";
-            break;
-        case UPLOAD_ERR_FROM_SIZE:
-            echo "上傳的檔案過大，不得超過",$_POST["MAX_FILE_SIZE"],"<br>";
-            break;
-        case UPLOAD_ERR_PARTIAL:
-            echo "上傳檔案不完整","<br>";
-            break;
-        case UPLOAD_ERR_NO_FILE:
-            echo "未選擇檔案";
-            break;
-        default:
-        echo "系統暫時發生問題，請聯絡客服";
+            case UPLOAD_ERR_INI_SIZE :
+                echo "上傳的檔案太大, 不得超過", ini_get("upload_max_filesize"), "<br>";
+                break;
+            case UPLOAD_ERR_FORM_SIZE :
+                echo "上傳的檔案太大, 不得超過", $_POST["MAX_FILE_SIZE"], "位元組<br>";
+                break;
+            case UPLOAD_ERR_PARTIAL :
+                echo "上傳檔案不完整", "<br>";
+                break;
+            case UPLOAD_ERR_NO_FILE :
+                echo "未選檔案", "<br>";
+                break;		
+                default:
+                echo "系統暫時發生問題，請聯絡網站維護人員<br>"	;
     }
 
     $class->bindValue(":diaryPicsNo", $diaryImage);

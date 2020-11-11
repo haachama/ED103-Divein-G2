@@ -345,7 +345,7 @@ var vm = new Vue({
                     }
                     if(diveid.length > 0){
                         for(var i = 0; i<diveid.length ; i++){
-
+                            
                             if( diveid[i].checked){
                                 divedQueryString = `${divedQueryString}"&diveid[]="${diveid[i].value}` //複選的字串串接
                             }
@@ -378,7 +378,7 @@ var vm = new Vue({
             
                 // console.log('size : ' +  document.getElementsByClassName("diveclass").length )
                 // document.getElementsByClassName("diveclass").onchange = function(){
-                    // alert('1')
+                // alert('1')
         },
         mounted:function(){
             console.log("hi")  //這是測試的
@@ -386,45 +386,6 @@ var vm = new Vue({
             // }, false),
     });
 
-
-
-// let prodRows;
-// window.addEventListener("load", function(){
-// 	//------------------------showProducts
-// 	// function showProducts(){
-// 	// 	let html = "<table align='center'>";
-// 	// 	for(let i=0; i<prodRows.length; i++){
-// 	// 		html += `<tr><td>${prodRows[i].pname}</td><td>${prodRows[i].diarySelect}</td><td>${prodRows[i].author}</td><td><img width="50" src="images/${prodRows[i].image}"></td></tr>`;
-// 	// 	}
-// 	// 	html += "</table>";
-// 	// 	document.getElementById("showPanel").innerHTML = html;
-// 	// }
-// 	//------------------------getProducts
-// 	function getProducts(){
-// 		let diarySelect = document.getElementById("diarySelect").value;
-//         let diveid = document.getElementsByClassName("diveclass"); //2
-//         // let diveid = document.getElementById('diveid').value;
-//         console.log(diveid);
-// 		let xhr = new XMLHttpRequest();
-// 		xhr.onload = function(){
-// 			prodRows = JSON.parse(xhr.responseText);
-// 			// showProducts();
-// 			console.log(prodRows);
-// 		}
-//         // let url = `diaryQuery.php?diarySelect=${diarySelect}&diveid=${diveid}`; //2
-// 		let url = `diaryQuery.php?diarySelect=${diarySelect}`;
-        
-// 		xhr.open("get", url,false);
-// 		xhr.send(null);	
-// 	}
-
-// 	getProducts();
-
-// 	//------------------------filter diarySelect under ???
-// 	document.getElementById("diarySelect").onchange = getProducts;
-// 	//------------------------filter diveids
-// 	// document.getElementById("diveid").onchange = getProducts; //2
-// }, false);
 
 
 

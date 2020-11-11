@@ -64,8 +64,8 @@
                     <p>日誌類型<span> *</span></p>
                     <select name="" id="">
                         <option value="no">選擇類型</option>
-                        <option value="0">旅遊潛水</option>
-                        <option value="1">課程潛水</option>
+                        <option value="1">旅遊潛水</option>
+                        <option value="2">課程潛水</option>
                     </select>
                 </div>
                 
@@ -79,7 +79,7 @@
                     </select>
                 </div>
                 
-                <!-- 潛水地點 -->
+                <!-- 潛水地點 單選 -->
                 <div class="diaryAddPlace">
                     <p>潛水地點<span> *</span></p>
                     <label v-for="item in show" :key="item.key"><p><input type="radio" :name="item.name" :value="item.value" />{{ item.key }}</p></label>
@@ -105,9 +105,9 @@
                             <p><i class="fas fa-sun"></i>當日天氣</p>
                             <select name="" id="">
                                 <option value="no">選擇天氣</option>
-                                <option value="sunny">晴</option>
-                                <option value="cloudy">陰</option>
-                                <option value="rainy">雨</option>
+                                <option value="1">晴</option>
+                                <option value="2">雨</option>
+                                <option value="3">多雲</option>
                             </select>
                         </div>
                         <div>
