@@ -477,6 +477,7 @@
             width: 90%;
             margin: 0 auto;
             display: block;
+            padding: 20px;
         }
         @include breakpoint (992){
             display: block;
@@ -496,6 +497,7 @@
             flex-direction: row;
             margin: 0 auto;
             align-items: center;
+            
         }
         li{
             display: flex;
@@ -503,6 +505,11 @@
             justify-content: center;
             text-align: center;
             border: 0.5px solid $transparentWhite;
+            border-right: 0;
+            &:first-child{
+                border-left: 0;
+
+            }
             a{
                 padding: $rwdSpotPadding*3 0;
                 width: 100%;
@@ -582,6 +589,7 @@
                 li{
                     width: $memimgW*1.8;
                     display: inline-block;
+                    padding: 2px;
                     img{
                         border-radius: 50%;
                     }
@@ -600,15 +608,16 @@
                             padding: $spotPadding;
                             color: $keyGray;
                             background-color: rgb(93, 92, 90);
-                            &:hover{
-                                background-color: $keyGray;
-                                cursor: pointer;
-                            }
-                            
+                        }
+                        &:hover::after{
+                            background-color: $keyGray;
+                            color: $keyWhite;
+                            cursor: pointer;
                         }
                     }
                 }
-            }  
+            }
+            
         }
         .hereAddBtn{
             width: $memimgW*2;
@@ -642,6 +651,9 @@
             padding-right: 5px;
             width: 100%;
             text-align: center;
+            >h3{
+                display: none;
+            }
         }
 
         //網頁版右邊－潛點介紹
@@ -649,9 +661,6 @@
             // border: 1px solid red;
             width: 100%;
             padding: $spotPadding;
-            h3{
-                padding-bottom: $spotPadding;
-            }
             p{
                 // border: 1px solid orange;
                 line-height: $lineH;
@@ -764,13 +773,15 @@
                 }
             }
             li{
-                font-size: 12px;
+                font-size: 14px;
                 flex: 8;
                 justify-self: center;
                 padding: $spotPadding 0;
                 @include breakpoint (992){
                     width: 80px;
                     padding: 10px 10px;
+                    font-size: 12px;
+
                 }
                 @include breakpoint (577){
                     padding: 10px 2px;
@@ -888,7 +899,8 @@
                 display: flex;
                 padding: $spotPadding;
                 >div{
-                    min-width: 60px;
+                    width: 80px;
+                    
                 }
                 h5{
                     color: $transparentWhite;

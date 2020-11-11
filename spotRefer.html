@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script> -->
     <!-- <link rel="stylesheet" href="bower_components/sweetalert2/dist/sweetalert2.min.css"> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="fontawesome/css/all.css">
     <link rel="stylesheet" href="css/style.css">
     <title>海中日子｜潛點介紹</title>
@@ -42,18 +43,17 @@
                 <div class="spotReferImg" id="spotReferImg"></div>
                 <!-- 潛點照片 串接好了 end-->
             </div>
-            <h3>已有10人踩過此點</h3>
-            <div class="spotRefer_left_spotHere">
+            <div class="spotRefer_left_spotHere" >
+                <div id="spotPepSum">
+                    <!-- <h3>目前有10人踩過此點</h3>-->
+                </div>
                 <div class="spotHereBlock">
                     <div class="hereList">
                         <ul id="spotImgHereList">
-                            <li><img src="./img/spot/member/memPhoto_200x200-03.png" alt=""></li>
-                            <li><img src="./img/spot/member/memPhoto_200x200-03.png" alt=""></li>
-                            <li><img src="./img/spot/member/memPhoto_200x200-03.png" alt=""></li>
-                            <li><img src="./img/spot/member/memPhoto_200x200-03.png" alt=""></li>
+
                         </ul>
                     </div>
-                    <div class="hereAddBtn">
+                    <div class="hereAddBtn" id="hereAddBtn">
                         我要<br>踩點
                     </div>
                 </div>
@@ -126,68 +126,21 @@
             <!-- 天氣 即時跟未來 串接好了 結束 -->
         </section>
 
-        <!-- 動物已經串好後端資料 -->
         <section class="spotRefer_Animal">
             <h3>你將會看到．．．</h3>
+            <!-- 動物 串好後端資料 -->
             <div class="spotAnimal" id="showAnimalRows">
             </div>
+            <!-- 動物 串好後端 end -->
         </section>
         
         <section class="spotRefer_Com">
             <h3>留言區</h3>
-            <div class="spotComBlock" id="showComRows">
-                <div class="spotCom">
-                    <img src="./img/spot/member/memPhoto_200x200-01.png" alt="">
-                    <div class="spotComText">
-                        <div>
-                            <h5>夜大asd</h5>
-                            <span>發布時間</span>
-                        </div>
-                        <p>這裡好好玩這裡好好玩裡好好玩這裡好好玩</p>
-                    </div>
-                    <div class="spotComText">
-                        <i class="fas fa-exclamation-circle"></i> 
-                    </div>
-                </div>
-                <div class="spotCom">
-                    <img src="./img/spot/member/memPhoto_200x200-01.png" alt="">
-                    <div class="spotComText">
-                        <div>
-                            <h5>夜大asd</h5>
-                            <span>發布時間</span>
-                        </div>
-                        <p>這裡好好玩這裡好好玩裡好好玩這裡好好玩</p>
-                    </div>
-                    <div class="spotComText">
-                        <i class="fas fa-exclamation-circle"></i> 
-                    </div>
-                </div>
-                <div class="spotCom">
-                    <img src="./img/spot/member/memPhoto_200x200-01.png" alt="">
-                    <div class="spotComText">
-                        <div>
-                            <h5>夜大asd</h5>
-                            <span>發布時間</span>
-                        </div>
-                        <p>這裡好好玩這裡好好玩裡好好玩這裡好好玩</p>
-                    </div>
-                    <div class="spotComText">
-                        <i class="fas fa-exclamation-circle"></i> 
-                    </div>
-                </div>
-                <div class="spotCom">
-                    <img src="./img/spot/member/memPhoto_200x200-01.png" alt="">
-                    <div class="spotComText">
-                        <div>
-                            <h5>夜大asd</h5>
-                            <span>發布時間</span>
-                        </div>
-                        <p>這裡好好玩這裡好好玩裡好好玩這裡好好玩</p>
-                    </div>
-                    <div class="spotComText">
-                        <i class="fas fa-exclamation-circle "></i> 
-                    </div>
-                </div>
+            <!-- 留言 串好後端資料 -->
+            <div class="spotComBlock" id="showComRows"></div>
+            <!-- 留言 串好後端 end -->
+
+            <div class="spotComBlock">
                 <div class="bubbleBtn spotComMoreBtn">
                     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="goo">
                         <defs>
@@ -218,17 +171,18 @@
                     </span>
                 </div>
             </div>
+
             <div class="lightbox-block3 reportCom">
                 <div class="lightbox3">
                     <div class="button_closeBox3">
                         <button type="button" class="btn_modal_close">✖</button>
                     </div>
                     <h3>請問是什麼狀況產生的檢舉呢？</h3>
-                    <form action="" class="inlightbox-form3">
+                    <form action="" class="inlightbox-form3" method="post">
                         <ul>
-                            <li><label><input id="pl" type="checkbox">與色情相關</label></li>
-                            <li><label ><input id="pl1" type="checkbox">與本網站無相關</label></li>
-                            <li><label><input id="pl2" type="checkbox">言詞用語粗俗不檔</label></li>
+                            <li><label><input id="pl" name="reason[]" value="0" type="checkbox">與色情相關</label></li>
+                            <li><label ><input id="pl1" name="reason[]" value="1" type="checkbox">與本網站無相關</label></li>
+                            <li><label><input id="pl2" name="reason[]" value="2" type="checkbox">言詞用語粗俗不檔</label></li>
                             <li><input class="submitbtn3" type="submit" value="送出"></li>
                         </ul>
                     </form>
@@ -237,8 +191,11 @@
             <div class="spotComBlock spotComSend">                 
                 <img src="./img/spot/member/memPhoto_200x200-01.png" alt="">
                 <div class="spotComSendText">
-                    <textarea name="" id="" rows="2" placeholder="我要留言"></textarea>
-                    <i class="fas fa-location-arrow fa-flip-horizontal"></i>
+                    <form action="" method="post">
+                        <textarea name="message" id="" rows="2" placeholder="我要留言" Wrap="Physical"></textarea>
+                        <i class="fas fa-location-arrow fa-flip-horizontal" onclick=""></i>
+
+                    </form>
                 </div>
             </div>
         </section>
@@ -254,96 +211,44 @@
         return document.getElementById(id);
     }	
 
-        let spotReferImgs;  //潛點照片
-        let description;    //潛點敘述
-        let animalRows;     //動物照片
-        let showSpotComRow; //留言
-        window.addEventListener("load", function(){
+    let spotReferInfoRow   //潛點照片 潛點敘述 動物照片
+    window.addEventListener("load", function(){
+
         let html ="";
         let xhr = new XMLHttpRequest();
 
         //－－－－－－潛點照片
             function showSpotReferImg(){
-                html = `<img src="./img/spot/${spotReferImgs[0].picture}" alt="">`;
+                html = `<img src="./img/spot/${spotReferInfoRow[0].picture}" alt="">`;
                 spotReferImg.innerHTML = html;
                 spotReferImg_rwd.innerHTML = html;
             }
-            xhr.onload = function(){
-                spotReferImgs = JSON.parse(xhr.responseText);
-                showSpotReferImg();
-            }
-            xhr.open("get", "getSpotReferImg.php", false);
-            xhr.send(null);
 
         //－－－－－－潛點介紹內文
-            //－－－－－－show
             function showInfotext(){
-                html ="";
-                html = `<p>${description[0].description}</p>`;
+                html = `<p>${spotReferInfoRow[0].description}</p>`;
                 spotReferIntor_rwd.innerHTML = html;
                 spotReferIntor.innerHTML = html;
             }
-            xhr = new XMLHttpRequest();
-	        xhr.onload = function(){
-                description = JSON.parse(xhr.responseText);
-                showInfotext();
-            }
-            xhr.open("get", "getSpotRefer.php", false);
-            xhr.send(null);
-
-
-        //－－－－－－你將會看到
-            //－－－－－－show 動物照片
+        
+        //－－－－－－show 動物照片
             function showAnimals(){
-                html ="";
-                for(let i=0; i< animalRows.length; i++){
-                    html +=`<img src="./img/animals/${animalRows[i].animalPic}" alt="">`;
+                for(let i=0; i< spotReferInfoRow.length; i++){
+                    html +=`<img src="./img/animals/${spotReferInfoRow[i].animalPic}" alt="">`;
                 }
                 showAnimalRows.innerHTML = html;
             }
-            //－－－－－－取得資料庫照片
-            // console.log(animalRows);
+
             xhr = new XMLHttpRequest();
 	        xhr.onload = function(){
-                animalRows = JSON.parse(xhr.responseText);
+                spotReferInfoRow = JSON.parse(xhr.responseText);
+                showSpotReferImg();
+                showInfotext();
                 showAnimals();
             }
-            xhr.open("get", "getAnimal.php", false);
+            xhr.open("get", "getspotReferInfor.php", false);
             xhr.send(null);
-
-        //－－－－－－留言區
-            //－－－－－－show 留言
-            function showSpotCom(){
-                html ="";
-                for(let i=0; i< spotComRow.length; i++){
-                    html += `<div class="spotCom">
-                                <img src="./img/member/member/${spotComRow[i].memAvatar}" alt="">
-                                <div class="spotComText">
-                                    <div>
-                                        <h5>${spotComRow[i].memName}</h5>
-                                        <span>${spotComRow[i].comTime}</span>
-                                    </div>
-                                    <p>${spotComRow[i].content}</p>
-                                </div>
-                                <div class="spotComText">
-                                    <i class="fas fa-exclamation-circle"></i>
-                                </div>
-                            </div>`;
-                }
-                showComRows.innerHTML = html;
-            }
-            //－－－－－－取得留言
-            xhr = new XMLHttpRequest();
-	        xhr.onload = function(){
-                spotComRow = JSON.parse(xhr.responseText);
-                showSpotCom();
-            }
-            xhr.open("get", "getSpotComs.php", false);
-            xhr.send(null);
-            
-
-
-        },false);
+    },false);
 
 
     </script>
