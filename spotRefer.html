@@ -14,13 +14,17 @@
     @@include('./layout/header.html')
 
     <main class="spotRefer_Main">
-        <h2>潛點介紹</h2>
+        <div class="spotReferTitle">
+            <h2>潛點介紹</h2>
+        </div>
+
         <div class="spotRefer_Contain_rwd">
             <h3>綠島-鋼鐵礁</h3>
             <!-- 潛點照片_rwd 串接好了 -->
             <div class="spotReferImg" id="spotReferImg_rwd"></div>
             <!-- 潛點照片_rwd 串接好了 end-->
         </div>
+
         <div class="spotReferTab_rwd">
             <ul>
                 <li><a href="" class="spotRefrList spotShow" data-target="spotRefer_intor">潛點介紹</a></li>
@@ -50,7 +54,6 @@
                 <div class="spotHereBlock">
                     <div class="hereList">
                         <ul id="spotImgHereList">
-
                         </ul>
                     </div>
                     <div class="hereAddBtn" id="hereAddBtn">
@@ -190,11 +193,11 @@
             </div>
             <div class="spotComBlock spotComSend">                 
                 <img src="./img/spot/member/memPhoto_200x200-01.png" alt="">
-                <div class="spotComSendText">
-                    <form action="" method="post">
-                        <textarea name="message" id="" rows="2" placeholder="我要留言" Wrap="Physical"></textarea>
-                        <i class="fas fa-location-arrow fa-flip-horizontal" onclick=""></i>
 
+                <div class="spotComSendText">
+                    <form action="insertSpotCom.php" method="post" enctype="multipart/form-data">
+                        <textarea name="message" id="" rows="2" placeholder="我要留言" Wrap="Physical"></textarea>
+                        <i class="fas fa-location-arrow fa-flip-horizontal" onclick="" name="submit" ></i>
                     </form>
                 </div>
             </div>
@@ -213,41 +216,44 @@
 
     let spotReferInfoRow   //潛點照片 潛點敘述 動物照片
     window.addEventListener("load", function(){
-
+    
         let html ="";
-        let xhr = new XMLHttpRequest();
+    //－－－－－－潛點照片
+        function showSpotReferImg(){
+            html = `<img src="./img/spot/${spotReferInfoRow[0].picture}" alt="">`;
+            spotReferImg.innerHTML = html;
+            spotReferImg_rwd.innerHTML = html;
+        }
 
-        //－－－－－－潛點照片
-            function showSpotReferImg(){
-                html = `<img src="./img/spot/${spotReferInfoRow[0].picture}" alt="">`;
-                spotReferImg.innerHTML = html;
-                spotReferImg_rwd.innerHTML = html;
+    //－－－－－－潛點介紹內文
+        function showInfotext(){
+            html = `<p>${spotReferInfoRow[0].description}</p>`;
+            spotReferIntor_rwd.innerHTML = html;
+            spotReferIntor.innerHTML = html;
+        }
+    
+    //－－－－－－show 動物照片
+        function showAnimals(){
+            for(let i=0; i< spotReferInfoRow.length; i++){
+                html +=`<img src="./img/animals/${spotReferInfoRow[i].animalPic}" alt="">`;
             }
+            showAnimalRows.innerHTML = html;
+        }
 
-        //－－－－－－潛點介紹內文
-            function showInfotext(){
-                html = `<p>${spotReferInfoRow[0].description}</p>`;
-                spotReferIntor_rwd.innerHTML = html;
-                spotReferIntor.innerHTML = html;
-            }
-        
-        //－－－－－－show 動物照片
-            function showAnimals(){
-                for(let i=0; i< spotReferInfoRow.length; i++){
-                    html +=`<img src="./img/animals/${spotReferInfoRow[i].animalPic}" alt="">`;
-                }
-                showAnimalRows.innerHTML = html;
-            }
-
-            xhr = new XMLHttpRequest();
-	        xhr.onload = function(){
-                spotReferInfoRow = JSON.parse(xhr.responseText);
+        function getAnimals(){
+            let xhr = new XMLHttpRequest();
+            xhr.onload = function(){
+                spotReferInfoRow = JSON.parse(xhr.responseText);  //把字串解析成json形式
                 showSpotReferImg();
                 showInfotext();
                 showAnimals();
             }
             xhr.open("get", "getspotReferInfor.php", false);
             xhr.send(null);
+
+        }
+        getAnimals();
+
     },false);
 
 

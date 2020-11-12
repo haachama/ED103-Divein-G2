@@ -454,11 +454,13 @@
         flex-wrap: wrap;
         width: 100%;
         margin: 0 auto;
-        h2{
-            text-align: center;
+        .spotReferTitle{
             width: 100%;
-            padding: $spotBnPaddingRL;
-            // border: 1px solid rgb(33, 12, 153);
+            text-align: center;
+            h2{
+                margin: 30px auto;
+                // border: 1px solid rgb(33, 12, 153);
+            }
         }
         
     }

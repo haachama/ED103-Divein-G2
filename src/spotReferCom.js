@@ -5,10 +5,9 @@ let spotComRow; //留言
 
 function doFirst2(){
 
-    let html ="";
-    let xhr = new XMLHttpRequest();
     //－－－－－－show 留言
     function showSpotCom(){
+        let html ="";
         for(let i=0; i< spotComRow.length; i++){
             html += `<div class="spotCom">
                         <img src="./img/member/member/${spotComRow[i].memAvatar}" alt="">
@@ -25,8 +24,7 @@ function doFirst2(){
                     </div>`;
         }
         showComRows.innerHTML = html;
-
-    //----檢舉留言
+        //----檢舉留言
         // 開啟 Modal 彈跳視窗
         $("i.fa-exclamation-circle").on("click", function(){  
             $(".lightbox-block3").addClass("-openbox");
@@ -39,7 +37,7 @@ function doFirst2(){
                 $(".lightbox-block3").removeClass("-openbox -opacity-zero");
             }, 1000);
         });
-
+    
         //檢舉燈箱
         // 關閉 Modal
         $(".btn_modal_close").on("click", function(){
@@ -60,13 +58,16 @@ function doFirst2(){
     };
     
     //－－－－－－取得留言
-    xhr = new XMLHttpRequest();
-    xhr.onload = function(){
-        spotComRow = JSON.parse(xhr.responseText);
-        showSpotCom();
+    function getSpotComs(){
+        let xhr = new XMLHttpRequest();
+        xhr.onload = function(){
+            spotComRow = JSON.parse(xhr.responseText);
+            showSpotCom();
+        }
+        xhr.open("get", "getSpotComs.php", false);
+        xhr.send(null);
     }
-    xhr.open("get", "getSpotComs.php", false);
-    xhr.send(null);
+    getSpotComs();
 
 };
 
