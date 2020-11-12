@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script> -->
-    <!-- <link rel="stylesheet" href="bower_components/sweetalert2/dist/sweetalert2.min.css"> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="fontawesome/css/all.css">
     <link rel="stylesheet" href="css/style.css">
@@ -197,7 +196,7 @@
                 <div class="spotComSendText">
                     <form action="insertSpotCom.php" method="post" enctype="multipart/form-data">
                         <textarea name="message" id="" rows="2" placeholder="我要留言" Wrap="Physical"></textarea>
-                        <i class="fas fa-location-arrow fa-flip-horizontal" onclick="" name="submit" ></i>
+                        <i class="fas fa-location-arrow fa-flip-horizontal" onclick="spotSendCom()" ></i>
                     </form>
                 </div>
             </div>
@@ -207,7 +206,22 @@
 
 
     @@include('./layout/footer.html')
+    <script src="./js/login.js"></script>
     <script src="./js/spotRefer.js"></script>
+
+
+
+    <!--coco有用到的js檔案-->
+    <!-- <script src="../src/bubbleBtn.js"></script>
+    <script src="../src/common.js"></script>
+    <script src="../src/spotRefer.js"></script>
+    <script src="../src/spotHere.js"></script>
+    <script src="../src/spotReferCom.js"></script>
+    <script src="../src/spotReferFuturAPI.js"></script>
+    <script src="../src/spotReferWeatherAPI.js"></script> -->
+
+
+
 
     <script>
     function $id(id){
@@ -248,7 +262,7 @@
                 showInfotext();
                 showAnimals();
             }
-            xhr.open("get", "getspotReferInfor.php", false);
+            xhr.open("get", "spotGetReferInfor.php", false);
             xhr.send(null);
 
         }

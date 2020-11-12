@@ -1,4 +1,4 @@
-import $ from 'jquery';
+// import $ from "jquery";
 
 let showComRows = document.getElementById("showComRows");
 let spotComRow; //留言
@@ -64,7 +64,7 @@ function doFirst2(){
             spotComRow = JSON.parse(xhr.responseText);
             showSpotCom();
         }
-        xhr.open("get", "getSpotComs.php", false);
+        xhr.open("get", "../spotGetComs.php", false);
         xhr.send(null);
     }
     getSpotComs();

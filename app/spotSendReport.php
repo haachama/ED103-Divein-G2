@@ -1,17 +1,23 @@
 <?php
 $errMsg = "";
 try{
-    require_once("../connectG2.php");
+    require_once("./connectED103g2.php");
+    
     $pdo->beginTransaction();    //  開啟交易
 
     //.......確定是否上傳成功
     if( $_FILES["upFile"]["error"] == UPLOAD_ERR_OK){
-		$sql = "INSERT INTO `diveComment` (`comNo`, `memNo`, `diveNo`, `content`, `comTime`, `comStatus`) 
-                values(null, :message)";
+		$sql = "INSERT INTO `reportComment` ( `reportNo`,`comNo`,`reason`, `whistleblowerNo`, `reportStatus`, `reportTime`) 
+                                      values( null, :comNo, :reason, :whistleblowerNo, :reportStatus, now())";
         $spotComs = $pdo->prepare( $sql );
-        $spotComs -> bindValue(":message", $_POST["message"]);
+        $spotComs -> bindValue(":comNo", "2");
+        $spotComs -> bindValue(":memNo", "2");
+        $spotComs -> bindValue(":reason", $_REQUEST["reason"]);
+        $spotComs -> bindValue(":whistleblowerNo", "2");
+        $spotComs -> bindValue(":reportStatus", "0");
         $spotComs -> execute();
 
+        $pdo->commit();	
 		//取得自動創號的key值
         $psn = $pdo -> lastInsertId();
 

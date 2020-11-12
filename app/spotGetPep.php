@@ -1,6 +1,6 @@
 <?php
 try{
-require_once("connectG2.php");
+require_once("connectED103g2.php");
 
 $sql = "SELECT a.diveNo, b.memNo, b.memAvatar 
         FROM divehere a JOIN member b ON a.memNo = b.memNo 

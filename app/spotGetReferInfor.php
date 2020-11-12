@@ -1,6 +1,6 @@
 <?php
 try{
-require_once("connectG2.php");
+require_once("connectED103g2.php");
 
 $sql = "SELECT a. * , b.animalName, b.animalPic, c.diveAreaName
 FROM diveSpots a JOIN diveanimal b on a.diveNo=b.diveNo 

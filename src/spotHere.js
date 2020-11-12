@@ -1,5 +1,6 @@
-import Swal from 'sweetalert2';
-import $ from 'jquery';
+// import * Swal from 'sweetalert2';
+// import * as Swal from "https://cdn.jsdelivr.net/npm/sweetalert2@10";
+// import * as $ from "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js";
 
 //踩點－會員只能點擊一次
 var hereAddBtn = document.querySelector(".hereAddBtn");
@@ -36,7 +37,7 @@ function doFirst(){
                 spotPepRow = JSON.parse(xhr.responseText);
                 showPeps();
             }
-            xhr.open("get", "../app/getSpotPep.php", false);
+            xhr.open("get", "../spotGetPep.php", false);
             xhr.send(null);
 
         }

@@ -1,4 +1,6 @@
-import $ from 'jquery';
+// import $ from 'jquery';
+
+
 $(document).ready(function(){
     
     var spotStationId ='467660';
