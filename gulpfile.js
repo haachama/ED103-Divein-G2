@@ -28,7 +28,7 @@ gulp.task('clear', function () {
 
 // html template
 gulp.task('fileinclude', function () {
-    gulp.src(['./*.html'])
+    gulp.src(['*.html'])
         .pipe(fileinclude({
             prefix: '@@',
             basepath: '@file'
@@ -45,7 +45,7 @@ gulp.task('default', function () {
     browserSync.init({
         server: {
             baseDir: "./app",
-            index: "main.html"
+            index: "memberLogin.html",
         }
     });
     gulp.watch(['sass/*.scss' , 'sass/**/*.scss'], ['sass']).on('change', reload);

@@ -1,3 +1,18 @@
+<?php
+    $errMsg = "";
+    try{
+    require_once("./connectBooks.php");
+    // $sql = "select * from member where memId=:memId and  memPsw=:memPsw";
+    $sql = "select * from member";
+    $member = $pdo->query($sql);
+    $memRow = $member->fetch(PDO::FETCH_ASSOC);
+    	
+    }catch(PDOException $e){
+        $errMsg .= "錯誤原因 : ".$e -> getMessage(). "<br>";
+        $errMsg .= "錯誤行號 : ".$e -> getLine(). "<br>";
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="zh-Hant">
 
@@ -15,16 +30,51 @@
 </head>
 
 <body class="member">
-    @@include('./layout/header.html')
+    <header>
+    <h1 class="logo">海中日子 Divein
+        <a href="javascript:;"><img src="./img/header/logo.png" alt="logo"></a>
+    </h1>
+    <div class="nav">
+        <ul>
+            <li class="recommend_nav">
+                <a href="./spot.html">潛點推薦</a>
+            </li>
+            <li class="course_nav">
+                <a href="./course.html">潛水課程</a>
+            </li>
+            <li class="shop_nav">
+                <a href="./shop.html">潛水商城</a>
+            </li>
+            <li class="blog_nav">
+                <a href="./diary.html">潛水日誌</a>
+            </li>
+            <li class="game_nav">
+                <a href="./gameIntro.html">下潛遊戲</a>
+            </li>
+        </ul>
+    </div>
+    <div class="memCart">
+        <ul>
+            <li>HI,Billy</li>
+            <li><a href="./memberLogin.html"><img src="./img/header/member.png"></a></li>
+            <li><a href="javascript:;"><img src="./img/header/cart.png"></a></li>
+        </ul>
+    </div>
+    <button class="hamburger hamburger--3dxy" type="button">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+</header>
     <div class="memberMain">
         <div class="memberAsideMenu">
             <div class="memberAsideMenuTitle"><a href="./trainerCenter.html">會員中心</a></div>
             <div class="memberOption">
-                <p>Hello, Shizuka</p>
-                <div class="memberFile"><img src="./img/member/member/testg2.jpg"></div>
+                <p>Hello, <?=$memRow["memNickName"]?></p>
+                <div class="memberFile"><img src="./img/member/member/<?=$memRow["memAvatar"]?>"></div>
                 <ul class="memberPointPhone">
-                    <li><p>紅利點數：</p><span>800</span></li>
-                    <li><p>遊戲分數：</p><span>800</span></li>
+                    <li><p>紅利點數：</p><span><?=$memRow["points"]?></span></li>
+                    <li><p>遊戲分數：</p><span><?=$memRow["memGamePoint"]?></span></li>
                 </ul>
                 <ul class="memberInformation">
                     <li><a href="javascript:;" class="show_mif">個人資料</a></li>
@@ -35,8 +85,8 @@
                     </li>
                 </ul>
                 <ul class="memberPoint">
-                    <li><p>紅利點數：</p><span>800</span></li>
-                    <li><p>遊戲分數：</p><span>800</span></li>
+                    <li><p>紅利點數：</p><span><?=$memRow["points"]?></span></li>
+                    <li><p>遊戲分數：</p><span><?=$memRow["memGamePoint"]?></span></li>
                 </ul>
             </div>
         </div>
@@ -270,7 +320,12 @@
                             <li>3</li>
                         </ul>
                     </div>
-                
+
+                    <?php
+                    // $sql = "select * from member where memId=testg2 and  memPsw=testg2";
+                    // $members = $pdo->query($sql);
+                    // $memRow = $members->fetch(PDO::FETCH_ASSOC);
+                    ?>
                     <div class="memberInfor memberIF">
                         <div class="memberInforTitle">
                             <h4>會員個人資料</h4>
@@ -280,11 +335,11 @@
                                 <table>
                                     <tr>
                                         <th>會員帳號：</th>
-                                        <td>aaaaaa</td>
+                                        <td><?=$memRow["memId"]?></td>
                                     </tr>
                                     <tr>
                                         <th>會員密碼：</th>
-                                        <td>******</td>
+                                        <td><?=$memRow["memPsw"]?></td>
                                     </tr>
                                     <tr>
                                         <th></th>
@@ -292,19 +347,19 @@
                                     </tr>
                                     <tr>
                                         <th>會員姓名：</th>
-                                        <td>靜香</td>
+                                        <td><?=$memRow["memName"]?></td>
                                     </tr>
                                     <tr>
                                         <th>會員暱稱：</th>
-                                        <td>Shizuka</td>
+                                        <td><?=$memRow["memNickName"]?></td>
                                     </tr>
                                     <tr>
                                         <th>OW證照：</th>
-                                        <td>a123123123</td>
+                                        <td><?=$memRow["licenseOw"]?></td>
                                     </tr>
                                     <tr>
                                         <th>AOW證照：</th>
-                                        <td>審核未通過</td>
+                                        <td><?=$memRow["licenseAow"]?></td>
                                     </tr>
                                     <tr>
                                         <th></th>
@@ -312,7 +367,7 @@
                                     </tr>
                                     <tr>
                                         <th>會員信箱：</th>
-                                        <td>aaa@a.com</td>
+                                        <td><?=$memRow["memMail"]?></td>
                                     </tr>
                                 </table>
                             </form>
@@ -321,7 +376,6 @@
                             <button type="button" class="show_cmif demo-btn">編輯資料</button>
                         </div>
                     </div>
-
                     <div class="memberInfor memberIFC">
                         <div class="memberInforTitle">
                             <h4>個人資料編輯</h4>
@@ -331,15 +385,15 @@
                                 <table>
                                     <tr>
                                         <th>會員姓名：</th>
-                                        <td>靜香</td>
+                                        <td><?=$memRow["memName"]?></td>
                                     </tr>
                                     <tr>
                                         <th>會員暱稱：</th>
-                                        <td><input type="text" class="demo-input1"></td>
+                                        <td><input type="text" class="demo-input1" placeholder="<?=$memRow["memNickName"]?>"></td>
                                     </tr>
                                     <tr>
                                         <th>會員信箱：</th>
-                                        <td><input type="text" class="demo-input1"></td>
+                                        <td><input type="text" class="demo-input1" placeholder="<?=$memRow["memMail"]?>"></td>
                                     </tr>
                                 </table>
                                 <div class="memberInforBtn">
@@ -406,9 +460,12 @@
 
     </div>
 
-    @@include('./layout/footer.html')
+    <footer>
+    <div class="copyright">
+        Copyright © 2020 Divein | 海中日子 All Rights Reserved.
+    </div>
+</footer>
 
-    <script src="./js/login.js"></script>
     <script src="./js/member.js"></script>
 </body>
 
