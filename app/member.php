@@ -1,7 +1,7 @@
 <?php
     $errMsg = "";
     try{
-    require_once("./connectBooks.php");
+    require_once("./connectED103g2.php");
     // $sql = "select * from member where memId=:memId and  memPsw=:memPsw";
     $sql = "select * from member";
     $member = $pdo->query($sql);

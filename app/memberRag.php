@@ -1,6 +1,6 @@
 <?php
 try{
-    require_once("./connectBooks.php");
+    require_once("./connectED103g2.php");
 
     $memId = $_GET["memId"];
     $memPsw = $_GET["memPsw"];

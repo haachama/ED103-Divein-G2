@@ -46,7 +46,6 @@ gulp.task('default', function () {
         proxy: "http://localhost/divein-G2/app/spotRefer.html",
         // proxy: "http://localhost/divein-G2/app/spot.html",
         
-        
     });
     gulp.watch(['sass/*.scss' , 'sass/**/*.scss'], ['sass']).on('change', browserSync.reload);
     gulp.watch(['./*.html', './layout/*.html',"./app/*.php"], ['fileinclude']).on('change', browserSync.reload);

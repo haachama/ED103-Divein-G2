@@ -1,6 +1,6 @@
 <?php
 try{
-  require_once("./connectBooks.php");
+  require_once("./connectED103g2.php");
   $sql = "select * from `trainer` where trainerId=:trainerId and trainerPsw=:trainerPsw"; 
   $trainer = $pdo->prepare($sql);
   $trainer->bindValue(":trainerId", $_POST["trainerId"]);

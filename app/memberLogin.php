@@ -1,6 +1,6 @@
 <?php
 try{
-  require_once("./connectBooks.php");
+  require_once("./connectED103g2.php");
   $sql = "select * from member where memId=:memId and memPsw=:memPsw"; 
   $member = $pdo->prepare($sql);
   $member->bindValue(":memId", $_POST["memId"]);
