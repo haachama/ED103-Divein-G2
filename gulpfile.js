@@ -40,9 +40,10 @@ gulp.task('fileinclude', function () {
 
 var reload = browserSync.reload;
 
-// 瀏覽器
+// 瀏覽器_coco mac環境
 gulp.task('default', function () {
     browserSync.init({
+<<<<<<< HEAD
         server: {
             baseDir: "./app",
             index: "memberLogin.html",
@@ -51,3 +52,24 @@ gulp.task('default', function () {
     gulp.watch(['sass/*.scss' , 'sass/**/*.scss'], ['sass']).on('change', reload);
     gulp.watch(['./*.html', './layout/*.html'], ['fileinclude']).on('change', reload);
 });
+=======
+        proxy: "http://localhost/divein-G2/app/spotRefer.html",
+        // proxy: "http://localhost/divein-G2/app/spot.html",
+        
+        
+    });
+    gulp.watch(['sass/*.scss' , 'sass/**/*.scss'], ['sass']).on('change', browserSync.reload);
+    gulp.watch(['./*.html', './layout/*.html',"./app/*.php"], ['fileinclude']).on('change', browserSync.reload);
+});
+
+// gulp.task('default', function () {
+//     browserSync.init({
+//         server: {
+//             baseDir: "./app",
+//             index: "spotRefer.html"
+//         }
+//     });
+//     gulp.watch(['sass/*.scss' , 'sass/**/*.scss'], ['sass']).on('change', reload);
+//     gulp.watch(['./*.html', './layout/*.html'], ['fileinclude']).on('change', reload);
+// });
+>>>>>>> dev-coco

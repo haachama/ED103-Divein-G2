@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script> -->
     <!-- <link rel="stylesheet" href="bower_components/sweetalert2/dist/sweetalert2.min.css"> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="fontawesome/css/all.css">
     <link rel="stylesheet" href="css/style.css">
     <title>海中日子｜潛點介紹</title>
@@ -12,223 +13,138 @@
 <body class="spotRefer">
     @@include('./layout/header.html')
 
-    <main class="spotRefre_Main">
-        <h2>潛點介紹</h2>
-        <div class="spotRefre_Contain_rwd">
-            <h3>綠島-鋼鐵礁</h3>
-            <div class="spotRefreImg">
-                <img src="./img/spot/spotGiLittle-01.png" alt="">
-            </div>
+    <main class="spotRefer_Main">
+        <div class="spotReferTitle">
+            <h2>潛點介紹</h2>
         </div>
-        <div class="spotRefreTab_rwd">
+
+        <div class="spotRefer_Contain_rwd">
+            <h3>綠島-鋼鐵礁</h3>
+            <!-- 潛點照片_rwd 串接好了 -->
+            <div class="spotReferImg" id="spotReferImg_rwd"></div>
+            <!-- 潛點照片_rwd 串接好了 end-->
+        </div>
+
+        <div class="spotReferTab_rwd">
             <ul>
-                <li><a href="" class="spotRefrList spotShow" data-target="spotRefre_intor">潛點介紹</a></li>
-                <li><a href="" class="spotRefrList" data-target="spotRefre_here">踩點</a></li>
-                <li><a href="" class="spotRefrList" data-target="spotRefre_weather">天氣氣象</a></li>
-                <li><a href="" class="spotRefrList" data-target="spotRefre_Animal">其他</a></li>
-                <li><a href="" class="spotRefrList" data-target="spotRefre_Msg">留言區</a></li>
+                <li><a href="" class="spotRefrList spotShow" data-target="spotRefer_intor">潛點介紹</a></li>
+                <li><a href="" class="spotRefrList" data-target="spotRefer_here">踩點</a></li>
+                <li><a href="" class="spotRefrList" data-target="spotRefer_weather">天氣氣象</a></li>
+                <li><a href="" class="spotRefrList" data-target="spotRefer_Animal">其他</a></li>
+                <li><a href="" class="spotRefrList" data-target="spotRefer_Com">留言區</a></li>
             </ul>
         </div>
-        <section class="spotRefre_intor spotShow">
-            <div class="spotRefreIntor">
-                <p>綠島鋼鐵礁是一座利用廢棄輪胎及鋼鐵架製作而成的人工魚礁，因有許多珊瑚附生，及眾多海洋生物棲息，而吸引眾多到綠島潛水的潛水客到此朝聖。<br>當然也不能忘記另一個綠島明星，那就可愛的圓眼燕魚啦！幸運的話可是在船上就看得到牠們的身影了呢～綠島鋼鐵礁的最大深度約為30米，是綠島船潛的熱門潛點。</p>
-            </div>
+
+        <section class="spotRefer_intor spotShow">
+            <!-- 潛點介紹_rwd 串接好了 -->
+            <div class="spotReferIntor" id="spotReferIntor_rwd"></div>
+            <!-- 潛點介紹_rwd 串接好了 end-->
         </section>
 
-        <section class="spotRefre_here spotRefre_left">
-            <div class="spotRefre_Contain">
-                <div class="spotRefreImg">
-                    <img src="./img/spot/spotGiLittle-01.png" alt="">
-                </div>
+        <section class="spotRefer_here spotRefer_left">
+            <div class="spotRefer_Contain">
+                <!-- 潛點照片 串接好了 -->
+                <div class="spotReferImg" id="spotReferImg"></div>
+                <!-- 潛點照片 串接好了 end-->
             </div>
-            <h3>已有10人踩過此點</h3>
-            <div class="spotRefre_left_spotHere">
+            <div class="spotRefer_left_spotHere" >
+                <div id="spotPepSum">
+                    <!-- <h3>目前有10人踩過此點</h3>-->
+                </div>
                 <div class="spotHereBlock">
                     <div class="hereList">
                         <ul id="spotImgHereList">
-                            <li><img src="./img/spot/member/memPhoto_200x200-03.png" alt=""></li>
-                            <li><img src="./img/spot/member/memPhoto_200x200-03.png" alt=""></li>
-                            <li><img src="./img/spot/member/memPhoto_200x200-03.png" alt=""></li>
-                            <li><img src="./img/spot/member/memPhoto_200x200-03.png" alt=""></li>
                         </ul>
                     </div>
-                    <div class="hereAddBtn">
+                    <div class="hereAddBtn" id="hereAddBtn">
                         我要<br>踩點
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="spotRefre_weather spotRefre_right">
-            <div class="spotRefreIntor">
-                <h3>綠島-鋼鐵礁</h3>
-                <p>綠島鋼鐵礁是一座利用廢棄輪胎及鋼鐵架製作而成的人工魚礁，因有許多珊瑚附生，及眾多海洋生物棲息，而吸引眾多到綠島潛水的潛水客到此朝聖。<br>當然也不能忘記另一個綠島明星，那就可愛的圓眼燕魚啦！幸運的話可是在船上就看得到牠們的身影了呢～綠島鋼鐵礁的最大深度約為30米，是綠島船潛的熱門潛點。</p>
-            </div>
+        <section class="spotRefer_weather spotRefer_right">
+            <h3>綠島-鋼鐵礁</h3><input type="hidden" value="467660" id="spotStationId"><input type="hidden" value="WRA007" id="spotStationId_sea">
+            <!-- 潛點介紹 串接好了 -->
+            <div class="spotReferIntor" id="spotReferIntor"></div>
+            <!-- 潛點介紹 串接好了 結束-->
+            <!-- 天氣 即時跟未來 串接好了 -->
             <div class="spotWeatherTab">
                 <div class="weather_list">
                     <ul>
-                        <li><a href="" class="weathers -iAmHere" data-target="weatherNow">即時氣象</a></li>
-                        <li><a href="" class="weathers" data-target="weatherFuture">未來一週</a></li>
+                        <li><a href="" class="weathers -iAmHere" data-target="weatherNow" >即時氣象</a></li>
+                        <li><a href="" class="weathers" data-target="weatherFuture" value="10014">未來一週</a></li>
                     </ul>
                 </div>
                 <div class="weather_block weatherNow -iAmHere">
-                    <div class="weather_block_inside">2020/09/09</div>
+                    <div class="weather_block_inside" id="today"></div>
                     <div class="weather_block_inside">
                         <div class="spotWeatherText spotWeatherText_right">
-                            <i class="fas fa-sun fa-4x"></i>
-                            <h5>晴天</h5>
+                            <i class="fas weatherString fa-4x"></i>
+                            <h5></h5>
                         </div>
                         <div class="spotWeatherText spotWeatherText_left">
                             <div>
-                                <div class="weather_main">
+                                <div class="weather_main TEMP">
                                     <h6>氣溫</h6>
-                                    <h5>36度</h5>
+                                    <h5></h5>
                                 </div>
-                                <div class="weather_main">
+                                <div class="weather_main WDIR">
                                     <h6>風向</h6>
-                                    <h5>東北風</h5>
+                                    <h5></h5>
                                 </div>
-                                <div class="weather_main">
+                                <div class="weather_main UV">
                                     <h6>紫外線指數</h6>
-                                    <h5>過量</h5>
+                                    <h5></h5>
                                 </div>
                             </div>
                             <div>
-                                <div class="weather_main">
+                                <div class="weather_main sea_tmp">
                                     <h6>海溫</h6>
-                                    <h5>25度</h5>
+                                    <h5></h5>
                                 </div>
-                                <div class="weather_main">
+                                <div class="weather_main water">
                                     <h6>浪況</h6>
-                                    <h5>20cm</h5>
+                                    <h5></h5>
                                 </div>
-                                <div class="weather_main">
+                                <div class="weather_main 24R">
                                     <h6>累積雨量</h6>
-                                    <h5>2.0mm</h5>
+                                    <h5></h5>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="weather_block weatherFuture">
-                    <div class="weather_block_inside">2020/09/09 ot 2020/09/16</div>
+                    <div class="weather_block_inside" id="weekDay"></div>
                     <div class="weather_block_inside">
-                        <div class="spotWeatherfuture">
-                            <ul class="futureDays">
-                                <li class="titleTR">日期</li>
-                                <li>9/10</li>
-                                <li>9/11</li>
-                                <li>9/12</li>
-                                <li>9/13</li>
-                                <li>9/14</li>
-                                <li>9/15</li>
-                                <li>9/16</li>
-                            </ul>
-                            <ul class="futureDays">
-                                <li class="titleTR"><i class="fas fa-temperature-high"></i></li>
-                                <li>20度</li>
-                                <li>20度</li>
-                                <li>20度</li>
-                                <li>20度</li>
-                                <li>20度</li>
-                                <li>20度</li>
-                                <li>20度</li>
-                            </ul>
-                            <ul>
-                                <li class="titleTR"><i class="fas fa-wind"></i></li>
-                                <li>東北風</li>
-                                <li>東北風</li>
-                                <li>東北風</li>
-                                <li>東北風</li>
-                                <li>東北風</li>
-                                <li>東北風</li>
-                                <li>東北風</li>
-                            </ul>
-                            <ul>
-                                <li class="titleTR"><i class="fas fa-umbrella"></i></li>
-                                <li>20%</li>
-                                <li>20%</li>
-                                <li>20%</li>
-                                <li>20%</li>
-                                <li>20%</li>
-                                <li>20%</li>
-                                <li>20%</li>
-                            </ul>
+                        <div class="spotWeatherfuture" id="spotWeatherfuture">
                         </div>
                     </div>
                 </div>
                 <div class="weatherDataFrom">
-                    <p>資料來源：<a href="https://www.cwb.gov.tw/V8/C/ " target="_blank">中央氣象局（今日更新時間: 21:50)</a></p>
+                    <p>資料來源：<a href="https://www.cwb.gov.tw/V8/C/ " target="_blank" >中央氣象局<span id="timeNow"></span></a></p>
                 </div>
             </div>
+            <!-- 天氣 即時跟未來 串接好了 結束 -->
         </section>
 
-        <section class="spotRefre_Animal">
+        <section class="spotRefer_Animal">
             <h3>你將會看到．．．</h3>
-            <div class="spotAnimal">
-                <img src="./img/animals/animals-05.png" alt="">
-                <img src="./img/animals/animals-02.png" alt="">
-                <img src="./img/animals/animals-03.png" alt="">
-                <img src="./img/animals/animals-04.png" alt="">
+            <!-- 動物 串好後端資料 -->
+            <div class="spotAnimal" id="showAnimalRows">
             </div>
+            <!-- 動物 串好後端 end -->
         </section>
         
-        <section class="spotRefre_Msg">
+        <section class="spotRefer_Com">
             <h3>留言區</h3>
-            <div class="spotMsgBlock">
-                <div class="spotMsg">
-                    <img src="./img/spot/member/memPhoto_200x200-01.png" alt="">
-                    <div class="spotMsgText">
-                        <div>
-                            <h5>夜大asd</h5>
-                            <span>發布時間</span>
-                        </div>
-                        <p>這裡好好玩這裡好好玩裡好好玩這裡好好玩</p>
-                    </div>
-                    <div class="spotMsgText">
-                        <i class="fas fa-exclamation-circle"></i> 
-                    </div>
-                </div>
-                <div class="spotMsg">
-                    <img src="./img/spot/member/memPhoto_200x200-01.png" alt="">
-                    <div class="spotMsgText">
-                        <div>
-                            <h5>夜大asd</h5>
-                            <span>發布時間</span>
-                        </div>
-                        <p>這裡好好玩這裡好好玩裡好好玩這裡好好玩</p>
-                    </div>
-                    <div class="spotMsgText">
-                        <i class="fas fa-exclamation-circle"></i> 
-                    </div>
-                </div>
-                <div class="spotMsg">
-                    <img src="./img/spot/member/memPhoto_200x200-01.png" alt="">
-                    <div class="spotMsgText">
-                        <div>
-                            <h5>夜大asd</h5>
-                            <span>發布時間</span>
-                        </div>
-                        <p>這裡好好玩這裡好好玩裡好好玩這裡好好玩</p>
-                    </div>
-                    <div class="spotMsgText">
-                        <i class="fas fa-exclamation-circle"></i> 
-                    </div>
-                </div>
-                <div class="spotMsg">
-                    <img src="./img/spot/member/memPhoto_200x200-01.png" alt="">
-                    <div class="spotMsgText">
-                        <div>
-                            <h5>夜大asd</h5>
-                            <span>發布時間</span>
-                        </div>
-                        <p>這裡好好玩這裡好好玩裡好好玩這裡好好玩</p>
-                    </div>
-                    <div class="spotMsgText">
-                        <i class="fas fa-exclamation-circle "></i> 
-                    </div>
-                </div>
-                <div class="bubbleBtn spotMsgMoreBtn">
+            <!-- 留言 串好後端資料 -->
+            <div class="spotComBlock" id="showComRows"></div>
+            <!-- 留言 串好後端 end -->
+
+            <div class="spotComBlock">
+                <div class="bubbleBtn spotComMoreBtn">
                     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="goo">
                         <defs>
                             <filter id="goo">
@@ -258,27 +174,31 @@
                     </span>
                 </div>
             </div>
-            <div class="lightbox-block3 reportMsg">
+
+            <div class="lightbox-block3 reportCom">
                 <div class="lightbox3">
                     <div class="button_closeBox3">
                         <button type="button" class="btn_modal_close">✖</button>
                     </div>
                     <h3>請問是什麼狀況產生的檢舉呢？</h3>
-                    <form action="" class="inlightbox-form3">
+                    <form action="" class="inlightbox-form3" method="post">
                         <ul>
-                            <li><label><input id="pl" type="checkbox">與色情相關</label></li>
-                            <li><label ><input id="pl1" type="checkbox">與本網站無相關</label></li>
-                            <li><label><input id="pl2" type="checkbox">言詞用語粗俗不檔</label></li>
+                            <li><label><input id="pl" name="reason[]" value="0" type="checkbox">與色情相關</label></li>
+                            <li><label ><input id="pl1" name="reason[]" value="1" type="checkbox">與本網站無相關</label></li>
+                            <li><label><input id="pl2" name="reason[]" value="2" type="checkbox">言詞用語粗俗不檔</label></li>
                             <li><input class="submitbtn3" type="submit" value="送出"></li>
                         </ul>
                     </form>
                 </div>
             </div>
-            <div class="spotMsgBlock spotMsgSend">                 
+            <div class="spotComBlock spotComSend">                 
                 <img src="./img/spot/member/memPhoto_200x200-01.png" alt="">
-                <div class="spotMsgSendText">
-                    <textarea name="" id="" rows="2" placeholder="我要留言"></textarea>
-                    <i class="fas fa-location-arrow fa-flip-horizontal"></i>
+
+                <div class="spotComSendText">
+                    <form action="insertSpotCom.php" method="post" enctype="multipart/form-data">
+                        <textarea name="message" id="" rows="2" placeholder="我要留言" Wrap="Physical"></textarea>
+                        <i class="fas fa-location-arrow fa-flip-horizontal" onclick="" name="submit" ></i>
+                    </form>
                 </div>
             </div>
         </section>
@@ -286,11 +206,60 @@
     </main>
 
 
-
-
-
-
     @@include('./layout/footer.html')
     <script src="./js/spotRefer.js"></script>
+
+    <script>
+    function $id(id){
+        return document.getElementById(id);
+    }	
+
+    let spotReferInfoRow   //潛點照片 潛點敘述 動物照片
+    window.addEventListener("load", function(){
+    
+        let html ="";
+    //－－－－－－潛點照片
+        function showSpotReferImg(){
+            html = `<img src="./img/spot/${spotReferInfoRow[0].picture}" alt="">`;
+            spotReferImg.innerHTML = html;
+            spotReferImg_rwd.innerHTML = html;
+        }
+
+    //－－－－－－潛點介紹內文
+        function showInfotext(){
+            html = `<p>${spotReferInfoRow[0].description}</p>`;
+            spotReferIntor_rwd.innerHTML = html;
+            spotReferIntor.innerHTML = html;
+        }
+    
+    //－－－－－－show 動物照片
+        function showAnimals(){
+            for(let i=0; i< spotReferInfoRow.length; i++){
+                html +=`<img src="./img/animals/${spotReferInfoRow[i].animalPic}" alt="">`;
+            }
+            showAnimalRows.innerHTML = html;
+        }
+
+        function getAnimals(){
+            let xhr = new XMLHttpRequest();
+            xhr.onload = function(){
+                spotReferInfoRow = JSON.parse(xhr.responseText);  //把字串解析成json形式
+                showSpotReferImg();
+                showInfotext();
+                showAnimals();
+            }
+            xhr.open("get", "getspotReferInfor.php", false);
+            xhr.send(null);
+
+        }
+        getAnimals();
+
+    },false);
+
+
+    </script>
+
+
+
 </body>
 </html>

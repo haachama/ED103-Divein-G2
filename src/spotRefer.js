@@ -1,6 +1,5 @@
 import $ from 'jquery';
 import {TweenMax,TimelineMax} from 'gsap';
-import Swal from 'sweetalert2';
 
 $(function(){
 
@@ -142,6 +141,7 @@ $(function(){
         $('.memCart li').toggleClass("show");
         $('header').toggleClass("bg")
     });
+
     // RWD導覽列
     $(window).resize(function () {
         var $pixel = document.body.clientWidth;
@@ -155,8 +155,6 @@ $(function(){
         }
     });
 
-
-
     //即時氣象頁籤功能
     $("a.weathers").on("click", function(w){
         w.preventDefault();
@@ -168,61 +166,19 @@ $(function(){
         $("div.weather_block." + $(this).attr("data-target")).addClass("-iAmHere");
     });
 
-
-    //踩點－會員只能點擊一次
-    var spotImgHereList = document.getElementById("spotImgHereList");
-    var hereAddBtn = document.querySelectorAll(".hereAddBtn");
-
-    function addOneImg(index){
-        let newLi = document.createElement('li');
-        let image = document.createElement('img');
-        image.src = `../../img/spot/spotGiLittle-03.png`;
-        newLi.appendChild(image);
-        spotImgHereList.appendChild(newLi);
-        hereAddBtn[index].style.backgroundColor = "#221814";
-        hereAddBtn[index].style.border = "#221814";
-        Swal.fire("感謝您的點擊", "讓此潛點更加熱門", "success");
-        hereAddBtn.removeEventListener("click",addOneImg ,false);
-    };
-
-    for(let i =0;i<hereAddBtn.length;i++){
-        hereAddBtn[i].addEventListener("click",function(){
-            addOneImg(i)
-        });
-    }
-
     //潛點內頁-rwd 頁籤介紹
-    $("a.spotRefrList").on("click", function(rs){
-        rs.preventDefault();
+    $("a.spotRefrList").on("click", function(s){
+        s.preventDefault();
     
-        $(this).closest(".spotRefreTab_rwd").find("a").removeClass("spotShow");
+        $(this).closest(".spotReferTab_rwd").find("a").removeClass("spotShow");
         $(this).closest("a").addClass("spotShow");
         
         $("section").removeClass("spotShow");
         $("section." + $(this).attr("data-target")).addClass("spotShow");
     });
 
-    //檢舉燈箱
-     // 開啟 Modal 彈跳視窗
-    $("i.fa-exclamation-circle").on("click", function(){
-        $(".lightbox-block3").addClass("-openbox");
-    });
-
-    // 關閉 Modal
-    $(".btn_modal_close").on("click", function(){
-        $(".lightbox-block3").addClass("-opacity-zero");
-        // 設定隔一秒後，移除相關 class
-        setTimeout(function(){
-            $(".lightbox-block3").removeClass("-openbox -opacity-zero");
-        }, 1000);
-    });
-    $(".submitbtn3").on("click", function(){
-        $(".lightbox-block3").addClass("-opacity-zero");
-        // 設定隔一秒後，移除相關 class
-        setTimeout(function(){
-            $(".lightbox-block3").removeClass("-openbox -opacity-zero");
-        }, 1000);
-    });
+});
+    
 
 
     //載入更多按鈕
@@ -241,4 +197,3 @@ $(function(){
     //     });
     // });
 
-});
