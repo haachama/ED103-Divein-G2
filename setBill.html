@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/favicon.ico" type="image/x-icon" />
+    <link rel="Shortcut Icon" href="./img/favicon.ico" type="image/x-icon" />
+
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./fontawesome/css/all.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>海中日子 | 訂單明細</title>
+</head>
+
+<body class="setBill">
+    @@include('./layout/header.html')
+
+    <div class="title">
+        <h2>訂單明細</h2>
+    </div>
+
+    <div class="container">
+        <div class="wrap">
+            <div class="listHeader">
+                <h4>商品圖片</h4>
+                <h4>商品名稱</h4>
+                <h4>單價</h4>
+                <h4>數量</h4>
+                <h4>小計</h4>
+            </div>
+            <div class="listRow">
+                <!-- //假的 -->
+                <div class="prodInfo">
+                        <div class="prodPic">
+                            <img src="./img/shop/mask4@2x.png" alt="">
+                        </div>
+                        <div class="prodName">水中看得清</div>
+                        <div class="prodPrice">8600</div>
+                        <div class="prodNumber">1</div>
+                        <div class="subTotal">17200</div>
+                    </div>
+                </div>
+                <!-- 假的 -->
+            <div class="totalContent">
+                <div class="gamePlay">
+                    <span>玩遊戲獲取紅利點數！</span>
+                    <button class="demo-btn">前往遊戲</button>
+                </div>
+                <div class="calc">
+                    <p class="bill">商品總金額：$<span id="allTotal">0</span></p>
+                    <p class="point">您目前持有點數：<span id ="gamePoint">100</span></p>
+                    <p class="total">總計：$<span id="lastTotal">34700</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="billSet">
+        <section class="writeInfo">
+            <div class="information">
+                <h3>填寫資料</h3>
+                <form class="wrap">
+                    <div class="writeInfoCol">
+                        <h4>收件人資訊</h4>
+                        <p>
+                            姓名：
+                            <input id="name" type="text">
+                        </p>
+                        <p>
+                            電話：
+                            <input type="text">
+                            <br>
+                            <span class="msg">請輸入09開頭的十位數字</span>
+                        </p>
+                        <p>
+                            地址：
+                            <input type="text">
+                        </p>
+                    </div>
+                    <div class="writeInfoCol creditCard">
+                        <h4>信用卡付款資訊</h4>
+                        <p>
+                            信用卡帳號：
+                            <input type="text">
+                            -
+                            <input type="text">
+                            -
+                            <input type="text">
+                            -
+                            <input type="text">
+                            <span class="msg">請輸入四位數字</span>
+                        </p>
+                        <p>
+                            有效期限：
+                            <input type="text">
+                            月
+                            <input type="text">
+                            年
+                            <span class="msg">請輸入1-12/20XX</span>
+                        </p>
+                        <p>
+                            安全碼：
+                            <input type="text">
+                            <span class="msg">請輸入三位數字</span>
+                        </p>
+                    </div>
+                    <div class="subBtn">
+                        <div class="bubbleBtn toBack">
+                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="goo">
+                                <defs>
+                                    <filter id="goo">
+                                        <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                                        <feColorMatrix in="blur" mode="matrix"
+                                            values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+                                        <feComposite in="SourceGraphic" in2="goo" />
+                                    </filter>
+                                </defs>
+                            </svg>
+
+                            <span class="button--bubble__container">
+                                <a href="#campaign" class="button button--bubble">
+                                    回上一步
+                                </a>
+                                <span class="button--bubble__effect-container">
+                                    <span class="circle top-left"></span>
+                                    <span class="circle top-left"></span>
+                                    <span class="circle top-left"></span>
+                                    <span class="button effect-button"></span>
+                                    <span class="circle bottom-right"></span>
+                                    <span class="circle bottom-right"></span>
+                                    <span class="circle bottom-right"></span>
+                                </span>
+                            </span>
+                        </div>
+                        <div class="bubbleBtn sent">
+                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="goo">
+                                <defs>
+                                    <filter id="goo">
+                                        <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                                        <feColorMatrix in="blur" mode="matrix"
+                                            values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+                                        <feComposite in="SourceGraphic" in2="goo" />
+                                    </filter>
+                                </defs>
+                            </svg>
+
+                            <span class="button--bubble__container">
+                                <a href="#campaign" class="button button--bubble">
+                                    確認送出
+                                </a>
+                                <span class="button--bubble__effect-container">
+                                    <span class="circle top-left"></span>
+                                    <span class="circle top-left"></span>
+                                    <span class="circle top-left"></span>
+                                    <span class="button effect-button"></span>
+                                    <span class="circle bottom-right"></span>
+                                    <span class="circle bottom-right"></span>
+                                    <span class="circle bottom-right"></span>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+    <div class="lightbox-block1">
+        <div class="lightbox1">
+            <div class="button_closeBox1">
+                <button type="button" class="btn_modal_close">✖</button>
+            </div>
+            <div class="confirmContainer">
+                <p class="confirmTitle">請確認您的資料</p>
+                <p class="confirmTitle">收件人資訊：</p>
+                <p>姓名：</p>
+                <p>行動電話：</p>
+                <p>地址：</p>
+                <p class="confirmTitle">信用卡資訊：</p>
+                <p>信用卡帳號：</p>
+                <p>有效期限：</p>
+                <button class="rewrite">重新填寫</button>
+                <button class="confirmBtn">確認送出</button>
+            </div>
+        </div>
+    </div>
+
+
+    @@include('./layout/footer.html')
+    <script src="./js/setBill.js"></script>
+    <script src="./js/bubbleBtn.js"></script>
+</body>
+</html>
