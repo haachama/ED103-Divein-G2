@@ -193,7 +193,7 @@ $(function(){
         }
     });
 });
-
+//篩選列
 var select = new Vue({
     el: '.diaryAddA',
     data() {
@@ -249,21 +249,11 @@ var select = new Vue({
             if (this.value == "") {
                 return [];
             } else {
-
-                // for (let index = 0; index < this.areas.length; index++) {
-                //   const element = this.areas[index];
-                //   if (element.selected == this.value) {
-                //     return element.diveArea;
-                //   }
-                // }
                 return this.areas.filter((x) => x.selected == this.value)[0].diveArea;
             }
         },
     },
 });
-
-
-
 
 function doFirst() {
             document.getElementById('biologicalBtnJSAnn').onclick = checkBiological;
@@ -275,12 +265,7 @@ function checkBiological() {
     for (let i = 0; i < animals.length; i++) {
         let list = document.getElementById(animals[i]);
         if ( list.checked ) {
-            // console.log('this.nextSibing--'+this.nextSibling);
-            // console.log('this--'+ this);
-            // let img = this.nextSibling;
-            // img.style.backgroundColor = 'rgba(0,0,0,.5)';
             show += `<img src='./img/diary/${animals[i]}.png' style="width:80px">`;
-            // `<input name="animals[]" value="${i+1}" type="hidden"><img src="./img/diary/${animals[i]}.png" style="width:80px"></img>`;
         }
         document.getElementById('biologicalAddImg').innerHTML = show;
     }
@@ -288,72 +273,7 @@ function checkBiological() {
 window.addEventListener('load', doFirst);
 
 //---------------------------------------------------------------------------------------
-// let All = document.querySelectorAll([name="animals"]);
-// console.log(All);
-
+//圖鑑checked背景
 $(".abc").click(function(){
     $(this).toggleClass("-o");
 });
-
-
-// function imgclick(){
-//     var abc = document.getElementsByClassName("abc");
-//     abc.οnclick = function(){
-//         this.classList.add("-o");
-//     }
-// };
-// imgclick();
-
-//----------------------------------------------------------------------------------------
-
-// var inputs = document.getElementsByName("animals");
-// var biologicalCsscAnn =document.getElementsByClassName("biologicalCsscAnn")[0];
-// var imgs = biologicalCsscAnn.getElementsByTagName("img");
-// console.log(imgs);
-
-
-// for(var i=0; i<inputs.length; i++){
-//    console.log(imgs[i]);
-
-//     inputs[i].addEventListener("change",function(){
-//         // for(var j=0; j<imgs.length; j++){
-
-//             if(this.checked){ //input
-//                 console.log(this);
-//                 console.log(imgs[i]);
-//                 imgs[i].style.backgroundColor = 'rgba(0,0,0,.5)';
-                
-//             }
-//         // }
-//     },false);
-// }
-
-// -----------------------------------------------------
-
-// function doFirst2() {  //換背景色
-
-//     let animalImgsid=['animalImg1','animalImg2','animalImg3','animalImg4','animalImg5','animalImg6','animalImg7','animalImg8','animalImg9','animalImg10','animalImg11','animalImg12'];
-//     document.querySelectorAll(animalImgsid[i]).focus = changbgcolor;
-//     // for (let i = 0; i < animalImgsid.length; i++) {
-//     //     let listimg = document.getElementById(animalImgsid[i]);
-//     //     document.getElementById(listimg).focus = changbgcolor;
-//     // }
-//     // document.getElementById(listimg[i]).focus = changbgcolor;
-
-// }
-// function changbgcolor(){
-//     let animals = ['animal1', 'animal2', 'animal3', 'animal4', 'animal5', 'animal6', 'animal7', 'animal8', 'animal9', 'animal10', 'animal11', 'animal12']; //input id
-//     let animalImgs=['animalImg1','animalImg2','animalImg3','animalImg4','animalImg5','animalImg6','animalImg7','animalImg8','animalImg9','animalImg10','animalImg11','animalImg12'];
-//     for (let i = 0; i < animals.length; i++) {
-//         let list = document.getElementById(animals[i]);
-//         let listimg = document.getElementById(animalImgs[i]);
-//         if ( list.checked ) {
-//             listimg.style.backgroundColor = 'red';
-                // 改色的f
-//         }
-//     }
-// }
-// window.addEventListener('load', doFirst2);
-
-
-// listimg.style.backgroundColor = 'red';

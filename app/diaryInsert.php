@@ -15,7 +15,8 @@
     $diaryPoint3 = isset($_POST["diaryPoint3"])?$_POST["diaryPoint3"]:"";
     $diaryPoint4 = isset($_POST["diaryPoint4"])?$_POST["diaryPoint4"]:"";
     $diaryPoint5 = isset($_POST["diaryPoint5"])?$_POST["diaryPoint5"]:"";
-    // echo $fileBtn;
+
+    echo $diaryPoint5;
     // die;
     //測試MYSQL
     // INSERT INTO personaldiary(memNo,diaryName,diaryType,diaryWriteDate,diveNo,diaryDiveTime,diaryPlayDate,diaryWeather,diaryVisibility,diaryTemp,diaryWaterTemp,diaryText,diaryPoint1,diaryPoint2,diaryPoint3,diaryPoint4,diaryPoint5,diaryPicsNo) 
@@ -23,75 +24,37 @@
 
 
 try{
-    $dsn = "mysql:host=localhost;port=3306;dbname=ed103g2;charset=utf8";  //家3308 教室3306
+    $dsn = "mysql:host=localhost;port=3308;dbname=ed103g2;charset=utf8";  //家3308 教室3306
     $user = "root";
-    $password = "root";//家no 教室root 
+    $password = "";//家no 教室root 
     $options = array(PDO::ATTR_CASE => PDO::CASE_NATURAL, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
     $pdo = new PDO($dsn, $user, $password, $options);
     
-
-    switch($_FILES["fileBtn"]["error"]){ ////第一個是html的name
-        case UPLOAD_ERR_OK:
-            $dir = "img/diary";
-            //檢查資料夾是否已存在
-            if(file_exists($dir)==false){
-                mkdir($dir);   //make directory
-            }
-
-            $from = $_FILES["fileBtn"]["tmp_name"];  //暫存中的路徑和檔名
-            $fileBtn = $_FILES["fileBtn"]["name"]; //第一個是html的name
-            $to = "{$dir}/{$fileBtn}";
-
-            if(copy($from,$to)){
-                echo "上傳成功<br>";
-            }else{
-                echo "上傳失敗<br>";
-            }
-            break;
-            case UPLOAD_ERR_INI_SIZE :
-                echo "上傳的檔案太大, 不得超過", ini_get("upload_max_filesize"), "<br>";
-                break;
-            case UPLOAD_ERR_FORM_SIZE :
-                echo "上傳的檔案太大, 不得超過", $_POST["MAX_FILE_SIZE"], "位元組<br>";
-                break;
-            case UPLOAD_ERR_PARTIAL :
-                echo "上傳檔案不完整", "<br>";
-                break;
-            case UPLOAD_ERR_NO_FILE :
-                echo "未選檔案", "<br>";
-                break;		
-                default:
-                echo "系統暫時發生問題，請聯絡網站維護人員<br>"	;
-    }
-
      //第一個是sql欄位
-
-
     
     $sql = "INSERT INTO personaldiary(memNo,diaryName,diaryType,diaryWriteDate,diveNo,diaryDiveTime,diaryPlayDate,diaryWeather,
     diaryVisibility,diaryTemp,diaryWaterTemp,diaryText,diaryPoint1,diaryPoint2,diaryPoint3,diaryPoint4,diaryPoint5,diaryPicsNo) 
-            VALUES(1,$diaryName,$diaryType,now(),$diveNo,$diaryDiveTime,$diaryPlayDate,$diaryWeather,$diaryVisibility,$diaryTemp,$diaryWaterTemp,$diaryText,$diaryPoint1,$diaryPoint2,$diaryPoint3,$diaryPoint4,$diaryPoint5,$fileBtn)"; 
+            VALUES(1,$diaryName,$diaryType,now(),$diveNo,$diaryDiveTime,$diaryPlayDate,$diaryWeather,$diaryVisibility,$diaryTemp,$diaryWaterTemp,$diaryText,$diaryPoint1,$diaryPoint2,$diaryPoint3,$diaryPoint4,$diaryPoint5,'diaryphoto1.png')"; 
     // 1是寫死的會員
-    echo $diaryName,$diaryType,$diveNo,$diaryDiveTime,$diaryPlayDate,$diaryWeather,$diaryVisibility,$diaryTemp,$diaryWaterTemp,$diaryText,$diaryPoint1,$diaryPoint2,$diaryPoint3,$diaryPoint4,$diaryPoint5,$fileBtn;
-    die;
+    // echo $diaryName,$diaryType,$diveNo,$diaryDiveTime,$diaryPlayDate,$diaryWeather,$diaryVisibility,$diaryTemp,$diaryWaterTemp,$diaryText,$diaryPoint1,$diaryPoint2,$diaryPoint3,$diaryPoint4,$diaryPoint5,$fileBtn;
+    // die;
     $diary = $pdo->prepare($sql);
     $diary->execute(); //程式執行到這結束
-
+    $diaryNo = $pdo->lastInsertId();  //接收到剛剛的日誌流水號
 
 // -------------------------------------------------------------------------------------------------
 
-    // $sql2 = "INSERT INTO diaryImg(biologicalNo) VALUES(:biologicalNo)"; 
-    // $diaryImg = $pdo->prepare($sql2);
-    // $diaryImg->bindValue(":biologicalNo", $_POST["biologicalNo"]);
-    // $diary->execute();
+    $checkbox1 = $_POST['biologicalNo'] ;  //假設回傳是陣列  ajax的value
     
-    // $checkbox1 = $_POST['animals'] ;  
-    // if ($_POST["submit" ]=="submit")  
-    // {  
-    // for ($i=0; $i<sizeof ($checkbox1);$i++) {  
-    // $query="INSERT INTO diaryImg(biologicalNo) VALUES ('".$checkboxl[$i]. "')";  
-    // }
+    foreach($checkbox1 as $i=>$biologicalNo){
+        $diaryImg->bindValue(":biologicalNo", $biologicalNo);
+        $diary2->execute(); //迴圈跑完結束 放這??
+    }
 
+    $sql2 = "INSERT INTO diaryImg(biologicalNo, diaryNo) VALUES(:biologicalNo, $diaryNo)"; //還沒執行?
+    $diaryImg = $pdo->prepare($sql2); //還沒執行?
+    //--------------
+    
 
     // header('Location : diaryInside.html'); //回到diaryInside.html
 

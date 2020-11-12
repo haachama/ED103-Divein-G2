@@ -3,7 +3,9 @@
 }
 
 .diary{ // 請勿超出大括號
-
+    .diary_formSelect_vue{
+        max-width: 100%;
+    }
 
 // --------------------日誌卡片<共用的css> 有用到的頁面 diary.html 、 diaryInside.html 
     .diaryCenter {
