@@ -128,13 +128,13 @@
                     </div>
                     <div class="climateB">
                         <div class="formWeather3">
-                            <p><i class="fas fa-temperature-high"></i>當日氣溫</p>
-                            <input type="number" placeholder="1.0" step="0.5" name="diaryTemp">度
+                            <p><i class="fas fa-temperature-high"></i>當日氣溫(度)</p>
+                            <input type="number" placeholder="1.0" step="0.5" name="diaryTemp">
                             <!-- 允許小數1位 -->
                         </div>
                         <div class="formWeather4">
-                            <p><i class="fas fa-temperature-low"></i>最低水溫</p>
-                            <input type="number" placeholder="1.0" step="0.5" name="diaryWaterTemp">度
+                            <p><i class="fas fa-temperature-low"></i>最低水溫(度)</p>
+                            <input type="number" placeholder="1.0" step="0.5" name="diaryWaterTemp">
                             <!-- 允許小數1位 -->
                         </div>
                     </div>
@@ -247,9 +247,9 @@
 
             <div class="diaryAddImg">
                 <!-- 區塊E_潛水照片 -->
-                <p class="diaryAddImgP">潛水照片</p>
+                <p class="diaryAddImgP">潛水照片<i class="fas fa-camera-retro"></i></p>
                 <div>
-                    <p><i class="fas fa-camera-retro"></i>
+                    <p>
                         <!-- <label for="fileBtn" class="demo-btn" >上傳照片</label> -->
                         <input type="file" name="fileBtn" id="fileBtn">
                     </p>
@@ -277,6 +277,7 @@
 
         $('.allData').on('click',function(){
             let diaryName = $(".diaryAddName input").val(); //日誌名稱
+            // console.log(diaryName);
             let diaryType = $(".diaryAddType select").val(); //日誌類型
             let diveNo = $(".diaryAddPlace input").val(); //潛水區域的地點
             let diaryDiveTime = $(".diaryAddTime input").val(); //潛水時間

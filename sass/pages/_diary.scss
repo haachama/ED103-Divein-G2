@@ -1,3 +1,4 @@
+$newkeyBlack:rgba(22, 24, 29, 0.6);
 .diaryAdd{
     background-attachment: unset;
 }
@@ -783,8 +784,8 @@
         // border: 1px solid blue;
         margin: 80px auto 150px;
         max-width: 80%;
-        padding: 30px 0px 30px 80px;
-        background-color: $keyBlack;
+        padding: 5px 0px 5px 80px;
+        background-color: $newkeyBlack;
         border-radius: 5px;
 
         .diarySelect {
@@ -1579,7 +1580,7 @@
 
 
 
-// ------------------------新增_diaryAdd.html頁面
+// ------------------------新增_diaryAdd.html頁面(完成)
 .diaryAddTitleH3 {
     // border: 1px solid orange;
     display: flex;
@@ -1607,6 +1608,7 @@
     .button--bubble__effect-container {
         //btn按鈕破版調整
         left: -100%;
+        // width: 300px;
     }
 }
 
@@ -1623,23 +1625,20 @@
             //區塊A_日誌
             // border: 1px solid green;
             width: 100%;
-            background-color: $keyBlack;
+            background-color: $newkeyBlack;
             border-radius: 10px;
             margin: 30px auto 0px;
             padding: 30px;
-
             .diaryAddName {
                 //日誌名稱
                 // border: 1px solid purple;
                 color: $keyWhite;
                 width: 100%;
                 padding: 20px 0px;
-
                 p {
                     // border: 1px solid blue;
                     display: inline-block;
                 }
-
                 input {
                     // border: 1px solid blue;
                     @include input-text($w:160px,$h:30px);
@@ -1653,12 +1652,10 @@
                 color: $keyWhite;
                 width: 100%;
                 padding: 20px 0px;
-
                 p {
                     // border: 1px solid palevioletred;
                     display: inline-block;
                 }
-
                 select {
                     // border: 1px solid blue;
                     @include input-text($w:160px,$h:30px);
@@ -1753,49 +1750,41 @@
             //區塊B__氣候條件
             // border: 1px solid purple;
             width: 100%;
-            background-color: $keyBlack;
+            background-color: $newkeyBlack;
             border-radius: 10px;
             margin: 30px auto 30px;
             padding: 30px;
-
             .climateP {
                 // border: 1px solid green;
                 width: 100%;
                 color: $keyWhite;
                 padding: 10px;
             }
-
             .climateflex {
                 // border: 1px solid blue;
                 width: 100%;
                 display: flex;
                 justify-content: space-evenly;
-
                 .climateA {
-
                     // border: 1px solid wheat;
                     div {
-
                         // border: 1px solid blue;
                         p {
                             // border: 1px solid palevioletred;
                             color: $keyWhite;
                             display: inline-block;
                             padding: 20px 0px;
-
                             i {
                                 // border: 1px solid blue;
                                 font-size: 20px;
                                 padding-right: 5px;
                             }
                         }
-
                         select {
                             // border: 1px solid blue;
                             @include input-text($w:160px,$h:30px);
                             padding: 0px;
                         }
-
                         input {
                             // border: 1px solid blue;
                             @include input-number($w:160px,$h:30px);
@@ -1837,11 +1826,10 @@
             //區塊C_遇見生物
             // border: 1px solid green;
             width: 100%;
-            background-color: $keyBlack;
+            background-color: $newkeyBlack;
             border-radius: 10px;
             margin: 30px auto 0px;
             padding: 30px;
-
             .biologicalP {
                 // border: 1px solid green;
                 width: 100%;
@@ -1883,7 +1871,7 @@
                                 // background-color: #fefefe;
                             }
                             .-o{
-                                background-color: #176587;
+                                background-color: $newkeyBlack;
                                 border-radius: 10px;
                             }
                         }
@@ -1894,13 +1882,12 @@
 
         .process {
             //區塊D_潛水過程
-            // border: 1px solid green;
+            // border: 1px solid red;
             width: 100%;
-            background-color: $keyBlack;
+            background-color: $newkeyBlack;
             border-radius: 10px;
             margin: 30px auto 0px;
             padding: 30px;
-
             .processP {
                 // border: 1px solid green;
                 width: 100%;
@@ -1910,13 +1897,14 @@
             .processrange{
                 // border: 1px solid yellow;
                 padding: 20px 10px;
-                background-color: $keyBlack;
+                background-color: none;
                 color: $keyWhite;  
                 width: 100%;
                 max-width: 100%; //coco說要改的寬
                 margin: 0 auto;
                 .rangeBlock{
                     // border: 1px solid yellow;
+                    background-color: none;
                     overflow: hidden;
                     display: flex;
                     flex-direction: row;
@@ -1933,9 +1921,9 @@
                     .Block{
                         // border:1px solid greenyellow;
                         width: 95%;
-                        background-color: $keyBlack;
+                        background-color: none;
                     .annBlock{
-                        background-color: $keyBlack;
+                        background-color: none;
                         border-left: 3px solid $keyWhite;
                         border-bottom: 3px solid $keyWhite;
                         padding: 3px 0px  0px 0px;
@@ -2078,35 +2066,31 @@
             //潛水照片_潛水照片
             // border: 1px solid green;
             width: 100%;
-            background-color: $keyBlack;
+            background-color: $newkeyBlack;
             border-radius: 10px;
             margin: 30px auto 0px;
             padding: 30px;
-
             .diaryAddImgP {
                 // border: 1px solid green;
                 width: 100%;
                 color: $keyWhite;
                 padding: 10px;
             }
-
             div {
                 // border: 1px solid green;
                 width: 100%;
                 padding: 10px;
-
                 p {
                     color: $keyWhite;
-
                     i {
                         // border: 1px solid blue;
                         font-size: 20px;
                         padding-right: 5px;
                     }
-
                     #fileBtn{
+                        border: none;
                         // display: none; //上傳鈕隱藏
-                        background-color: $keyBlack;
+                        background-color: rgba(22, 24, 29, 0.1);
                     }
                 }
             }
@@ -2116,18 +2100,16 @@
             //區塊F_內容撰寫
             // border: 1px solid green;
             width: 100%;
-            background-color: $keyBlack;
+            background-color: $newkeyBlack;
             border-radius: 10px;
             margin: 30px auto 0px;
             padding: 30px;
-
             .diaryAddContentP {
                 // border: 1px solid green;
                 width: 100%;
                 color: $keyWhite;
                 padding: 10px;
             }
-
             .diaryAddText {
                 textarea {
                     // border: 1px solid orangered;
@@ -2142,8 +2124,6 @@
             width: 100%;
             text-align: center;
             padding: 50px 0px;
-            
-            
         }
     }
 }
@@ -2154,7 +2134,7 @@
     .diaryAdd_formAddAll {  //圖鑑的圖片100px
         .formf {
             // border: 1px solid orange;
-            width: 100%;
+            max-width: 100%;
             .biological {
                 //區塊C_遇見生物
                 // border: 1px solid green;
@@ -2192,7 +2172,7 @@
     .diaryAdd_formAddAll {  //圖鑑的圖片100px
         .formf {
             // border: 1px solid orange;
-            width: 100%;
+            max-width: 100%;
             .biological {
                 //區塊C_遇見生物
                 // border: 1px solid green;
@@ -2223,9 +2203,36 @@
     }
 }
 
-@media all and (max-width: 375px) {}
-
-
+@media all and (max-width: 375px) {
+    .diaryAddTitleH3 {
+        // border: 1px solid orange;
+        display: flex;
+        padding: 10px 0px 10px 10px; //改
+        flex-direction: column; //改
+        h3 {
+            // border: 1px solid green;
+            color: $keyWhite;
+            i {
+                // border: 1px solid green;
+                color: $keyWhite;
+                padding-left: 20px;
+            }
+        }
+        .diaryAdd_controlBtn{
+            order: -1; //改
+            margin-bottom: 30px; //改
+        }
+        .button--bubble {
+            //btn按鈕破版調整
+            left: 60%; //改
+        }
+    
+        .button--bubble__effect-container {
+            //btn按鈕破版調整
+            left: 10%; //改
+        }
+    } 
+}
 
 
 }
