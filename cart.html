@@ -16,6 +16,7 @@
 <body class="cart">
     @@include('./layout/header.html')
 
+    
     <div class="title">
         <h2>購物車</h2>
     </div>
@@ -103,7 +104,7 @@
                 </svg>
 
                 <span class="button--bubble__container">
-                    <a href="#campaign" class="button button--bubble">
+                    <a href="./setBill.html" class="button button--bubble">
                         進行結帳
                     </a>
                     <span class="button--bubble__effect-container">
@@ -120,7 +121,7 @@
         </div>
     </div>
 
-    <div class="billSet">
+    <!-- <div class="billSet">
         <section class="writeInfo">
             <div class="information">
                 <h3>填寫資料</h3>
@@ -228,10 +229,10 @@
                 </form>
             </div>
         </section>
-    </div>
+    </div> -->
 
 
-    <div class="lightbox-block1">
+    <!-- <div class="lightbox-block1">
         <div class="lightbox1">
             <div class="button_closeBox1">
                 <button type="button" class="btn_modal_close">✖</button>
@@ -249,58 +250,18 @@
                 <button class="confirmBtn">確認送出</button>
             </div>
         </div>
-    </div>
+    </div> -->
 
-    @@include('./layout/footer.html')
     <script src="./js/cart.js"></script>
     <script src="./js/bubbleBtn.js"></script>
-
-    <script>
-        $(function () {
-
-            // 開啟 Modal 彈跳視窗
-            $(".sent").on("click", function () {
-                $(".lightbox-block1").addClass("-openbox");
-            });
-
-            // 關閉 Modal
-            $(".btn_modal_close").on("click", function () {
-                $(".lightbox-block1").addClass("-opacity-zero");
-                // 設定隔一秒後，移除相關 class
-                setTimeout(function () {
-                    $(".lightbox-block1").removeClass("-openbox -opacity-zero");
-                }, 1000);
-            });
-        });
-    </script>
-
-
-    <script>
-        function doFirst() {
-            let billSet = document.getElementsByClassName('billSet')[0];
-            document.getElementsByClassName('billSet')[0].style.visibility = 'hidden';
-            let thebill = document.getElementsByClassName('thebill')[0];
-            thebill.addEventListener('click', appear);
-            let cartBtn = document.getElementsByClassName('cartBtn')[0];
-            function appear() {
-                billSet.style.visibility = 'visible';
-                cartBtn.style.visibility = 'hidden';
-            }
-            let toBack = document.getElementsByClassName('toBack')[0];
-            toBack.onclick = function () {
-                billSet.style.visibility = 'hidden';
-                cartBtn.style.visibility = 'visible';
-            }
-
-        }
-        window.addEventListener('load', doFirst);
-    </script>
-
 
     <script>
         var storage = sessionStorage;
 
         function doFirst() {
+            
+            
+            
             // 抓購物車SPAN
             let itemCounting = document.getElementById('itemCounting');
             // 抓按鈕
@@ -338,7 +299,7 @@
 
             // 每購買一個品項，就呼叫函數創建
             for (let i = 0; i < items.length; i++) {
-                // items[0] = A1001，傳回 value值 Formosa|formosa.jpg|5000
+                // items[0] = A1001，傳回 value值 Formosa|formosa.jpg|5000|數量
                 let itemInfo = storage.getItem(items[i]);
 
                 createlistRow(items[i], itemInfo);
@@ -389,8 +350,6 @@
                 })
             }
 
-
-
             document.getElementById('allTotal').innerText = total;
 
             //加減
@@ -416,7 +375,7 @@
                 }
                 e.target.parentNode.getElementsByTagName('input')[0].value = nowValue;
             }
-
+            
 
 
             function createlistRow(itemId, itemValue) {
@@ -444,6 +403,7 @@
 
                 newprodInput = document.createElement('input');
                 newprodInput.type = 'text';
+                // if(storage.getItem())
                 newprodInput.value = '1';
                 newprodInput.min = '0';
                 newprodInput.addEventListener('input', changeItemCount);
@@ -525,7 +485,7 @@
                 let thisItem = storage.getItem(itemId);  //得到value值
                 let itemPrice = parseInt(thisItem.split('|')[2])  //取得每個商品價格
                 let subtotal = this.parentNode.nextSibling;
-                // console.log(subtotal.innerText);
+                // console.log(subtotal);
                 newCount = parseInt(inputN.value);
                 newPrice = itemPrice * newCount;
 
@@ -537,7 +497,18 @@
                 // console.log(newPri);
                 document.getElementById('allTotal').innerText = newPri;
             }
-
+            
+            // 抓商品最終數量
+            document.getElementsByClassName('thebill')[0].addEventListener('click', function(){
+                let lastNumber = document.getElementsByClassName('prodNumber').length;
+                for (let i = 0; i < lastNumber; i++){
+                    let plusNumber = storage.getItem(document.getElementsByClassName('prodName')[i].id);
+                    let realLastNumber = `${plusNumber}`+`|`+`${document.getElementsByClassName('prodNumber')[i].getElementsByTagName('input')[0].value}`;
+                    storage.setItem(document.getElementsByClassName('prodName')[i].id,realLastNumber);
+                }
+            });
+            
+            
         }
         window.addEventListener('load', doFirst);
     </script>

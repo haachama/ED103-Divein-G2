@@ -23,27 +23,6 @@ $(function () {
         }
     });
 
-    // 5-2 lightbox  結帳送出
-    // 開啟 Modal 彈跳視窗
-    $(".mainBtn_2").on("click", function () {
-        $(".lightbox-block2").addClass("-openbox");
-    });
-
-    // 關閉 Modal
-    $(".btn_modal_close").on("click", function () {
-        $(".lightbox-block2").addClass("-opacity-zero");
-        // 設定隔一秒後，移除相關 class
-        setTimeout(function () {
-            $(".lightbox-block2").removeClass("-openbox -opacity-zero");
-        }, 1000);
-    });
-    $(".submitbtn2").on("click", function () {
-        $(".lightbox-block2").addClass("-opacity-zero");
-        // 設定隔一秒後，移除相關 class
-        setTimeout(function () {
-            $(".lightbox-block2").removeClass("-openbox -opacity-zero");
-        }, 1000);
-    });
 
     // bubbleBtn
     $('.button--bubble').each(function () {

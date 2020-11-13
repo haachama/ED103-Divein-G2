@@ -29,19 +29,20 @@
                 <h4>數量</h4>
                 <h4>小計</h4>
             </div>
-            <div class="listRow">
-                <!-- //假的 -->
+
+            <!-- <div class="listRow">
                 <div class="prodInfo">
-                        <div class="prodPic">
-                            <img src="./img/shop/mask4@2x.png" alt="">
-                        </div>
-                        <div class="prodName">水中看得清</div>
-                        <div class="prodPrice">8600</div>
-                        <div class="prodNumber">1</div>
-                        <div class="subTotal">17200</div>
+                    <div class="prodPic">
+                        <img src="./img/shop/mask4@2x.png" alt="">
                     </div>
+                    <div class="prodName">水中看得清</div>
+                    <div class="prodPrice">8600</div>
+                    <div class="prodNumber">1</div>
+                    <div class="subTotal">17200</div>
                 </div>
-                <!-- 假的 -->
+            </div> -->
+        </div>
+
             <div class="totalContent">
                 <div class="gamePlay">
                     <span>玩遊戲獲取紅利點數！</span>
@@ -49,11 +50,10 @@
                 </div>
                 <div class="calc">
                     <p class="bill">商品總金額：$<span id="allTotal">0</span></p>
-                    <p class="point">您目前持有點數：<span id ="gamePoint">100</span></p>
+                    <p class="point">您目前持有點數：<span id="gamePoint">100</span></p>
                     <p class="total">總計：$<span id="lastTotal">34700</span></p>
                 </div>
             </div>
-        </div>
     </div>
 
     <div class="billSet">
@@ -84,7 +84,7 @@
                             信用卡帳號：
                             <input type="text">
                             -
-                            <input type="text">
+                            <input type="password">
                             -
                             <input type="text">
                             -
@@ -119,7 +119,7 @@
                             </svg>
 
                             <span class="button--bubble__container">
-                                <a href="#campaign" class="button button--bubble">
+                                <a href="./cart.html" class="button button--bubble">
                                     回上一步
                                 </a>
                                 <span class="button--bubble__effect-container">
@@ -186,8 +186,136 @@
     </div>
 
 
-    @@include('./layout/footer.html')
     <script src="./js/setBill.js"></script>
     <script src="./js/bubbleBtn.js"></script>
+
+    <script>
+        var storage = sessionStorage;
+        function doFirst() {
+
+            let itemString = storage.getItem('addItemList'); //給key值，傳回value
+            // alert(itemString); "A1001, A1005, A1006, A1002";
+            // substr 返回擷取的字串，四個分隔號會分割成五個值的陣列，故最後的分隔號不計算，就可避免多一個空值
+            let items = itemString.substr(0, itemString.length - 2).split(', ');
+            // [A1001,A1005,A1006,A1002]
+            let itemRoot ='';
+            let asd = '';
+
+            newlistRow = document.createElement('div');
+            newlistRow.className = 'listRow';
+
+            document.getElementsByClassName('wrap')[0].appendChild(newlistRow);
+
+            for (let i = 0; i < items.length; i++) {
+                // items[0] = A1001，傳回 value值 Formosa|formosa.jpg|5000
+                let itemInfo = storage.getItem(items[i]);
+                // console.log(items);
+                createlistRow(items[i], itemInfo);
+                let itemPrice = parseInt(itemInfo.split('|')[2]);  //value="Formosa|formosa.jpg|5000" 價格的部分
+                // total += itemPrice;
+            }
+
+            function createlistRow(itemId, itemValue) {
+                newprodInfo = document.createElement('div');
+                newprodInfo.className = 'prodInfo';
+
+                newprodPic = document.createElement('div');
+                newprodPic.className = 'prodPic';
+                asd = itemId;
+
+                newImg = document.createElement('img');
+
+                newprodName = document.createElement('div');
+                newprodName.className = 'prodName';
+
+                newprodPrice = document.createElement('div');
+                newprodPrice.className = 'prodPrice';
+
+                newprodNumber = document.createElement('div');
+                newprodNumber.className = 'prodNumber';
+
+                newsubTotal = document.createElement('div');
+                newsubTotal.className = 'subTotal';
+
+
+                let itemTitle = itemValue.split('|')[0];
+                let itemImage = './img/shop/' + itemValue.split('|')[1];
+                let itemPrice = parseInt(itemValue.split('|')[2]);
+                itemRoot = parseInt(itemValue.split('|')[itemValue.split('|').length-1]);
+                console.log(itemRoot);
+
+                // 建立每個品項的清單區域-----
+
+                newlistRow.appendChild(newprodInfo);
+
+
+
+                // 建立商品圖片-----
+                newprodInfo.appendChild(newprodPic);
+                newprodPic.appendChild(newImg);
+                newImg.src = itemImage
+                newImg.width = "100%";   //HTMl 屬性不用單位
+
+
+
+                // 建立商品名稱-----
+                newprodInfo.appendChild(newprodName);
+                newprodName.innerText = itemTitle;
+                newprodName.id = itemId;
+
+                // 建立商品價格-----
+                newprodInfo.appendChild(newprodPrice);
+                newprodPrice.innerText = itemPrice;
+
+
+                // 建立商品數量-----
+                newprodInfo.appendChild(newprodNumber);
+                newprodNumber.innerText = itemRoot;
+
+
+                // 建立商品小計-----td
+                newprodInfo.appendChild(newsubTotal);
+                newsubTotal.innerText = itemPrice * itemRoot;
+
+            }
+
+                let prodNumber = itemRoot;
+                console.log(prodNumber);
+                let inputN = document.getElementsByClassName('prodNumber')[0];
+                console.log(inputN);
+                
+                let thisItem = storage.getItem(asd);  //得到value值
+                let itemPrice = parseInt(thisItem.split('|')[2])  //取得每個商品價格
+                // let subtotal = this.parentNode.nextSibling;
+                // console.log(subtotal.innerText);
+                newCount = parseInt(inputN.value);
+                newPrice = itemPrice * newCount;
+
+                let newPri = 0;
+                // subtotal.innerText = parseInt(newPrice);
+                for (let i = 0; i < document.getElementsByClassName('subTotal').length; i++) {
+                    newPri += parseInt(document.getElementsByClassName('subTotal')[i].innerText);
+                }
+                // console.log(newPri);
+                document.getElementById('allTotal').innerText = newPri;
+
+                console.log(window.history);
+                console.log(window.history);
+
+                document.getElementsByClassName('toBack')[0].addEventListener('click',goBack);
+                function goBack(){
+                    if(window.history.go(-1)){
+                        let itemString = storage.getItem('addItemList');
+                        let itemCount = theString.split('|')[itemString.length-1];
+                        alert(1);
+                        document.querySelector('.prodNumber input').value = itemCount;
+                    }
+                }
+        }
+        
+        window.addEventListener('load',doFirst);
+
+    </script>
 </body>
+
 </html>
