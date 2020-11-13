@@ -1,12 +1,10 @@
 <?php
 try{
-  require_once("./connectBooks.php");
+  require_once("./connectED103g2.php");
   $sql = "select * from member where memId=:memId and memPsw=:memPsw"; 
   $member = $pdo->prepare($sql);
   $member->bindValue(":memId", $_POST["memId"]);
   $member->bindValue(":memPsw", $_POST["memPsw"]);
-  // $member->bindValue(":memId", "testg2");
-  // $member->bindValue(":memPsw", "testg2");
   $member->execute();
   if( $member->rowCount()==0){ //查無此人
 	  echo "{}";
@@ -19,12 +17,10 @@ try{
     $_SESSION["memId"] = $memRow["memId"];
     $_SESSION["memPsw"] = $memRow["memPsw"];
     $_SESSION["memName"] = $memRow["memName"];
-    $_SESSION["memNickName"] = $memRow["memNickName"];
     $_SESSION["memMail"] = $memRow["memMail"];
     $_SESSION["memAvatar"] = $memRow["memAvatar"];
     $_SESSION["memGamePoint"] = $memRow["memGamePoint"];
     $_SESSION["points"] = $memRow["points"];
-    $_SESSION["memGamePicture"] = $memRow["memGamePicture"];
     // $_SESSION["licenseOW"] = $memRow["licenseOW"];
     // $_SESSION["licenseAOW"] = $memRow["licenseAOW"];
 

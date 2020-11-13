@@ -1,4 +1,4 @@
-import $ from "jquery";
+// import $ from "jquery";
 
 $(function () {
 //登入&註冊切換
@@ -120,7 +120,6 @@ $(function () {
     var RegMemId = $("#RegMemId").val();
     var RegMemPsw = $("#RegMemPsw").val();
     var RegMemName = $("#RegMemName").val();
-    var RegMemNickName = $("#RegMemNickName").val();
     var RegMemMail = $("#RegMemMail").val();
 
     $.ajax({
@@ -130,16 +129,12 @@ $(function () {
         memId:RegMemId,
         memPsw:RegMemPsw,
         memName:RegMemName,
-        memNickName:RegMemNickName,
         memMail:RegMemMail,
       },
       dataType: 'json',
       success:function(response){
         alert(response);
-      },
-      // error:function(){
-      //   alert("失敗");
-      // }, 
+      }, 
     });
   }
 
@@ -157,7 +152,6 @@ $(function () {
       $("#RegMemPsw").val("");
       $("#RegMemIdCheck").val("");
       $("#RegMemName").val("");
-      $("#RegMemNickName").val("");
       $("#RegMemMail").val("");
       $(".memLogRegArea").removeClass("memberMove");
     }

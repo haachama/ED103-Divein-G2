@@ -1,14 +1,13 @@
 <?php
 try{
-    require_once("./connectBooks.php");
+    require_once("./connectED103g2.php");
 
     $memId = $_GET["memId"];
     $memPsw = $_GET["memPsw"];
     $memName = $_GET["memName"];
-    $memNickName = $_GET["memNickName"];
     $memMail = $_GET["memMail"];
 
-    $sql = "INSERT INTO member (memId, memPsw, memName, memNickName, memMail) VALUES('$memId', '$memPsw', '$memName', '$memNickName', '$memMail')";
+    $sql = "INSERT INTO member (memId, memPsw, memName, memMail) VALUES('$memId', '$memPsw', '$memName', '$memMail')";
     $member = $pdo->prepare($sql);
     $member->execute();
 
