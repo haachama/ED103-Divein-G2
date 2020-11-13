@@ -1,12 +1,15 @@
 // import $ from "jquery";
-import {TweenMax, TimelineMax} from "gsap";
+import {
+    TweenMax,
+    TimelineMax
+} from "gsap";
 import Vue from "vue";
 // import TimelineMax from "gsap";
 
 
 $(function () {
     $(function ($) {
-    //自己的JS
+        //自己的JS
         "use strict";
         document.getElementsByTagName("body")[0].addEventListener("mousemove", function (n) {
             t.style.left = n.clientX + "px",
@@ -19,9 +22,11 @@ $(function () {
         var t = document.getElementById("cursor"),
             e = document.getElementById("cursor2"),
             i = document.getElementById("cursor3");
+
         function n(t) {
             e.classList.add("hover"), i.classList.add("hover")
         }
+
         function s(t) {
             e.classList.remove("hover"), i.classList.remove("hover")
         }
@@ -29,6 +34,7 @@ $(function () {
         for (var r = document.querySelectorAll(".hover-target"), a = r.length - 1; a >= 0; a--) {
             o(r[a])
         }
+
         function o(t) {
             t.addEventListener("mouseover", n), t.addEventListener("mouseout", s)
         }
@@ -101,20 +107,20 @@ $(function () {
         }
     });
 });
-$(function () {    
+$(function () {
     //bubbleBtn
     $('.button--bubble').each(function () {
         var $circlesTopLeft = $(this).parent().find('.circle.top-left');
         var $circlesBottomRight = $(this).parent().find('.circle.bottom-right');
-    
-    
+
+
         var tl = new TimelineMax();
         var tl2 = new TimelineMax();
-    
+
         var btTl = new TimelineMax({
             paused: true
         });
-    
+
         tl.to($circlesTopLeft, 1.2, {
             x: -25,
             y: -25,
@@ -156,18 +162,18 @@ $(function () {
             y: '+=5',
             opacity: 0
         }, '-=1');
-    
-    
+
+
         var tlBt1 = new TimelineMax();
         var tlBt2 = new TimelineMax();
-    
+
         tlBt1.set($circlesTopLeft, {
             x: 0,
             y: 0,
             rotation: -45
         });
         tlBt1.add(tl);
-    
+
         tl2.set($circlesBottomRight, {
             x: 0,
             y: 0
@@ -210,14 +216,14 @@ $(function () {
             y: '-=5',
             opacity: 0
         }, '-=1');
-    
+
         tlBt2.set($circlesBottomRight, {
             x: 0,
             y: 0,
             rotation: 45
         });
         tlBt2.add(tl2);
-    
+
         btTl.add(tlBt1);
         btTl.to($(this).parent().find('.button.effect-button'), 0.8, {
             scaleY: 1.1
@@ -227,208 +233,280 @@ $(function () {
             scale: 1,
             ease: Elastic.easeOut.config(1.2, 0.4)
         }, 1.2);
-    
+
         btTl.timeScale(2.6);
-    
+
         $(this).on('mouseover', function () {
             btTl.restart();
         });
     });
 
 });
-$(function(){
+$(function () {
     // 開啟 Modal 彈跳視窗
-    $(".mainBtn_2").on("click", function(){
+    $(".mainBtn_2").on("click", function () {
         $(".lightbox-block2").addClass("-openbox");
     });
     // 關閉 Modal
-    $(".btn_modal_close").on("click", function(){
+    $(".btn_modal_close").on("click", function () {
         $(".lightbox-block2").addClass("-opacity-zero");
         // 設定隔一秒後，移除相關 class
-            setTimeout(function(){
+        setTimeout(function () {
             $(".lightbox-block2").removeClass("-openbox -opacity-zero");
-            }, 1000);
-        });
-    $(".submitbtn2").on("click", function(){
+        }, 1000);
+    });
+    $(".submitbtn2").on("click", function () {
         $(".lightbox-block2").addClass("-opacity-zero");
         // 設定隔一秒後，移除相關 class
-        setTimeout(function(){
+        setTimeout(function () {
             $(".lightbox-block2").removeClass("-openbox -opacity-zero");
         }, 1000);
     });
 });
 var vm = new Vue({
-        el: '.diary_formSelect',
-        data() {
-            return {
-                options: [
-                    {
-                        value: "1",
-                        text: "綠島"
-                    },
-                    {
-                        value: "2",
-                        text: "蘭嶼"
-                    },
-                    {
-                        value: "3",
-                        text: "墾丁"
-                    },
-                    {
-                        value: "4",
-                        text: "小琉球"
-                    },
-                    {
-                        value: "5",
-                        text: "東北角"
-                    },
-                ],
-                areas: [
-                    {
-                        selected: "1", //綠島
-                        diveArea: [{key:"海底教堂",value:"1"},{key:"鋼鐵礁",value:"2"}, {key:"石朗大香菇",value:"3"}, {key:"海底大峽谷",value:"4"}, {key:"雞仔礁",value:"5"}],
-                    },
-                    {
-                        selected: "2", //蘭嶼
-                        diveArea: [{key:"母雞岩",value:"6"}, {key:"八代灣沉船",value:"7"}, {key:"椰油斷層",value:"8"}, {key:"野銀小峽谷",value:"9"}, {key:"四條溝",value:"10"}],
-                    },
-                    {
-                        selected: "3", //墾丁
-                        diveArea: [{key:"後壁湖",value:"11"}, {key:"出水口",value:"12"}, {key:"雙峰藍洞",value:"13"}, {key:"合界",value:"14"}],
-                    },
-                    {
-                        selected: "4", //小琉球
-                        diveArea: [{key:"花瓶岩",value:"15"}, {key:"美人洞",value:"16"}, {key:"衫福沈船",value:"17"}, {key:"鎮海艦",value:"18"}, {key:"厚石礁群",value:"19"}],
-                    },
-                    {
-                        selected: "5", //東北角
-                        diveArea: [{key:"和美",value:"20"}, {key:"龍洞",value:"21"}, {key:"潮境公園",value:"22"}, {key:"鼻頭角",value:"23"}],
-                    }
-                ],
-                value: "",
-                prodRows: "",  //這是ajax的
-            };
-        },
-        computed: {
-            show() {
-                if (this.value == "") {
-                    return [];
-                } else {
-                    // for (let index = 0; index < this.areas.length; index++) {
-                    //   const element = this.areas[index];
-                    //   if (element.selected == this.value) {
-                    //     return element.diveArea;
-                    //   }
-                    // }
-                    return this.areas.filter((x) => x.selected == this.value)[0].diveArea;
+    el: '.diary_formSelect_vue',
+    data() {
+        return {
+            options: [{
+                    value: "1",
+                    text: "綠島"
+                },
+                {
+                    value: "2",
+                    text: "蘭嶼"
+                },
+                {
+                    value: "3",
+                    text: "墾丁"
+                },
+                {
+                    value: "4",
+                    text: "小琉球"
+                },
+                {
+                    value: "5",
+                    text: "東北角"
+                },
+            ],
+            areas: [{
+                    selected: "1", //綠島
+                    diveArea: [{
+                        key: "海底教堂",
+                        value: "1"
+                    }, {
+                        key: "鋼鐵礁",
+                        value: "2"
+                    }, {
+                        key: "石朗大香菇",
+                        value: "3"
+                    }, {
+                        key: "海底大峽谷",
+                        value: "4"
+                    }, {
+                        key: "雞仔礁",
+                        value: "5"
+                    }],
+                },
+                {
+                    selected: "2", //蘭嶼
+                    diveArea: [{
+                        key: "母雞岩",
+                        value: "6"
+                    }, {
+                        key: "八代灣沉船",
+                        value: "7"
+                    }, {
+                        key: "椰油斷層",
+                        value: "8"
+                    }, {
+                        key: "野銀小峽谷",
+                        value: "9"
+                    }, {
+                        key: "四條溝",
+                        value: "10"
+                    }],
+                },
+                {
+                    selected: "3", //墾丁
+                    diveArea: [{
+                        key: "後壁湖",
+                        value: "11"
+                    }, {
+                        key: "出水口",
+                        value: "12"
+                    }, {
+                        key: "雙峰藍洞",
+                        value: "13"
+                    }, {
+                        key: "合界",
+                        value: "14"
+                    }],
+                },
+                {
+                    selected: "4", //小琉球
+                    diveArea: [{
+                        key: "花瓶岩",
+                        value: "15"
+                    }, {
+                        key: "美人洞",
+                        value: "16"
+                    }, {
+                        key: "衫福沈船",
+                        value: "17"
+                    }, {
+                        key: "鎮海艦",
+                        value: "18"
+                    }, {
+                        key: "厚石礁群",
+                        value: "19"
+                    }],
+                },
+                {
+                    selected: "5", //東北角
+                    diveArea: [{
+                        key: "和美",
+                        value: "20"
+                    }, {
+                        key: "龍洞",
+                        value: "21"
+                    }, {
+                        key: "潮境公園",
+                        value: "22"
+                    }, {
+                        key: "鼻頭角",
+                        value: "23"
+                    }],
                 }
-            },
-        },
-        methods:{
-            // console.log("hi")這是測試的
-
-             //------------------------showProducts
-                // function showProducts(){
-                // 	let html = "<table align='center'>";
-                // 	for(let i=0; i<prodRows.length; i++){
-                // 		html += `<tr><td>${prodRows[i].pname}</td><td>${prodRows[i].diarySelect}</td><td>${prodRows[i].author}</td><td><img width="50" src="images/${prodRows[i].image}"></td></tr>`;
-                // 	}
-                // 	html += "</table>";
-                // 	document.getElementById("showPanel").innerHTML = html;
+            ],
+            value: "",
+            diveTypeFilter: "",
+            diaryCartfor:"",
+            diveTypes: [{
+                    value: "1",
+                    type: "旅遊潛水"
+                },
+                {
+                    value: "2",
+                    type: "課程潛水"
+                },
+            ],
+            cardData: [{
+                diaryNo: "1",
+                memNo: "1",
+                diaryName: "四條蘭嶼狂歡夜",
+                diaryWriteDate: "2020-11-05 12:57:22",
+                diaryType: "1",
+                diveNo: "10",
+                courseNo: "1",
+                diaryDiveTime: "100",
+                diaryPlayDate: "2020-11-01 17:31:25",
+                diaryWeather: "1",
+                diaryVisibility: "20",
+                diaryTemp: "18",
+                diaryWaterTemp: "31",
+                diaryText: "今天的最大重頭戲夜潛看珊瑚產卵，由於下午在眺石看過現場潛伴覺得可能性不高，所以只好轉戰最多人以及最有可能的出水口這個潛點，原本要過來前就覺得應該會是大爆滿的人果真一到現場停車一看就是滿滿像是夜市般的熱鬧，水下更是精彩，從水面上看過去水下的手電筒光芒四射呢，不過也想著這應該會很慘才是，果不其然水下的人太多了，雖然夜潛的能見度本來就不是說多好，但是太多的人就容易揚沙起來，整個畫面都是沙粒。夜潛的許多常見的生物晚上都會出來見個面，寄居蟹、海膽、螺類，最幸福的是又看到一顆大法螺。",
+                diaryPoint1: "10",
+                diaryPoint2: "45",
+                diaryPoint3: "20",
+                diaryPoint4: "30",
+                diaryPoint5: "5",
+                diaryTimePoint1: "5",
+                diaryTimePoint2: "5",
+                diaryTimePoint3: "5",
+                diaryTimePoint4: "5",
+                diaryTimePoint5: "5",
+                diaryPicsNo: "diaryphoto9.png"
+            }, {
+                diaryNo: "2",
+                memNo: "2",
+                diaryName: "盛夏花瓶岩游",
+                diaryWriteDate: "2020-11-06 12:57:22",
+                diaryType: "2",
+                diveNo: "15",
+                courseNo: "1",
+                diaryDiveTime: "60",
+                diaryPlayDate: "2020-06-06 17:31:25",
+                diaryWeather: "1",
+                diaryVisibility: "20",
+                diaryTemp: "28",
+                diaryWaterTemp: "31",
+                diaryText: "今天的最大重頭戲夜潛看珊瑚產卵，由於下午在眺石看過現場潛伴覺得可能性不高，所以只好轉戰最多人以及最有可能的出水口這個潛點，原本要過來前就覺得應該會是大爆滿的人果真一到現場停車一看就是滿滿像是夜市般的熱鬧，水下更是精彩，從水面上看過去水下的手電筒光芒四射呢，不過也想著這應該會很慘才是，果不其然水下的人太多了，雖然夜潛的能見度本來就不是說多好，但是太多的人就容易揚沙起來，整個畫面都是沙粒。夜潛的許多常見的生物晚上都會出來見個面，寄居蟹、海膽、螺類，最幸福的是又看到一顆大法螺。",
+                diaryPoint1: "15",
+                diaryPoint2: "40",
+                diaryPoint3: "23",
+                diaryPoint4: "35",
+                diaryPoint5: "12",
+                diaryTimePoint1: "5",
+                diaryTimePoint2: "5",
+                diaryTimePoint3: "5",
+                diaryTimePoint4: "5",
+                diaryTimePoint5: "5",
+                diaryPicsNo: "diaryphoto9.png"
+            }, {
+                diaryNo: "3",
+                memNo: "2",
+                diaryName: "海底焦糖.綠島",
+                diaryWriteDate: "2020-11-06 12:57:22",
+                diaryType: "2",
+                diveNo: "1",
+                courseNo: "2",
+                diaryDiveTime: "80",
+                diaryPlayDate: "2020-06-14 17:31:25",
+                diaryWeather: "1",
+                diaryVisibility: "20",
+                diaryTemp: "20",
+                diaryWaterTemp: "25",
+                diaryText: "今天的最大重頭戲夜潛看珊瑚產卵，由於下午在眺石看過現場潛伴覺得可能性不高，所以只好轉戰最多人以及最有可能的出水口這個潛點，原本要過來前就覺得應該會是大爆滿的人果真一到現場停車一看就是滿滿像是夜市般的熱鬧，水下更是精彩，從水面上看過去水下的手電筒光芒四射呢，不過也想著這應該會很慘才是，果不其然水下的人太多了，雖然夜潛的能見度本來就不是說多好，但是太多的人就容易揚沙起來，整個畫面都是沙粒。夜潛的許多常見的生物晚上都會出來見個面，寄居蟹、海膽、螺類，最幸福的是又看到一顆大法螺。",
+                diaryPoint1: "15",
+                diaryPoint2: "40",
+                diaryPoint3: "20",
+                diaryPoint4: "35",
+                diaryPoint5: "10",
+                diaryTimePoint1: "5",
+                diaryTimePoint2: "5",
+                diaryTimePoint3: "5",
+                diaryTimePoint4: "5",
+                diaryTimePoint5: "5",
+                diaryPicsNo: "diaryphoto8.png"
+            }]
+        };
+    },
+    // mounted() {
+    //     axios.get("diaryQuery.php").then(
+    //         data => {
+    //             console.log(data);
+    //             this.cardData = data.data
+    //         })
+    // },
+    computed: {
+        show() {
+            if (this.value == "") {
+                return [];
+            } else {
+                // for (let index = 0; index < this.areas.length; index++) {
+                //   const element = this.areas[index];
+                //   if (element.selected == this.value) {
+                //     return element.diveArea;
+                //   }
                 // }
-                //------------------------getProducts
-                getProducts(){
-                    // alert
-                    let diarySelect = document.getElementById("diarySelect").value;
-                    let diveid = document.getElementsByClassName("diveclass"); //object
-                    //for...in
-                    //兩個篩選可能都為空，所以要判斷
-                    var diaryQueryString ='';
-                    var divedQueryString ='';
-                    if(diarySelect != null){
-                        diaryQueryString =  `&diarySelect=${diarySelect}`;
-                    }
-                    if(diveid.length > 0){
-                        for(var i = 0; i<diveid.length ; i++){
-                            
-                            if( diveid[i].checked){
-                                divedQueryString = `${divedQueryString}"&diveid[]="${diveid[i].value}` //複選的字串串接
-                            }
-                        }
-                    }
+                return this.areas.filter((x) => x.selected == this.value)[0].diveArea;
+            }
+        },
+    },
+    watch: {
+        diveTypeFilter: function () {
+            console.log("還沒寫完");
+        },
+    },
+    methods: {
+        CardData() {
+            this.cardData[0].cardData
+            console.log("還沒寫完");
+        },
+        // console.log("hi")這是測試的
+    }
 
-                    for(var i=0;i<diveid.length;i++){
-                        console.log(diveid[i]);
-                    }
-                    let xhr = new XMLHttpRequest();
-                    xhr.onload = function(){
-                        prodRows = JSON.parse(xhr.responseText);
-                        // showProducts();
-                        console.log(prodRows);
-                    }
-                    // let url = `diaryQuery.php?diarySelect=${diarySelect}&diveid[]=${diveid}`; //2
-                    let url = `diaryQuery.php?${diaryQueryString}${divedQueryString}`;
-                    //?diveNo[]=1&diveNo[]=2  --> 這是網頁會印出的結果
-                    // let url = `diaryQuery.php?diarySelect=${diarySelect}`;
-                    
-                    xhr.open("get", url,false);
-                    xhr.send(null);	
-                }
-
-                // ------------------------filter diarySelect under ???
-                // document.getElementById("diarySelect").onchange = getProducts;
-                // console.log('--- paul : ' +  document.getElementById("diarySelect").innerHTML)
-                // ------------------------filter diveids
-                // document.getElementsByClassName("diveclass").onchange = getProducts; //2
-            
-                // console.log('size : ' +  document.getElementsByClassName("diveclass").length )
-                // document.getElementsByClassName("diveclass").onchange = function(){
-                // alert('1')
-        }
-            // }, false),
-    });
+});
 
 
 
-
-// $('#diarySelect').on("change",function(){
-//     var diarySelect = this.value;
-//     console.log("hih")
-//     $.ajax({
-//         url:`http://localhost/ED103-Divein-G2/app/diaryQuery.php?diarySelect=${diarySelect}`,
-//         // url:'diaryQuery.php?diarySelect=' + diarySelect,
-//         type: 'GET',
-//         dataType: 'text',
-//         success: function(data){
-//             // var content = "";
-//             // console.log("--- paul data : " + data);
-//             var result = JSON.parse(data);
-//             // for(var i = 0 ; i<result.length ; i++){
-
-//             //     content += "<option value=" +result[i]['diveNo'] +">" + result[i]['diveName']+"</option>"
-//             // }
-//             // $('.diveNo').html(content);
-//             console.log(result);
-//         },
-//         error: function (data) {
-//             console.log('出錯啦 data : ' + JSON.stringify(data));
-//         },
-//     })
-// })
-
-
-
-
-// document.getElementById('diarySelect').addEventListener('onchange',getJson);
-
-//         function getJson(){
-//             let diarySelect = document.getElementById("diarySelect").value;
-//             fetch(`diaryQuery.php?diarySelect=${diarySelect}`)
-//             .then(function(res){
-//                     return res.json();
-//                 })
-//                 .then(function(data){
-//                     console.log(data);
-//                 })
-//             .catch((err) => {console.log(err)});
-//         };

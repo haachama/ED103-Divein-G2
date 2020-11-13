@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js"></script>
     <link rel="stylesheet" href="./css/style.css">
     <title>海中日子 | 潛水日誌</title>
 </head>
@@ -131,7 +132,6 @@
         </div>
     </div>
 
-
     <!-- 所有日誌 Title -->
     <div class="diary_diaryTitleH3">
         <!-- 規範h3 -->
@@ -179,175 +179,172 @@
     </div>
 
 
-    <!-- 篩選 -->
-    <div class="diary_formSelect">
-        <form>
-            <div class="diarySelect">日誌篩選
-                <select id="diarySelect" @change="getProducts()">
-                    <option value="">選擇類型</option>
-                    <option value="1">旅遊潛水</option>
-                    <option value="2">課程潛水</option>
-                </select>
-            </div>
+    <div class="diary_formSelect_vue">
+        <!-- 篩選 -->
+        <div class="diary_formSelect">
+            <form>
+                <div class="diarySelect">日誌篩選
+                    <select id="diarySelect" v-model = "diveTypeFilter">
+                        <option v-for="i in diveTypes" :value="i.value" :key="i.value">{{i.type}}</option>
 
-            <div class="diveAreaSelect">潛域篩選
-                <!-- 下拉選潛域 -->
-                <select id="diveArea" v-model="value">
-                    <option v-for="i in options" :value="i.value" :key="i.value">
-                        {{ i.text }}
-                    </option>
-                </select>
-                <label v-for="item in show" :key="item.key"><p><input type="checkbox" name="diveid[]" :value="item.value" class="diveclass"/>{{ item.key }}</p></label>
+                    </select>
+                </div>
+
+                <div class="diveAreaSelect">潛域篩選
+                    <!-- 下拉選潛域 -->
+                    <select id="diveArea" v-model="value">
+                        <option v-for="i in options" :value="i.value" :key="i.value">
+                            {{ i.text }}
+                        </option>
+                    </select>
+                    <label v-for="item in show" :key="item.key"><p><input type="checkbox" name="diveid[]" :value="item.value" class="diveclass"/>{{ item.key }}</p></label>
+                </div>
+            </form>
+            
+        </div>
+
+        <!-- 日誌卡片 --> 
+        <div class="diaryCenter" >
+            <!-- 1 -->
+            <div class="diarySolid" v-for="vuecard in cardData" :key="vuecard.diaryNo" v-model="diaryCartfor">
+                <a href="./diaryInside.html">
+                    <div class="imgContent">
+                        <div class="imgSolid">
+                            <!-- 規範img -->
+                            <img :src="vuecard.diaryPicsNo" class="image">
+                        </div>
+                        <div class="diaryTitleA">
+                            <div class="diaryTitleFlex">
+                                <div class="userLogo"><img src="./img/diary/user.png" class="image"></div>
+                                <!-- 規範h4、h5 -->
+                                <h5 class="userName">diver</h5>
+                            </div>
+                            <h4 class="userText">{{vuecard.diaryName}}</h4>
+                        </div>
+                        <div class="diaryTitleB">
+                            <h4 class="diaryTitleText">綠島-鋼鐵礁</h4><!-- 規範h4、h5 -->
+                            <p class="diaryTitleDate">{{vuecard.diaryPlayDate}}</p>
+                        </div>
+                    </div>
+                    <div class="diaryText">
+                        <div class="diaryTextData">
+                            <div>
+                                <p>日誌類型 </p>
+                                <p><span>課程</span><span></span></p>
+                            </div>
+                            <div>
+                                <p>最大深度</p>
+                                <p><span>33.2</span><span>米</span></p>
+                            </div>
+                            <div>
+                                <p>平均深度</p>
+                                <p><span>23.2</span><span>米</span></p>
+                            </div>
+                            <div>
+                                <p>潛水時間</p>
+                                <p><span>{{vuecard.diaryDiveTime}}</span><span>m</span></p>
+                            </div>
+                        </div>
+                        <div class="diaryTextP">
+                            <p class="diaryTextPP">{{vuecard.diaryText}}</p>
+                            <i class="fas fa-ellipsis-v"></i>
+                        </div>
+                    </div>
+                </a>
             </div>
-        </form>
+            <!-- 2 -->
+            <!-- <div class="diarySolid">
+                <a href="./diaryInside.html">
+                    <div class="imgContent">
+                        <div class="imgSolid">
+                            <img src="./img/diary/diaryphoto2.png" class="image">
+                        </div>
+                        <div class="diaryTitleA">
+                            <div class="diaryTitleFlex">
+                                <div class="userLogo"><img src="./img/diary/user.png" class="image"></div>
+                                <h5 class="userName">diver</h5>
+                            </div>
+                            <h4 class="userText">潛水體驗去</h4>
+                        </div>
+                        <div class="diaryTitleB">
+                            <h4 class="diaryTitleText">綠島-鋼鐵礁</h4>
+                            <p class="diaryTitleDate">2020-06-16 | 21:07</p>
+                        </div>
+                    </div>
+                    <div class="diaryText">
+                        <div class="diaryTextData">
+                            <div>
+                                <p>日誌類型 </p>
+                                <p><span>課程</span><span></span></p>
+                            </div>
+                            <div>
+                                <p>最大深度</p>
+                                <p><span>33.2</span><span>米</span></p>
+                            </div>
+                            <div>
+                                <p>平均深度</p>
+                                <p><span>23.2</span><span>米</span></p>
+                            </div>
+                            <div>
+                                <p>潛水時間</p>
+                                <p><span>45</span><span>m</span></p>
+                            </div>
+                        </div>
+                        <div class="diaryTextP">
+                            <p class="diaryTextPP">海風的味道，就像夏天的擁抱</p>
+                            <i class="fas fa-ellipsis-v"></i>
+                        </div>
+                    </div>
+                </a>
+            </div> -->
+            <!-- 3 -->
+            <!-- <div class="diarySolid">
+                <a href="./diaryInside.html">
+                    <div class="imgContent">
+                        <div class="imgSolid">
+                            <img src="./img/diary/diaryphoto4.png" class="image">
+                        </div>
+                        <div class="diaryTitleA">
+                            <div class="diaryTitleFlex">
+                                <div class="userLogo"><img src="./img/diary/user.png" class="image"></div>
+                                <h5 class="userName">diver</h5>
+                            </div>
+                            <h4 class="userText">潛水體驗去</h4>
+                        </div>
+                        <div class="diaryTitleB">
+                            <h4 class="diaryTitleText">綠島-鋼鐵礁</h4>
+                            <p class="diaryTitleDate">2020-06-16 | 21:07</p>
+                        </div>
+                    </div>
+                    <div class="diaryText">
+                        <div class="diaryTextData">
+                            <div>
+                                <p>日誌類型 </p>
+                                <p><span>課程</span><span></span></p>
+                            </div>
+                            <div>
+                                <p>最大深度</p>
+                                <p><span>33.2</span><span>米</span></p>
+                            </div>
+                            <div>
+                                <p>平均深度</p>
+                                <p><span>23.2</span><span>米</span></p>
+                            </div>
+                            <div>
+                                <p>潛水時間</p>
+                                <p><span>45</span><span>m</span></p>
+                            </div>
+                        </div>
+                        <div class="diaryTextP">
+                            <p class="diaryTextPP">海風的味道，就像夏天的擁抱</p>
+                            <i class="fas fa-ellipsis-v"></i>
+                        </div>
+                    </div>
+                </a>
+            </div> -->
+        </div>
     </div>
 
-
-
-    <!-- 日誌卡片 -->
-    <div class="diaryCenter">
-        <!-- 1 -->
-        <div class="diarySolid">
-            <a href="./diaryInside.html">
-                <div class="imgContent">
-                    <div class="imgSolid">
-                        <!-- 規範img -->
-                        <img src="./img/diary/diaryphoto1.png" class="image">
-                    </div>
-                    <div class="diaryTitleA">
-                        <div class="diaryTitleFlex">
-                            <div class="userLogo"><img src="./img/diary/user.png" class="image"></div>
-                            <!-- 規範h4、h5 -->
-                            <h5 class="userName">diver</h5>
-                        </div>
-                        <h4 class="userText">潛水體驗去</h4>
-                    </div>
-                    <div class="diaryTitleB">
-                        <h4 class="diaryTitleText">綠島-鋼鐵礁</h4><!-- 規範h4、h5 -->
-                        <p class="diaryTitleDate">2020-06-16 | 21:07</p>
-                    </div>
-                </div>
-                <div class="diaryText">
-                    <div class="diaryTextData">
-                        <div>
-                            <p>日誌類型 </p>
-                            <p><span>課程</span><span></span></p>
-                        </div>
-                        <div>
-                            <p>最大深度</p>
-                            <p><span>33.2</span><span>米</span></p>
-                        </div>
-                        <div>
-                            <p>平均深度</p>
-                            <p><span>23.2</span><span>米</span></p>
-                        </div>
-                        <div>
-                            <p>潛水時間</p>
-                            <p><span>45</span><span>m</span></p>
-                        </div>
-                    </div>
-                    <div class="diaryTextP">
-                        <p class="diaryTextPP">海風的味道，就像夏天的擁抱</p>
-                        <i class="fas fa-ellipsis-v"></i>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <!-- 2 -->
-        <div class="diarySolid">
-            <a href="./diaryInside.html">
-                <div class="imgContent">
-                    <div class="imgSolid">
-                        <!-- 規範img -->
-                        <img src="./img/diary/diaryphoto2.png" class="image">
-                    </div>
-                    <div class="diaryTitleA">
-                        <div class="diaryTitleFlex">
-                            <div class="userLogo"><img src="./img/diary/user.png" class="image"></div>
-                            <!-- 規範h4、h5 -->
-                            <h5 class="userName">diver</h5>
-                        </div>
-                        <h4 class="userText">潛水體驗去</h4>
-                    </div>
-                    <div class="diaryTitleB">
-                        <h4 class="diaryTitleText">綠島-鋼鐵礁</h4><!-- 規範h4、h5 -->
-                        <p class="diaryTitleDate">2020-06-16 | 21:07</p>
-                    </div>
-                </div>
-                <div class="diaryText">
-                    <div class="diaryTextData">
-                        <div>
-                            <p>日誌類型 </p>
-                            <p><span>課程</span><span></span></p>
-                        </div>
-                        <div>
-                            <p>最大深度</p>
-                            <p><span>33.2</span><span>米</span></p>
-                        </div>
-                        <div>
-                            <p>平均深度</p>
-                            <p><span>23.2</span><span>米</span></p>
-                        </div>
-                        <div>
-                            <p>潛水時間</p>
-                            <p><span>45</span><span>m</span></p>
-                        </div>
-                    </div>
-                    <div class="diaryTextP">
-                        <p class="diaryTextPP">海風的味道，就像夏天的擁抱</p>
-                        <i class="fas fa-ellipsis-v"></i>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <!-- 3 -->
-        <div class="diarySolid">
-            <a href="./diaryInside.html">
-                <div class="imgContent">
-                    <div class="imgSolid">
-                        <!-- 規範img -->
-                        <img src="./img/diary/diaryphoto4.png" class="image">
-                    </div>
-                    <div class="diaryTitleA">
-                        <div class="diaryTitleFlex">
-                            <div class="userLogo"><img src="./img/diary/user.png" class="image"></div>
-                            <!-- 規範h4、h5 -->
-                            <h5 class="userName">diver</h5>
-                        </div>
-                        <h4 class="userText">潛水體驗去</h4>
-                    </div>
-                    <div class="diaryTitleB">
-                        <h4 class="diaryTitleText">綠島-鋼鐵礁</h4><!-- 規範h4、h5 -->
-                        <p class="diaryTitleDate">2020-06-16 | 21:07</p>
-                    </div>
-                </div>
-                <div class="diaryText">
-                    <div class="diaryTextData">
-                        <div>
-                            <p>日誌類型 </p>
-                            <p><span>課程</span><span></span></p>
-                        </div>
-                        <div>
-                            <p>最大深度</p>
-                            <p><span>33.2</span><span>米</span></p>
-                        </div>
-                        <div>
-                            <p>平均深度</p>
-                            <p><span>23.2</span><span>米</span></p>
-                        </div>
-                        <div>
-                            <p>潛水時間</p>
-                            <p><span>45</span><span>m</span></p>
-                        </div>
-                    </div>
-                    <div class="diaryTextP">
-                        <p class="diaryTextPP">海風的味道，就像夏天的擁抱</p>
-                        <i class="fas fa-ellipsis-v"></i>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </div>
     @@include('./layout/footer.html')
     <script src="./js/diary.js"></script>
 </body>
