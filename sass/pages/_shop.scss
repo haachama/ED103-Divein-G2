@@ -5,7 +5,7 @@
     }
 
     .bgBlack {
-        width: 80%;
+        width: 100%;
         margin: auto;
         // background-color: rgba(22, 24, 29, .9);
 
@@ -76,7 +76,6 @@
 
     .productUp,
     .productDown {
-        color: $keyWhite;
         display: flex;
         flex-wrap: wrap;
     }
@@ -123,19 +122,7 @@
             font-weight: 400;
         }
 
-        .addNumber {
-            text-align: center;
-            margin-bottom: 20px;
-
-            input {
-                width: 75px;
-                text-align: center;
-            }
-
-            .fas {
-                cursor: pointer;
-            }
-        }
+        
 
         .fa-heart {
             position: absolute;
@@ -144,10 +131,13 @@
             cursor: pointer;
             font-size: 24px;
 
-            &:hover {
-                color: red;
-            }
+            // &:hover {
+            //     color: red;
+            // }
         }
+        // .redFill{
+        //     color: red;
+        // }
     }
 
 
@@ -184,23 +174,20 @@
             }
         }
     }
-
     .bubbleBtn {
         width: 100px;
         box-sizing: border-box;
         margin: 0 10px;
     }
-
     .button {
         padding: 12px 10px;
         font-size: 12px;
 
     }
-
-
-
     .button--bubble__container {
         width: 100%;
     }
-
+    .swal2-header h2::before{
+        content: none;
+    }
 }
