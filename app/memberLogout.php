@@ -8,6 +8,6 @@ unset($_SESSION["memMail"]);
 unset($_SESSION["memAvatar"]);
 unset($_SESSION["memGamePoint"]);
 unset($_SESSION["points"]);
-// unset($_SESSION["licenseOW"]);
-// unset($_SESSION["licenseAOW"]);
+unset($_SESSION["licenseOW"]);
+unset($_SESSION["licenseAOW"]);
 ?>

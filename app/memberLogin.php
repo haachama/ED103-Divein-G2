@@ -21,16 +21,15 @@ try{
     $_SESSION["memAvatar"] = $memRow["memAvatar"];
     $_SESSION["memGamePoint"] = $memRow["memGamePoint"];
     $_SESSION["points"] = $memRow["points"];
-    // $_SESSION["licenseOW"] = $memRow["licenseOW"];
-    // $_SESSION["licenseAOW"] = $memRow["licenseAOW"];
+    $_SESSION["licenseOW"] = $memRow["licenseOW"];
+    $_SESSION["licenseAOW"] = $memRow["licenseAOW"];
 
     $result = array("memId"=>$memRow["memId"], "memPsw"=>$memRow["memPsw"],
                 "memName"=>$memRow["memName"], "memNickName"=>$memRow["memNickName"],
                 "memMail"=>$memRow["memMail"], "memAvatar"=>$memRow["memAvatar"],
                 "memGamePoint"=>$memRow["memGamePoint"], "points"=>$memRow["points"],
-                "memGamePicture"=>$memRow["memGamePicture"],);
-                // "licenseOW"=>$memRow["licenseOW"],
-                // "licenseAOW"=>$memRow["licenseAOW"]);
+                "memGamePicture"=>$memRow["memGamePicture"], "licenseOW"=>$memRow["licenseOW"],
+                "licenseAOW"=>$memRow["licenseAOW"]);
   	$json = json_encode($result);
 
     //送出登入者的相關資料

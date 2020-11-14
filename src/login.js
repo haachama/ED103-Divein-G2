@@ -5,7 +5,7 @@ $(function () {
       return document.getElementById(id);
     }	
     let member;
-    let coach;
+    // let coach;
   
     //============會員登入============
   
@@ -59,7 +59,6 @@ $(function () {
             $id("memName").innerText = `Hi,${member.memName}`;   //header會員名稱顯示
             $id('spanLogin').innerHTML = '&nbsp;登出';          //header登出顯示 
             sessionMember();                                       //將SESSION傳入指定PHP     
-            sessionStorage["where"]
           }
         }else{ //error
           alert(memberLogin.status);
@@ -80,7 +79,6 @@ $(function () {
       }
       memberLogin.open("Post", "member.php", true);
       memberLogin.setRequestHeader("content-type","application/x-www-form-urlencoded");
-      // let data_info = `memNo=${member.memNo}&memName=${member.memName}&memMail=${member.memMail}&memAvatar=${member.memAvatar}`;
       let data_info = `memNo=${member.memNo}`;
       memberLogin.send(data_info); 
     }
@@ -95,75 +93,75 @@ $(function () {
       //設定LoginMember.onclick 事件處理程序是 sendForm
       $id('LoginMember').onclick = memberSendForm;
     };
-    // window.addEventListener("load",init,false);
+    window.addEventListener("load",init,false);
   
   
     //============教練登入============
   
-    function coachShowLogin(){
-      //登出作業
-      //檢查登入bar面版上 spanLogin 的字是登出
-      //如果是""，將登入bar面版上，登入者資料清空 
-      //spanLogin的字改成登入
-      //將頁面上的使用者資料清掉
-      if($id('spanLogin').innerHTML == "&nbsp;登出"){
-        let coachLogin = new XMLHttpRequest();
-        coachLogin.onload = function(){
-          $id('memName').innerHTML = '&nbsp';     //header教練名稱顯示
-          $id('spanLogin').innerHTML = '';        //header登出顯示   
-        }
-        coachLogin.open("get", "coachLogout.php", true);
-        coachLogin.send(null);
-      }
-    }
-    function coachSendForm(){
-      //使用Ajax 回server端,取回登入者姓名, 放到頁面上 
-      let trainerId = $id("LoginCoachId").value;  
-      let trainerPsw = $id("LoginCoachPsw").value; 
-      let coachLogin = new XMLHttpRequest();
-      coachLogin.onload = function(){
-        coach = JSON.parse(coachLogin.responseText);
-        if(coach.trainerId){
-          $id("memName").innerText = coach.trainerName;  //header教練名稱顯示
-          $id('spanLogin').innerHTML = '登出';        //header登出顯示
-          //將登入表單上的資料清空，並隱藏起來
-          $id('LoginCoachId').value = '';
-          $id('LoginCoachPsw').value = '';  
-          $id('coachIdError').innerHTML = '';        
-        }else{
-          $id('coachIdError').innerHTML = '帳號密碼錯誤';
-        }
-      }
-      coachLogin.open("Post", "coachLogin.php", true);
-      coachLogin.setRequestHeader("content-type","application/x-www-form-urlencoded");
-      let data_info = `trainerId=${trainerId}&trainerPsw=${trainerPsw}`;
-      coachLogin.send(data_info); 
-    }
+    // function coachShowLogin(){
+    //   //登出作業
+    //   //檢查登入bar面版上 spanLogin 的字是登出
+    //   //如果是""，將登入bar面版上，登入者資料清空 
+    //   //spanLogin的字改成登入
+    //   //將頁面上的使用者資料清掉
+    //   if($id('spanLogin').innerHTML == "&nbsp;登出"){
+    //     let coachLogin = new XMLHttpRequest();
+    //     coachLogin.onload = function(){
+    //       $id('memName').innerHTML = '&nbsp';     //header教練名稱顯示
+    //       $id('spanLogin').innerHTML = '';        //header登出顯示   
+    //     }
+    //     coachLogin.open("get", "coachLogout.php", true);
+    //     coachLogin.send(null);
+    //   }
+    // }
+    // function coachSendForm(){
+    //   //使用Ajax 回server端,取回登入者姓名, 放到頁面上 
+    //   let trainerId = $id("LoginCoachId").value;  
+    //   let trainerPsw = $id("LoginCoachPsw").value; 
+    //   let coachLogin = new XMLHttpRequest();
+    //   coachLogin.onload = function(){
+    //     coach = JSON.parse(coachLogin.responseText);
+    //     if(coach.trainerId){
+    //       $id("memName").innerText = coach.trainerName;  //header教練名稱顯示
+    //       $id('spanLogin').innerHTML = '登出';        //header登出顯示
+    //       //將登入表單上的資料清空，並隱藏起來
+    //       $id('LoginCoachId').value = '';
+    //       $id('LoginCoachPsw').value = '';  
+    //       $id('coachIdError').innerHTML = '';        
+    //     }else{
+    //       $id('coachIdError').innerHTML = '帳號密碼錯誤';
+    //     }
+    //   }
+    //   coachLogin.open("Post", "coachLogin.php", true);
+    //   coachLogin.setRequestHeader("content-type","application/x-www-form-urlencoded");
+    //   let data_info = `trainerId=${trainerId}&trainerPsw=${trainerPsw}`;
+    //   coachLogin.send(data_info); 
+    // }
   
-    function getCoachInfo(){
-      let coachLogin = new XMLHttpRequest();
-      coachLogin.onload = function(){
-        if(coachLogin.status == 200){ //success
-          coach = JSON.parse(coachLogin.responseText);
-          if(coach.trainerId){
-            $id("memName").innerText = coach.trainerName;   //header會員名稱顯示
-            $id('spanLogin').innerHTML = '登出';          //header登出顯示      
-          }
-        }else{ //error
-          alert(coachLogin.status);
-        }
-      }
-      coachLogin.open("get", "postCoachInfo.php", true);
-      coachLogin.send(null);
-    }
+    // function getCoachInfo(){
+    //   let coachLogin = new XMLHttpRequest();
+    //   coachLogin.onload = function(){
+    //     if(coachLogin.status == 200){ //success
+    //       coach = JSON.parse(coachLogin.responseText);
+    //       if(coach.trainerId){
+    //         $id("memName").innerText = coach.trainerName;   //header會員名稱顯示
+    //         $id('spanLogin').innerHTML = '登出';          //header登出顯示      
+    //       }
+    //     }else{ //error
+    //       alert(coachLogin.status);
+    //     }
+    //   }
+    //   coachLogin.open("get", "postCoachInfo.php", true);
+    //   coachLogin.send(null);
+    // }
   
-    function init(){
-      //檢查是否已登入
-      getCoachInfo();
-      //設定spanLogin.onclick 事件處理程序是 showLoginForm
-      $id('spanLogin').onclick = coachShowLogin;
-      //設定LoginCoach.onclick 事件處理程序是 sendForm
-      $id('LoginCoach').onclick = coachSendForm;
-    };
-    window.addEventListener("load",init,false);
+    // function init(){
+    //   //檢查是否已登入
+    //   getCoachInfo();
+    //   //設定spanLogin.onclick 事件處理程序是 showLoginForm
+    //   $id('spanLogin').onclick = coachShowLogin;
+    //   //設定LoginCoach.onclick 事件處理程序是 sendForm
+    //   $id('LoginCoach').onclick = coachSendForm;
+    // };
+    // window.addEventListener("load",init,false);
   });
