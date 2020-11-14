@@ -499,7 +499,7 @@ var vm = new Vue({
         },
     },
     methods: {
-        CardData() {
+        maxDepth() {
             this.cardData[0].cardData
             console.log("還沒寫完");
         },
