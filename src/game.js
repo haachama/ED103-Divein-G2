@@ -4,41 +4,65 @@
 "use strict";//嚴格模式
 
 //↓宣告要用到的全域變數
-var myGamePiece;
 
-var canvasWidth = 700;
-var canvasHeight = window.innerHeight -= 85; //螢幕高度減Header高度
 
-let postSign = true;
-var myObstacles = [];
-// var myObstaclesTwo = [];
-var obstacleSize = (canvasWidth/8); //障礙物尺寸
-var obstaclesSpace = 350;
-let life = 3; //血量上限(套血量變數)
-let heart = [];
-let hit = false;
-
-let yellowScore = false; //
-let doubleScore = 1; //分數加快速度，預設為不加快
-var myScore;
-
-var myBackground;
-
-let keyDown = false;//防止按鍵重複觸發用
-let myObstaclesSpeed = -10;//障礙物起始速度
-let Case = 1; //石塊排列方式初值
-
-let rockOne = 1; //石塊圖樣初值
-let rockTwo = 2; //石塊圖樣初值
-let rockThree = 1; //石塊圖樣初值
-let rockFour = 2; //石塊圖樣初值
-
+//接收裝備變數
 var roleColorValue = localStorage.getItem('roleColor');
 var mask = localStorage.getItem('mask');
 var air = localStorage.getItem('air');
 var shoe = localStorage.getItem('shoe');
 
-var roleImg = "./img/game/playRole.png";
+var view = localStorage.getItem('view');
+var life = localStorage.getItem('life');
+var speed = localStorage.getItem('speed');
+
+// alert("view = " + view);
+// alert("life = " + life);
+// alert("speed = " + speed);
+
+var myLeftBtn;
+var myRightBtn;
+
+var myGamePiece;
+var roleHeight = 70;//角色高度
+var roleImg = "./img/game/playRole.png";//角色圖片初值
+
+var canvasWidth = 700;
+if(window.innerWidth < 700){
+    canvasWidth = window.innerWidth;
+}
+var canvasHeight = window.innerHeight -= 85; //螢幕高度減Header高度
+
+//障礙物
+let postSign = true;
+var myObstacles = [];
+var obstacleSize = 75; //障礙物尺寸(直徑)
+if(window.innerWidth < 700){
+    obstacleSize = 85;
+}
+var obstaclesSpace = 300;//障礙物上下間隔
+let myObstaclesSpeed = -10;//障礙物起始速度
+let myObstaclesMaxSpeed = -25;//障礙物最高速度
+let Case = 1; //石塊排列方式初值
+let rockOne = 1; //石塊圖樣初值
+let rockTwo = 2; //石塊圖樣初值
+let rockThree = 1; //石塊圖樣初值
+let rockFour = 2; //石塊圖樣初值
+
+let maxLife = life; //血量上限(套血量變數)
+let heart = [];
+let hit = false;
+
+var myScore;
+let yellowScore = false; 
+let doubleScore = 1; //分數加快速度，預設為不加快
+
+var myBackground;
+
+let keyDown = false;//防止按鍵重複觸發用
+let touch = false;//防止觸控重複觸發用
+
+
 
 //↓角色圖片判定
 
@@ -478,9 +502,12 @@ if(roleColorValue == 3){
 
 //遊戲
 
+
 function startGame() {
     
-    myGamePiece = new component(54, 70, roleImg, (canvasWidth/2 - 15), (canvasHeight/12), "image"); // ←調整角色圖片
+    myGamePiece = new component(54, roleHeight, roleImg, (canvasWidth/2 - 15), (40 + roleHeight/2), "image"); // ←調整角色圖片
+    myLeftBtn = new component((canvasWidth/2), canvasHeight, "rgba(255,255,255,0)", 0 ,0 );
+    myRightBtn = new component((canvasWidth/2), canvasHeight, "rgba(255,255,255,0)", (canvasWidth/2),0 );
     myScore = new component("20px", "Consolas", "black", (canvasWidth - 160), 40, "text"); //←調整分數字體大小
     myBackground = new component(1920, 3000, "./img/game/gameBackgroundBlack.jpg", 0, 0, "background"); //←調整背景圖片
     myGameArea.start();
@@ -495,7 +522,7 @@ var myGameArea = {
 
         //數值重設
         this.context = this.canvas.getContext("2d");
-        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+
         this.frameNo = 0;
         this.interval = setInterval(updateGameArea, 20);
 
@@ -506,6 +533,27 @@ var myGameArea = {
             myGameArea.key = false;
             keyDown = false;  
         })
+
+        if( window.innerWidth < 700 ){
+            window.addEventListener('mousedown', function (e) {
+                myGameArea.x = e.pageX;
+                myGameArea.y = e.pageY;
+            })
+            window.addEventListener('mouseup', function (e) {
+                myGameArea.x = false;
+                myGameArea.y = false;
+                touch = false;
+            })
+            window.addEventListener('touchstart', function (e) {
+                myGameArea.x = e.pageX;
+                myGameArea.y = e.pageY;
+            })
+            window.addEventListener('touchend', function (e) {
+                myGameArea.x = false;
+                myGameArea.y = false;
+                touch = false;
+            })
+        }
     },
 
     clear: function () {
@@ -515,7 +563,7 @@ var myGameArea = {
         
         clearInterval(this.interval);//停止遊戲
         // alert(myScore.text);//顯示分數(開發用)
-        localStorage.setItem('myScore', parseInt(myGameArea.frameNo * 0.1));//儲存分數(這裡要接後端)
+        localStorage.setItem('myScore', parseInt(myGameArea.frameNo * (speed * 0.05)));//儲存分數(這裡要接後端)
         // window.open("game.html", "_self"); //重新整理(開發用)
         window.open("gameResult.html", "_self"); //打開排行榜頁
     }
@@ -543,7 +591,14 @@ function component(width, height, color, x, y, type) {
             ctx.save();
             ctx.translate(this.x, this.y);
             ctx.rotate(this.angle);
+
+            ctx.shadowOffsetX = 2;
+            ctx.shadowOffsetY = 2;
+            ctx.shadowBlur = 2;
+            ctx.shadowColor = "rgba(255, 255, 255, 0.5)";//陰影顏色
+
             ctx.drawImage(this.image, this.width / -2, this.height / -2, this.width, this.height);
+            
             ctx.restore();
 
             if (type == "background") {
@@ -564,7 +619,6 @@ function component(width, height, color, x, y, type) {
                 ctx.fillText(this.text, this.x, this.y);
             }
             
-
         } else {
             ctx.fillStyle = color;
             ctx.fillRect(this.x, this.y, this.width, this.height);
@@ -596,30 +650,55 @@ function component(width, height, color, x, y, type) {
         if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft > otherright)) {
             crash = false;
         }
-        // if ((mybottom > othertop) || (mytop < otherbottom) || (myright > otherleft) || (myleft < otherright)) {
-        //     hit = false;
-        // }
         //↓回報撞擊
         return crash;
     }
 
-    if (myObstaclesSpeed == -25){ //速度達上限時的行為
-        doubleScore = 3;
-        yellowScore = true;
+    this.clicked = function() {
+        var myleft = this.x;
+        var myright = this.x + (canvasWidth/2);
+        var mytop = this.y;
+        var mybottom = this.y + (canvasHeight);
+        var clicked = true;
+        if ((mybottom < myGameArea.y) || (mytop > myGameArea.y) || (myright < myGameArea.x) || (myleft > myGameArea.x)) {
+          clicked = false;
+        }
+        return clicked;
+    }
+
+    if (myObstaclesSpeed == -18){ //速度達預設值時的行為
+        doubleScore = 3;//分數加成速度變快
+        yellowScore = true;//分數變黃
     }
 }
 
-//動畫更新處，所有要動的東西都要放這。
+function everyinterval(n) {
+    if ((myGameArea.frameNo / n) % 1 == 0) { return true; }
+    return false;
+}
+
+function clearmove() {
+    myGamePiece.speedX = 0;
+    myGamePiece.speedY = 0;
+}
+
+//動畫更新處(一秒更新50次)，所有要動的東西都要放這。
 function updateGameArea() {
 
     myGameArea.clear(); //清除上一格畫面
+
+    if(window.innerWidth < 700){
+        canvasWidth = window.innerWidth - 5;
+    } else {
+        canvasWidth = 700
+    }
 
     this.canvas.width = canvasWidth; //代入全域變數
     this.canvas.height = canvasHeight; //代入全域變數
 
     var x
 
-    if (life <= 0){
+    if (maxLife <= 0){
         myGameArea.stop();
         return;
     }
@@ -630,11 +709,11 @@ function updateGameArea() {
 
         if (myGamePiece.crashWith(myObstacles[i]) && hit == false) {
 
-            --life;
+            --maxLife;
             hit = true;
             setTimeout(function(){
                 hit = false;
-            },500); //無敵時間
+            },800); //無敵時間
         } 
 
         if ((myObstacles[i].y) < (canvasHeight - obstaclesSpace)) { //判定生成新障礙物
@@ -647,52 +726,68 @@ function updateGameArea() {
     myGamePiece.speedX = 0;
     myGamePiece.speedY = 0;
     
+    //【←】↓
     if (myGameArea.key && myGameArea.key == 37 ) {
         if( keyDown == false && (myGamePiece.x) >= (canvasWidth/2 -145)){ //正常程式碼
         // if( keyDown == false){  //突破系統限制用(開發者模式)
-            myGamePiece.speedX = -200;
-            // alert(myGamePiece.speedX);
+            myGamePiece.speedX = -(canvasWidth/3);
             keyDown = true;            
         }
 
-    } //【←】
-
+    } 
+    //【→】↓
     if (myGameArea.key && myGameArea.key == 39 ) {
         if( keyDown == false && (myGamePiece.x) <= (canvasWidth/2 )){
-            myGamePiece.speedX = 200;
+            myGamePiece.speedX = (canvasWidth/3);
             keyDown = true;            
         }
 
-    } //【→】
-
+    } 
+    //【A】↓
     if (myGameArea.key && myGameArea.key == 65 ) {
-        if( keyDown == false && (myGamePiece.x) >= (canvasWidth/2 -145)){
-            myGamePiece.speedX = -200;
-            // alert(myGamePiece.speedX);
+        if( keyDown == false && (myGamePiece.x) >= (canvasWidth/2 -145)){ //正常程式碼
+        // if( keyDown == false){  //突破系統限制用(開發者模式)
+            myGamePiece.speedX = -(canvasWidth/3);
             keyDown = true;            
         }
 
-    } //【A】
-
+    } 
+    //【D】↓
     if (myGameArea.key && myGameArea.key == 68 ) {
         if( keyDown == false && (myGamePiece.x) <= (canvasWidth/2 )){
-            myGamePiece.speedX = 200;
+            myGamePiece.speedX = (canvasWidth/3);
             keyDown = true;            
         }
 
-    } //【D】
+    } 
 
-    myBackground.speedY = -0; //代裝備變數 -速度
+    //觸控螢幕
+    if (myGameArea.x && myGameArea.y) {
+        if (myLeftBtn.clicked()) {
+            if( touch == false && (myGamePiece.x) >= (canvasWidth/3)){ //正常程式碼
+                myGamePiece.speedX = -(canvasWidth/3);
+                touch = true;           
+            }
+        }
+        if (myRightBtn.clicked()) {
+            if( touch == false && (myGamePiece.x) <= (canvasWidth/3 *2)){
+                myGamePiece.speedX = (canvasWidth/3);
+                touch = true;            
+            }
+        }
+    }
+
+    myBackground.speedY = -0;
     myBackground.newPos();
     myBackground.update();
 
-    myGameArea.frameNo += doubleScore; //增加格數
+    myGameArea.frameNo += doubleScore; //增加格數(計算分數用，當分數達100多時，格數一次會增加兩格)
 
     //產生障礙物
-    if (postSign == true) {
+    if (postSign == true) {//當接收到生成訊號時產生障礙物
         var x = myGameArea.canvas.width;
 
-        Case = parseInt(Math.random() * 2) + 1;
+        Case = parseInt(Math.random() * 2) + 1; //取得隨機數
 
         rockOne = parseInt(Math.random() * 2) + 1;
         rockTwo = parseInt(Math.random() * 2) + 1;
@@ -700,25 +795,28 @@ function updateGameArea() {
         rockFour = parseInt(Math.random() * 2) + 1;
 
         switch(Case){
-            case 1:
+            case 1: //生成石頭(⠁⠂⠃)
+
                 switch(rockOne){
                     case 1:
-                        myObstacles.push(new component(obstacleSize, obstacleSize, "./img/game/rock1.png", (x / 2 - 200), canvasHeight, "image")); //左
+                        //使用石頭圖像一
+                        myObstacles.push(new component(obstacleSize, obstacleSize, "./img/game/rock1.png", ( x / 2 - x / 3), canvasHeight, "image")); //左
                         break;
 
                     case 2:
-                        myObstacles.push(new component(obstacleSize, obstacleSize, "./img/game/rock2.png", (x / 2 - 200), canvasHeight, "image")); //左 
+                        //使用石頭圖像二
+                        myObstacles.push(new component(obstacleSize, obstacleSize, "./img/game/rock2.png", ( x / 2 - x / 3), canvasHeight, "image")); //左 
                         break;
 
                 };
 
                 switch(rockTwo){
                     case 1:
-                        myObstacles.push(new component(obstacleSize, obstacleSize, "./img/game/rock1.png", (x / 2 + 200), canvasHeight, "image")); //右
+                        myObstacles.push(new component(obstacleSize, obstacleSize, "./img/game/rock1.png", ( x / 2 + x / 3 ), canvasHeight, "image")); //右
                         break;
 
                     case 2:
-                        myObstacles.push(new component(obstacleSize, obstacleSize, "./img/game/rock2.png", (x / 2 + 200), canvasHeight, "image")); //右
+                        myObstacles.push(new component(obstacleSize, obstacleSize, "./img/game/rock2.png", ( x / 2 + x / 3 ), canvasHeight, "image")); //右
                         break;
                         
                 };
@@ -736,37 +834,37 @@ function updateGameArea() {
 
                 switch(rockFour){
                     case 1:
-                        myObstacles.push(new component(obstacleSize, obstacleSize, "./img/game/rock1.png", (x / 2 + 200), (canvasHeight + obstaclesSpace), "image")); //右
+                        myObstacles.push(new component(obstacleSize, obstacleSize, "./img/game/rock1.png", ( x / 2 + x / 3 ), (canvasHeight + obstaclesSpace), "image")); //右
                         break;
 
                     case 2:
-                        myObstacles.push(new component(obstacleSize, obstacleSize, "./img/game/rock2.png", (x / 2 + 200), (canvasHeight + obstaclesSpace), "image")); //右
+                        myObstacles.push(new component(obstacleSize, obstacleSize, "./img/game/rock2.png", ( x / 2 + x / 3 ), (canvasHeight + obstaclesSpace), "image")); //右
                         break;
                         
                 };
                 
-                postSign = false;
+                postSign = false; //宣告生成完畢
                 break;
 
-            case 2:
+            case 2://生成石頭(⠃⠂⠁)
                 switch(rockOne){
                     case 1:
-                        myObstacles.push(new component(obstacleSize, obstacleSize, "./img/game/rock1.png", (x / 2 - 200), canvasHeight, "image")); //左
+                        myObstacles.push(new component(obstacleSize, obstacleSize, "./img/game/rock1.png", ( x / 2 - x / 3), canvasHeight, "image")); //左
                         break;
 
                     case 2:
-                        myObstacles.push(new component(obstacleSize, obstacleSize, "./img/game/rock2.png", (x / 2 - 200), canvasHeight, "image")); //左 
+                        myObstacles.push(new component(obstacleSize, obstacleSize, "./img/game/rock2.png", ( x / 2 - x / 3), canvasHeight, "image")); //左 
                         break;
 
                 };
 
                 switch(rockTwo){
                     case 1:
-                        myObstacles.push(new component(obstacleSize, obstacleSize, "./img/game/rock1.png", (x / 2 + 200), canvasHeight, "image")); //右
+                        myObstacles.push(new component(obstacleSize, obstacleSize, "./img/game/rock1.png", ( x / 2 + x / 3 ), canvasHeight, "image")); //右
                         break;
 
                     case 2:
-                        myObstacles.push(new component(obstacleSize, obstacleSize, "./img/game/rock2.png", (x / 2 + 200), canvasHeight, "image")); //右
+                        myObstacles.push(new component(obstacleSize, obstacleSize, "./img/game/rock2.png", ( x / 2 + x / 3 ), canvasHeight, "image")); //右
                         break;
                         
                 };
@@ -784,23 +882,23 @@ function updateGameArea() {
 
                 switch(rockFour){
                     case 1:
-                        myObstacles.push(new component(obstacleSize, obstacleSize, "./img/game/rock1.png", (x / 2 - 200), (canvasHeight + obstaclesSpace), "image")); //右
+                        myObstacles.push(new component(obstacleSize, obstacleSize, "./img/game/rock1.png", ( x / 2 - x / 3), (canvasHeight + obstaclesSpace), "image")); //右
                         break;
 
                     case 2:
-                        myObstacles.push(new component(obstacleSize, obstacleSize, "./img/game/rock2.png", (x / 2 - 200), (canvasHeight + obstaclesSpace), "image")); //右
+                        myObstacles.push(new component(obstacleSize, obstacleSize, "./img/game/rock2.png", ( x / 2 - x / 3), (canvasHeight + obstaclesSpace), "image")); //右
                         break;
                         
                 };
                 
-                postSign = false;
+                postSign = false; //宣告生成完畢
                 break;
 
         };
         
     }
 
-    if ( (myGameArea.frameNo == 1 || everyinterval(150) ) && myObstaclesSpeed >= -25 ) { //多久加快一次 / 上限
+    if ( (myGameArea.frameNo == 1 || everyinterval(150) ) && myObstaclesSpeed >= myObstaclesMaxSpeed ) { //多久加快一次 / 上限
         myObstaclesSpeed -= 1;
     }
 
@@ -810,42 +908,31 @@ function updateGameArea() {
         myObstacles[i].update();
     }
 
-    for(var i=1; i < (life + 1); i++){
-        heart.push(new component(30, 30, "./img/game/heart.png", 35*i, 35, "image")); //血量
+    for(var i=1; i <= maxLife; i++){
+        heart.push(new component(30, 30, "./img/game/heart.png", 35*i, 35, "image")); //顯示剩餘血量
         heart[i].update();
     }
 
     if(myObstaclesSpeed <= -30){
-        myScore.text = "生存分數:" + parseInt(myGameArea.frameNo * 0.1); //調整分數增加速度
+        myScore.text = "生存分數:" + parseInt(myGameArea.frameNo * (speed * 0.05)); //調整分數增加速度
         myScore.update();
         myGamePiece.newPos();
         myGamePiece.update();
+        myLeftBtn.update();
+        myRightBtn.update();
     }else {
-        myScore.text = "生存分數:" + parseInt(myGameArea.frameNo * 0.1); //調整分數增加速度
+        myScore.text = "生存分數:" + parseInt(myGameArea.frameNo * (speed * 0.05)); //調整分數增加速度
         myScore.update();
         myGamePiece.newPos();
         myGamePiece.update();
+        myLeftBtn.update();
+        myRightBtn.update();
     }
 
 }
-
-function everyinterval(n) {
-    if ((myGameArea.frameNo / n) % 1 == 0) { return true; }
-    return false;
-}
-
-function clearmove() {
-    myGamePiece.speedX = 0;
-    myGamePiece.speedY = 0;
-}
-
 //↓啟動程式
 var main = document.getElementsByTagName("main")[0];
 main.onload = startGame(); 
-
-
-
-
 
 
 
