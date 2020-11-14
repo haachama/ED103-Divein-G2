@@ -2,7 +2,6 @@ import $ from 'jquery';
 import Parallax from 'parallax-js';
 import TimelineMax from 'gsap';
 
-
 $(function () {
 
     // hamburger icon 的切換
