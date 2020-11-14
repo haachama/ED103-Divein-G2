@@ -8,22 +8,24 @@
   <link rel="icon" href="./img/favicon.ico" type="image/x-icon" />
   <link rel="Shortcut Icon" href="./img/favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="./css/style.css">
-  <link rel="stylesheet" href="./fontawesome/css/all.css">
 </head>
 
 <body class="back">
+
+  <header class="backHeader">
+    <a href="javascript:;"><img src="./img/header/logo.png" alt="logo"></a>
+
+    <div class="profile">
+      <p>Hello, 小管</p>
+      <button class="btn">登出</button>
+    </div>
+  </header>
 
 
   <div class="tab_container">
 
     <div class="tab_list_block">
       <ul class="tab_list">
-        <li><a href="#" data-target="home" class="tab"><img src="./img/header/logo.png" alt="logo"></a></li>
-        <li>
-          <div class="profile">
-            <p>Hello, 小管</p><button class="btn logout">登出</button>
-          </div>
-        </li>
         <li><a href="#" data-target="admin" class="tab -on">管理員管理</a></li>
         <li><a href="#" data-target="member" class="tab">會員管理</a></li>
         <li><a href="#" data-target="trainer" class="tab">教練管理</a></li>
@@ -37,125 +39,9 @@
     </div>
 
     <div class="tab_contents">
-      <!-- 管理員管理 -->
+
       <div class="tab admin -on">
-        <button class="btn addAdminBtn mainBtn_2">新增管理員</button>
-        <table>
-          <tr>
-            <th>編號</th>
-            <th>姓名</th>
-            <th>帳號</th>
-            <th>密碼</th>
-            <th>狀態</th>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>小管</td>
-            <td>admin101</td>
-            <td><input type="password" value="123"></td>
-            <td>
-              <label class="switch">
-                <input type="checkbox" checked>
-                <span class="slider round"></span>
-              </label>
-            </td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>小管</td>
-            <td>admin102</td>
-            <td><input type="password" value="123"></td>
-            <td>
-              <label class="switch">
-                <input type="checkbox" checked>
-                <span class="slider round"></span>
-              </label>
-            </td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>小管</td>
-            <td>admin103</td>
-            <td><input type="password" value="123"></td>
-            <td>
-              <label class="switch">
-                <input type="checkbox" checked>
-                <span class="slider round"></span>
-              </label>
-            </td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>小管</td>
-            <td>admin103</td>
-            <td><input type="password" value="123"></td>
-            <td>
-              <label class="switch">
-                <input type="checkbox" checked>
-                <span class="slider round"></span>
-              </label>
-            </td>
-          </tr>
-        </table>
-
-        <div class="lightbox-block2">
-          <div class="lightbox2">
-            <div class="button_closeBox2">
-              <button type="button" class="btn_modal_close">✖</button>
-            </div>
-            <h3>新增管理員</h3>
-            <form action="">
-              <table>
-                <tr>
-                  <td>名稱</td>
-                  <td><input type="text" name="adminName"></td>
-                </tr>
-                <tr>
-                  <td>帳號</td>
-                  <td><input type="text" name="adminId"></td>
-                </tr>
-                <tr>
-                  <td>密碼</td>
-                  <td><input type="password" name="adminPwd"></td>
-                </tr>
-              </table>
-            </form>
-            <input class="submitbtn2" type="submit" value="送出">
-          </div>
-        </div>
-      </div>
-
-      <!-- 會員管理 -->
-      <div class="tab member">
-        <table>
-          <tr>
-            <th>編號</th>
-            <th>姓名</th>
-            <th>暱稱</th>
-            <th>帳號</th>
-            <th>密碼</th>
-            <th>信箱</th>
-            <th>狀態</th>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>小管</td>
-            <td>小管</td>
-            <td>admin101</td>
-            <td>XXXXXXXXXXXX</td>
-            <td>aaaaaaaaa@aaaaaa.aaa</td>
-            <td>
-              <label class="switch">
-                <input type="checkbox" checked>
-                <span class="slider round"></span>
-              </label>
-            </td>
-          </tr>
-        </table>
-      </div>
-      <!-- 教練管理 -->
-      <div class="tab trainer">
-        <button class="btn addAdminBtn mainBtn_2">新增教練</button>
+        <button class="btn addAdminBtn">新增管理員</button>
         <table>
           <tr>
             <th>編號</th>
@@ -176,398 +62,164 @@
               </label>
             </td>
           </tr>
-        </table>
-
-        <div class="lightbox-block2">
-          <div class="lightbox2">
-            <div class="button_closeBox2">
-              <button type="button" class="btn_modal_close">✖</button>
-            </div>
-            <h3>新增教練</h3>
-            <form action="">
-              <table>
-                <tr>
-                  <td>名稱</td>
-                  <td><input type="text" name="adminName"></td>
-                </tr>
-                <tr>
-                  <td>帳號</td>
-                  <td><input type="text" name="adminId"></td>
-                </tr>
-                <tr>
-                  <td>密碼</td>
-                  <td><input type="password" name="adminPwd"></td>
-                </tr>
-                <tr>
-                  <td>照片</td>
-                  <td><input type="file"></td>
-                </tr>
-              </table>
-            </form>
-            <input class="submitbtn2" type="submit" value="送出">
-          </div>
-        </div>
-      </div>
-      <!-- 潛點推薦 -->
-      <div class="tab spot">
-        <div class="tab_list_block spot_list_block">
-          <ul class="tab_list spotArae_list">
-            <li><a href="#" data-target="" class="spotArae_each">Ａll</a></li>
-            <li><a href="#" data-target="point1" class="spotArae_each -spoton">綠島</a></li>
-            <li><a href="#" data-target="point2" class="spotArae_each">蘭嶼</a></li>
-            <li><a href="#" data-target="" class="spotArae_each">墾丁</a></li>
-            <li><a href="#" data-target="" class="spotArae_each">小琉球</a></li>
-            <li><a href="#" data-target="" class="spotArae_each">東北角</a></li>
-          </ul>
-        </div>
-        <div class="spot_contents">
-          <table class="spot_point point1 -spoton">
-            <tr class="spot_main_list">
-              <th>潛域名稱</th>
-              <th>潛點編號</th>
-              <th>潛點名稱</th>
-              <th>潛點地點</th>
-              <th>潛點描述</th>
-              <th>潛點照片</th>
-              <th>生物照片</th>
-              <th>踩點總人數<br>(單位:人)</th>
-              <th>留言總則數<br>(單位:筆)</th>
-              <th>狀態<br>(上架/下架)</th>
-            </tr>
-            <tr class="spot_main">
-              <td>綠島</td>
-              <td>1</td>
-              <td>鋼鐵礁</td>
-              <td>台東縣中央路號</td>
-              <td class="spot_refer spot_more">
-                <p class="spot_textline">
-                  這是一個好厲害的地方這是一個好厲害的地方這是一個好厲害的地方這是一個好厲害的地方這是這是一個好厲害的地方這是一個好厲害的地方這是一個好厲害的地方這是一個好厲害的地方這是這是一個好厲害的地方這是一個好厲害的地方這是一個好厲害的地方這是一個好厲害的地方這是
-                </p>
-              </td>
-              <td class="spot_more">
-                <span class="spot_textLine flip">查看/<br>修改</span>
-              </td>
-              <td class="spot_more">
-                <span class="spot_textLine ">查看/<br>修改</span>
-              </td>
-              <td class="spot_more">
-                <span class="spot_textLine">100</span>
-              </td>
-              <td class="spot_more">
-                <span class="spot_textLine">100</span>
-              </td>
-              <td>
-                <label class="switch">
-                  <input type="checkbox" checked>
-                  <span class="slider round"></span>
-                </label>
-                <button class="btn stopReviseBtn">修改</button>
-              </td>
-            </tr>
-          </table>
-          <table class="spot_point point2">
-            <tr class="spot_main_list">
-              <th>潛域名稱</th>
-              <th>潛點編號</th>
-              <th>潛點名稱</th>
-              <th>潛點地點</th>
-              <th>潛點描述</th>
-              <th>潛點照片</th>
-              <th>生物照片</th>
-              <th>踩點總人數<br>(單位:人)</th>
-              <th>留言總則數<br>(單位:筆)</th>
-              <th>狀態<br>(上架/下架)</th>
-            </tr>
-            <tr class="spot_main">
-              <td>蘭嶼</td>
-              <td>2</td>
-              <td>鋼鐵礁</td>
-              <td>台東縣中央路號</td>
-              <td class="spot_refer spot_more">
-                <p class="spot_textline">
-                  這是一個好厲害的地方這是一個好厲害的地方這是一個好厲害的地方這是一個好厲害的地方這是這是一個好厲害的地方這是一個好厲害的地方這是一個好厲害的地方這是一個好厲害的地方這是這是一個好厲害的地方這是一個好厲害的地方這是一個好厲害的地方這是一個好厲害的地方這是
-                </p>
-              </td>
-              <td class="spot_more">
-                <span class="spot_textLine flip">查看/<br>修改</span>
-              </td>
-              <td class="spot_more">
-                <span class="spot_textLine ">查看/<br>修改</span>
-              </td>
-              <td class="spot_more">
-                <span class="spot_textLine">100</span>
-              </td>
-              <td class="spot_more">
-                <span class="spot_textLine">100</span>
-              </td>
-              <td>
-                <label class="switch">
-                  <input type="checkbox" checked>
-                  <span class="slider round"></span>
-                </label>
-                <button class="btn stopReviseBtn">修改</button>
-              </td>
-            </tr>
-          </table>
-        </div>
-      </div>
-      <!-- 商品管理 -->
-      <div class="tab product">
-        <table>
           <tr>
-            <th>編輯</th>
-            <th>編號</th>
-            <th>種類</th>
-            <th>名稱</th>
-            <th>價格</th>
-            <th>圖片</th>
-            <th>上下架</th>
-          </tr>
-          <tr>
-            <td><i class="fas fa-edit"></i></td>
-            <td>1</td>
-            <td>面鏡</td>
-            <td>水中看的清</td>
-            <td>8700</td>
-            <td>
-              <!-- <img class="productImg"" src="./img/shop/mask1@2x.png" alt=""> -->
-            </td>
-            <td>
-              <label class="switch">
-                <input type="checkbox" checked>
-                <span class="slider round"></span>
-              </label>
-            </td>
-          </tr>
-          <tr>
-            <td><i class="fas fa-edit"></i></td>
             <td>2</td>
-            <td>潛水錶</td>
-            <td>紀錄指針</td>
-            <td>6600</td>
-            <td>
-              <!-- <img class="productImg"" src="./img/shop/watch2@2x.png" alt=""> -->
-            </td>
+            <td>小管</td>
+            <td>admin102</td>
+            <td><input type="password" value="123"></td>
             <td>
               <label class="switch">
-                <input type="checkbox" checked>
+                <input type="checkbox">
                 <span class="slider round"></span>
               </label>
             </td>
           </tr>
           <tr>
-            <td><i class="fas fa-edit"></i></td>
             <td>3</td>
-            <td>手套</td>
-            <td>綠色工作手套</td>
-            <td>2150</td>
-            <td>
-              <!-- <img class="productImg"" src="./img/shop/gloves3@2x.png" alt=""> -->
-            </td>
+            <td>小管</td>
+            <td>admin103</td>
+            <td><input type="password" value="123"></td>
             <td>
               <label class="switch">
-                <input type="checkbox" checked>
+                <input type="checkbox">
                 <span class="slider round"></span>
               </label>
             </td>
           </tr>
           <tr>
-            <td><i class="fas fa-edit"></i></td>
             <td>4</td>
-            <td>蛙鞋</td>
-            <td>游得真慢</td>
-            <td>1290</td>
-            <td>
-              <!-- <img class="productImg"" src="./img/shop/frogshoes4@2x.png" alt=""> -->
-            </td>
+            <td>小管</td>
+            <td>admin103</td>
+            <td><input type="password" value="123"></td>
             <td>
               <label class="switch">
-                <input type="checkbox" checked>
+                <input type="checkbox">
                 <span class="slider round"></span>
               </label>
             </td>
           </tr>
         </table>
       </div>
-      <!-- 訂單管理 -->
+
+      <div class="tab member">
+        會員管理的內容
+      </div>
+
+      <div class="tab trainer">
+        教練管理的內容<br>
+        內容
+      </div>
+
+      <div class="tab spot">
+        潛點資訊的內容<br>
+        內容
+      </div>
+      <div class="tab product">
+        商品管理的內容<br>
+        內容
+      </div>
       <div class="tab order">
-        <table>
-          <tr>
-            <th>編號</th>
-            <th>明細</th>
-            <th>會員編號</th>
-            <th>下單日期</th>
-            <th>付款方式</th>
-            <th>總額</th>
-            <th>收件人</th>
-            <th>地址</th>
-            <th>電話</th>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td><i class="fas fa-info-circle"></i></i></td>
-            <td>1</td>
-            <td>2020-09-19</td>
-            <td>信用卡</td>
-            <td>8700</td>
-            <td>哈洽馬</td>
-            <td>中央大學資策會</td>
-            <td>0912345678</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td><i class="fas fa-info-circle"></i></i></td>
-            <td>3</td>
-            <td>2020-10-10</td>
-            <td>信用卡</td>
-            <td>6666</td>
-            <td>赤井心</td>
-            <td>暨南大學圖書館</td>
-            <td>0987654321</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td><i class="fas fa-info-circle"></i></i></td>
-            <td>10</td>
-            <td>2020-10-25</td>
-            <td>信用卡</td>
-            <td>87630</td>
-            <td>Haachama</td>
-            <td>桃園市政府</td>
-            <td>0900991119</td>
-          </tr>
-        </table>
+        訂單管理的內容<br>
+        內容
       </div>
-      <!-- 遊戲管理 -->
       <div class="tab game">
-        <table>
-          <tr>
-            <th>會員編號</th>
-            <th>遊戲記錄編號</th>
-            <th>遊戲日期</th>
-            <th>紅利點數</th>
-          </tr>
-          <tr>
-            <td>92845</td>
-            <td>00167</td>
-            <td>2020/10/5</td>
-            <td>135683點</td>
-          </tr>
-          <tr>
-            <td>16489</td>
-            <td>00166</td>
-            <td>2020/10/4</td>
-            <td>1358點</td>
-          </tr>
-          <tr>
-            <td>83745</td>
-            <td>00165</td>
-            <td>2020/10/3</td>
-            <td>356點</td>
-          </tr>
-          <tr>
-            <td>26437</td>
-            <td>00164</td>
-            <td>2020/10/3</td>
-            <td>13568點</td>
-          </tr>
-          <tr>
-            <td>72634</td>
-            <td>00163</td>
-            <td>2020/10/2</td>
-            <td>13568點</td>
-          </tr>
-        </table>
+        遊戲維護的內容<br>
+        內容
       </div>
-      <!-- 檢舉管理 -->
       <div class="tab report">
-        <table>
-          <tr>日誌文章檢舉</tr>
-          <tr>
-            <th>會員名稱</th>
-            <th>文章名稱</th>
-            <th>文章內容</th>
-            <th>檢舉原因</th>
-            <th>審核結果</th>
-            <th>審核選項</th>
-          </tr>
-          <tr>
-            <td>diver</td>
-            <td>墾丁潛水去</td>
-            <td>看見鯊魚好開心</td>
-            <td>內容不當</td>
-            <td>審核中</td>
-            <td>
-              <button class="btn delDiary">刪除日誌</button>
-              <button class="btn keepDiary">保留日誌</button>
-            </td>
-          </tr>
-        </table>
-        <table>
-          <tr>潛點留言檢舉</tr>
-          <tr>
-            <th>會員名稱</th>
-            <th>潛點</th>
-            <th>留言內容</th>
-            <th>檢舉原因</th>
-            <th>審核結果</th>
-            <th>審核選項</th>
-          </tr>
-          <tr>
-            <td>diver</td>
-            <td>花瓶岩</td>
-            <td>潛點很爛</td>
-            <td>內容不當</td>
-            <td>審核中</td>
-            <td>
-              <button class="btn delText">刪除留言</button>
-              <button class="btn keepText">保留留言</button>
-            </td>
-          </tr>
-        </table>
+        檢舉管理的內容<br>
+        內容
       </div>
-      <!-- 開班審核 -->
       <div class="tab classAudit">
-        <table>
-          <tr>
-            <th>班級編號</th>
-            <th>班級名稱</th>
-            <th>潛點編號</th>
-            <th>教練編號</th>
-            <th>課程項目編號</th>
-            <th>開課價格</th>
-            <th>班級圖片</th>
-            <th>上課日期</th>
-            <th>結訓日期</th>
-            <th>報名起始日期</th>
-            <th>報名截止日期</th>
-            <th>審核結果</th>
-          </tr>
-          <tr>
-            <td>ED101</td>
-            <td>OW考照一次過</td>
-            <td>W01</td>
-            <td>TA001</td>
-            <td>1</td>
-            <td>5000</td>
-            <td><img src="./img/course/courseDive300x200.jpg"></td>
-            <td>2020/11/07</td>
-            <td>2020/11/10</td>
-            <td>2020/11/02</td>
-            <td>2020/11/06</td>
-            <td>
-              <input type="submit" class="btn classAudit" value="通過">
-              <input type="submit" class="btn classAudit" value="不通過">
-            </td>
-          </tr>
-        </table>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        開班審核的內容<br>
+        內容
       </div>
     </div>
 
   </div>
 
-  <script src="./js/backstage.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $(function () {
+      $("a.tab").on("click", function (e) {
+        e.preventDefault();
 
+        /* 將頁籤列表移除所有 -on，再將指定的加上 -on */
+        $(this).closest("ul").find("a.tab").removeClass("-on");
+        $(this).addClass("-on");
+
+        /* 找到對應的頁籤內容，加上 -on 來顯示 */
+        $("div.tab").removeClass("-on");
+        $("div.tab." + $(this).attr("data-target")).addClass("-on");
+      });
+    });
+  </script>
 </body>
 
 </html>

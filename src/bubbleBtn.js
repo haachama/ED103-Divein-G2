@@ -1,13 +1,11 @@
-const { TweenMax } = require("gsap");
-
 $('.button--bubble').each(function () {
     var $circlesTopLeft = $(this).parent().find('.circle.top-left');
     var $circlesBottomRight = $(this).parent().find('.circle.bottom-right');
 
-    var tl = new TweenMax();
-    var tl2 = new TweenMax();
+    var tl = new TimelineLite();
+    var tl2 = new TimelineLite();
 
-    var btTl = new TweenMax({
+    var btTl = new TimelineLite({
         paused: true
     });
 
@@ -53,8 +51,8 @@ $('.button--bubble').each(function () {
         opacity: 0
     }, '-=1');
 
-    var tlBt1 = new TweenMax();
-    var tlBt2 = new TweenMax();
+    var tlBt1 = new TimelineLite();
+    var tlBt2 = new TimelineLite();
 
     tlBt1.set($circlesTopLeft, {
         x: 0,
