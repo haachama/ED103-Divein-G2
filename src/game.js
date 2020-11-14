@@ -564,6 +564,7 @@ var myGameArea = {
         clearInterval(this.interval);//停止遊戲
         // alert(myScore.text);//顯示分數(開發用)
         localStorage.setItem('myScore', parseInt(myGameArea.frameNo * (speed * 0.05)));//儲存分數(這裡要接後端)
+        // localStorage.setItem('roleImg', roleImg);//儲存角色圖片(這裡要接後端)
         // window.open("game.html", "_self"); //重新整理(開發用)
         window.open("gameResult.html", "_self"); //打開排行榜頁
     }
@@ -713,7 +714,7 @@ function updateGameArea() {
             hit = true;
             setTimeout(function(){
                 hit = false;
-            },800); //無敵時間
+            },500); //無敵時間
         } 
 
         if ((myObstacles[i].y) < (canvasHeight - obstaclesSpace)) { //判定生成新障礙物

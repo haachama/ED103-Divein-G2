@@ -16,7 +16,7 @@
             <div class="parent_resortRole">
                 <!-- <button><</button>
                 <button>></button> -->
-                <img class="resultRole" src="./img/game/resortRole.png"><!-- 要代變數 -->
+                <!-- <img class="resultRole" src="./img/game/resortRole.png">待辦:要代變數 -->
                 <div class="eye">
                     <!-- <img src="./img/mask10.png"> -->
                 </div>
@@ -70,9 +70,9 @@
         <div class="rankList">
             <ul class="rank">
                 <li class="record">
-                    <img src="./img/game/memberIcon/member1.png">
-                    <h3>王小明</h3>
-                    <h4>127364</h4>
+                    <img src="./img/game/memberIcon/member1.png" id="memAvatar">
+                    <h3 id="memName">王小明</h3>
+                    <h4 id="memGamePoint">127364</h4>
                     <h4>第一名</h4>
                 </li>
                 <li class="record">
@@ -191,6 +191,20 @@
                 </li>
             </ul>
         </div>
+
+        <!-- <div class="rankList">
+            <?php
+            while( $memRow = $products->fetch(PDO::FETCH_ASSOC)){//當抓得到一筆資料, 取回來以陣列的形式
+            ?>
+            <ul class="rank">
+                <li class="record">
+                    <img src="<?=$memRow["memAvator"]?>">
+                    <h3><?=$memRow["memName"]?></h3>
+                    <h4><?=$memRow["memGamePoint"]?></h4>
+                    <h4>第一名</h4>
+                </li>
+            </ul>
+        </div> -->
 
         <div class="restartBtn">
             <div class="bubbleBtn">
