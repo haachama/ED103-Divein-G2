@@ -1,5 +1,4 @@
-import $ from 'jquery';
-require("./jquery.ripples.js");
+
 var courseNo = 0;
 var computedDate = "";
 $(function () {
@@ -82,10 +81,8 @@ courseDate.onchange = function(e){
 
 var startDate = document.getElementById('startDate');
 startDate.onchange = function(e){
-    var sDate = e.target.value;
-    var computedSDate = new Date(sDate);
 
-    var deadlineDay = new Date(computedSDate.getFullYear(),computedSDate.getMonth(),computedDate.getDate() - 1);
+    var deadlineDay = new Date(computedDate.getFullYear(),computedDate.getMonth(),computedDate.getDate() - 1);
 
     var deadLine = document.getElementById('deadLine');
     deadLine.value = deadlineDay.yyyymmdd();
