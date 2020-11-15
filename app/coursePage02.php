@@ -436,7 +436,7 @@ try {
                                                                 </div>
                                                                 <div>
                                                                     <p>最大深度</p>
-                                                                    <p><span>${diarycourse}</span><span>米</span></p>
+                                                                    <p><span>${maxdiarycourse}</span><span>米</span></p>
                                                                 </div>
                                                                 <div>
                                                                     <p>平均深度</p>
@@ -448,7 +448,7 @@ try {
                                                                 </div>
                                                             </div>
                                                             <div class="courseDiaryTextP">
-                                                                <p class="courseDiaryTextPP">海風的味道，就像夏天的擁抱</p>
+                                                                <p class="courseDiaryTextPP">${result[i]['diaryText']}</p>
                                                                 <i class="fas fa-ellipsis-v"></i>
                                                             </div>
                                                         </div>
