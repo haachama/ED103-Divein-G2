@@ -6,8 +6,8 @@ $('.button--bubble').each(function () {
     var $circlesBottomRight = $(this).parent().find('.circle.bottom-right');
 
 
-    var tl = new TweenMax();
-    var tl2 = new TweenMax();
+    var tl = new TimelineMax();
+    var tl2 = new TimelineMax();
 
     var btTl = new TimelineMax({
         paused: true
@@ -55,7 +55,7 @@ $('.button--bubble').each(function () {
         opacity: 0
     }, '-=1');
 
-    var tlBt1 = new TweenMax();
+    var tlBt1 = new TimelineMax();
     var tlBt1 = new TimelineMax();
 
     tlBt1.set($circlesTopLeft, {
