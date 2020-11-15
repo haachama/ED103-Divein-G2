@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<style>
+	table td{
+		border-bottom:1px dotted deeppink;
+	}
+</style>
+<title>潛水課程</title>
+
+</head>
+<body>
+	<center style="background-color:lightCoral">
+		<!-- 價格低於 <input type="text" id="price"><br> -->
+		課程關鍵字 <input type="text" id="keyword"><br>
+	</center>
+	<div id="showPanel">
+		
+	</div>
+
+<script>
+
+let diveinRows;
+window.addEventListener("load", function(){
+	//------------------------showProducts
+	function showProducts(){
+		let html = "<table align='center'>";
+		for(let i=0; i<diveinRows.length; i++){
+			html += `<tr><td>${diveinRows[i].courseNo}</td><td>${diveinRows[i].courseName}</td><td><img width="50" src="images/${diveinRows[i].courseImage}"></td></tr>`;
+		}
+		html += "</table>";
+		document.getElementById("showPanel").innerHTML = html;
+	}
+	//------------------------getProducts
+	function getProducts(){
+		// let price = document.getElementById("price").value;
+		let keyword = document.getElementById("keyword").value;
+		let xhr = new XMLHttpRequest();
+		xhr.onload = function(){
+			diveinRows = JSON.parse(xhr.responseText);
+			showProducts();
+			console.log(diveinRows);
+		}
+		// let price = document.getElementById("price").value;
+		// let keyword = document.getElementById("keyword").value;
+		// let url = `test.php?price=${price}&courseName=${keyword}`;
+		let url = `test.php?courseName=${keyword}`;
+		xhr.open("get", url,false);
+		xhr.send(null);	
+	}
+
+	getProducts();
+
+	//------------------------filter price under ???
+	// document.getElementById("price").onchange = getProducts;
+	//------------------------filter keywords
+	document.getElementById("keyword").onchange = getProducts;
+}, false);
+
+</script>    
+</body>
+</html>

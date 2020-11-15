@@ -16,6 +16,7 @@
 <body class="cart">
     @@include('./layout/header.html')
 
+    
     <div class="title">
         <h2>購物車</h2>
     </div>
@@ -103,7 +104,7 @@
                 </svg>
 
                 <span class="button--bubble__container">
-                    <a href="#campaign" class="button button--bubble">
+                    <a href="./setBill.html" class="button button--bubble">
                         進行結帳
                     </a>
                     <span class="button--bubble__effect-container">
@@ -120,187 +121,17 @@
         </div>
     </div>
 
-    <div class="billSet">
-        <section class="writeInfo">
-            <div class="information">
-                <h3>填寫資料</h3>
-                <form class="wrap">
-                    <div class="writeInfoCol">
-                        <h4>收件人資訊</h4>
-                        <p>
-                            姓名：
-                            <input id="name" type="text">
-                        </p>
-                        <p>
-                            電話：
-                            <input type="text">
-                            <br>
-                            <span class="msg">請輸入09開頭的十位數字</span>
-                        </p>
-                        <p>
-                            地址：
-                            <input type="text">
-                        </p>
-                    </div>
-                    <div class="writeInfoCol creditCard">
-                        <h4>信用卡付款資訊</h4>
-                        <p>
-                            信用卡帳號：
-                            <input type="text">
-                            -
-                            <input type="text">
-                            -
-                            <input type="text">
-                            -
-                            <input type="text">
-                            <span class="msg">請輸入四位數字</span>
-                        </p>
-                        <p>
-                            有效期限：
-                            <input type="text">
-                            月
-                            <input type="text">
-                            年
-                            <span class="msg">請輸入1-12/20XX</span>
-                        </p>
-                        <p>
-                            安全碼：
-                            <input type="text">
-                            <span class="msg">請輸入三位數字</span>
-                        </p>
-                    </div>
-                    <div class="subBtn">
-                        <div class="bubbleBtn toBack">
-                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="goo">
-                                <defs>
-                                    <filter id="goo">
-                                        <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
-                                        <feColorMatrix in="blur" mode="matrix"
-                                            values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
-                                        <feComposite in="SourceGraphic" in2="goo" />
-                                    </filter>
-                                </defs>
-                            </svg>
 
-                            <span class="button--bubble__container">
-                                <a href="#campaign" class="button button--bubble">
-                                    回上一步
-                                </a>
-                                <span class="button--bubble__effect-container">
-                                    <span class="circle top-left"></span>
-                                    <span class="circle top-left"></span>
-                                    <span class="circle top-left"></span>
-                                    <span class="button effect-button"></span>
-                                    <span class="circle bottom-right"></span>
-                                    <span class="circle bottom-right"></span>
-                                    <span class="circle bottom-right"></span>
-                                </span>
-                            </span>
-                        </div>
-                        <div class="bubbleBtn sent">
-                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="goo">
-                                <defs>
-                                    <filter id="goo">
-                                        <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
-                                        <feColorMatrix in="blur" mode="matrix"
-                                            values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
-                                        <feComposite in="SourceGraphic" in2="goo" />
-                                    </filter>
-                                </defs>
-                            </svg>
-
-                            <span class="button--bubble__container">
-                                <a href="#campaign" class="button button--bubble">
-                                    確認送出
-                                </a>
-                                <span class="button--bubble__effect-container">
-                                    <span class="circle top-left"></span>
-                                    <span class="circle top-left"></span>
-                                    <span class="circle top-left"></span>
-                                    <span class="button effect-button"></span>
-                                    <span class="circle bottom-right"></span>
-                                    <span class="circle bottom-right"></span>
-                                    <span class="circle bottom-right"></span>
-                                </span>
-                            </span>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </section>
-    </div>
-
-
-    <div class="lightbox-block1">
-        <div class="lightbox1">
-            <div class="button_closeBox1">
-                <button type="button" class="btn_modal_close">✖</button>
-            </div>
-            <div class="confirmContainer">
-                <p class="confirmTitle">請確認您的資料</p>
-                <p class="confirmTitle">收件人資訊：</p>
-                <p>姓名：</p>
-                <p>行動電話：</p>
-                <p>地址：</p>
-                <p class="confirmTitle">信用卡資訊：</p>
-                <p>信用卡帳號：</p>
-                <p>有效期限：</p>
-                <button class="rewrite">重新填寫</button>
-                <button class="confirmBtn">確認送出</button>
-            </div>
-        </div>
-    </div>
-
-    @@include('./layout/footer.html')
     <script src="./js/cart.js"></script>
     <script src="./js/bubbleBtn.js"></script>
-
-    <script>
-        $(function () {
-
-            // 開啟 Modal 彈跳視窗
-            $(".sent").on("click", function () {
-                $(".lightbox-block1").addClass("-openbox");
-            });
-
-            // 關閉 Modal
-            $(".btn_modal_close").on("click", function () {
-                $(".lightbox-block1").addClass("-opacity-zero");
-                // 設定隔一秒後，移除相關 class
-                setTimeout(function () {
-                    $(".lightbox-block1").removeClass("-openbox -opacity-zero");
-                }, 1000);
-            });
-        });
-    </script>
-
-
-    <script>
-        function doFirst() {
-            let billSet = document.getElementsByClassName('billSet')[0];
-            document.getElementsByClassName('billSet')[0].style.visibility = 'hidden';
-            let thebill = document.getElementsByClassName('thebill')[0];
-            thebill.addEventListener('click', appear);
-            let cartBtn = document.getElementsByClassName('cartBtn')[0];
-            function appear() {
-                billSet.style.visibility = 'visible';
-                cartBtn.style.visibility = 'hidden';
-            }
-            let toBack = document.getElementsByClassName('toBack')[0];
-            toBack.onclick = function () {
-                billSet.style.visibility = 'hidden';
-                cartBtn.style.visibility = 'visible';
-            }
-
-        }
-        window.addEventListener('load', doFirst);
-    </script>
-
 
     <script>
         var storage = sessionStorage;
 
         function doFirst() {
+            
+            
+            
             // 抓購物車SPAN
             let itemCounting = document.getElementById('itemCounting');
             // 抓按鈕
@@ -338,7 +169,7 @@
 
             // 每購買一個品項，就呼叫函數創建
             for (let i = 0; i < items.length; i++) {
-                // items[0] = A1001，傳回 value值 Formosa|formosa.jpg|5000
+                // items[0] = A1001，傳回 value值 Formosa|formosa.jpg|5000|數量
                 let itemInfo = storage.getItem(items[i]);
 
                 createlistRow(items[i], itemInfo);
@@ -389,8 +220,6 @@
                 })
             }
 
-
-
             document.getElementById('allTotal').innerText = total;
 
             //加減
@@ -416,7 +245,7 @@
                 }
                 e.target.parentNode.getElementsByTagName('input')[0].value = nowValue;
             }
-
+            
 
 
             function createlistRow(itemId, itemValue) {
@@ -444,7 +273,14 @@
 
                 newprodInput = document.createElement('input');
                 newprodInput.type = 'text';
-                newprodInput.value = '1';
+                // if(storage.getItem())
+
+                let itemValueArr = itemValue.split('|');
+                if(itemValueArr.length == 3){
+                    newprodInput.value = '1';
+                }else{
+                    newprodInput.value = itemValueArr.pop();
+                }
                 newprodInput.min = '0';
                 newprodInput.addEventListener('input', changeItemCount);
 
@@ -525,7 +361,7 @@
                 let thisItem = storage.getItem(itemId);  //得到value值
                 let itemPrice = parseInt(thisItem.split('|')[2])  //取得每個商品價格
                 let subtotal = this.parentNode.nextSibling;
-                // console.log(subtotal.innerText);
+                // console.log(subtotal);
                 newCount = parseInt(inputN.value);
                 newPrice = itemPrice * newCount;
 
@@ -537,7 +373,18 @@
                 // console.log(newPri);
                 document.getElementById('allTotal').innerText = newPri;
             }
-
+            
+            // 抓商品最終數量
+            document.getElementsByClassName('thebill')[0].addEventListener('click', function(){
+                let lastNumber = document.getElementsByClassName('prodNumber').length;
+                for (let i = 0; i < lastNumber; i++){
+                    let plusNumber = storage.getItem(document.getElementsByClassName('prodName')[i].id);
+                    let realLastNumber = `${plusNumber}`+`|`+`${document.getElementsByClassName('prodNumber')[i].getElementsByTagName('input')[0].value}`;
+                    storage.setItem(document.getElementsByClassName('prodName')[i].id,realLastNumber);
+                }
+            });
+            
+            
         }
         window.addEventListener('load', doFirst);
     </script>
