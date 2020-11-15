@@ -21,4 +21,5 @@ $(function () {
             $('.nav').addClass('hide')
         }
     });
+
 });
