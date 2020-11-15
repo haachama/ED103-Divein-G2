@@ -15,6 +15,8 @@ $(document).ready(function(){
     });
 });
 
+
+//--------------------------------------------------------------
 function $id(id){
 	return document.getElementById(id);
 }	
@@ -47,14 +49,15 @@ let member;
     //   let memPsw = $id("memPsw").value; 
       let xhr = new XMLHttpRequest();
       xhr.onload = function(){
-        member = JSON.parse(xhr.responseText);
-        if(member.memGamePoint){
-          window.alert(memGamePoint);
-          $id('memName').value = '';
-          $id('memGamePoint').value = '';          
-        }else{
-            window.alert("帳密錯誤~");
-        }
+        var member = JSON.parse(xhr.responseText);
+        window.alert(member.memGamePoint);
+        // if(member.memGamePoint){
+        //   window.alert(memGamePoint);
+        //   $id('memName').value = '';
+        //   $id('memGamePoint').value = '';          
+        // }else{
+        //     window.alert("帳密錯誤~");
+        // }
       }
 
       xhr.open("Post", "ajaxLogin.php", true);

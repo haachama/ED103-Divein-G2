@@ -564,6 +564,17 @@ var myGameArea = {
         clearInterval(this.interval);//停止遊戲
         // alert(myScore.text);//顯示分數(開發用)
         localStorage.setItem('myScore', parseInt(myGameArea.frameNo * (speed * 0.05)));//儲存分數(這裡要接後端)
+        var scoreResult = parseInt(myGameArea.frameNo * (speed * 0.05));
+        // function $id(id){
+        //     return document.getElementById(id);
+        // }
+        // alert(scoreResult);
+        let xhr = new XMLHttpRequest();
+        xhr.open("Post", "#.php", true);
+        xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+        let data_info = `memGamePoint=${scoreResult}`;
+        xhr.send(data_info); 
+
         // localStorage.setItem('roleImg', roleImg);//儲存角色圖片(這裡要接後端)
         // window.open("game.html", "_self"); //重新整理(開發用)
         window.open("gameResult.html", "_self"); //打開排行榜頁
@@ -1109,3 +1120,32 @@ $(function () {
     });
 
 })
+
+// function $id(id){
+//     return document.getElementById(id);
+// }	
+// let member;
+function sendForm(){
+    //=====使用Ajax 回server端,取回登入者姓名, 放到頁面上 
+    //   let memId = $id("memId").value;  
+    //   let memPsw = $id("memPsw").value; 
+    // var point = document.getElementById('myScore').Value();
+    alert(scoreResult);
+    // let xhr = new XMLHttpRequest();
+    // xhr.onload = function(){
+    //     member = JSON.parse(xhr.responseText);
+    //     window.alert(member.memGamePoint);
+        // if(member.memGamePoint){
+        //   window.alert(memGamePoint);
+        //   $id('memName').value = '';
+        //   $id('memGamePoint').value = '';          
+        // }else{
+        //     window.alert("帳密錯誤~");
+        // }
+    // }
+
+    // xhr.open("Post", "ajaxLogin.php", true);
+    // xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+    // //   let data_info = `memId=${memId}&memPsw=${memPsw}`;
+    // xhr.send(data_info); 
+// }
