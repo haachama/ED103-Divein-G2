@@ -147,15 +147,6 @@
                             </div>
                             <i class="fas fa-heart"></i>
 
-                            <div class="lightbox-block1">
-                                <div class="lightbox1">
-                                    <div class="button_closeBox1">
-                                        <button type="button" class="btn_modal_close">✖</button>
-                                    </div>
-                                    <h3>${data[i].itemName}</h3>
-                                    <p>${data[i].itemDescription}</p>
-                                </div>
-                            </div>
                         </div>
 
                         `);
@@ -186,8 +177,23 @@
 
                     let title = parent.children[0].innerText;
 
-                    lightboxH3.innerHTML = title;
-                    lightboxP.innerHTML = title;
+
+
+                    $.ajax({
+                        url: 'shopnew11.php',
+                        dataType: 'JSON',
+                        type: 'POST',
+                        data: {
+                            "title":title,
+                        },
+                        success(data) {
+                            lightboxH3.innerHTML = data.itemName;
+                            lightboxP.innerHTML = data.itemDescription;
+                        },
+                    });
+
+
+                    
                 }
 
                 // $(".mainBtn_1").on("click", function(){
