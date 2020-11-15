@@ -180,8 +180,8 @@ $(function(){
     });
 });
         
-new Vue({
-        el: '.pageLeftLine',
+var dt = new Vue({
+        el: '.diaryInside_vue',
         data() {
             return {
             data: [10, 15, 8, 20, 36, 42],
@@ -189,23 +189,22 @@ new Vue({
             autowidth:0,
             };
         },
-        mounted() {
+        mounted() { //d3
             this.calculatePath(); //第一步呼叫calculatePath去執行getScales
             window.onresize = this.d3resize;//第二步呼叫d3resize
             window.onload=this.abc;//第三步呼叫abc
-            
         },
         methods: {
-            abc(){
+            abc(){ //d3
                 let resizeAuto = document.querySelector('#resizeAuto').width;
                 // console.log(resizeAuto);
                 this.autowidth=parseInt(resizeAuto.animVal.value);
             },
-            d3resize(){
+            d3resize(){ //d3
                 let resizeAuto = document.querySelector('#resizeAuto').width;
                 this.autowidth=parseInt(resizeAuto.animVal.value);
             },
-            getScales() {
+            getScales() { //d3
                 
             const x = d3.scaleTime().range([this.autowidth, 0]); //x的寬
             const y = d3.scaleLinear().range([50, 0]); //Y的高
@@ -215,7 +214,7 @@ new Vue({
             y.domain([0, d3.max(this.data, d => d)]);
             return { x, y };
             },
-            calculatePath() {
+            calculatePath() { //d3
             
             const scale = this.getScales();
             const path = d3.line()
@@ -225,7 +224,7 @@ new Vue({
             },
         },
         watch: {
-            autowidth(){
+            autowidth(){ //d3
                 this. calculatePath();
             }
         },

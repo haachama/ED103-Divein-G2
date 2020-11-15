@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>下潛遊戲</title>
+    <link rel="stylesheet" href="./css/style.css">
+    
+</head>
+
+<body class="gameIntro">
+    @@include('./layout/header.html')
+
+    <main class="gameMain">
+
+    <div class="choseRoleRwd">
+        <h2>選擇角色/組合裝備</h2>
+        <p class="chose Rwd">用50元搭配出最棒的能力吧！(每種裝備限購一款)</p>
+    </div>
+           
+    <div class="parent_container">
+        <!-- 更換角色 -->
+        <div class="changeRole">
+            <div class="choseRole">
+                <h2>選擇角色/組合裝備</h2>
+                <p class="chose">用50元搭配出最棒的能力吧！(每種裝備限購一款)</p>
+            </div>
+            <!-- <div class="margin">
+
+            <div> -->
+            <div class="changeRoleBtnBlock">
+                <button class="changeRoleBtn" id="changeRoleBtnLeft">
+                    <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-caret-left" fill="#fefefe" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M10 12.796L4.519 8 10 3.204v9.592zm-.659.753l-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"/>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="flexGrow"></div>
+
+            <div class="playRole">
+                
+                <img class="role" id="greenRole" src="./img/game/greenRole.png">
+                <img class="role" id="pinkRole" src="./img/game/pinkRole.png">
+                <img class="role" id="orangeRole" src="./img/game/orangeRole.png">
+
+                <div class="eye">
+                    <img id = "mask10" src="./img/game/mask10.png">
+                    <img id = "mask20" src="./img/game/mask20.png">
+                    <img id = "mask40" src="./img/game/mask40.png">
+                </div>
+                <div class="back">
+                    <img id = "air10" src="./img/game/air10.png">
+                    <img id = "air20" src="./img/game/air20.png">
+                    <img id = "air40" src="./img/game/air40.png">
+                </div>
+                <div class="foot">
+                    <img id = "shoe10" src="./img/game/shoe10.png">
+                    <img id = "shoe20" src="./img/game/shoe20.png">
+                    <img id = "shoe40" src="./img/game/shoe40.png">
+                </div>
+            </div>
+
+            <div class="flexGrow"></div>
+
+            <div class="changeRoleBtnBlock">
+                <button class="changeRoleBtn" id="changeRoleBtnRight">
+                    <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-caret-right" fill="#fefefe" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M6 12.796L11.481 8 6 3.204v9.592zm.659.753l5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
+                    </svg>
+                </button>
+            </div>
+ 
+        </div>            
+
+        <div class="abilityBlock">
+            <div class="ability">
+                <p>速度</p>
+                <!-- 之後要換成canvas↓ -->
+                <!-- <img class="abilityImg" src="./img/game/ability.png" alt=""> -->
+                <canvas id="canvas"></canvas>
+                <div class="abilityDescribe">
+                    <p>體力</p>
+                    <div class="flexGrow"></div>
+                    <p>能見度</p>
+                </div>
+            </div>
+        </div>
+                
+        <div class="equipList">
+            <div class="totalPriceBlock">
+                <div class="flexGrow"></div>
+                <h3 class="totalPrice" id="totalPrice">$50</h3>
+            </div>
+            <div class="maskList">
+                <div class="flexGrow"></div>
+                <div class="equipDescribeBlock">
+                    <h4>面鏡</h4>
+                </div>
+                <div class="equipBlock">
+                    <div class="bubbleBackground" id="mask10Btn">
+                        <img class = "equip" src="./img/game/mask10Btn.png"></li>
+                    </div>
+                    <div class="price">
+                        <h4 >$10</h4>
+                    </div>
+                </div>
+                <div class="equipBlock">
+                    <div class="bubbleBackground" id="mask20Btn">
+                        <img class = "equip" src="./img/game/mask20Btn.png">
+                    </div>
+                    <div class="price">
+                        <h4 >$20</h4>
+                    </div>
+                </div>
+                <div class="equipBlock">
+                    <div class="bubbleBackground" id="mask40Btn">
+                        <img class = "equip" src="./img/game/mask40Btn.png">
+                    </div>
+                    <div class="price">
+                        <h4 >$40</h4>
+                    </div>
+                </div>
+                <div class="flexGrow"></div>
+            </div>
+            <div class="airList">
+                <div class="flexGrow"></div>
+                <div class="equipDescribeBlock">
+                    <h4>氣瓶</h4>
+                </div>
+                <div class="equipBlock">
+                    <div class="bubbleBackground" id="air10Btn">
+                        <img class = "equip" src="./img/game/air10Btn.png">
+                    </div>
+                    <div class="price">
+                        <h4 >$10</h4>
+                    </div>
+                </div>
+                <div class="equipBlock">
+                    <div class="bubbleBackground" id="air20Btn">
+                        <img class = "equip" src="./img/game/air20Btn.png">
+                    </div>
+                    <div class="price">
+                        <h4 >$20</h4>
+                    </div>
+                </div>
+                <div class="equipBlock">
+                    <div class="bubbleBackground" id="air40Btn">
+                        <img class = "equip" src="./img/game/air40Btn.png">
+                    </div>
+                    <div class="price">
+                        <h4 >$40</h4>
+                    </div>
+                </div>
+                <div class="flexGrow"></div>
+            </div>
+            <div class="maskList">
+                <div class="flexGrow"></div>
+                <div class="equipDescribeBlock">
+                    <h4>蛙鞋</h4>
+                </div>
+                <div class="equipBlock">
+                    <div class="bubbleBackground" id="shoe10Btn">
+                        <img class = "equip" src="./img/game/shoe10Btn.png">
+                    </div>
+                    <div class="price">
+                        <h4 >$10</h4>
+                    </div>
+                </div>
+                <div class="equipBlock">
+                    <div class="bubbleBackground" id="shoe20Btn">
+                        <img class = "equip" src="./img/game/shoe20Btn.png">
+                    </div>
+                    <div class="price">
+                        <h4 >$20</h4>
+                    </div>
+                </div>
+                <div class="equipBlock">
+                    <div class="bubbleBackground" id="shoe40Btn">
+                        <img class = "equip" src="./img/game/shoe40Btn.png">
+                    </div>
+                    <div class="price">
+                        <h4 >$40</h4>
+                    </div>
+                </div>
+                <div class="flexGrow"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="rule" id="ruleD" style="display: none;"> <!--開發用-->
+    <!-- <div class="rule" id="ruleD"> -->
+        <button id="rulebtnX" class="ruleBtnX">X</button>
+        <h3>遊戲規則</h3>
+        <p class="pRule">選擇你喜歡的角色，在有限金額內搭配最適合的裝備。閃避各種障礙物，盡可能生存下去，並獲得紅利點數吧！<br>
+            <br>
+            ※訪客無法累積紅利點數，若要累積請登入會員。
+        </p>
+        <div class="entryBtn"> 
+            <div id="rulebtn" class="bubbleBtn">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="goo">
+                    <defs>
+                        <filter id="goo">
+                            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
+                                result="goo" />
+                            <feComposite in="SourceGraphic" in2="goo" />
+                        </filter>
+                    </defs>
+                </svg>
+        
+                <span class="button--bubble__container">
+                    <a href="#campaign" class="button button--bubble">
+                        我知道了
+                    </a>
+                    <span class="button--bubble__effect-container">
+                        <span class="circle top-left"></span>
+                        <span class="circle top-left"></span>
+                        <span class="circle top-left"></span>
+        
+                        <span class="button effect-button"></span>
+        
+                        <span class="circle bottom-right"></span>
+                        <span class="circle bottom-right"></span>
+                        <span class="circle bottom-right"></span>
+                    </span>
+                </span>
+            </div>
+        </div>
+    </div>        
+
+
+    <div class="startBtn" id="startBtn">
+        <div class="bubbleBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="goo">
+                <defs>
+                    <filter id="goo">
+                        <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
+                            result="goo" />
+                        <feComposite in="SourceGraphic" in2="goo" />
+                    </filter>
+                </defs>
+            </svg>
+    
+            <span class="button--bubble__container">
+                <a href="game.html" class="button button--bubble">
+                    開始遊戲
+                </a>
+                <span class="button--bubble__effect-container">
+                    <span class="circle top-left"></span>
+                    <span class="circle top-left"></span>
+                    <span class="circle top-left"></span>
+    
+                    <span class="button effect-button"></span>
+    
+                    <span class="circle bottom-right"></span>
+                    <span class="circle bottom-right"></span>
+                    <span class="circle bottom-right"></span>
+                </span>
+            </span>
+        </div>
+    </div>
+    
+    </main>
+
+    @@include('./layout/footer.html')
+
+    <script src="./js/gameIntro.js"></script>
+</body>
+
+</html>

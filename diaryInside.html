@@ -8,269 +8,270 @@
   <link rel="Shortcut Icon" href="./img/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.6/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.6/d3.min.js"></script><!-- D3.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js"></script> <!-- axios.js -->
     <title>海中日子 | 潛水日誌</title>
 </head>
 
 <body class="diary">
     @@include('./layout/header.html')
+    <div class="diaryInside_vue">
+        <div class="diaryInsidePage">
+            <!-- 內頁上半部 -->
+            <div class="pageLeft"><!-- 左側 -->
+                <div class="pageLeftImg"><img src="./img/diary/diaryphoto5.png" class="image"></div>
+                <div id="app" class="pageLeftLine"> <!-- D3 -->
+                    <svg id="resizeAuto"> <!-- JS用的id -->
+                        <g style="transform: translate(0, 10px)">
+                        <path :d="line" />
+                        </g>
+                    </svg>
+                    <P>下潛深度(米)</P>
+                </div>
+            </div>
+            <div class="pageRight"><!-- 右側 -->
+                <div class="share"><!-- 檢舉分享 -->
+                    <div ><span class="demo-btn mainBtn_3"><i class="fas fa-exclamation-circle"></i> 檢舉</span></div>
+                    <div class="lightbox-block3"> <!-- 檢舉lightbox -->
+                        <div class="lightbox3">
+                            <div class="button_closeBox3">
+                                <button type="button" class="btn_modal_close">✖</button>
+                            </div>
+                            <h3>檢舉內容</h3>
+                            <div action="" class="inlightbox-form3">
+                                <ul>
+                                    <li><label><input id="re1" name="report" type="radio">與本網站無關</label></li>
+                                    <li><label><input id="re2" name="report" type="radio">有顏色的內容</label></li>
+                                    <li><label ><input id="re3" name="report" type="radio">仇恨或惡意內容</label></li>
+                                    <li><input class="submitbtn3" type="submit" value="送出"></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div><span class="demo-btn "><i class="fas fa-external-link-square-alt"></i> 分享</span></div>
+                </div>
 
-    <div class="diaryInsidePage">
-        <!-- 內頁上半部 -->
-        <div class="pageLeft"><!-- 左側 -->
-            <div class="pageLeftImg"><img src="./img/diary/diaryphoto5.png" class="image"></div>
-            <div id="app" class="pageLeftLine"> <!-- D3 -->
-                <svg id="resizeAuto"> <!-- JS用的id -->
-                    <g style="transform: translate(0, 10px)">
-                    <path :d="line" />
-                    </g>
+                <div class="rightTitle"><!-- 人名及日誌名稱 -->
+                    <div class="rightNameImg">
+                        <div class="rightImg"><img src="./img/diary/user.png"></div>
+                        <div class="rightName">
+                            <p>diver</p>
+                            <p><span>發佈日期</span><span>2020-6-16 | 21:07</span></p>
+                        </div>
+                    </div>
+                    <div class="rightNameText">
+                        <p>體驗潛水去</p>
+                        <p><span>下水日期</span><span>2020-01-01</span></p>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="rightInformation"><!-- 日誌類型 -->
+                    <div><p>日誌類型</p><p>旅潛</p></div>
+                    <div><p>潛水區域</p><p>墾丁</p></div>
+                    <div><p>潛水地點</p><p>出海口</p></div>
+                </div>
+                <hr>
+
+                <div class="rightData"><!-- 日誌資料 -->
+                    <div class="rightDataA">
+                        <div><p>最大深度</p><p><span>33.2</span><span>米</span></p></div>
+                        <div><p>平均深度</p><p><span>23.2</span><span>米</span></p></div>
+                        <div><p>潛水時間</p><p><span>45</span><span>分</span></p></div>
+                    </div>
+                    <div class="rightDataB">
+                            <div><p><i class="fas fa-sun"></i></p><p><span>晴</span><span></span></p></div>
+                            <div><p><i class="fas fa-eye"></i></p><p><span>33.2</span><span>米</span></p></div>
+                            <div><p><i class="fas fa-temperature-high"></i></p><p><span>23.2</span><span>度</span></p></div>
+                            <div><p><i class="fas fa-temperature-low"></i></p><p><span>45</span><span>度</span></p></div>
+                    </div>
+                </div>
+                <hr>
+
+                <p class="biological">海洋生物</p>
+                <div class="rightPicture"><!-- 生物圖鑑 -->
+                    <div><img src="./img/diary/animal5.png" class="image"></div>
+                    <div><img src="./img/diary/animal1.png" class="image"></div>
+                    <div><img src="./img/diary/animal7.png" class="image"></div>
+                </div>
+                <hr>
+
+                <div class="rightContent"><!-- 內文 -->
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime totam voluptas laboriosam? Reprehenderit magni similique eum nulla quia sed, velit quisquam sit molestiae aperiam? Tempora necessitatibus non nobis rem. Esse.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="diaryInside_controlBtn">
+            <div class="bubbleBtn">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="goo">
+                    <defs>
+                        <filter id="goo">
+                            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
+                                result="goo" />
+                            <feComposite in="SourceGraphic" in2="goo" />
+                        </filter>
+                    </defs>
                 </svg>
-            </div>
-        </div>
-        <div class="pageRight"><!-- 右側 -->
-            <div class="share"><!-- 檢舉分享 -->
-                <div ><span class="demo-btn mainBtn_3"><i class="fas fa-exclamation-circle"></i> 檢舉</span></div>
-                <div class="lightbox-block3"> <!-- 檢舉lightbox -->
-                    <div class="lightbox3">
-                        <div class="button_closeBox3">
-                            <button type="button" class="btn_modal_close">✖</button>
-                        </div>
-                        <h3>檢舉內容</h3>
-                        <div action="" class="inlightbox-form3">
-                            <ul>
-                                <li><label><input id="re1" name="report" type="radio">與本網站無關</label></li>
-                                <li><label><input id="re2" name="report" type="radio">有顏色的內容</label></li>
-                                <li><label ><input id="re3" name="report" type="radio">仇恨或惡意內容</label></li>
-                                <li><input class="submitbtn3" type="submit" value="送出"></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div><span class="demo-btn "><i class="fas fa-external-link-square-alt"></i> 分享</span></div>
-            </div>
-
-            <div class="rightTitle"><!-- 人名及日誌名稱 -->
-                <div class="rightNameImg">
-                    <div class="rightImg"><img src="./img/diary/user.png"></div>
-                    <div class="rightName">
-                        <p>diver</p>
-                        <p><span>發佈日期</span><span>2020-6-16 | 21:07</span></p>
-                    </div>
-                </div>
-                <div class="rightNameText">
-                    <p>體驗潛水去</p>
-                    <p><span>下水日期</span><span>2020-01-01</span></p>
-                </div>
-            </div>
-            <hr>
-
-            <div class="rightInformation"><!-- 日誌類型 -->
-                <div><p>日誌類型</p><p>旅潛</p></div>
-                <div><p>潛水區域</p><p>墾丁</p></div>
-                <div><p>潛水地點</p><p>出海口</p></div>
-            </div>
-            <hr>
-
-            <div class="rightData"><!-- 日誌資料 -->
-                <div class="rightDataA">
-                    <div><p>最大深度</p><p><span>33.2</span><span>米</span></p></div>
-                    <div><p>平均深度</p><p><span>23.2</span><span>米</span></p></div>
-                    <div><p>潛水時間</p><p><span>45</span><span>分</span></p></div>
-                </div>
-                <div class="rightDataB">
-                        <div><p><i class="fas fa-sun"></i></p><p><span>晴</span><span></span></p></div>
-                        <div><p><i class="fas fa-eye"></i></p><p><span>33.2</span><span>米</span></p></div>
-                        <div><p><i class="fas fa-temperature-high"></i></p><p><span>23.2</span><span>度</span></p></div>
-                        <div><p><i class="fas fa-temperature-low"></i></p><p><span>45</span><span>度</span></p></div>
-                </div>
-            </div>
-            <hr>
-
-            <p class="biological">海洋生物</p>
-            <div class="rightPicture"><!-- 生物圖鑑 -->
-                <div><img src="./img/diary/animal5.png" class="image"></div>
-                <div><img src="./img/diary/animal1.png" class="image"></div>
-                <div><img src="./img/diary/animal7.png" class="image"></div>
-            </div>
-            <hr>
-
-            <div class="rightContent"><!-- 內文 -->
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime totam voluptas laboriosam? Reprehenderit magni similique eum nulla quia sed, velit quisquam sit molestiae aperiam? Tempora necessitatibus non nobis rem. Esse.</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="diaryInside_controlBtn">
-        <div class="bubbleBtn">
-            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="goo">
-                <defs>
-                    <filter id="goo">
-                        <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
-                        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
-                            result="goo" />
-                        <feComposite in="SourceGraphic" in2="goo" />
-                    </filter>
-                </defs>
-            </svg>
-            <span class="button--bubble__container">
-                <a href="#campaign" class="button button--bubble">
-                    上一頁
-                </a>
-                <span class="button--bubble__effect-container">
-                    <span class="circle top-left"></span>
-                    <span class="circle top-left"></span>
-                    <span class="circle top-left"></span>
-                    <span class="button effect-button"></span>
-                    <span class="circle bottom-right"></span>
-                    <span class="circle bottom-right"></span>
-                    <span class="circle bottom-right"></span>
+                <span class="button--bubble__container">
+                    <a href="#campaign" class="button button--bubble">
+                        上一頁
+                    </a>
+                    <span class="button--bubble__effect-container">
+                        <span class="circle top-left"></span>
+                        <span class="circle top-left"></span>
+                        <span class="circle top-left"></span>
+                        <span class="button effect-button"></span>
+                        <span class="circle bottom-right"></span>
+                        <span class="circle bottom-right"></span>
+                        <span class="circle bottom-right"></span>
+                    </span>
                 </span>
-            </span>
-        </div>
-        <div class="bubbleBtn">
-            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="goo">
-                <defs>
-                    <filter id="goo">
-                        <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
-                        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
-                            result="goo" />
-                        <feComposite in="SourceGraphic" in2="goo" />
-                    </filter>
-                </defs>
-            </svg>
-            <span class="button--bubble__container">
-                <a href="#campaign" class="button button--bubble">
-                    下一頁
-                </a>
-                <span class="button--bubble__effect-container">
-                    <span class="circle top-left"></span>
-                    <span class="circle top-left"></span>
-                    <span class="circle top-left"></span>
-                    <span class="button effect-button"></span>
-                    <span class="circle bottom-right"></span>
-                    <span class="circle bottom-right"></span>
-                    <span class="circle bottom-right"></span>
+            </div>
+            <div class="bubbleBtn">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="goo">
+                    <defs>
+                        <filter id="goo">
+                            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
+                                result="goo" />
+                            <feComposite in="SourceGraphic" in2="goo" />
+                        </filter>
+                    </defs>
+                </svg>
+                <span class="button--bubble__container">
+                    <a href="#campaign" class="button button--bubble">
+                        下一頁
+                    </a>
+                    <span class="button--bubble__effect-container">
+                        <span class="circle top-left"></span>
+                        <span class="circle top-left"></span>
+                        <span class="circle top-left"></span>
+                        <span class="button effect-button"></span>
+                        <span class="circle bottom-right"></span>
+                        <span class="circle bottom-right"></span>
+                        <span class="circle bottom-right"></span>
+                    </span>
                 </span>
-            </span>
+            </div>
+        </div>
+
+        <!-- 所有日誌 Title -->
+        <div class="diary_diaryTitleH3">
+            <!-- 規範h3 -->
+            <h3>更多此潛點日誌</h3>
+        </div>
+
+        <!-- 日誌卡片 -->
+        <div class="diaryCenter">
+            <!-- 1 -->
+            <div class="diarySolid">
+                <a href="#">
+                    <div class="imgContent">
+                        <div class="imgSolid">
+                            <!-- 規範img -->
+                            <img src="./img/diary/diaryphoto6.png" class="image">
+                        </div>
+                        <div class="diaryTitleA">
+                            <div class="diaryTitleFlex">
+                                <div class="userLogo"><img src="./img/diary/user.png" class="image"></div>
+                                <!-- 規範h4、h5 -->
+                                <h5 class="userName">diver</h5>
+                            </div>
+                            <h4 class="userText">潛水體驗去</h4>
+                        </div>
+                        <div class="diaryTitleB">
+                            <h4 class="diaryTitleText">綠島-鋼鐵礁</h4><!-- 規範h4、h5 -->
+                            <p class="diaryTitleDate">2020-06-16 | 21:07</p>
+                        </div>
+                    </div>
+                    <div class="diaryText">
+                        <div class="diaryTextData">
+                            <div><p>日誌類型 </p><p><span>課程</span><span></span></p></div>
+                            <div><p>最大深度</p><p><span>33.2</span><span>米</span></p></div>
+                            <div><p>平均深度</p><p><span>23.2</span><span>米</span></p></div>
+                            <div><p>潛水時間</p><p><span>45</span><span>m</span></p></div>
+                        </div>
+                        <div class="diaryTextP">
+                            <p class="diaryTextPP">海風的味道，就像夏天的擁抱</p>
+                            <i class="fas fa-ellipsis-v"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- 2 -->
+            <div class="diarySolid">
+                <a href="#">
+                    <div class="imgContent">
+                        <div class="imgSolid">
+                            <!-- 規範img -->
+                            <img src="./img/diary/diaryphoto7.png" class="image">
+                        </div>
+                        <div class="diaryTitleA">
+                            <div class="diaryTitleFlex">
+                                <div class="userLogo"><img src="./img/diary/user.png" class="image"></div>
+                                <!-- 規範h4、h5 -->
+                                <h5 class="userName">diver</h5>
+                            </div>
+                            <h4 class="userText">潛水體驗去</h4>
+                        </div>
+                        <div class="diaryTitleB">
+                            <h4 class="diaryTitleText">綠島-鋼鐵礁</h4><!-- 規範h4、h5 -->
+                            <p class="diaryTitleDate">2020-06-16 | 21:07</p>
+                        </div>
+                    </div>
+                    <div class="diaryText">
+                        <div class="diaryTextData">
+                            <div><p>日誌類型 </p><p><span>課程</span><span></span></p></div>
+                            <div><p>最大深度</p><p><span>33.2</span><span>米</span></p></div>
+                            <div><p>平均深度</p><p><span>23.2</span><span>米</span></p></div>
+                            <div><p>潛水時間</p><p><span>45</span><span>m</span></p></div>
+                        </div>
+                        <div class="diaryTextP">
+                            <p class="diaryTextPP">海風的味道，就像夏天的擁抱</p>
+                            <i class="fas fa-ellipsis-v"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- 3 -->
+            <div class="diarySolid">
+                <a href="#">
+                    <div class="imgContent">
+                        <div class="imgSolid">
+                            <!-- 規範img -->
+                            <img src="./img/diary/diaryphoto8.png" class="image">
+                        </div>
+                        <div class="diaryTitleA">
+                            <div class="diaryTitleFlex">
+                                <div class="userLogo"><img src="./img/diary/user.png" class="image"></div>
+                                <!-- 規範h4、h5 -->
+                                <h5 class="userName">diver</h5>
+                            </div>
+                            <h4 class="userText">潛水體驗去</h4>
+                        </div>
+                        <div class="diaryTitleB">
+                            <h4 class="diaryTitleText">綠島-鋼鐵礁</h4><!-- 規範h4、h5 -->
+                            <p class="diaryTitleDate">2020-06-16 | 21:07</p>
+                        </div>
+                    </div>
+                    <div class="diaryText">
+                        <div class="diaryTextData">
+                            <div><p>日誌類型 </p><p><span>課程</span><span></span></p></div>
+                            <div><p>最大深度</p><p><span>33.2</span><span>米</span></p></div>
+                            <div><p>平均深度</p><p><span>23.2</span><span>米</span></p></div>
+                            <div><p>潛水時間</p><p><span>45</span><span>m</span></p></div>
+                        </div>
+                        <div class="diaryTextP">
+                            <p class="diaryTextPP">海風的味道，就像夏天的擁抱</p>
+                            <i class="fas fa-ellipsis-v"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
-
-    <!-- 所有日誌 Title -->
-    <div class="diary_diaryTitleH3">
-        <!-- 規範h3 -->
-        <h3>更多此潛點日誌</h3>
-    </div>
-
-    <!-- 日誌卡片 -->
-    <div class="diaryCenter">
-        <!-- 1 -->
-        <div class="diarySolid">
-            <a href="#">
-                <div class="imgContent">
-                    <div class="imgSolid">
-                        <!-- 規範img -->
-                        <img src="./img/diary/diaryphoto6.png" class="image">
-                    </div>
-                    <div class="diaryTitleA">
-                        <div class="diaryTitleFlex">
-                            <div class="userLogo"><img src="./img/diary/user.png" class="image"></div>
-                            <!-- 規範h4、h5 -->
-                            <h5 class="userName">diver</h5>
-                        </div>
-                        <h4 class="userText">潛水體驗去</h4>
-                    </div>
-                    <div class="diaryTitleB">
-                        <h4 class="diaryTitleText">綠島-鋼鐵礁</h4><!-- 規範h4、h5 -->
-                        <p class="diaryTitleDate">2020-06-16 | 21:07</p>
-                    </div>
-                </div>
-                <div class="diaryText">
-                    <div class="diaryTextData">
-                        <div><p>日誌類型 </p><p><span>課程</span><span></span></p></div>
-                        <div><p>最大深度</p><p><span>33.2</span><span>米</span></p></div>
-                        <div><p>平均深度</p><p><span>23.2</span><span>米</span></p></div>
-                        <div><p>潛水時間</p><p><span>45</span><span>m</span></p></div>
-                    </div>
-                    <div class="diaryTextP">
-                        <p class="diaryTextPP">海風的味道，就像夏天的擁抱</p>
-                        <i class="fas fa-ellipsis-v"></i>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <!-- 2 -->
-        <div class="diarySolid">
-            <a href="#">
-                <div class="imgContent">
-                    <div class="imgSolid">
-                        <!-- 規範img -->
-                        <img src="./img/diary/diaryphoto7.png" class="image">
-                    </div>
-                    <div class="diaryTitleA">
-                        <div class="diaryTitleFlex">
-                            <div class="userLogo"><img src="./img/diary/user.png" class="image"></div>
-                            <!-- 規範h4、h5 -->
-                            <h5 class="userName">diver</h5>
-                        </div>
-                        <h4 class="userText">潛水體驗去</h4>
-                    </div>
-                    <div class="diaryTitleB">
-                        <h4 class="diaryTitleText">綠島-鋼鐵礁</h4><!-- 規範h4、h5 -->
-                        <p class="diaryTitleDate">2020-06-16 | 21:07</p>
-                    </div>
-                </div>
-                <div class="diaryText">
-                    <div class="diaryTextData">
-                        <div><p>日誌類型 </p><p><span>課程</span><span></span></p></div>
-                        <div><p>最大深度</p><p><span>33.2</span><span>米</span></p></div>
-                        <div><p>平均深度</p><p><span>23.2</span><span>米</span></p></div>
-                        <div><p>潛水時間</p><p><span>45</span><span>m</span></p></div>
-                    </div>
-                    <div class="diaryTextP">
-                        <p class="diaryTextPP">海風的味道，就像夏天的擁抱</p>
-                        <i class="fas fa-ellipsis-v"></i>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <!-- 3 -->
-        <div class="diarySolid">
-            <a href="#">
-                <div class="imgContent">
-                    <div class="imgSolid">
-                        <!-- 規範img -->
-                        <img src="./img/diary/diaryphoto8.png" class="image">
-                    </div>
-                    <div class="diaryTitleA">
-                        <div class="diaryTitleFlex">
-                            <div class="userLogo"><img src="./img/diary/user.png" class="image"></div>
-                            <!-- 規範h4、h5 -->
-                            <h5 class="userName">diver</h5>
-                        </div>
-                        <h4 class="userText">潛水體驗去</h4>
-                    </div>
-                    <div class="diaryTitleB">
-                        <h4 class="diaryTitleText">綠島-鋼鐵礁</h4><!-- 規範h4、h5 -->
-                        <p class="diaryTitleDate">2020-06-16 | 21:07</p>
-                    </div>
-                </div>
-                <div class="diaryText">
-                    <div class="diaryTextData">
-                        <div><p>日誌類型 </p><p><span>課程</span><span></span></p></div>
-                        <div><p>最大深度</p><p><span>33.2</span><span>米</span></p></div>
-                        <div><p>平均深度</p><p><span>23.2</span><span>米</span></p></div>
-                        <div><p>潛水時間</p><p><span>45</span><span>m</span></p></div>
-                    </div>
-                    <div class="diaryTextP">
-                        <p class="diaryTextPP">海風的味道，就像夏天的擁抱</p>
-                        <i class="fas fa-ellipsis-v"></i>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </div>
-
 
 
 
