@@ -88,8 +88,8 @@ try{
     $checkbox1 = $_POST['biologicalNo'] ;  //回傳是陣列  ajax的value
     // echo $checkbox1;
     foreach($checkbox1 as $i=>$biologicalNo){
-        $diaryImg->bindValue(":biologicalNo", $biologicalNo);
-        $diaryImg->execute(); //迴圈跑完結束 放這??
+        $diaryImg->bindValue(":biologicalNo", $biologicalNo); //這裡讓SQL產生第一個圖鑑號碼寫入2次
+        $diaryImg->execute(); //迴圈跑完結束
     }
     
     // header('Location : diaryInside.html'); //回到diaryInside.html
