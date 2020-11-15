@@ -13,6 +13,10 @@
         text-align: center;
         color: $keyBlack;
     }
+    
+    .mlt, .mrt{
+        margin-top: 70px;
+    }
 
     a {
         color: #FEFEFE;
@@ -74,7 +78,7 @@
         margin: 0 auto;
     }
     .mlt h4{
-        margin: 50px auto 10px;
+        margin: 30px auto 10px;
     }
     .mrt{
         margin: 60px auto 10px;  
@@ -111,7 +115,7 @@
     }
     .memberFromArea{
         position: absolute;
-        top: -240px;
+        top: -260px;
         left: 8%;
         transition: all 0.6s ease-in-out;
     }
@@ -123,7 +127,7 @@
     }
     
     .memberFromArea.memberFromMove{
-        top: -495px;
+        top: -515px;
     }
     .memberFromArea.memberFromPasMove{
         top: -30px;
@@ -326,6 +330,7 @@
         .memberFromChange{
             margin-top: 50px;
         }
+        
         .memberFromArea{
             left: 3%;
         }
@@ -343,12 +348,21 @@
         .memberRegisteredArea::-webkit-scrollbar {
             display: none;
         }
-        #memId{
+        #RegMemId{
             width: 66%;
         }
         #btnCheckId{
             width: 30%;
         }
+        // .memberFromArea{
+        //     top: -260px;
+        // }
+        // .memberFromArea.memberFromMove{
+        //     top: -575px;
+        // }
+        // .memberFromArea.memberFromPasMove{
+        //     top: -55px;
+        // }
     }
     @media all and (max-width: 762px){
         .memLogRegArea{
@@ -373,6 +387,17 @@
         #memberPasForgot{
             margin-bottom: 0;
         }
+
+        .memberFromArea{
+            top: -300px;
+            // top: -285px;
+        }
+        .memberFromArea.memberFromMove{
+            top: -575px;
+        }
+        .memberFromArea.memberFromPasMove{
+            top: -55px;
+        }
     }
     @media all and (max-width: 576px){
         .memLogRegArea{
@@ -394,6 +419,26 @@
         #btnCheckId{
             font-size: 12px;
         }
+        #memberPasForgot{
+            font-size: 10px;
+        }
+
+        #RegMemId{
+            width: 66%;
+        }
+        #btnCheckId{
+            width: 25%;
+        }
+
+        .memberFromArea{
+            top: -285px;
+        }
+        .memberFromArea.memberFromMove{
+            top: -545px;
+        }
+        .memberFromArea.memberFromPasMove{
+            top: -55px;
+        }
     }
     @media all and (max-width: 376px){
         .memLogRegArea{
@@ -409,6 +454,15 @@
         }
         .memberLoginButton{
             margin-top: 20px;
+        }
+        .memberFromArea{
+            top: -280px;
+        }
+        .memberFromArea.memberFromMove{
+            top: -530px;
+        }
+        .memberFromArea.memberFromPasMove{
+            top: -45px;
         }
     }
 }

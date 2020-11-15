@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>下潛遊戲</title>
+    <link rel="stylesheet" href="./css/style.css">
+    
+</head>
+<body class="gameResult">
+    @@include('./layout/header.html')
+
+    <main class="gameMain">
+        <div class="parent_score">
+
+            <div class="parent_resortRole">
+                <!-- <button><</button>
+                <button>></button> -->
+                <!-- <img class="resultRole" src="./img/game/resortRole.png">待辦:要代變數 -->
+                <div class="eye">
+                    <!-- <img src="./img/mask10.png"> -->
+                </div>
+                <div class="back">
+                    <!-- <img src="./img/air10.png"> -->
+                </div>
+                <div class="foot">
+                    <!-- <img src="./img/shoe20.png"> -->
+                </div>
+            </div>
+
+            <div class="scoreDescribe">
+                <div class="score">
+                    您獲得<span class="yellow" id="score">1234</span>點紅利
+                </div>
+            </div>
+
+            <div class="goShopBtn">
+                <div class="bubbleBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="goo">
+                        <defs>
+                            <filter id="goo">
+                                <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
+                                    result="goo" />
+                                <feComposite in="SourceGraphic" in2="goo" />
+                            </filter>
+                        </defs>
+                    </svg>
+            
+                    <span class="button--bubble__container">
+                        <a href="shop.html" class="button button--bubble">
+                            在商城使用
+                        </a>
+                        <span class="button--bubble__effect-container">
+                            <span class="circle top-left"></span>
+                            <span class="circle top-left"></span>
+                            <span class="circle top-left"></span>
+            
+                            <span class="button effect-button"></span>
+            
+                            <span class="circle bottom-right"></span>
+                            <span class="circle bottom-right"></span>
+                            <span class="circle bottom-right"></span>
+                        </span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="rankList">
+            <ul class="rank">
+                <li class="record">
+                    <img src="./img/game/memberIcon/member1.png" id="memAvatar">
+                    <h3 id="memName">王小明</h3>
+                    <h4 id="memGamePoint">127364</h4>
+                    <h4>第一名</h4>
+                </li>
+                <li class="record">
+                    <img src="./img/game/memberIcon/member2.png">
+                    <h3>王小美</h3>
+                    <h4>99927</h4>
+                    <h4>第二名</h4>
+                </li>
+                <li class="record">
+                    <img src="./img/game/memberIcon/member3.png">
+                    <h3>陳平偉</h3>
+                    <h4>81000</h4>
+                    <h4>第三名</h4>
+                </li>
+                <li class="record">
+                    <img src="./img/game/memberIcon/member4.png">
+                    <h3>桐谷和</h3>
+                    <h4>78763</h4>
+                    <h4>第四名</h4>
+                </li>
+                <li class="record">
+                    <img src="./img/game/memberIcon/member5.png">
+                    <h3>喬巴拿</h3>
+                    <h4>77777</h4>
+                    <h4>第五名</h4>
+                </li>
+                <li class="record">
+                    <img src="./img/game/memberIcon/member6.png">
+                    <h3>趙家豪</h3>
+                    <h4>65768</h4>
+                    <h4>第六名</h4>
+                </li>
+                <li class="record">
+                    <img src="./img/game/memberIcon/member7.png">
+                    <h3>錢冠宇</h3>
+                    <h4>35000</h4>
+                    <h4>第七名</h4>
+                </li>
+                <li class="record">
+                    <img src="./img/game/memberIcon/member8.png">
+                    <h3>葉大雄</h3>
+                    <h4>57683</h4>
+                    <h4>第八名</h4>
+                </li>
+                <li class="record">
+                    <img src="./img/game/memberIcon/member9.png">
+                    <h3>馬鈴淑</h3>
+                    <h4>45287</h4>
+                    <h4>第九名</h4>
+                </li>
+                <li class="record">
+                    <img src="./img/game/memberIcon/member10.png">
+                    <h3>孫志明</h3>
+                    <h4>30098</h4>
+                    <h4>第十名</h4>
+                </li>
+                <li class="record">
+                    <img src="./img/game/memberIcon/member11.png">
+                    <h3>曾桃燕</h3>
+                    <h4>24686</h4>
+                    <h4>第十一名</h4>
+                </li>
+                <li class="record">
+                    <img src="./img/game/memberIcon/member12.png">
+                    <h3>李淑芬</h3>
+                    <h4>15654</h4>
+                    <h4>第十二名</h4>
+                </li>
+                <li class="record">
+                    <img src="./img/game/memberIcon/member13.png">
+                    <h3>周建宏</h3>
+                    <h4>9023</h4>
+                    <h4>第十三名</h4>
+                </li>
+                <li class="record">
+                    <img src="./img/game/memberIcon/member14.png">
+                    <h3>尤詠慈</h3>
+                    <h4>5378</h4>
+                    <h4>第十四名</h4>
+                </li>
+                <li class="record">
+                    <img src="./img/game/memberIcon/member15.png">
+                    <h3>吳冠宇</h3>
+                    <h4>2048</h4>
+                    <h4>第十五名</h4>
+                </li>
+                <li class="record">
+                    <img src="./img/game/memberIcon/member16.png">
+                    <h3>史珍香</h3>
+                    <h4>1024</h4>
+                    <h4>第十六名</h4>
+                </li>
+                <li class="record">
+                    <img src="./img/game/memberIcon/member17.png">
+                    <h3>米思達</h3>
+                    <h4>444</h4>
+                    <h4>第十七名</h4>
+                </li>
+                <li class="record">
+                    <img src="./img/game/memberIcon/member18.png">
+                    <h3>蔣宥廷</h3>
+                    <h4>356</h4>
+                    <h4>第十八名</h4>
+                </li>
+                <li class="record">
+                    <img src="./img/game/memberIcon/member19.png">
+                    <h3>張德開</h3>
+                    <h4>286</h4>
+                    <h4>第十九名</h4>
+                </li>
+                <li class="record">
+                    <img src="./img/game/memberIcon/member20.png">
+                    <h3>張佈開</h3>
+                    <h4>15</h4>
+                    <h4>第二十名</h4>
+                </li>
+            </ul>
+        </div>
+
+        <!-- <div class="rankList">
+            <?php
+            while( $memRow = $products->fetch(PDO::FETCH_ASSOC)){//當抓得到一筆資料, 取回來以陣列的形式
+            ?>
+            <ul class="rank">
+                <li class="record">
+                    <img src="<?=$memRow["memAvator"]?>">
+                    <h3><?=$memRow["memName"]?></h3>
+                    <h4><?=$memRow["memGamePoint"]?></h4>
+                    <h4>第一名</h4>
+                </li>
+            </ul>
+        </div> -->
+
+        <div class="restartBtn">
+            <div class="bubbleBtn">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="goo">
+                    <defs>
+                        <filter id="goo">
+                            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
+                                result="goo" />
+                            <feComposite in="SourceGraphic" in2="goo" />
+                        </filter>
+                    </defs>
+                </svg>
+        
+                <span class="button--bubble__container">
+                    <a href="gameIntro.html" class="button button--bubble">
+                        重新挑戰
+                    </a>
+                    <span class="button--bubble__effect-container">
+                        <span class="circle top-left"></span>
+                        <span class="circle top-left"></span>
+                        <span class="circle top-left"></span>
+        
+                        <span class="button effect-button"></span>
+        
+                        <span class="circle bottom-right"></span>
+                        <span class="circle bottom-right"></span>
+                        <span class="circle bottom-right"></span>
+                    </span>
+                </span>
+            </div>
+        </div>
+    </main>
+    
+    @@include('./layout/footer.html')
+    <script src="./js/gameResult.js"></script>
+</body>
+</html>

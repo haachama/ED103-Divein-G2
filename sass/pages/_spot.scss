@@ -4,9 +4,9 @@
 .spot{
     // 第一頁－所有的共同屬性
     width: 100%;
-    height: 100vh;
     background-image: url("../img/spot/spotBanner_1-1.jpg");
     background-repeat: no-repeat;
+    background-position: center;
     background-size: cover;
     header{
         position: fixed;
@@ -17,29 +17,41 @@
     }
     .spotMain{
         color: $keyWhite;
+        // max-height: 100%;
         section{
-            padding-top: 80px;
-            height: 100%;
-            // border: 1px solid rgb(54, 182, 15);
+            // border: 5px solid rgb(54, 182, 15);
+            // padding-top: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            height: calc(100vh - 40px);
+            @include breakpoint (992){
+                height: 100%;
+            }
         }
     }
 
     //頁籤 內容部分
     .spotContents{
-        // border: 1px solid skyblue;
+        // border: 1px solid purple;
         width: $spotareaW;
-        height: 100%;
-        margin: 0 auto;
-        padding: 50px 20px 0px 20px;
+        margin-top: 100px;
         @include breakpoint (992){
             width: 100%;
             text-align: center;
         }
         .spotarea{
             // background: purple;
+            // border: 1px solid skyblue;
             width: 100%;
             height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             @include margin-auto(0);
+            text-align: center;
             font-size: 0;
             //頁籤功能
             display: none;
@@ -49,6 +61,8 @@
             // background-color: rgb(120, 104, 190);
             display: inline-block;
             vertical-align: top;
+            margin-top: 30px;
+            
 
         }
     }
@@ -56,15 +70,23 @@
     .spotRight{
         // border: 1px solid yellow;
         width: 40%;
+        margin: 0 auto;
+        text-align: left;
         @include breakpoint (992){
             width: 100%;
             margin: 0 auto;
             text-align: center;
         }
+        h2{
+            font-size: 40px;
+            @include breakpoint (992){
+                text-align: center;
+            }
+        }
         >h5{
             font-size: $baseFz;
             line-height: $lineH+10;
-            margin-bottom: $spotMargin;
+            margin-bottom: 20px;
             color: $transparentWhite;
         }
     }
@@ -93,6 +115,8 @@
         padding: $spotPadding;
         margin-bottom: $spotPadding;
         display: inline-block;
+        vertical-align: middle;
+
         @include breakpoint(992){
             // width: 40%;
             margin: 0;
@@ -108,8 +132,9 @@
                 vertical-align: middle;
 
                 .fas{
-                    font-size: $baseFz+2 ;
-                    margin: 0 5px;
+                    font-size: $baseFz - 2;
+                    margin: 5px;
+                    vertical-align: middle;
                     @include breakpoint(992){
                         font-size: $baseFz - 10;
                         vertical-align: middle;
@@ -191,6 +216,7 @@
             display: block;
             font-size: 30px;
             padding: 30px 0;
+            margin-bottom: 50px;
             animation:box .8s infinite;
             position: relative; 
             i{
@@ -223,9 +249,17 @@
     .spotLeft{
         // border: 1px solid rgb(252, 145, 6);
         width: 60%;
-        height: 100%;
+        max-width: 800px;
+        max-height: 590px;
+        margin: 0 auto;
+        // padding-top: 90px;
+        text-align: center;
+
+        // height: 100%;
+        // max-width: ;
+        
         @include breakpoint (1200){
-            padding-top: 50px;
+            // padding-top: 50px;
         }
         @include breakpoint (992){
             width: 100%;
@@ -233,8 +267,10 @@
         }
         .spotLeftImage{
             display: flex;
-            width: 90%;
-            margin-left: auto;
+            // border: 1px solid rgb(252, 145, 6);
+            width: 100%;
+            margin: 0 auto;
+
             @include breakpoint (992){
                 width: 100%;
             }
@@ -248,12 +284,10 @@
                 //嘗試動畫效果
                 .spotLeftImageAd {
                     font-size: 0;
-                    // border: 1px solid rgb(216, 17, 183);
                     width: 100%;
                     position: relative;
                     
                     span{
-                        // background-color:  rgba(254, 254, 254, 0.377);
                         background-color: $keyBlue;
                         border-radius: 0 0 15px 0;
                         font-size: $baseFz - 5;
@@ -346,8 +380,9 @@
         }
         //四張spotLeftTopA
         .spotLeftTwoPic_Rl{
-            padding-top: 11px;
-            // background-color: rgb(120, 104, 190);
+            padding-top: 10px;
+            max-height: 266px;
+
             a{
                 
                 &:first-child{
@@ -366,7 +401,10 @@
         }
         //四張 
         .spotLeftTwoPic_Lr{
-            padding-bottom: 11px;
+            // padding-bottom: 11px;
+            max-height: 266px;
+
+
             a{
                 // border: 1px solid rgb(252, 145, 6);
                 &:first-child{
@@ -379,12 +417,17 @@
         }
         //五張spotLeftTop
         .spotLeftTwoPic{
+            max-height: 266px;
+
+
             a {
                 width: 50%;
             }
         }
         //五張
         .spotLeftThreePic{
+            max-height: 266px;
+
             a{
                 flex: 3;
             }
@@ -395,6 +438,8 @@
     .spotListBlock{
         // border: 1px solid red;
         display: block;
+        width: 100%;
+        margin-top: 2%;
         .spotList{
             display: flex;
             flex-direction: row;
@@ -434,33 +479,40 @@
     }
     .spotList{
         li{    
-            border-top: 0;
+            a{
+                // background-color: rgba(246, 246, 246, 0.093);
+                border-top: 5px solid $keyWhite;
+                margin-top: -5px;
+            }
             a.-iHere{
                 color: $keyWhite;
-                border-bottom: 2px solid $transparentWhite;
+                background-color: transparent;
+                border: none;
+                margin-top: 5px;
             }
         }
     }   
 }
 //==============潛點內頁==============
 .spotRefer{
-    .spotRefre_Main{
+    .spotRefer_Main{
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         width: 100%;
         margin: 0 auto;
-        h2{
-            text-align: center;
+        .spotReferTitle{
             width: 100%;
-            padding: $spotBnPaddingRL;
-            // border: 1px solid rgb(33, 12, 153);
+            text-align: center;
+            h2{
+                margin: 30px auto;
+                // border: 1px solid rgb(33, 12, 153);
+            }
         }
-        
     }
 
     //潛點照片－rwd
-    .spotRefre_Contain_rwd{
+    .spotRefer_Contain_rwd{
         display: none;
         width: 100%;
         text-align: center;
@@ -469,10 +521,11 @@
             color: $keyWhite;
             line-height: $lineH*2;
         }
-        .spotRefreImg{
+        .spotReferImg{
             width: 90%;
             margin: 0 auto;
             display: block;
+            padding: 20px;
         }
         @include breakpoint (992){
             display: block;
@@ -480,7 +533,7 @@
     }
 
     //內頁頁籤-rwd
-    .spotRefreTab_rwd{
+    .spotReferTab_rwd{
         display: none;
         width: 100%;
         // border: 1px solid red;
@@ -492,6 +545,7 @@
             flex-direction: row;
             margin: 0 auto;
             align-items: center;
+            
         }
         li{
             display: flex;
@@ -499,6 +553,11 @@
             justify-content: center;
             text-align: center;
             border: 0.5px solid $transparentWhite;
+            border-right: 0;
+            &:first-child{
+                border-left: 0;
+
+            }
             a{
                 padding: $rwdSpotPadding*3 0;
                 width: 100%;
@@ -516,7 +575,7 @@
     }
     
     //rwd才需要出現
-    .spotRefre_intor{
+    .spotRefer_intor{
         display: none;
         @include breakpoint (992){
             width: 100%;
@@ -533,7 +592,7 @@
     }
         
     //網頁版左側
-    .spotRefre_left{
+    .spotRefer_left{
         // border: 1px solid rgb(33, 12, 153);
         width: 55%;
         max-width: 800px;
@@ -543,13 +602,13 @@
             width: 100%;
         }
         //潛點照片&潛點標題--踩點的人
-        .spotRefre_Contain{
+        .spotRefer_Contain{
             display: block;
             width: 100%;
             @include breakpoint(992){
                 display: none;
             }
-            .spotRefreImg{
+            .spotReferImg{
                 width: 90%;
                 margin: 0 auto;
                 // border: 1px solid orange;
@@ -561,7 +620,7 @@
                 text-align: center;
             }
         }
-        .spotRefre_left_spotHere{
+        .spotRefer_left_spotHere{
             width: 90%;
             margin: 0 auto;
             .spotHereBlock{
@@ -573,11 +632,12 @@
         .hereList{
             flex: 1;
             ul{
-                // border: 1px solid greenyellow;
+                border: 1px solid #ffffff00;
                 display: inline-block;
                 li{
                     width: $memimgW*1.8;
                     display: inline-block;
+                    padding: 2px;
                     img{
                         border-radius: 50%;
                     }
@@ -596,15 +656,16 @@
                             padding: $spotPadding;
                             color: $keyGray;
                             background-color: rgb(93, 92, 90);
-                            &:hover{
-                                background-color: $keyGray;
-                                cursor: pointer;
-                            }
-                            
+                        }
+                        &:hover::after{
+                            background-color: $keyGray;
+                            color: $keyWhite;
+                            cursor: pointer;
                         }
                     }
                 }
-            }  
+            }
+            
         }
         .hereAddBtn{
             width: $memimgW*2;
@@ -626,7 +687,7 @@
 
         
     //網頁版右邊
-    .spotRefre_right{
+    .spotRefer_right{
         width: 45%;
         max-width: 700px;
         padding: 0 30px;
@@ -638,16 +699,16 @@
             padding-right: 5px;
             width: 100%;
             text-align: center;
+            >h3{
+                display: none;
+            }
         }
 
         //網頁版右邊－潛點介紹
-        .spotRefreIntor{
+        .spotReferIntor{
             // border: 1px solid red;
             width: 100%;
             padding: $spotPadding;
-            h3{
-                padding-bottom: $spotPadding;
-            }
             p{
                 // border: 1px solid orange;
                 line-height: $lineH;
@@ -739,11 +800,13 @@
             display: block;
             width: 100%;
             text-align: left;
+            font-size: 12px;
             ul{
                 display: flex;
                 flex-direction: row;
                 width: 100%;
                 border-bottom: 0.5px solid $keyGray;
+                font-size: 12px;
                 &:last-child{
                     border-bottom: 0;
                 }
@@ -758,12 +821,15 @@
                 }
             }
             li{
+                font-size: 14px;
                 flex: 8;
                 justify-self: center;
                 padding: $spotPadding 0;
                 @include breakpoint (992){
                     width: 80px;
                     padding: 10px 10px;
+                    font-size: 12px;
+
                 }
                 @include breakpoint (577){
                     padding: 10px 2px;
@@ -799,7 +865,7 @@
     }
 
     //你將會看到
-    .spotRefre_Animal{
+    .spotRefer_Animal{
         // border: 1px solid greenyellow;
         width: 100%;
         background: linear-gradient(to bottom, transparent 52%, $keyBlack 30px);
@@ -835,7 +901,7 @@
     }
 
     //留言
-    .spotRefre_Msg{
+    .spotRefer_Com{
         // border: 1px solid greenyellow;
         width: 100%;
         color: $keyWhite;
@@ -849,14 +915,14 @@
         }
     }
     //所有留言
-    .spotMsgBlock{
+    .spotComBlock{
         width: 80%;
         margin: 0 auto;
         @include breakpoint (767){
             width: 100%; 
         }
     }
-    .spotMsg{
+    .spotCom{
         // border: 1px solid red;
         display: flex;
         flex-direction: row;
@@ -871,7 +937,7 @@
             padding: $spotPadding;
         }
         
-        .spotMsgText{
+        .spotComText{
             padding: $spotPadding;
             display: flex;
             flex-direction: row;
@@ -881,7 +947,8 @@
                 display: flex;
                 padding: $spotPadding;
                 >div{
-                    min-width: 60px;
+                    width: 80px;
+                    
                 }
                 h5{
                     color: $transparentWhite;
@@ -909,14 +976,14 @@
             }
         }
     }
-    .spotMsgMoreBtn{
+    .spotComMoreBtn{
         margin: $rwdSpotMargin*2;
         text-align: center;
     }
         
 
     //檢舉留言
-    .reportMsg{
+    .reportCom{
         form{
             text-align: left;
             width: 60%;
@@ -932,7 +999,7 @@
     }
 
     //送出留言
-    .spotMsgSend{
+    .spotComSend{
         // border: 1px solid blue;
         margin: 0 auto;
         width: 80%;
@@ -945,7 +1012,7 @@
             border-radius: 50%; 
         }
     
-        .spotMsgSendText{
+        .spotComSendText{
             // border: 1px solid greenyellow;
             position: relative;
             // background-color: rebeccapurple;
@@ -982,11 +1049,11 @@
 
 @media all and (max-width: 992px){
    .spotRefer{
-        .spotRefre_here,
-        .spotRefre_intor,
-        .spotRefre_weather,
-        .spotRefre_Animal,
-        .spotRefre_Msg{
+        .spotRefer_here,
+        .spotRefer_intor,
+        .spotRefer_weather,
+        .spotRefer_Animal,
+        .spotRefer_Com{
             display: none;
             margin: 20px auto;
             padding: $spotPadding;

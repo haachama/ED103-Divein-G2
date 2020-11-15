@@ -4,3 +4,4 @@ app/*.html
 webpack.config.js
 package-lock.json
 css
+gulpfile.js
