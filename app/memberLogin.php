@@ -5,8 +5,6 @@ try{
   $member = $pdo->prepare($sql);
   $member->bindValue(":memId", $_POST["memId"]);
   $member->bindValue(":memPsw", $_POST["memPsw"]);
-  // $member->bindValue(":memId", "testg2");
-  // $member->bindValue(":memPsw", "testg2");
   $member->execute();
   if( $member->rowCount()==0){ //查無此人
 	  echo "{}";
@@ -19,22 +17,15 @@ try{
     $_SESSION["memId"] = $memRow["memId"];
     $_SESSION["memPsw"] = $memRow["memPsw"];
     $_SESSION["memName"] = $memRow["memName"];
-    $_SESSION["memNickName"] = $memRow["memNickName"];
     $_SESSION["memMail"] = $memRow["memMail"];
     $_SESSION["memAvatar"] = $memRow["memAvatar"];
     $_SESSION["memGamePoint"] = $memRow["memGamePoint"];
     $_SESSION["points"] = $memRow["points"];
-    $_SESSION["memGamePicture"] = $memRow["memGamePicture"];
-    // $_SESSION["licenseOW"] = $memRow["licenseOW"];
-    // $_SESSION["licenseAOW"] = $memRow["licenseAOW"];
 
     $result = array("memId"=>$memRow["memId"], "memPsw"=>$memRow["memPsw"],
-                "memName"=>$memRow["memName"], "memNickName"=>$memRow["memNickName"],
+                "memName"=>$memRow["memName"],
                 "memMail"=>$memRow["memMail"], "memAvatar"=>$memRow["memAvatar"],
-                "memGamePoint"=>$memRow["memGamePoint"], "points"=>$memRow["points"],
-                "memGamePicture"=>$memRow["memGamePicture"],);
-                // "licenseOW"=>$memRow["licenseOW"],
-                // "licenseAOW"=>$memRow["licenseAOW"]);
+                "memGamePoint"=>$memRow["memGamePoint"], "points"=>$memRow["points"],);
   	$json = json_encode($result);
 
     //送出登入者的相關資料
