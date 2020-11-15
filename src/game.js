@@ -1125,12 +1125,12 @@ $(function () {
 //     return document.getElementById(id);
 // }	
 // let member;
-function sendForm(){
+// function sendForm(){
     //=====使用Ajax 回server端,取回登入者姓名, 放到頁面上 
     //   let memId = $id("memId").value;  
     //   let memPsw = $id("memPsw").value; 
     // var point = document.getElementById('myScore').Value();
-    alert(scoreResult);
+    // alert(scoreResult);
     // let xhr = new XMLHttpRequest();
     // xhr.onload = function(){
     //     member = JSON.parse(xhr.responseText);
