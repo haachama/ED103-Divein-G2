@@ -168,8 +168,6 @@ $(function () {
     $(".itemList img").on("click", function(){
         $(".lightbox-block2").addClass("-openbox");
         
-        let productID = $(this).parent().parent().attr('id');
-        $('.art [name="lightbox"]').val(productID);
     });
 
     // 關閉 Modal
