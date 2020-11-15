@@ -179,55 +179,53 @@ $(function(){
         }, 1000);
     });
 });
-
-
-        // Chart.defaults.global.responsive = true; 
-        // //Chart.js 預設為非響應式。將responsive 設true轉化為響應式圖表。設定全域性值。
-        // // line chart data 折線圖數據
-        // var buyerData = {
-        //     labels : ["時間1","時間2","時間3","時間4","時間5"],
-        //     datasets : [
-        //     {
-        //         fillColor : "rgba(172,194,132,0.4)", //透明綠
-        //         strokeColor : "#ACC26D", //綠
-        //         pointColor : "#fff", //白
-        //         pointStrokeColor : "#9DB86D", //綠
-        //         data : [203,156,99,251,305]
-        //     }
-        // ]
-        // }
-        // // get line chart canvas 獲取
-        // var buyers = document.getElementById('buyers').getContext('2d');
-        // // draw line chart 繪製
-        // new Chart(buyers).Line(buyerData);
         
-        new Vue({
-                el: '.pageLeftLine',
-                data() {
-                    return {
-                    data: [10, 71, 78, 25, 36, 92], 
-                    line: '',
-                    };
-                },
-                mounted() {
-                    this.calculatePath();
-                },
-                methods: {
-                    getScales() {
-                    const x = d3.scaleTime().range([500, 0]);
-                    const y = d3.scaleLinear().range([210, 0]);
-                    d3.axisLeft().scale(x);
-                    d3.axisBottom().scale(y);
-                    x.domain(d3.extent(this.data, (d, i) => i));
-                    y.domain([0, d3.max(this.data, d => d)]);
-                    return { x, y };
-                    },
-                    calculatePath() {
-                    const scale = this.getScales();
-                    const path = d3.line()
-                        .x((d, i) => scale.x(i))
-                        .y(d => scale.y(d));
-                    this.line = path(this.data);
-                    },
-                },
-            });
+var dt = new Vue({
+        el: '.diaryInside_vue',
+        data() {
+            return {
+            data: [10, 15, 8, 20, 36, 42],
+            line: '',
+            autowidth:0,
+            };
+        },
+        mounted() { //d3
+            this.calculatePath(); //第一步呼叫calculatePath去執行getScales
+            window.onresize = this.d3resize;//第二步呼叫d3resize
+            window.onload=this.abc;//第三步呼叫abc
+        },
+        methods: {
+            abc(){ //d3
+                let resizeAuto = document.querySelector('#resizeAuto').width;
+                // console.log(resizeAuto);
+                this.autowidth=parseInt(resizeAuto.animVal.value);
+            },
+            d3resize(){ //d3
+                let resizeAuto = document.querySelector('#resizeAuto').width;
+                this.autowidth=parseInt(resizeAuto.animVal.value);
+            },
+            getScales() { //d3
+                
+            const x = d3.scaleTime().range([this.autowidth, 0]); //x的寬
+            const y = d3.scaleLinear().range([50, 0]); //Y的高
+            d3.axisLeft().scale(x);
+            d3.axisBottom().scale(y);
+            x.domain(d3.extent(this.data, (d, i) => i));
+            y.domain([0, d3.max(this.data, d => d)]);
+            return { x, y };
+            },
+            calculatePath() { //d3
+            
+            const scale = this.getScales();
+            const path = d3.line()
+                .x((d, i) => scale.x(i))
+                .y(d => scale.y(d));
+            this.line = path(this.data);
+            },
+        },
+        watch: {
+            autowidth(){ //d3
+                this. calculatePath();
+            }
+        },
+    });

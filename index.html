@@ -5,23 +5,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./img/favicon.ico" type="image/x-icon" />
-    <link rel="Shortcut Icon" href="./img/favicon.ico" type="image/x-icon" />
-    
+    <link rel="Shortcut Icon" href="./img/favicon.ico" type="image/x-icon" /> 
     <link rel="stylesheet" href="./css/style.css">
+
     <title>海中日子</title>
 </head>
+ 
 
-<body>
-    @@include('./layout/header.html')
+<body class="front">
+    <div class="divelogobg">
+        <img src="./img/front/diveinlogo.png">
+    </div>
 
+    <div class="container">
+        <div class="bub">
+            <div class="frontBubble">
+                <a href="./main.html">
+                    <img class="FBubble" src="./img/front/frontbubble.png">
+                </a>
+            </div>
+        
+            <div class="backBubble">
+                <a href="./backstage.html">
+                    <img class="FBubble" src="./img/front/backbubble.png">
+                </a>
+            </div>
+        </div>
+    </div>
 
+    
 
+    <div id="parallax">
+        <!-- school of fish -->
+        <div class="layer1 speed1"></div>
+        <!-- fish + jellyfish -->
+        <div class="layer2 speed3"></div>  
+         <!-- coral layer 1 -->
+        <div class="layer3"></div>
+        <!-- diver man right -->
+        <div class="layer4 speed2"></div> 
+        <!-- little fish by diver -->
+        <div class="layer5 speed4"></div>  
+        <!-- coral layer 2 -->
+        <div class="layer6"></div>
+        <!-- seahorse -->
+        <div class="layer7 speed5"></div>
+        <!-- coral layer 3 -->
+        <div class="layer8"></div>
+        <!-- 3 fish -->
+        <div class="layer9 speed2"></div> 
+    </div>
 
-
-
-
-
-    @@include('./layout/footer.html');
-    <script src="./js/index.js"></script>
+    
 </body>
+
 </html>

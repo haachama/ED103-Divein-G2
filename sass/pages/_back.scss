@@ -1,5 +1,5 @@
 /*後台樣式*/
-.back{
+.back {
     background-color: #03162f;
     background-image: none;
     color: $keyWhite;
@@ -7,7 +7,7 @@
     img {
         max-width: 100%;
     }
-        
+
     .switch {
         /* ====================ios toggle按鈕 ==================== */
         position: relative;
@@ -15,14 +15,14 @@
         width: 50px;
         height: 30px;
     }
-    
+
     .switch input {
         /* Hide default HTML checkbox */
         opacity: 0;
         width: 0;
         height: 0;
-    } 
-    
+    }
+
     .slider {
         position: absolute;
         cursor: pointer;
@@ -33,7 +33,7 @@
         background-color: #ccc;
         transition: .4s;
     }
-    
+
     .slider:before {
         position: absolute;
         content: "";
@@ -44,28 +44,28 @@
         background-color: white;
         transition: .4s;
     }
-    
+
     input:checked+.slider {
         background-color: #2ecc71;
     }
-    
+
     input:focus+.slider {
         box-shadow: 0 0 1px#2ecc71;
     }
-    
+
     input:checked+.slider:before {
         transform: translateX(23px);
     }
-    
+
     .slider.round {
         /* Rounded sliders */
         border-radius: 34px;
     }
-    
+
     .slider.round:before {
         border-radius: 50%;
     }
-    
+
     .btn {
         /* ==================== simple btn ==================== */
         margin: 0 20px;
@@ -78,21 +78,25 @@
         color: #fefefe;
         padding: 8px 32px;
     }
-    
+
     .btn:hover {
-        border-color:#fefefe;
-        background:#fefefe;
+        border-color: #fefefe;
+        background: #fefefe;
         cursor: pointer;
         color: #03162f;
     }
-    
+
+    .btn.logout{
+        margin: 20px 0;
+    }
+
     input {
         /* ==================== input ==================== */
         background: #fefefe;
         padding: 3px 2px;
         border-radius: 5px;
     }
-    
+
     .backHeader {
         /* ==================== header 區域 ==================== */
         width: 100%;
@@ -102,14 +106,14 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-    
+
         img[alt=logo] {
             height: 80px;
             padding: 7px 0;
             width: auto;
             margin-left: 50px;
         }
-    
+
         .profile {
             p {
                 display: inline-block;
@@ -118,70 +122,160 @@
             }
         }
     }
-    
+
     .tab_container {
         /* ==================== 頁籤區塊 ==================== */
         display: flex;
         margin-top: 20px;
-    
+
         .tab_list_block {
             padding-left: 50px;
             display: inline-block;
-    
+
             li {
                 width: 125px;
             }
         }
     }
-    
+
     .tab_list li a {
         /* 頁籤列表 */
         text-decoration: none;
         display: inline-block;
         padding: 13px 5px;
         color: $keyWhite;
-    
+
         &.-on {
-            background-image: linear-gradient(#E6AE2C);
+            background-image: linear-gradient(#E6AE2C, #E6AE2C);
             background-position: 0% 70%;
             background-size: 100% 20%;
             background-repeat: no-repeat;
         }
     }
-    
+
     .tab_contents {
         /* 頁籤內容區塊 */
-    
+
         .tab {
             padding: 10px;
             display: none;
-    
+
             &.-on {
                 display: block;
             }
         }
-    
+
     }
-    
+
     table {
         /* ==================== table ==================== */
         margin: 20px;
     }
-    
+
     th,
     td {
         border-top: 1px solid $keyWhite;
         padding: 15px;
         vertical-align: middle;
     }
-    
+
     table tr:last-child td {
         border-bottom: 1px solid $keyWhite;
     }
-    
+
     input[type=password] {
         width: 150px;
     }
+
+    /* ==================== coco btn ==================== */
+    .stopReviseBtn {
+        margin: 10px 10px;
+        margin-left: 0;
+    }
+    .spot{
+        height: auto;
+        background-image: none;
+    }
+
+    /* ==================== coco頁籤名稱 ==================== */
+    .tab.spot .tab_list_block.spot_list_block {
+        padding-left: 20px;
+        margin-right: 50px;
+        display: inline-block;
+    }
+
+    .tab.spot .tab_list_block.spot_list_block .tab_list.spotArae_list {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        border: 1px solid #fefefe;
+        width: 100%;
+        text-align: center;
+    }
+
+    .tab.spot .tab_list_block.spot_list_block .tab_list.spotArae_list li:hover {
+        background-color: #fefefe;
+    }
+
+    .tab_list.spotArae_list li a.spotArae_each {
+        text-decoration: none;
+        display: inline-block;
+        padding: 13px 5px;
+        width: 100%;
+        color: #fefefe;
+    }
+
+    .tab_list.spotArae_list li a.spotArae_each.-spoton {
+        background-color: #fefefe;
+        color: #073977;
+    }
+
+    .tab_list.spotArae_list li a.spotArae_each:hover {
+        color: #073977;
+    }
+
+    .spot_contents .spot_point {
+        display: none;
+    }
+
+    .spot_contents .spot_point.-spoton {
+        display: block;
+    }
+
+    /* ==================== coco table ==================== */
+    table .spot_main_list th {
+        text-align: left;
+    }
+
+    .spot_main .spot_refer {
+        width: 250px;
+        max-width: 250px;
+    }
+
+    .spot_main .spot_refer p {
+        cursor: pointer;
+        display: -webkit-box; 
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .spot_main .spot_refer p:hover {
+        text-decoration: underline;
+    }
+
+    .spot_main:last-child td:last-child {
+        width: 150px;
+    }
+
+    .spot_more .spot_textLine {
+        cursor: pointer;
+    }
+
+    .spot_more .spot_textLine:hover {
+        text-decoration: underline;
+    }
+
+
 }
-
-

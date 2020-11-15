@@ -42,12 +42,15 @@ gulp.task('fileinclude', function () {
 
 var reload = browserSync.reload;
 
-// 瀏覽器
+// 瀏覽器_coco mac環境
 gulp.task('default', function () {
     browserSync.init({
+        proxy: "http://localhost/divein-G2/app/spotRefer.html",
+        // proxy: "http://localhost/divein-G2/app/spot.html",
+        
         server: {
             baseDir: "./app",
-            index: "course.html"
+            index: "diaryAdd.html"
         }
     });
     gulp.watch(['sass/*.scss' , 'sass/**/*.scss'], ['sass']).on('change', reload);

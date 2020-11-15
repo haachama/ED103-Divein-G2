@@ -1,9 +1,9 @@
     import {TweenMax, TimelineMax} from "gsap";
     import Vue from "vue";
-    import rangeslider from "rangeslider.js";
-    // require("jquery.ripples.js");
+    require("./jquery.ripples.js");
 
-$(function () {
+$(function(){
+
     //水波紋
     $('body').ripples({
         resolution: 1280,
@@ -13,9 +13,8 @@ $(function () {
     $('canvas').css({
         position:"fixed",
     });
-});
 
-$(function(){
+
     // 開啟 Modal 彈跳視窗
     $(".mainBtn_3").on("click", function(){
         $(".lightbox-block3").addClass("-openbox");
@@ -194,70 +193,87 @@ $(function(){
         }
     });
 });
-
+//篩選列
 var select = new Vue({
     el: '.diaryAddA',
     data() {
         return {
             options: [
                 {
-                    value: "東北角",
-                    text: "東北角"
-                },
-                {
-                    value: "墾丁",
-                    text: "墾丁"
-                },
-                {
-                    value: "小琉球",
-                    text: "小琉球"
-                },
-                {
-                    value: "綠島",
+                    value: "1",
                     text: "綠島"
                 },
                 {
-                    value: "蘭嶼",
+                    value: "2",
                     text: "蘭嶼"
                 },
+                {
+                    value: "3",
+                    text: "墾丁"
+                },
+                {
+                    value: "4",
+                    text: "小琉球"
+                },
+                {
+                    value: "5",
+                    text: "東北角"
+                },
             ],
-            areas: [{
-                    selected: "東北角",
-                    diveArea: [{key:"和美",value:"和美"}, {key:"龍洞",value:"龍洞"}, {key:"潮境公園",value:"潮境公園"}, {key:"鼻頭角",value:"鼻頭角"}],
+            areas: [
+                {
+                    selected: "1", //綠島
+                    diveArea: [{key:"海底教堂",value:"1",name:"diveNo"},{key:"鋼鐵礁",value:"2",name:"diveNo"}, {key:"石朗大香菇",value:"3",name:"diveNo"}, {key:"海底大峽谷",value:"4",name:"diveNo"}, {key:"雞仔礁",value:"5",name:"diveNo"}],
                 },
                 {
-                    selected: "墾丁",
-                    diveArea: [{key:"後壁湖",value:"後壁湖"}, {key:"出水口",value:"出水口"}, {key:"雙峰藍洞",value:"雙峰藍洞"}, {key:"北岸花園",value:"北岸花園"}],
+                    selected: "2", //蘭嶼
+                    diveArea: [{key:"母雞岩",value:"6",name:"diveNo"}, {key:"八代灣沉船",value:"7",name:"diveNo"}, {key:"椰油斷層",value:"8",name:"diveNo"}, {key:"野銀小峽谷",value:"9",name:"diveNo"}, {key:"四條溝",value:"10",name:"diveNo"}],
+                },
+                {
+                    selected: "3", //墾丁
+                    diveArea: [{key:"後壁湖",value:"11",name:"diveNo"}, {key:"出水口",value:"12",name:"diveNo"}, {key:"雙峰藍洞",value:"13",name:"diveNo"}, {key:"合界",value:"14",name:"diveNo"}],
                 }, {
-                    selected: "小琉球",
-                    diveArea: [{key:"花瓶岩",value:"花瓶岩"}, {key:"美人洞",value:"美人洞"}, {key:"衫福沈船",value:"衫福沈船"}, {key:"鎮海艦",value:"鎮海艦"}, {key:"厚石礁群",value:"厚石礁群"}],
+                    selected: "4", //小琉球
+                    diveArea: [{key:"花瓶岩",value:"15",name:"diveNo"}, {key:"美人洞",value:"16",name:"diveNo"}, {key:"衫福沈船",value:"17",name:"diveNo"}, {key:"鎮海艦",value:"18",name:"diveNo"}, {key:"厚石礁群",value:"19",name:"diveNo"}],
                 },
                 {
-                    selected: "綠島",
-                    diveArea: [{key:"海底教堂",value:"海底教堂"},{key:"鋼鐵礁",value:"鋼鐵礁"}, {key:"石朗大香菇",value:"石朗大香菇"}, {key:"海底大峽谷",value:"海底大峽谷"}, {key:"雞仔礁",value:"雞仔礁"}],
-                },
-                {
-                    selected: "蘭嶼",
-                    diveArea: [{key:"母雞岩",value:"母雞岩"}, {key:"八代灣沉船",value:"八代灣沉船"}, {key:"椰油斷層",value:"椰油斷層"}, {key:"野銀小峽谷",value:"野銀小峽谷"}, {key:"四條溝",value:"四條溝"}],
-                },
+                    selected: "5", //東北角
+                    diveArea: [{key:"和美",value:"20",name:"diveNo"}, {key:"龍洞",value:"21",name:"diveNo"}, {key:"潮境公園",value:"22",name:"diveNo"}, {key:"鼻頭角",value:"23",name:"diveNo"}],
+                }
             ],
             value: "",
         };
     },
-    computed: {
+    computed: { //實體建立完成後
         show() {
             if (this.value == "") {
                 return [];
             } else {
-                // for (let index = 0; index < this.areas.length; index++) {
-                //   const element = this.areas[index];
-                //   if (element.selected == this.value) {
-                //     return element.diveArea;
-                //   }
-                // }
                 return this.areas.filter((x) => x.selected == this.value)[0].diveArea;
             }
         },
     },
 });
 
+function doFirst() {
+            document.getElementById('biologicalBtnJSAnn').onclick = checkBiological;
+        }
+function checkBiological() {
+    let animals = ['animal1', 'animal2', 'animal3', 'animal4', 'animal5', 'animal6', 'animal7', 'animal8', 'animal9', 'animal10', 'animal11', 'animal12']; //input id
+    let show = "";
+    
+    for (let i = 0; i < animals.length; i++) {
+        let list = document.getElementById(animals[i]);
+        if ( list.checked ) {
+            show += `<img src='./img/diary/${animals[i]}.png' style="width:80px">`;
+        }
+        document.getElementById('biologicalAddImg').innerHTML = show;
+    }
+}
+window.addEventListener('load', doFirst);
+
+//---------------------------------------------------------------------------------------
+//圖鑑checked背景
+$(".abc").click(function(){
+    $(this).toggleClass("-o");
+});
