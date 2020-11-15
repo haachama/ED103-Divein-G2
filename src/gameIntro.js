@@ -17,6 +17,60 @@ rulebtnX.addEventListener("click", function () {
 var total = 50;//設定起始金額
 var totalPrice = document.getElementById("totalPrice");//抓取金額顯示處
 
+//切換角色↓
+var role = 1; //角色預設為 1 (1→綠色 2→粉紅色 3→橘色)
+
+//抓取角色
+var greenRole = document.getElementById("greenRole");
+var pinkRole = document.getElementById("pinkRole");
+var orangeRole = document.getElementById("orangeRole");
+
+    //預設只顯示角色1(不寫這段的話，會預設顯示角色3)
+    greenRole.style.display= "block";
+    pinkRole.style.display= "none";
+    orangeRole.style.display= "none";
+
+//抓取切換角色按鈕
+var changeRoleBtnLeft = document.getElementById("changeRoleBtnLeft");
+var changeRoleBtnRight = document.getElementById("changeRoleBtnRight");
+
+//↓抓取要點擊的區域(泡泡)
+var mask10Btn = document.getElementById("mask10Btn");
+var mask20Btn = document.getElementById("mask20Btn");
+var mask40Btn = document.getElementById("mask40Btn");
+
+var air10Btn = document.getElementById("air10Btn");
+var air20Btn = document.getElementById("air20Btn");
+var air40Btn = document.getElementById("air40Btn");
+
+var shoe10Btn = document.getElementById("shoe10Btn");
+var shoe20Btn = document.getElementById("shoe20Btn");
+var shoe40Btn = document.getElementById("shoe40Btn");
+
+//抓取要顯示的圖片
+var mask10 = document.getElementById("mask10");
+var mask20 = document.getElementById("mask20");
+var mask40 = document.getElementById("mask40");
+
+var air10 = document.getElementById("air10");
+var air20 = document.getElementById("air20");
+var air40 = document.getElementById("air40");
+
+var shoe10 = document.getElementById("shoe10");
+var shoe20 = document.getElementById("shoe20");
+var shoe40 = document.getElementById("shoe40");
+
+//所有裝備狀態預設為「未購買」
+var mask10Display = false; 
+var mask20Display = false;
+var mask40Display = false;
+var air10Display = false;
+var air20Display = false;
+var air40Display = false;
+var shoe10Display = false;
+var shoe20Display = false;
+var shoe40Display = false;
+
 //宣告函數
 
 //函數:搖晃剩餘金額(餘額不足時呼叫)
@@ -170,59 +224,7 @@ function shoe40Block (){
     shoe40Display = true;
 };
 
-//切換角色↓
-var role = 1; //角色預設為 1 (1→綠色 2→粉紅色 3→橘色)
 
-//抓取角色
-var greenRole = document.getElementById("greenRole");
-var pinkRole = document.getElementById("pinkRole");
-var orangeRole = document.getElementById("orangeRole");
-
-    //預設只顯示角色1(不寫這段的話，會預設顯示角色3)
-    greenRole.style.display= "block";
-    pinkRole.style.display= "none";
-    orangeRole.style.display= "none";
-
-//抓取切換角色按鈕
-var changeRoleBtnLeft = document.getElementById("changeRoleBtnLeft");
-var changeRoleBtnRight = document.getElementById("changeRoleBtnRight");
-
-//↓抓取要點擊的區域(泡泡)
-var mask10Btn = document.getElementById("mask10Btn");
-var mask20Btn = document.getElementById("mask20Btn");
-var mask40Btn = document.getElementById("mask40Btn");
-
-var air10Btn = document.getElementById("air10Btn");
-var air20Btn = document.getElementById("air20Btn");
-var air40Btn = document.getElementById("air40Btn");
-
-var shoe10Btn = document.getElementById("shoe10Btn");
-var shoe20Btn = document.getElementById("shoe20Btn");
-var shoe40Btn = document.getElementById("shoe40Btn");
-
-//抓取要顯示的圖片
-var mask10 = document.getElementById("mask10");
-var mask20 = document.getElementById("mask20");
-var mask40 = document.getElementById("mask40");
-
-var air10 = document.getElementById("air10");
-var air20 = document.getElementById("air20");
-var air40 = document.getElementById("air40");
-
-var shoe10 = document.getElementById("shoe10");
-var shoe20 = document.getElementById("shoe20");
-var shoe40 = document.getElementById("shoe40");
-
-//所有裝備狀態預設為「未購買」
-var mask10Display = false; 
-var mask20Display = false;
-var mask40Display = false;
-var air10Display = false;
-var air20Display = false;
-var air40Display = false;
-var shoe10Display = false;
-var shoe20Display = false;
-var shoe40Display = false;
 
 //↓切換角色
 
