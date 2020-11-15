@@ -274,7 +274,13 @@
                 newprodInput = document.createElement('input');
                 newprodInput.type = 'text';
                 // if(storage.getItem())
-                newprodInput.value = '1';
+
+                let itemValueArr = itemValue.split('|');
+                if(itemValueArr.length == 3){
+                    newprodInput.value = '1';
+                }else{
+                    newprodInput.value = itemValueArr.pop();
+                }
                 newprodInput.min = '0';
                 newprodInput.addEventListener('input', changeItemCount);
 
