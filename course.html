@@ -27,7 +27,7 @@
             </video>
         </div>
         <div class="courseTitle">
-            <span class="courseFont">已有</span><span class="courseNum">1067</span><span class="courseFont">人成功</span>
+            <span class="courseFont">已有</span><span class="courseNum" id="number">0</span><span class="courseFont">人成功</span>
         </div>
         <div class="courseTitle_2">
             <span class="courseFont">考取潛水證照</span>
@@ -119,13 +119,23 @@
                 </h4>
                 <div class="courseCa_02">
                     <input type="date" placeholder="MM/DD/YYYY" id="ddmmyyyy">
+                    <input type="date" placeholder="MM/DD/YYYY" id="ddmmyyyy">
                 </div>
             </div>
             <div class="courseItem_03">
                 <h4 class="courseH4">
                     選擇教練
                 </h4>
+                <!-- <span class="dropdown-el">
+                    <input type="radio" name="sortType" value="Relevance" checked="checked" id="sort-relevance"><label for="sort-relevance">Relevance</label>
+                    <input type="radio" name="sortType" value="Popularity" id="sort-best"><label for="sort-best">Product Popularity</label>
+                    <input type="radio" name="sortType" value="PriceIncreasing" id="sort-low"><label for="sort-low">Price Low to High</label>
+                    <input type="radio" name="sortType" value="PriceDecreasing" id="sort-high"><label for="sort-high">Price High to Low</label>
+                    <input type="radio" name="sortType" value="ProductBrand" id="sort-brand"><label for="sort-brand">Product Brand</label>
+                    <input type="radio" name="sortType" value="ProductName" id="sort-name"><label for="sort-name">Product Name</label>
+                  </span> -->
                 <select class="courseSelect">
+                    <option selected="selected" disabled="disabled"  style='display: none' value=''></option>
                     <option>Billy</option>
                     <option>Amy</option>
                     <option>Sam</option>
@@ -142,16 +152,42 @@
                     選擇地點
                 </h4>
                 <select class="courseSelect">
-                    <option>和美</option>
-                    <option>龍洞</option>
-                    <option>潮境公園</option>
-                    <option>鋼鐵礁</option>
-                    <option>後壁湖</option>
-                    <option>出水口</option>
-                    <option>雙峰藍洞</option>
-                    <option>北岸花園</option>
-                    <option>花瓶岩</option>
+                    <option selected="selected" disabled="disabled"  style='display: none' value=''></option>
+                    <optgroup label="綠島">
+                        <option>海底教堂</option>
+                        <option>鋼鐵礁</option>
+                        <option>石朗大香菇</option>
+                        <option>海底大峽谷</option>
+                        <option>雞仔礁</option>
+                    </optgroup>
+                    <optgroup label="蘭嶼">
+                        <option>母雞岩</option>
+                        <option>八代灣沈船</option>
+                        <option>椰油斷層</option>
+                        <option>野營小峽谷</option>
+                        <option>四條溝</option>
+                    </optgroup>
+                    <optgroup label="墾丁">
+                        <option>後壁湖</option>
+                        <option>出水口</option>
+                        <option>雙峰藍洞</option>
+                        <option>合界</option>
+                    </optgroup>
+                    <optgroup label="小琉球">
+                        <option>花瓶岩</option>
+                        <option>美人洞</option>
+                        <option>衫福沈船</option>
+                        <option>鎮海艦</option>
+                        <option>厚實礁群</option>
+                    </optgroup>
+                    <optgroup label="東北角">
+                        <option>和美</option>
+                        <option>龍洞</option>
+                        <option>潮境公園</option>
+                        <option>鼻頭角</option>
+                    </optgroup>
                 </select>
+                
             </div>
         </div>
         <div class="courseLesson">
@@ -302,6 +338,47 @@
     </section>
     @@include('./layout/footer.html')
     <script src="./js/course.js"></script>
+    
+    <script>
+        let number = document.getElementById('number');
+
+        let start = 20;
+        let end = 1067;
+        let ticks = 20;
+        let speed = 50;
+
+        let randomNumbers = [end]
+
+        for (let i = 0; i < ticks - 1; i++) {
+        randomNumbers.unshift(
+            Math.floor(Math.random() * (end - start + 1) + start)
+        );
+        }
+
+        randomNumbers.sort((a, b) => {return a - b});
+
+        console.log(randomNumbers.length)
+
+        let x = 0;
+        let interval = setInterval(function () {
+        
+        number.innerHTML = randomNumbers.shift();
+
+        if (++x === ticks) {
+            window.clearInterval(interval);
+        }
+
+        }, speed);
+    </script>
+    
+    <script>
+        $('.courseTime').click(function(){
+            if($(this).prop('checked')){
+                $('.courseTime').prop('checked',false);
+                $(this).prop('checked',true)
+            }
+        });
+    </script>
 </body>
 
 </html>

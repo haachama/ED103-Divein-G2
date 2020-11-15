@@ -4,11 +4,13 @@ const sass = require('gulp-sass');
 const fileinclude = require('gulp-file-include');
 const browserSync = require('browser-sync').create();
 const clean = require('gulp-clean');
+const wait = require('gulp-wait2');
 
 
 //先執行 clear > sass > cleanCSS
 gulp.task('sass', ['clear'], function () {
     return gulp.src('sass/*.scss')
+        .pipe(wait(200))
         .pipe(sass().on('error', sass.logError))
         .pipe(cleanCSS({
             compatibility: 'ie8'
@@ -45,9 +47,9 @@ gulp.task('default', function () {
     browserSync.init({
         server: {
             baseDir: "./app",
-            index: "diaryAdd.html"
+            index: "course.html"
         }
     });
     gulp.watch(['sass/*.scss' , 'sass/**/*.scss'], ['sass']).on('change', reload);
-    gulp.watch(['*.html', '**/*.html'], ['fileinclude']).on('change', reload);
+    gulp.watch(['./*.html', './layout/*.html'], ['fileinclude']).on('change', reload);
 });
