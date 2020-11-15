@@ -1,5 +1,5 @@
 import $ from "jquery";
-import TweenMax from "gsap";
+import {TweenMax,TimelineMax} from 'gsap';
 
 $('.button--bubble').each(function () {
     var $circlesTopLeft = $(this).parent().find('.circle.top-left');

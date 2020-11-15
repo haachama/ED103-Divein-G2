@@ -1,15 +1,14 @@
-// import $ from 'jquery';
+import $ from 'jquery';
 
 
 $(document).ready(function(){
 
     var spotgecode ='467660';
 
-    // stationId 蘭嶼 467620 , 蘭嶼
-    // stationId 台東 467660 , 綠島
-    // stationId 恆春 467590 , 墾丁
-    // stationId 恆春 467660 , 小琉球
-    // stationId 淡水 466900 , 東北角
+            //未來一週天氣預報 日期  溫度T 風向WD RH平均濕度
+            // 台東 geocode: "10014" 蘭嶼 綠島
+            // 屏東 geocode: "10013" 小琉 球墾丁
+            // 新北 geocode: "65"    東北角
     
     $('.weathers').on('click',function(){
         spotgecode = $(this).attr('value'); //將後台撈到的數字存成一個＄spotStationId變數 

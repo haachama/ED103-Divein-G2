@@ -1,4 +1,4 @@
-// import $ from 'jquery';
+import $ from 'jquery';
 
 
 $(document).ready(function(){
@@ -24,7 +24,7 @@ $(document).ready(function(){
     });
 
     $.ajax({
-        // O-A0018-001浮標站監測資料，找浪高
+        // O-A0018-001 即時浮標站監測資料，找浪高 海溫
         // stationId 蘭嶼 C6S94 , 蘭嶼浮標
         // stationId 台東 WRA007 , 臺東浮標
         // stationId 恆春 46759A , 鵝鑾鼻浮標

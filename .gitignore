@@ -2,7 +2,6 @@ node_modules
 app/css
 app/*.html
 webpack.config.js
-app/js
 package-lock.json
 css
 gulpfile.js

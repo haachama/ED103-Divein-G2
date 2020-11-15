@@ -4,9 +4,9 @@
 .spot{
     // 第一頁－所有的共同屬性
     width: 100%;
-    height: 100vh;
     background-image: url("../img/spot/spotBanner_1-1.jpg");
     background-repeat: no-repeat;
+    background-position: center;
     background-size: cover;
     header{
         position: fixed;
@@ -18,28 +18,40 @@
     .spotMain{
         color: $keyWhite;
         // max-height: 100%;
-        min-height: 100vh;
         section{
             // border: 5px solid rgb(54, 182, 15);
-            padding-top: 80px;
+            // padding-top: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            height: calc(100vh - 40px);
+            @include breakpoint (992){
+                height: 100%;
+            }
         }
     }
 
     //頁籤 內容部分
     .spotContents{
-        // border: 1px solid skyblue;
+        // border: 1px solid purple;
         width: $spotareaW;
-        margin: 0 auto;
-        padding: 50px 20px 0px 20px;
+        margin-top: 100px;
         @include breakpoint (992){
             width: 100%;
             text-align: center;
         }
         .spotarea{
             // background: purple;
+            // border: 1px solid skyblue;
             width: 100%;
             height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             @include margin-auto(0);
+            text-align: center;
             font-size: 0;
             //頁籤功能
             display: none;
@@ -49,6 +61,8 @@
             // background-color: rgb(120, 104, 190);
             display: inline-block;
             vertical-align: top;
+            margin-top: 30px;
+            
 
         }
     }
@@ -56,15 +70,23 @@
     .spotRight{
         // border: 1px solid yellow;
         width: 40%;
+        margin: 0 auto;
+        text-align: left;
         @include breakpoint (992){
             width: 100%;
             margin: 0 auto;
             text-align: center;
         }
+        h2{
+            font-size: 40px;
+            @include breakpoint (992){
+                text-align: center;
+            }
+        }
         >h5{
             font-size: $baseFz;
             line-height: $lineH+10;
-            margin-bottom: $spotMargin;
+            margin-bottom: 20px;
             color: $transparentWhite;
         }
     }
@@ -194,6 +216,7 @@
             display: block;
             font-size: 30px;
             padding: 30px 0;
+            margin-bottom: 50px;
             animation:box .8s infinite;
             position: relative; 
             i{
@@ -226,6 +249,12 @@
     .spotLeft{
         // border: 1px solid rgb(252, 145, 6);
         width: 60%;
+        max-width: 800px;
+        max-height: 590px;
+        margin: 0 auto;
+        // padding-top: 90px;
+        text-align: center;
+
         // height: 100%;
         // max-width: ;
         
@@ -239,8 +268,9 @@
         .spotLeftImage{
             display: flex;
             // border: 1px solid rgb(252, 145, 6);
-            width: 90%;
-            margin-left: auto;
+            width: 100%;
+            margin: 0 auto;
+
             @include breakpoint (992){
                 width: 100%;
             }
@@ -350,8 +380,9 @@
         }
         //四張spotLeftTopA
         .spotLeftTwoPic_Rl{
-            // padding-top: 14px;
-            // background-color: rgb(120, 104, 190);
+            padding-top: 10px;
+            max-height: 266px;
+
             a{
                 
                 &:first-child{
@@ -370,7 +401,10 @@
         }
         //四張 
         .spotLeftTwoPic_Lr{
-            padding-bottom: 11px;
+            // padding-bottom: 11px;
+            max-height: 266px;
+
+
             a{
                 // border: 1px solid rgb(252, 145, 6);
                 &:first-child{
@@ -383,12 +417,17 @@
         }
         //五張spotLeftTop
         .spotLeftTwoPic{
+            max-height: 266px;
+
+
             a {
                 width: 50%;
             }
         }
         //五張
         .spotLeftThreePic{
+            max-height: 266px;
+
             a{
                 flex: 3;
             }
@@ -399,6 +438,8 @@
     .spotListBlock{
         // border: 1px solid red;
         display: block;
+        width: 100%;
+        margin-top: 2%;
         .spotList{
             display: flex;
             flex-direction: row;
@@ -438,10 +479,16 @@
     }
     .spotList{
         li{    
-            border-top: 0;
+            a{
+                // background-color: rgba(246, 246, 246, 0.093);
+                border-top: 5px solid $keyWhite;
+                margin-top: -5px;
+            }
             a.-iHere{
                 color: $keyWhite;
-                border-bottom: 2px solid $transparentWhite;
+                background-color: transparent;
+                border: none;
+                margin-top: 5px;
             }
         }
     }   
@@ -462,7 +509,6 @@
                 // border: 1px solid rgb(33, 12, 153);
             }
         }
-        
     }
 
     //潛點照片－rwd
@@ -586,7 +632,7 @@
         .hereList{
             flex: 1;
             ul{
-                // border: 1px solid greenyellow;
+                border: 1px solid #ffffff00;
                 display: inline-block;
                 li{
                     width: $memimgW*1.8;

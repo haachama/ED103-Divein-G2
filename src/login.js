@@ -66,7 +66,8 @@ $(function () {
       memberLogin.open("get", "postMemberInfo.php", true);
       memberLogin.send(null);
     }
-  
+
+
     function init(){
       //檢查是否已登入
       getMemberInfo();
