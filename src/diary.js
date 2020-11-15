@@ -380,8 +380,8 @@ var vm = new Vue({
             ],
             value: "",
             diveTypeFilter: "",
-            diaryCartfor: "",
-            diarycountimg:"",
+            diaryCartfor: "", //?
+            diarycountimg:[],
             diveTypes: [{
                     value: "1",
                     type: "旅遊潛水"
@@ -421,7 +421,7 @@ var vm = new Vue({
                 memAvatar: "testg2.jpg",
                 memName: "testg2",
                 memNo: "1",
-            }]
+            }],
         };
     },
     mounted() {
@@ -430,10 +430,10 @@ var vm = new Vue({
                 console.log(data);
                 this.cardData = data.data
             }),
-        axios.get("diaryQuerytotal.php").then(
+        axios.get("diaryQuery copy.php").then(
             idata => {
                 console.log(idata);
-                this.imgData = idata.data
+                this.diarycountimg = idata.data
             })
     },
     computed: {
@@ -457,13 +457,16 @@ var vm = new Vue({
         }
     },
     methods: {
-        maxDepth() {
-            let numMax = [this.cardData.diaryPoint1 , this.cardData.diaryPoint2 , this.cardData.diaryPoint3 , this.cardData.diaryPoint4 , this.cardData.diaryPoint5];
-            return Math.max(numMax);
+        maxDepth(cardRow) {
+            return Math.max(cardRow.diaryPoint1 , cardRow.diaryPoint2 , cardRow.diaryPoint3 , cardRow.diaryPoint4 , cardRow.diaryPoint5);
             // console.log(this);
         },
-        avgDepth(){
-            return (this.cardData.diaryPoint1 + this.cardData.diaryPoint2 + this.cardData.diaryPoint3 + this.cardData.diaryPoint4 + this.cardData.diaryPoint5)/5;
+        avgDepth(cardRow){
+            return Math.round((parseInt(cardRow.diaryPoint1) +
+              parseInt(cardRow.diaryPoint2) +
+              parseInt(cardRow.diaryPoint3) +
+              parseInt(cardRow.diaryPoint4) +
+              parseInt(cardRow.diaryPoint5)) / 5, 1);
         }
         // console.log("hi")這是測試的
     }

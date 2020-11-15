@@ -7,6 +7,22 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js"></script> <!-- axios.js -->
     <link rel="stylesheet" href="./css/style.css">
     <title>海中日子 | 潛水日誌</title>
+    <style>
+        @media all and (max-width: 576px) {
+            .diary .diary_diaryTitleH3{
+                flex-direction: column;
+            }
+            .controlBtn{
+                margin: 50px 0 0 50%;
+                transform:translateX(-50%) ;
+            }
+        }
+        @media all and (max-width: 375px) {
+            .controlBtn{
+                margin: 50px 0 0 10%;
+            }
+        }
+    </style>
 </head>
 
 <body class="diary">
@@ -231,11 +247,11 @@
                             </div>
                             <div>
                                 <p>最大深度</p>
-                                <p><span>{{maxDepth}}</span><span>米</span></p>
+                                <p><span>{{maxDepth(vuecard)}}</span><span>米</span></p>
                             </div>
                             <div>
                                 <p>平均深度</p>
-                                <p><span>23.2</span><span>米</span></p>
+                                <p><span>{{avgDepth(vuecard)}}</span><span>米</span></p>
                             </div>
                             <div>
                                 <p>潛水時間</p>
