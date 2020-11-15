@@ -92,28 +92,6 @@ $(function () {
   pic();
 });
 
-//------------------------------------------------------------------------------------------
-
-$(function () {
-  // function $id(id){
-  //   return document.getElementById(id);
-  // }	
-  //============查詢密碼============
-  // function memberPswChick(){
-  //   let CheckMemId = $id("CheckMemId").value;
-  //   let CheckMemMail = $id("CheckMemMail").value;
-  //   let mpc = new XMLHttpRequest();
-
-  //   mpc.open("Post", "memberPswCheck.php", true);
-  //   mpc.setRequestHeader("content-type","application/x-www-form-urlencoded");
-  //   let data_info = `memId=${CheckMemId}&memMail=${CheckMemMail}`;
-  //   mpc.send(data_info);
-  // }
-  // window.addEventListener("load", function(){
-  //   document.getElementById("CheckMemPsw").addEventListener("click", memberPswChick, false);
-  // }, false)
-});
-
 $(function () {
   //============註冊帳號============
   function memberRag(){

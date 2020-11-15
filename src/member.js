@@ -4,7 +4,7 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 Vue.use(VueAxios, axios)
 
-sessionStorage["where"] = "./member.html";
+// sessionStorage["where"] = "./member.html";
 
 $(function () {
     //導覽頁
@@ -29,32 +29,8 @@ $(function () {
     });
 });
 
+//會員資料頁簽
 $(function () {
-    //大頁簽
-    $("a.memberTab").on("click", function(e){
-        e.preventDefault();
-        
-        $(this).closest("ul").find("a.memberTab").removeClass("-on");
-        $(this).addClass("-on");
-
-        $(".memberInfor").hide();
-        
-        $("div.memberTab").removeClass("-on");
-        $("div.memberTab." + $(this).attr("data-target")).addClass("-on");
-    });
-    
-    //小頁簽
-    $("a.memberTagTab").on("click", function(e){
-        e.preventDefault();
-
-        $(this).closest("ul").find("a.memberTagTab").removeClass("-on");
-        $(this).addClass("-on");
-
-        $("div.memberTagTab").removeClass("-on");
-        $("div.memberTagTab." + $(this).attr("data-target")).addClass("-on");
-    });
-
-    //會員資料頁簽
     var memberIF = $(".memberIF");
     var memberIFC = $(".memberIFC");
     var memberPSC = $(".memberPSC");
@@ -353,29 +329,6 @@ $(function () {
     });
 })($)
 
-window.addEventListener("load", function(){
-    $(".StarOne").on("click", function(){
-        $(".pointCheckColor").css("width","40px");
-    });
-    $(".StarTwo").on("click", function(){
-        $(".pointCheckColor").css("width","80px");
-    });
-    $(".StarThree").on("click", function(){
-        $(".pointCheckColor").css("width","120px");
-    });
-    $(".StarFour").on("click", function(){
-        $(".pointCheckColor").css("width","160px");
-    });
-    $(".StarFive").on("click", function(){
-        $(".pointCheckColor").css("width","198px");
-    });
-    $(".btn_modal_close").on("click", function(){
-        setTimeout(function(){
-            $(".pointCheckColor").css("width","0px");
-        },1000);
-    });
-});
-
 let app = new Vue({
     el: "#app",
     data: {
@@ -386,7 +339,7 @@ let app = new Vue({
         diveClass: [],
         orders: [],
         favs: [],
-        img : '',
+        image : '',
 
         newUser: {memId: "", memPsw: "", memName: "", memMail: "",memAvatar: ""},
         currentUser: {},
@@ -395,13 +348,42 @@ let app = new Vue({
         currentFavorite: {},
     },
     mounted: function(){
+        this.page();
         this.getAllUsers();
         this.getAllDiary();
         this.getAllClass();
         this.getAllOrder();
         this.getAllFavorite();
+        this.starChange();
     },
     methods:{
+        //頁簽
+        page(){
+            //大頁簽
+            $("a.memberTab").on("click", function(e){
+                e.preventDefault();
+                
+                $(this).closest("ul").find("a.memberTab").removeClass("-on");
+                $(this).addClass("-on");
+        
+                $(".memberInfor").hide();
+                
+                $("div.memberTab").removeClass("-on");
+                $("div.memberTab." + $(this).attr("data-target")).addClass("-on");
+            });
+            
+            //小頁簽
+            $("a.memberTagTab").on("click", function(e){
+                e.preventDefault();
+        
+                $(this).closest("ul").find("a.memberTagTab").removeClass("-on");
+                $(this).addClass("-on");
+        
+                $("div.memberTagTab").removeClass("-on");
+                $("div.memberTagTab." + $(this).attr("data-target")).addClass("-on");
+            });
+        },
+
         //顯示會員個資
         getAllUsers(){
             axios.get("./member.php?action=memberRead").then(function(response){
@@ -420,22 +402,28 @@ let app = new Vue({
 
         //密碼修改
         updateUserPsw(){
+            let params = new URLSearchParams();
             var oldPsw = $('#oldPsw').val();
-            var newPsw = $('#newPsw').val();
+            var memPsw = $('#newPsw').val();
             var newPswAgain = $('#newPswAgain').val();
-            console.log(oldPsw);
-            // if(oldPsw == newPsw){
-            //     $("#changePswError").text("新舊密碼不可相同！");
-            // }else if(oldPsw == newPswAgain){
-            //     $("#changePswError").text("新舊密碼不可相同！");
-            // }else if(newPsw != newPswAgain){
-            //     $("#changePswError").text("新密碼不相同！");
-            // }else{
-            //     axios.post("./member.php?action=updateUsersPsw", newPsw).then(function(response){
-            //         $("#changePswError").text("");
-            //         app.getAllUsers();
-            //     });
-            // }
+            params.append('memPsw',memPsw);
+            if(oldPsw == memPsw){
+                $("#changePswError").text("新舊密碼不可相同！");
+            }else if(oldPsw == newPswAgain){
+                $("#changePswError").text("新舊密碼不可相同！");
+            }else if(memPsw != newPswAgain){
+                $("#changePswError").text("新密碼不相同！");
+            }else{
+                axios.post("./member.php?action=updateUsersPsw", params).then(function(response){
+                    $("#changePswError").text("");
+                    $(".memberIF").show();
+                    $(".memberIFC").hide();
+                    $(".memberPSC").hide();
+                    $(".memberLIC").hide();
+                    $("a.memberTab").removeClass("-on");
+                    $("div.memberTab").removeClass("-on");
+                });
+            }
         },
 
         toFormData(obj){
@@ -450,15 +438,25 @@ let app = new Vue({
         },
 
         //更換頭像
-        memberPhoto(e){
-            let file = e.target.files[0];
-            let readFile = new FileReader();
-            readFile.readAsDataURL(file);
-            readFile.addEventListener('load',this.loadImage);
-        },
-        loadImage(e){
-            this.image = e.target.result;
-        },
+        // updateUsersPic(){
+        //     let params = new URLSearchParams();
+        //     var memAvatar = $('div.memberFile').children('img').text();
+        //     params.append('memAvatar',memAvatar);
+        //     // console.log(courseOrderNo);
+        //     axios.post("./member.php?action=updateUsersPic", params).then(function(response){
+        //         console.log(response.data);
+        //         alert('評分完成');
+        //     });
+        // },
+        // memberPhoto(e){
+        //     let file = e.target.files[0];
+        //     let readFile = new FileReader();
+        //     readFile.readAsDataURL(file);
+        //     readFile.addEventListener('load',this.loadImage);
+        // },
+        // loadImage(e){
+        //     this.image = e.target.result;
+        // },
 
         //顯示日誌
         getAllDiary(){
@@ -525,6 +523,29 @@ let app = new Vue({
         },
         selectStar(dc){
             app.currentClass = dc;
+        },
+
+        starChange(){
+            $(".StarOne").on("click", function(){
+                $(".pointCheckColor").css("width","40px");
+            });
+            $(".StarTwo").on("click", function(){
+                $(".pointCheckColor").css("width","80px");
+            });
+            $(".StarThree").on("click", function(){
+                $(".pointCheckColor").css("width","120px");
+            });
+            $(".StarFour").on("click", function(){
+                $(".pointCheckColor").css("width","160px");
+            });
+            $(".StarFive").on("click", function(){
+                $(".pointCheckColor").css("width","198px");
+            });
+            $(".btn_modal_close").on("click", function(){
+                setTimeout(function(){
+                    $(".pointCheckColor").css("width","0px");
+                },1000);
+            });
         },
 
         //顯示訂單

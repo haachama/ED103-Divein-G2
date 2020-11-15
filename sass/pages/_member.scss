@@ -425,6 +425,16 @@
         #btnCheckId{
             width: 25%;
         }
+
+        .memberFromArea{
+            top: -285px;
+        }
+        .memberFromArea.memberFromMove{
+            top: -545px;
+        }
+        .memberFromArea.memberFromPasMove{
+            top: -55px;
+        }
     }
     @media all and (max-width: 376px){
         .memLogRegArea{
@@ -445,7 +455,7 @@
             top: -280px;
         }
         .memberFromArea.memberFromMove{
-            top: -545px;
+            top: -530px;
         }
         .memberFromArea.memberFromPasMove{
             top: -45px;
