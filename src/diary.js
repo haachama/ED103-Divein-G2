@@ -380,7 +380,8 @@ var vm = new Vue({
             ],
             value: "",
             diveTypeFilter: "",
-            diaryCartfor:"",
+            diaryCartfor: "",
+            diarycountimg:"",
             diveTypes: [{
                     value: "1",
                     type: "旅遊潛水"
@@ -391,93 +392,50 @@ var vm = new Vue({
                 },
             ],
             cardData: [{
-                diaryNo: "1",
-                memNo: "1",
-                diaryName: "四條蘭嶼狂歡夜",
-                diaryWriteDate: "2020-11-05 12:57:22",
-                diaryType: "1",
-                diveNo: "10",
                 courseNo: "1",
                 diaryDiveTime: "100",
+                diaryName: "四條蘭嶼狂歡夜",
+                diaryNo: "1",
+                diaryPicsNo: "img/diary/diaryphoto9.png",
                 diaryPlayDate: "2020-11-01 17:31:25",
-                diaryWeather: "1",
-                diaryVisibility: "20",
-                diaryTemp: "18",
-                diaryWaterTemp: "31",
-                diaryText: "今天的最大重頭戲夜潛看珊瑚產卵，由於下午在眺石看過現場潛伴覺得可能性不高，所以只好轉戰最多人以及最有可能的出水口這個潛點，原本要過來前就覺得應該會是大爆滿的人果真一到現場停車一看就是滿滿像是夜市般的熱鬧，水下更是精彩，從水面上看過去水下的手電筒光芒四射呢，不過也想著這應該會很慘才是，果不其然水下的人太多了，雖然夜潛的能見度本來就不是說多好，但是太多的人就容易揚沙起來，整個畫面都是沙粒。夜潛的許多常見的生物晚上都會出來見個面，寄居蟹、海膽、螺類，最幸福的是又看到一顆大法螺。",
                 diaryPoint1: "10",
                 diaryPoint2: "45",
                 diaryPoint3: "20",
                 diaryPoint4: "30",
                 diaryPoint5: "5",
+                diaryTemp: "18",
+                diaryText: "今天的最大重頭戲夜潛看珊瑚產卵，由於下午在眺石看過現場潛伴覺得可能性不高，所以只好轉戰最多人以及最有可能的出水口這個潛點，原本要過來前就覺得應該會是大爆滿的人果真一到現場停車一看就是滿滿像是夜市般的熱鬧，水下更是精彩，從水面上看過去水下的手電筒光芒四射呢，不過也想著這應該會很慘才是，果不其然水下的人太多了，雖然夜潛的能見度本來就不是說多好，但是太多的人就容易揚沙起來，整個畫面都是沙粒。夜潛的許多常見的生物晚上都會出來見個面，寄居蟹、海膽、螺類，最幸福的是又看到一顆大法螺。",
                 diaryTimePoint1: "5",
                 diaryTimePoint2: "5",
                 diaryTimePoint3: "5",
                 diaryTimePoint4: "5",
                 diaryTimePoint5: "5",
-                diaryPicsNo: "diaryphoto9.png"
-            }, {
-                diaryNo: "2",
-                memNo: "2",
-                diaryName: "盛夏花瓶岩游",
-                diaryWriteDate: "2020-11-06 12:57:22",
-                diaryType: "2",
-                diveNo: "15",
-                courseNo: "1",
-                diaryDiveTime: "60",
-                diaryPlayDate: "2020-06-06 17:31:25",
-                diaryWeather: "1",
+                diaryType: "1",
                 diaryVisibility: "20",
-                diaryTemp: "28",
                 diaryWaterTemp: "31",
-                diaryText: "今天的最大重頭戲夜潛看珊瑚產卵，由於下午在眺石看過現場潛伴覺得可能性不高，所以只好轉戰最多人以及最有可能的出水口這個潛點，原本要過來前就覺得應該會是大爆滿的人果真一到現場停車一看就是滿滿像是夜市般的熱鬧，水下更是精彩，從水面上看過去水下的手電筒光芒四射呢，不過也想著這應該會很慘才是，果不其然水下的人太多了，雖然夜潛的能見度本來就不是說多好，但是太多的人就容易揚沙起來，整個畫面都是沙粒。夜潛的許多常見的生物晚上都會出來見個面，寄居蟹、海膽、螺類，最幸福的是又看到一顆大法螺。",
-                diaryPoint1: "15",
-                diaryPoint2: "40",
-                diaryPoint3: "23",
-                diaryPoint4: "35",
-                diaryPoint5: "12",
-                diaryTimePoint1: "5",
-                diaryTimePoint2: "5",
-                diaryTimePoint3: "5",
-                diaryTimePoint4: "5",
-                diaryTimePoint5: "5",
-                diaryPicsNo: "diaryphoto9.png"
-            }, {
-                diaryNo: "3",
-                memNo: "2",
-                diaryName: "海底焦糖.綠島",
-                diaryWriteDate: "2020-11-06 12:57:22",
-                diaryType: "2",
-                diveNo: "1",
-                courseNo: "2",
-                diaryDiveTime: "80",
-                diaryPlayDate: "2020-06-14 17:31:25",
                 diaryWeather: "1",
-                diaryVisibility: "20",
-                diaryTemp: "20",
-                diaryWaterTemp: "25",
-                diaryText: "今天的最大重頭戲夜潛看珊瑚產卵，由於下午在眺石看過現場潛伴覺得可能性不高，所以只好轉戰最多人以及最有可能的出水口這個潛點，原本要過來前就覺得應該會是大爆滿的人果真一到現場停車一看就是滿滿像是夜市般的熱鬧，水下更是精彩，從水面上看過去水下的手電筒光芒四射呢，不過也想著這應該會很慘才是，果不其然水下的人太多了，雖然夜潛的能見度本來就不是說多好，但是太多的人就容易揚沙起來，整個畫面都是沙粒。夜潛的許多常見的生物晚上都會出來見個面，寄居蟹、海膽、螺類，最幸福的是又看到一顆大法螺。",
-                diaryPoint1: "15",
-                diaryPoint2: "40",
-                diaryPoint3: "20",
-                diaryPoint4: "35",
-                diaryPoint5: "10",
-                diaryTimePoint1: "5",
-                diaryTimePoint2: "5",
-                diaryTimePoint3: "5",
-                diaryTimePoint4: "5",
-                diaryTimePoint5: "5",
-                diaryPicsNo: "diaryphoto8.png"
+                diaryWriteDate: "2020-11-05",
+                diveAreaName: "蘭嶼",
+                diveName: "四條溝",
+                diveNo: "10",
+                memAvatar: "testg2.jpg",
+                memName: "testg2",
+                memNo: "1",
             }]
         };
     },
-    // mounted() {
-    //     axios.get("diaryQuery.php").then(
-    //         data => {
-    //             console.log(data);
-    //             this.cardData = data.data
-    //         })
-    // },
+    mounted() {
+        axios.get("diaryQuery.php").then(
+            data => {
+                console.log(data);
+                this.cardData = data.data
+            }),
+        axios.get("diaryQuerytotal.php").then(
+            idata => {
+                console.log(idata);
+                this.imgData = idata.data
+            })
+    },
     computed: {
         show() {
             if (this.value == "") {
@@ -496,17 +454,20 @@ var vm = new Vue({
     watch: {
         diveTypeFilter: function () {
             console.log("還沒寫完");
-        },
+        }
     },
     methods: {
         maxDepth() {
-            this.cardData[0].cardData
-            console.log("還沒寫完");
+            let numMax = [this.cardData.diaryPoint1 , this.cardData.diaryPoint2 , this.cardData.diaryPoint3 , this.cardData.diaryPoint4 , this.cardData.diaryPoint5];
+            return Math.max(numMax);
+            // console.log(this);
         },
+        avgDepth(){
+            return (this.cardData.diaryPoint1 + this.cardData.diaryPoint2 + this.cardData.diaryPoint3 + this.cardData.diaryPoint4 + this.cardData.diaryPoint5)/5;
+        }
         // console.log("hi")這是測試的
     }
 
 });
-
 
 

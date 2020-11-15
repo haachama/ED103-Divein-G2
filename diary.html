@@ -4,21 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js"></script> <!-- axios.js -->
     <link rel="stylesheet" href="./css/style.css">
     <title>海中日子 | 潛水日誌</title>
 </head>
 
 <body class="diary">
     @@include('./layout/header.html')
-
+    <div class="diary_formSelect_vue"> <!-- el掛到這裡了 -->
     <!-- 日誌篇幅 -->
-    <div class="diaryAmount">
+    <div class="diaryAmount"> 
         <div class='cursor' id="cursor"></div>
         <div class='cursor2' id="cursor2"></div>
         <div class='cursor3' id="cursor3"></div>
 
-        <div class="section">
+        <div class="section" v-model="diarycountimg"> <!-- 報錯 -->
             <ul class="case-study-wrapper">
                 <li class="case-study-name">
                     <a href="#" class="hover-target">東北角</a>
@@ -52,7 +52,7 @@
                             <img src="https://ivang-design.com/svg-load/slider/4.jpg" alt="">
                         </div>
                     </div>
-                    <div class="hero-number-back">165篇日誌</div>
+                    <div class="hero-number-back">165篇日誌</div> <!-- 一掛就全消失，覺得人生很難 {{imgData.Count}}-->
                     <div class="hero-number">01</div>
                     <div class="hero-number-fixed">05</div>
                 </li>
@@ -177,9 +177,7 @@
             </div> -->
         </div>
     </div>
-
-
-    <div class="diary_formSelect_vue">
+    
         <!-- 篩選 -->
         <div class="diary_formSelect">
             <form>
@@ -204,8 +202,8 @@
 
         <!-- 日誌卡片 --> 
         <div class="diaryCenter" >
-            <!-- 1 -->
-            <div class="diarySolid" v-for="vuecard in cardData" :key="vuecard.diaryNo" v-model="diaryCartfor">
+            <!-- 唯一的v-for卡片 -->
+            <div class="diarySolid" v-for="vuecard in cardData" :key="vuecard.diaryNo" v-model="diaryCartfor"> <!-- 報錯 -->
                 <a href="./diaryInside.html">
                     <div class="imgContent">
                         <div class="imgSolid">
@@ -216,12 +214,12 @@
                             <div class="diaryTitleFlex">
                                 <div class="userLogo"><img src="./img/diary/user.png" class="image"></div>
                                 <!-- 規範h4、h5 -->
-                                <h5 class="userName">diver</h5>
+                                <h5 class="userName">{{vuecard.memName}}</h5>
                             </div>
                             <h4 class="userText">{{vuecard.diaryName}}</h4>
                         </div>
                         <div class="diaryTitleB">
-                            <h4 class="diaryTitleText">綠島-鋼鐵礁</h4><!-- 規範h4、h5 -->
+                            <h4 class="diaryTitleText">{{vuecard.diveAreaName}}-{{vuecard.diveName}}</h4><!-- 規範h4、h5 -->
                             <p class="diaryTitleDate">{{vuecard.diaryPlayDate}}</p>
                         </div>
                     </div>
@@ -233,7 +231,7 @@
                             </div>
                             <div>
                                 <p>最大深度</p>
-                                <p><span>33.2</span><span>米</span></p>
+                                <p><span>{{maxDepth}}</span><span>米</span></p>
                             </div>
                             <div>
                                 <p>平均深度</p>
@@ -251,96 +249,6 @@
                     </div>
                 </a>
             </div>
-            <!-- 2 -->
-            <!-- <div class="diarySolid">
-                <a href="./diaryInside.html">
-                    <div class="imgContent">
-                        <div class="imgSolid">
-                            <img src="./img/diary/diaryphoto2.png" class="image">
-                        </div>
-                        <div class="diaryTitleA">
-                            <div class="diaryTitleFlex">
-                                <div class="userLogo"><img src="./img/diary/user.png" class="image"></div>
-                                <h5 class="userName">diver</h5>
-                            </div>
-                            <h4 class="userText">潛水體驗去</h4>
-                        </div>
-                        <div class="diaryTitleB">
-                            <h4 class="diaryTitleText">綠島-鋼鐵礁</h4>
-                            <p class="diaryTitleDate">2020-06-16 | 21:07</p>
-                        </div>
-                    </div>
-                    <div class="diaryText">
-                        <div class="diaryTextData">
-                            <div>
-                                <p>日誌類型 </p>
-                                <p><span>課程</span><span></span></p>
-                            </div>
-                            <div>
-                                <p>最大深度</p>
-                                <p><span>33.2</span><span>米</span></p>
-                            </div>
-                            <div>
-                                <p>平均深度</p>
-                                <p><span>23.2</span><span>米</span></p>
-                            </div>
-                            <div>
-                                <p>潛水時間</p>
-                                <p><span>45</span><span>m</span></p>
-                            </div>
-                        </div>
-                        <div class="diaryTextP">
-                            <p class="diaryTextPP">海風的味道，就像夏天的擁抱</p>
-                            <i class="fas fa-ellipsis-v"></i>
-                        </div>
-                    </div>
-                </a>
-            </div> -->
-            <!-- 3 -->
-            <!-- <div class="diarySolid">
-                <a href="./diaryInside.html">
-                    <div class="imgContent">
-                        <div class="imgSolid">
-                            <img src="./img/diary/diaryphoto4.png" class="image">
-                        </div>
-                        <div class="diaryTitleA">
-                            <div class="diaryTitleFlex">
-                                <div class="userLogo"><img src="./img/diary/user.png" class="image"></div>
-                                <h5 class="userName">diver</h5>
-                            </div>
-                            <h4 class="userText">潛水體驗去</h4>
-                        </div>
-                        <div class="diaryTitleB">
-                            <h4 class="diaryTitleText">綠島-鋼鐵礁</h4>
-                            <p class="diaryTitleDate">2020-06-16 | 21:07</p>
-                        </div>
-                    </div>
-                    <div class="diaryText">
-                        <div class="diaryTextData">
-                            <div>
-                                <p>日誌類型 </p>
-                                <p><span>課程</span><span></span></p>
-                            </div>
-                            <div>
-                                <p>最大深度</p>
-                                <p><span>33.2</span><span>米</span></p>
-                            </div>
-                            <div>
-                                <p>平均深度</p>
-                                <p><span>23.2</span><span>米</span></p>
-                            </div>
-                            <div>
-                                <p>潛水時間</p>
-                                <p><span>45</span><span>m</span></p>
-                            </div>
-                        </div>
-                        <div class="diaryTextP">
-                            <p class="diaryTextPP">海風的味道，就像夏天的擁抱</p>
-                            <i class="fas fa-ellipsis-v"></i>
-                        </div>
-                    </div>
-                </a>
-            </div> -->
         </div>
     </div>
 

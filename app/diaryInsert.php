@@ -1,6 +1,5 @@
 <?php
     // $error = '';
-
     $diaryName = isset($_POST["diaryName"])?$_POST["diaryName"]:""; 
     $diaryType = isset($_POST["diaryType"])?$_POST["diaryType"]:"";
     $diveNo = isset($_POST["diveNo"])?$_POST["diveNo"]:"";
@@ -16,12 +15,11 @@
     $diaryPoint3 = isset($_POST["diaryPoint3"])?$_POST["diaryPoint3"]:"";
     $diaryPoint4 = isset($_POST["diaryPoint4"])?$_POST["diaryPoint4"]:"";
     $diaryPoint5 = isset($_POST["diaryPoint5"])?$_POST["diaryPoint5"]:"";
-    // echo '<br>';
     // echo $diaryPoint5;
     // die;
     //測試MYSQL
     // INSERT INTO personaldiary(memNo,diaryName,diaryType,diaryWriteDate,diveNo,diaryDiveTime,diaryPlayDate,diaryWeather,diaryVisibility,diaryTemp,diaryWaterTemp,diaryText,diaryPoint1,diaryPoint2,diaryPoint3,diaryPoint4,diaryPoint5,diaryPicsNo) 
-    // VALUES(1,"哈哈哈",2,14,120,"2020-11-06",20,20,20,20,"哈哈T",5,5,5,5,5,"")
+    // VALUES(1,"哈哈哈",2,14,120,"2020-11-06",20,20,20,20,"哈哈",5,5,5,5,5,"")
 
 
 try{
@@ -84,18 +82,16 @@ try{
 
 // -------------------------------------------------------------------------------------------------
 
-    $sql2 = "INSERT INTO diaryImg(biologicalNo, diaryNo) VALUES(:biologicalNo, $diaryNo)"; //還沒執行?
-    $diaryImg = $pdo->prepare($sql2); //還沒執行?
+    $sql2 = "INSERT INTO diaryImg(biologicalNo, diaryNo) VALUES(:biologicalNo, $diaryNo)";
+    $diaryImg = $pdo->prepare($sql2);
 
-    $checkbox1 = $_POST['biologicalNo'] ;  //假設回傳是陣列  ajax的value
+    $checkbox1 = $_POST['biologicalNo'] ;  //回傳是陣列  ajax的value
     // echo $checkbox1;
     foreach($checkbox1 as $i=>$biologicalNo){
         $diaryImg->bindValue(":biologicalNo", $biologicalNo);
         $diaryImg->execute(); //迴圈跑完結束 放這??
     }
-
     
-
     // header('Location : diaryInside.html'); //回到diaryInside.html
 
 }catch(PDOException $e){
