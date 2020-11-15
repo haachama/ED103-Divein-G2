@@ -1,36 +1,559 @@
 .gameIntro{
 
-    // 請勿超出大括號
+    :root{
+        --header-height: 117px;
+    }
+
+    // footer置底
+
+    .gameMain{
+        min-height: calc(100vh - 117px);
+        overflow: hidden;
+    }
+    
+    body {
+        font-family: $en, $zh;
+        box-sizing: border-box;
+        height: auto;
+    }
+
+    h2 {
+        color: $transparentWhite;
+        margin: 0 0 20px 0;
+    }
+    
+    h3 {
+        color: $transparentWhite;
+    }
+    
+    h4 {
+        font-size: 24px;
+        color: $transparentWhite;
+    }
+    
+    p {
+        font-size: $baseFz;
+        color: $transparentWhite;
+        margin: 5px;
+    }
+
+    .flexGrow {
+        display: flex;
+        flex-grow: 1;
+    }
+
+    //↓最外層div
+
+    .parent_container {
+
+        position: relative;
+        display: flex;
+        width: 1200px;
+        justify-content: center;
+        margin: 40px auto;
+        box-sizing: border-box;
+
+        @include breakpoint (1200) {
+            -webkit-flex-flow: row wrap;
+            flex-flow: row wrap;
+            width: 100%;
+        }
+    }
+    
+    //選擇角色
+
+    //標題文字↓
+
+    .choseRoleRwd{
+        display: none;
+
+        @include breakpoint (992) {
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin: 10px 0;
+        }
+    }
+
+    .changeRole{
+        position: relative;
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        width: 510px;
+        flex-grow: 1;
+
+        @include breakpoint (1200) {
+            width: 40%;
+            flex-grow: 0;    
+        }
+
+        @include breakpoint (767) { 
+            width: 70%;
+        }
+
+        .choseRole{
+            position: relative;
+            display: block;
+            width: 100%;
+            text-align: center;
+
+            @include breakpoint (992) {
+                display: none;
+            }
+        }
+
+        //切換角色按鈕↓
+
+        .changeRoleBtnBlock{
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 100%;
+            margin: 0;
+
+            .changeRoleBtn{
+                position: absolute;
+                top: 0; 
+                bottom: 0;
+                margin: auto 0;
+                border: 0;
+                outline: none;
+                background-color: transparent;
+                
+                svg{
+                    outline: none;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        //角色圖片
+
+        .playRole {
+            position: relative;
+            display: inline-flex;
+            width: 142px;
+            height: 242px;
+            margin: auto 0;
+        }
+        .playRole img{
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .eye img {
+            display: none;
+            position: absolute;
+            top: 38px;
+            left: 12px;
+        }
+        
+        .back img {
+            display: none;
+            position: absolute;
+            top: 55px;
+            left: -50%;
+            z-index: -1;
+        }
+        
+        .foot img {
+            display: none;
+            position: absolute;
+            width: 135px;
+            height: 40px;
+            top: 190px;
+        }
+    }
 
 
+    //角色能力圖
 
+    .abilityBlock{
+        position: relative;
+        display: block;
+        width: 200px;
 
+        @include breakpoint (1200) {   
+            width: 15%;
+        }
 
+        @include breakpoint (767) {
+            width: 30%;
+            padding: 5px;
+        }
 
+        .ability{
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
 
+            @include breakpoint (767) {
+                position: relative;
+            }
+        }
+        .abilityDescribe{
+            display: inline-flex;
+            width: 100%;
+        }
+    }
 
+    //選擇裝備
+
+    .totalPriceBlock {
+        display: inline-flex;
+        width: 100%;
+
+        .totalPrice {
+            text-align: center;
+            border-radius: 10px;
+            color: $keyBlack;
+            width: 100px;
+            padding: 5px;
+            margin: 5px;
+            background-color: #FFE153;
+
+            @include breakpoint (767) {
+                border-radius: 10px 0 0 10px;
+            }
+        }
+    }
+    
+    .equipList {
+        position: relative;
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        width: 510px;
+        margin: 50px 0;
+        
+        @include breakpoint (1200) {
+            width: 45%;
+        }
+        @include breakpoint (767) {
+            width: 100%;
+        }
+        .maskList {
+            display: inline-flex;
+            width: 600px;
+        }
+        .airList {
+            display: inline-flex;
+            width: 600px;
+        }
+        .shoeList {
+            display: inline-flex;
+            width: 600px;
+        }
+        
+    }
+
+    //裝備圖片
+    .equipBlock{
+        position: relative;
+        display: block;
+        text-align: center;
+        width: 130px;
+        height: 70%;
+        margin: 10px;
+
+        @include breakpoint (1200) {
+            width: 20%;
+        }
+
+        @include breakpoint (767) {
+            width: 110px;
+        }
+    }
+    
+    .bubbleBackground{
+        position: relative;
+        display: block;
+        width: 130px;
+        height: 130px;
+        text-align: center;
+        border: 0px solid rgb(255,0,0);
+        border-radius: 50%;
+        background-image: url("../img/game/bubbleBackground.png");
+        background-size: 100%;
+        background-repeat: no-repeat;
+        @include breakpoint (1200) {
+            width: 100%;
+            height: 100%;
+        }
+
+        @include breakpoint (767) {
+            width: 110px;
+            height: 110px;
+        }
+
+        .equip {
+            position: absolute;
+            top: -10px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto auto;
+            width: 60%;
+            height: 60%;
+            cursor: pointer;
+        }
+    }
+
+    .equipDescribeBlock{
+        display: block;
+        height: 150px;
+        line-height:150px;
+        @include breakpoint (400) {
+            display: none;
+        }
+    }
+
+    .price{
+        display: block;
+    }
+    
+    //規則
+
+    .rule {   
+        position: absolute;
+        text-align: center;
+        top: 100px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        width: 375px;
+        background-color: $keyBlack; //$transparentWhite;
+        padding: 20px;
+        border-radius: 15px;
+
+        .pRule {
+            text-align: left;
+            text-indent: 2em;
+            line-height: 32px;
+            margin: 20px;
+            
+        }
+        .ruleBtnX {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            border: 0;
+            color: $transparentWhite;
+            background: none;
+        }
+    }
+
+    .startBtn .bubbleBtn {
+        text-align: center;
+        margin: 20px;
+    }
+    
+    //game.html
+    .gameGif{
+        margin: 0 auto;
+        display: block;
+    }
+    .gameGifRWD{
+        margin: 0 auto;
+        display: none;
+    }
+    //gameResort.html
+    
+    .parent_score {
+        position: relative;
+        width: 576px;
+        border-bottom: 3px solid $transparentWhite;
+        margin: 65px auto 25px auto;
+        text-align: center;
+
+        .scoreDescribe {
+            font-size: 30px;
+            color: $keyWhite;
+            margin: 10px;
+            font-weight: 500;
+        }
+        .yellow{
+            color: #FFE153;
+        }
+        .resortRole {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+        .goShopBtn .bubbleBtn {
+            text-align: right;
+            margin: 10px;
+        }
+    }
+    
+    .rankList {
+        width: 576px;
+        height: 460px;
+        border-bottom: 3px solid $transparentWhite;
+        margin: 25px auto;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+    
+    //排行榜滑桿
+
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        border-radius: 5px;
+        background: $transparentWhite; 
+    }
+       
+    ::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        background: #888; 
+    }
+      
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555; 
+    }
+    
+    .record {
+        display: flex;
+    }
+    
+    //會員頭像
+    .record img{
+        width: 80px;
+        height: 80px;
+        margin: 20px;
+        background-color: $transparentWhite;
+        border-radius: 50%;
+    }
+    
+    .record h3{
+        flex-grow: 1;
+        width: 100px;
+        margin: auto 0;
+    }
+    
+    .record h4{
+        flex-grow: 1;
+        margin: auto 0;
+    }
+
+    .restartBtn .bubbleBtn{
+        text-align: center;
+        margin: 20px;
+    }
 }
 
 .game{
 
 
-
-
-
-
-
-
-
 }
 
-.gameResort{
+.gameResult{
 
-
-
-
-
-
-
-
+    .gameMain{
+        min-height: calc(100vh - 117px);
+        overflow: hidden;
+    }
     
+    .parent_score {
+        position: relative;
+        width: 576px;
+        border-bottom: 3px solid $transparentWhite;
+        margin: 65px auto 25px auto;
+        text-align: center;
+
+        @include breakpoint (577) {
+            width: 100%;
+        }
+    }
+    
+    .scoreDescribe {
+        font-size: 30px;
+        color: $keyWhite;
+        margin: 10px;
+        font-weight: 500;
+    }
+    .yellow{
+        color: #FFE153;
+    }
+    
+    .resultRole {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100px;
+        height: 131px;
+    }
+    
+    .goShopBtn .bubbleBtn {
+        text-align: right;
+        margin: 10px;
+    }
+    
+    .rankList {
+        width: 576px;
+        height: 460px;
+        border-bottom: 3px solid $transparentWhite;
+        margin: 25px auto;
+        overflow-y: scroll;
+        overflow-x: hidden;
+
+        @include breakpoint (577) {
+            width: 100%;
+        }
+    }
+    
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        border-radius: 5px;
+        background: $transparentWhite; 
+    }
+       
+    
+    ::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        background: #888; 
+    }
+      
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555; 
+    }
+    
+    .record {
+        display: flex;
+    }
+    
+    .record img{
+        width: 80px;
+        height: 80px;
+        margin: 20px;
+        // border: 1px solid $keyBlack;
+        background-color: $transparentWhite;
+        border-radius: 50%;
+    }
+    
+    .record h3{
+        flex-grow: 1;
+        width: 100px;
+        margin: auto 0;
+    }
+    
+    .record h4{
+        flex-grow: 1;
+        margin: auto 0;
+    }
+
+    .restartBtn .bubbleBtn{
+        text-align: center;
+        margin: 20px;
+    }
+
 }

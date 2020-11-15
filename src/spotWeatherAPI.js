@@ -1,0 +1,120 @@
+import $ from 'jquery';
+$(document).ready(function(){
+    
+    var spotStationId ='467660';
+
+    $.ajax({
+        // O-A0003-001即時現象 找天氣現象weather、風向wdir、溫度temp、累積雨量24R、紫外線指數Ｈ_UVI
+        // stationId 蘭嶼 467620 , 蘭嶼
+        // stationId 台東 467660 , 綠島
+        // stationId 恆春 467590 , 墾丁
+        // stationId 恆春 467660 , 小琉球
+        // stationId 淡水 466900 , 東北角
+        //
+        url: 'https://opendata.cwb.gov.tw/api/v1/rest/datastore/O-A0003-001?Authorization=CWB-D686A3C5-20C3-4D99-8F69-3FC7C831D0CA&format=JSON&elementName=TIME,WDIR,TEMP,24R,H_UVI,Weather',
+        type: 'GET',
+        dataType: 'json',
+        success: getInfo,
+        error() {
+            alert('Oops!');
+        },
+    });
+
+    $('.spotText').on('click',function(){
+        
+        spotStationId = $(this).attr('value'); //將後台撈到的數字存成一個＄spotStationId變數 
+
+        $.ajax({
+            url: 'https://opendata.cwb.gov.tw/api/v1/rest/datastore/O-A0003-001?Authorization=CWB-D686A3C5-20C3-4D99-8F69-3FC7C831D0CA&format=JSON&elementName=TIME,WDIR,TEMP,24R,H_UVI,Weather',
+            type: 'GET',
+            dataType: 'json',
+            success: getInfo,
+            error() {
+                alert('Oops!');
+            },
+        });
+    
+    });
+
+    function getInfo(data){
+        let location = data.records.location; //找到location這個陣列，為什麼要找location? 因為他有台東縣各個鄉鎮的資料
+            
+        for (var i = 0; i < location.length; i++) {    //跑迴圈找location陣列的第幾個房間是綠島鄉的
+
+
+            if (location[i].stationId == spotStationId) {    //把從json撈到的stationId數字與後台撈到的數字存成一個＄spotStationId變數 互相比較
+
+                $(".spotTitle").html(location[i].locationName);    //取出綠島鄉物件的locationName屬性值，同時印在<p class="spotTitle"></p>裡面
+                // console.log(location[i].locationName);
+
+
+                let weatherElement = location[i].weatherElement;    //找到綠島鄉的weatherElement(它是陣列)
+                for (var j = 0; j < weatherElement.length; j++) {   //跑迴圈找weatherElement陣列的第幾個房間是Wx(天氣現象)、WD(風向)、T(溫度)
+                    
+                    
+                    
+                    if (weatherElement[j].elementName == "Weather") {    //如果是天氣現象的話
+
+                        var weatherString = weatherElement[j].elementValue;   //取出天氣現象物件的time陣列，此API會將送出請求的時間區段的下一個時間區段(預報)擺在第一個房間，所以可寫死time[0]，取出裡面的elementValue陣列的第一個物件的value
+
+                        // 檢查回傳的值是晴雨雲陰哪種天氣，加上對應的fontawesome圖示，管他是短暫雨還是短暫陣雨，我只檢查「雨」
+                        if (weatherString.indexOf("晴") >= 0) {    //indexOf 方法會檢查字符串，有就回傳該字符第一次出現的索引，可能是0、1...等，沒有就回傳-1
+                            $(".weatherString").addClass("fa-sun")
+                        } else if (weatherString.indexOf("雨") >= 0) {
+                            $(".weatherString").addClass("fa-cloud-showers-heavy")
+                        } else if (weatherString.indexOf("雲") >= 0) {
+                            $(".weatherString").addClass("fa-cloud")
+                        } else if (weatherString.indexOf("陰") >= 0) {
+                            $(".weatherString").addClass("fa-cloud")
+                        }
+                        $(".weatherString").html("&nbsp;" + weatherString)
+
+                    }
+
+                    if (weatherElement[j].elementName == "WDIR") {  //如果是風向wdir的話
+
+                        var faWind = weatherElement[j].elementValue;
+                        if (faWind <=10  ) {
+                            $(".fa-wind").html("&nbsp;" + "偏北風")
+                        }else if (faWind>=11 && faWind<= 79){
+                            $(".fa-wind").html("&nbsp;" + "東北風")
+                        }else if (faWind>=80 && faWind<= 100){
+                            $(".fa-wind").html("&nbsp;" + "偏東風")
+                        }else if (faWind>=101 && faWind<= 169){
+                            $(".fa-wind").html("&nbsp;" + "東南風")
+                        }else if (faWind>=170 && faWind<= 190){
+                            $(".fa-wind").html("&nbsp;" + "偏南風")
+                        }else if (faWind>=191 && faWind<= 259){
+                            $(".fa-wind").html("&nbsp;" + "西南風")
+                        }else if (faWind>=260 && faWind<= 280){
+                            $(".fa-wind").html("&nbsp;" + "偏西風")
+                        }else if (faWind>=281 && faWind<= 349){
+                            $(".fa-wind").html("&nbsp;" + "西北風")
+                        }else if (faWind>=350){
+                            $(".fa-wind").html("&nbsp;" + "偏北風")
+                        }
+                    }
+
+                    if (weatherElement[j].elementName == "TEMP") {   //如果是溫度temp的話
+
+                        var faTemperatureHigh = Math.round(weatherElement[j].elementValue);
+
+                        $(".fa-temperature-high").html("&nbsp;" + faTemperatureHigh + "&#8451;")
+                    }
+                    if (weatherElement[j].elementName == "24R") {   //如果是累積雨量24R的話
+
+                        var fatint = weatherElement[j].elementValue;
+
+                        $(".fa-tint").html("&nbsp;" + fatint +"mm")
+                    }
+                    
+                }
+
+            }
+        }
+    }
+
+    
+   
+
+});

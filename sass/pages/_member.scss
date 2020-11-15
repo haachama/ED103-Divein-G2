@@ -9,14 +9,15 @@
         margin: -20px 0 30px;
     }
 
-    h3, h4{
+    h4{
         text-align: center;
-        color: #FEFEFE;
+        color: $keyBlack;
     }
     
     .mlt, .mrt{
-        margin-top: 50px;
+        margin-top: 70px;
     }
+
     a {
         color: #FEFEFE;
         font-size: 14px;
@@ -26,12 +27,13 @@
     
     /* 登入切換 */
     .memberFromChange{
-        width: 165px;
+        width: 130px;
         position: relative;
         border-radius: 30px;
         background-color: #6d311932;
         margin: 0 auto;
         margin-top: 70px;
+        padding: 5px 0;
         text-align: center;
     }
     
@@ -39,7 +41,7 @@
         position: absolute;
         top: 0;
         left: 0;
-        width: 80px;
+        width: 64px;
         height: 100%;
         background-color: #f4703b;
         border-radius: 30px;
@@ -49,16 +51,25 @@
         background-color: transparent;
     }
     .memberFromChangeBtn.memberMove{
-        transform: translateX(100%);
-        left:4px;
-        /* animation: show 0.6s; */
+        transform: translateX(103%);
         transition: all 0.6s ease-in-out;
+    }
+
+    .memberIn{
+        @include input-text($w:160px,$h:30px);
+        border: none;
+        margin-top: 15px;
+    }
+    .memberPn{
+        @include input-password($w:160px,$h:30px);
+        border: none;
+        margin-top: 15px;
     }
     
     .memberFromChange p{
         display: inline;
         width: 90px;
-        padding: 10px 20px;
+        padding: 10px 12px;
         text-align: center;
         position: relative;
         cursor: pointer;
@@ -67,7 +78,10 @@
         margin: 0 auto;
     }
     .mlt h4{
-        margin: 50px auto 10px;
+        margin: 30px auto 10px;
+    }
+    .mrt{
+        margin: 60px auto 10px;  
     }
     .mltTwo{
         display: none;
@@ -80,14 +94,15 @@
     }
     
     #memberPasForgot{
-        color: #FEFEFE;
+        color: $keyBlack;
         font-size: 14px;
         text-decoration: none;
         margin: 15px 0;
         cursor: pointer;
+        transition: all 0.3s ease-in-out;
     }
     #memberPasForgot:hover{
-        color: blue;
+        color: $keyBlue;
     }
     
     .memberFromContent{
@@ -100,8 +115,8 @@
     }
     .memberFromArea{
         position: absolute;
-        top: -235px;
-        left: 10%;
+        top: -260px;
+        left: 8%;
         transition: all 0.6s ease-in-out;
     }
     .memberFromAreaTextTwo{
@@ -112,33 +127,17 @@
     }
     
     .memberFromArea.memberFromMove{
-        top: -475px;
+        top: -515px;
     }
     .memberFromArea.memberFromPasMove{
-        top: -40px;
+        top: -30px;
     }
     
-    
-    
-    /* 按鈕樣式 */
-    // button:active {
-    //     transform: scale(0.95);
-    // }
-    // button:focus {
-    //     outline: none;
-    // }
-    
-    // button.ghost {
-    //     background-color: transparent;
-    //     border-color: #FFFFFF;
-    // }
-    
     .memberFrom{
-        background-color: $keyBlack;
+        background-color: $transparentWhite;
     }
     /* 表單樣式 */
     form {
-        // background-color: rgba(22, 24, 29, 0.9);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -156,9 +155,33 @@
         width: 100%;
     }
     
+    #idMsg, #pswMsg, #memberPswError, #memberIdError, #coachIdError{
+        font-size: 10px;
+        color: #930000;
+    }
+    #RegMemId{
+        width: 76%;
+        display: inline-block;
+    }
+    #btnCheckId{
+        width: 20%;
+        height: 30px;
+        padding: 0;
+        display: inline-block;
+        text-align: center;
+        border: 1px solid #176587;
+        background-color: #176587;
+        color: $keyWhite;
+        cursor: pointer;
+    }
+    #btnCheckId:hover{
+        background-color: darken(#176587,5%);
+        border: 1px solid darken(#176587,5%);
+        color: $keyWhite;
+    }
+    
     /* 內容與切換動作 */
     .memLogRegArea {
-        // background-color: rgba(22, 24, 29, 0.7);
         border-radius: 10px;
         position: relative;
         overflow: hidden;
@@ -182,7 +205,7 @@
     
     .memLogRegArea.memberMove .login {
         left: 0;
-        opacity: 1;
+        opacity: 0;
         z-index: -1;
     }
     
@@ -190,12 +213,14 @@
         z-index: -2;
         left: 50%;
         width: 50%;
+        opacity: 0;
     }
     
     .memLogRegArea.memberMove .registered {
         left: 0;
         z-index: 1;
         animation: show 0.6s;
+        opacity: 1;
     }
     
     @keyframes show {
@@ -209,6 +234,8 @@
             z-index: 5;
         }
     }
+
+    
     
     .overlayContainer {
         position: absolute;
@@ -218,7 +245,7 @@
         height: 100%;
         overflow: hidden;
         transition: transform 0.6s ease-in-out;
-        z-index: 100;
+        z-index: 4;
     }
     
     .memLogRegArea.memberMove .overlayContainer{
@@ -226,12 +253,7 @@
     }
     
     .overlay {
-        background: #FF416C;
-        /* background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
-        background: linear-gradient(to right, #FF4B2B, #FF416C); */
-        background-repeat: no-repeat;
         background-size: cover;
-        /* background-position: 0 0; */
         color: #FFFFFF;
         position: relative;
         left: -100%;
@@ -239,6 +261,18 @@
         width: 200%;
           transform: translateX(0);
         transition: transform 0.6s ease-in-out;
+
+        .memberLoginBanner{
+            width:100%;
+        }
+        .memberLoginImgList{
+            position: relative;
+            left:0;
+            top:0;
+        }
+        .memberLoginImgList li{
+            position: absolute;
+        }
     }
     
     .memLogRegArea.memberMove .overlay {
@@ -270,7 +304,7 @@
     }
 
     .memberLoginButton{
-        margin-top: 20px;
+        margin-top: 5px;
 
         .button--bubble__container{
             height: 30px;
@@ -280,18 +314,162 @@
         }
     }
     .ghost{
-        background-color: rgba(22, 24, 29, 0.3);
-        border: 1.5px solid rgba(254, 254, 254, 0.8);
-        width: 60px;
-        border-radius: 15px;
+        background-color: rgba(22, 24, 29, 0.9);
+        border: none;
+        width: 90px;
     }
     .ghost:hover{
         background-color: rgba(22, 24, 29, 0.7);
+    }
+
+    @media all and (max-width: 991px){
+        .memLogRegArea{
+            width: 614.4px;
+            min-height: 384px;
+        }
+        .memberFromChange{
+            margin-top: 50px;
+        }
+        
+        .memberFromArea{
+            left: 3%;
+        }
+        .mrt{
+            margin: 30px auto 10px;
+        }
+        .memberFromRegArea{
+            height: 420px;
+        }
+        .memberRegisteredArea{
+            margin-top: 20px;
+            overflow-x: hidden;
+            overflow-y: scroll;
+        }
+        .memberRegisteredArea::-webkit-scrollbar {
+            display: none;
+        }
+        #RegMemId{
+            width: 66%;
+        }
+        #btnCheckId{
+            width: 30%;
+        }
+        // .memberFromArea{
+        //     top: -260px;
+        // }
+        // .memberFromArea.memberFromMove{
+        //     top: -575px;
+        // }
+        // .memberFromArea.memberFromPasMove{
+        //     top: -55px;
+        // }
+    }
+    @media all and (max-width: 762px){
+        .memLogRegArea{
+            width: 537.6px;
+            min-height: 336px;
+        }
+        .memberFromChange{
+            margin-top: 30px;
+        }
+        .memberFromArea{
+            left: 2%;
+        }
+        .mlt h4{
+            margin: 30px auto 10px;
+        }
+        .memberFromRegArea{
+            height: 330px;
+        }
+        .memberLoginButton{
+            margin-top: 30px;
+        }
+        #memberPasForgot{
+            margin-bottom: 0;
+        }
+
+        .memberFromArea{
+            top: -300px;
+            // top: -285px;
+        }
+        .memberFromArea.memberFromMove{
+            top: -575px;
+        }
+        .memberFromArea.memberFromPasMove{
+            top: -55px;
+        }
+    }
+    @media all and (max-width: 576px){
+        .memLogRegArea{
+            width: 460.8px;
+            // min-height: 228px;
+        }
+        .memberLoginImgList img{
+            min-width: 537.6px;
+        }
+        .memberFromArea{
+            left: -3%;
+        }
+        .memberLoginButton{
+            width: 100px;
+        }
+        #memId{
+            width: 62%;
+        }
+        #btnCheckId{
+            font-size: 12px;
+        }
+        #memberPasForgot{
+            font-size: 10px;
+        }
+
+        #RegMemId{
+            width: 66%;
+        }
+        #btnCheckId{
+            width: 25%;
+        }
+
+        .memberFromArea{
+            top: -285px;
+        }
+        .memberFromArea.memberFromMove{
+            top: -545px;
+        }
+        .memberFromArea.memberFromPasMove{
+            top: -55px;
+        }
+    }
+    @media all and (max-width: 376px){
+        .memLogRegArea{
+            width: 300px;
+        }
+        .memberFromArea{
+            left: -16%;
+        }
+        .memberFromRegArea{
+            width: 200px;
+            position: absolute;
+            left: -15%;
+        }
+        .memberLoginButton{
+            margin-top: 20px;
+        }
+        .memberFromArea{
+            top: -280px;
+        }
+        .memberFromArea.memberFromMove{
+            top: -530px;
+        }
+        .memberFromArea.memberFromPasMove{
+            top: -45px;
+        }
     }
 }
 
 // 會員中心
 .member{
+
     .memberMain {
         display: flex;
         justify-content: center;
@@ -374,6 +552,7 @@
         .memberPoint li p{
             display: inline-block;
             color: $keyBlack;
+            font-size: 12px;
         }
         .memberPoint li span{
             display: inline-block;
@@ -390,6 +569,7 @@
         .memberPointPhone li p{
             display: inline-block;
             color: $keyBlack;
+            font-size: 12px;
         }
         .memberPointPhone li span{
             display: inline-block;
@@ -459,7 +639,7 @@
     
     // per course
     .memberCourse{
-        margin-top: 20px;
+        margin-top: 10px;
         margin-bottom: 3px;
         border-radius: 5px;
         display: flex;
@@ -509,6 +689,7 @@
         .memberDelBtn{
             display: inline-block;
             margin-left: 10px;
+            margin-bottom: 10px;
         }
         .memberDelBtn i{
             color: $transparentWhite;
@@ -526,6 +707,62 @@
             font-size: 16px;
             color: $keyWhite;
             text-align: center;
+        }
+    }
+    .pointCheckUl{
+
+        .pointCheckLi{
+            width: 100%;
+            font-size: 0;
+
+            .pointCheckArea{
+                margin: 0 auto;
+                position: relative;
+                width: 200px;
+
+                .pointCheckColor{
+                    position: absolute;
+                    top: 1px;
+                    left: 1px;
+                    height: 38px;
+                    background-color: $keyYellow;
+                    z-index: -1;
+                }
+              
+                .pointCheckRadio{
+                    width: 200px;
+                    margin: 0;
+                    padding: 0;
+                    position: absolute;
+                    content: "";
+
+                    input{
+                        display: none;
+                    }
+                    label{
+                        display: inline-block;
+                        margin: 0;
+                        padding: 0;
+
+                        .pointCheckStar{
+                            margin: 0;
+                            padding: 0;
+                            width: 40px;
+                            outline: none;
+                            cursor: pointer;
+                            z-index: 3;
+                        }
+                        .pointCheckStar img{
+                            width: 100%;
+                            max-width: 40px;
+                        }
+                    }
+                }
+
+            }
+        }
+        .pointButton{
+            margin-top: 30px;
         }
     }
 
@@ -581,30 +818,36 @@
     .memberTagMap{
         background-color: rgba(254, 254, 254, 0.3);
         border-radius: 15px;
-        padding: 15px;
+        padding: 10px;
         display: none;
         margin: 20px auto 50px;
-        width: 90%;
+        width: 100%;
     }
     .memberTagMap.-on{
         display: block;
     }
-    .memberTagMap img{
+    .memberTagMapArea{
         width: 100%;
+        height: 400px;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
         border-radius: 15px;
+    }
+    .memberMapId{
+        width: 100%;
+        height: 400px;
     }
     
     //order
     .memberOrdTitle {
         padding: 25px 0;
-        // width: 100%;
         display: flex;
         flex-wrap: nowrap;
         justify-content: center;
     }
     .memberOrderContent{
         padding: 10px 0;
-        // width: 100%;
         display: flex;
         flex-wrap: nowrap;
         justify-content: center;
@@ -620,6 +863,9 @@
         color: #FEFEFE;
         text-align: center;
     }
+    .memberOrderContent div p{
+        font-size: 12px;
+    }
     .memberOrdNo {
         width: 25%;
     }
@@ -634,33 +880,34 @@
     }
     
     //Favorites
-    .memberFavTitle {
-        padding: 25px 0;
-        // width: 100%;
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: center;
-    }
-    .memberFavTitle div {
-        display: inline-block;
-    }
-    .memberFavTitle div p{
-        color: #FEFEFE;
-        text-align: center;
-    }
-    .memberFavImg {
-        width: 30%;
-    }
-    .memberOrdName {
-        width: 45%;
-    }
-    .memberOrdBtn {
-        width: 25%;
-    }
+    // .memberFavTitle {
+    //     padding: 25px;
+    //     // width: 100%;
+    //     display: flex;
+    //     flex-wrap: nowrap;
+    //     justify-content: center;
+    // }
+    // .memberFavTitle div {
+    //     display: inline-block;
+    // }
+    // .memberFavTitle div p{
+    //     color: #FEFEFE;
+    //     text-align: center;
+    // }
+    // .memberFavImg {
+    //     width: 30%;
+    // }
+    // .memberOrdName {
+    //     width: 45%;
+    // }
+    // .memberOrdBtn {
+    //     width: 25%;
+    // }
     
     .memberFavCourse{
-        padding: 10px 0;
-        // width: 100%;
+        margin-top: 10px;
+        padding: 10px;
+        border-radius: 5px;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -677,8 +924,7 @@
     }
     .memberFavContainerImg {
         width: 30%;
-        border-radius: 10px;
-        padding: 5px;
+        border-radius: 5px;
         overflow: hidden;
     }
     .memberFavContainerImg img{
@@ -918,6 +1164,13 @@
                 text-align: center;
             }
         }
+
+        .memberOrdTitle div p{
+            font-size: 12px;
+        }
+        .memberOrderContent div p{
+            font-size: 8px;
+        }
     }
 
     
@@ -936,22 +1189,37 @@
             }
             .memberTabList li a {
                 padding: 10px 15px;
+                font-size: 16px;
             }
         } 
-        // .memberDiaBtn{
-        //     display: block;
-        //     margin: 0 auto;
-        // }
-        // .memberDiaEditBtn, .memberCorInfBtn{
-        //     display: inline-block;
-        // }
+
+        .memberTagTabList li a{
+            font-size: 14px;
+        }
+
+        .pointCheckColor, .pointCheckRadio{
+            left: -16%;
+        }
+
+        .memberFavInfBtn{
+            width: 70px;
+        }
+        .memberFavInfBtn a{
+            font-size: 12px;
+        }
     }
     
     @media all and (max-width: 376px){
         
-        .memberTabList li a {
-            padding: 10px 15px;
+        .memberInfo{
+
+            .memberTabList li a {
+                padding: 10px;
+            }
         }
-    
+
+        .pointCheckColor, .pointCheckRadio{
+            left: -25%;
+        }
     }
 }

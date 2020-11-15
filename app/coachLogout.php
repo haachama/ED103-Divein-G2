@@ -1,0 +1,9 @@
+<?php 
+session_start();
+unset($_SESSION["trainerNo"]);
+unset($_SESSION["trainerId"]);
+unset($_SESSION["trainerPsw"]);
+unset($_SESSION["trainerName"]);
+unset($_SESSION["trainerImage"]);
+unset($_SESSION["trainerScore"]);
+?>

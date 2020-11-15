@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+    <link rel="stylesheet" href="fontawesome/css/all.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>海中日子｜潛點介紹</title>
+</head>
+<body class="spotRefer">
+    @@include('./layout/header.html')
+
+    <main class="spotRefer_Main">
+        <div class="spotReferTitle">
+            <h2>潛點介紹</h2>
+        </div>
+
+        <div class="spotRefer_Contain_rwd">
+            <h3>綠島-鋼鐵礁</h3>
+            <!-- 潛點照片_rwd 串接好了 -->
+            <div class="spotReferImg" id="spotReferImg_rwd"></div>
+            <!-- 潛點照片_rwd 串接好了 end-->
+        </div>
+
+        <div class="spotReferTab_rwd">
+            <ul>
+                <li><a href="" class="spotRefrList spotShow" data-target="spotRefer_intor">潛點介紹</a></li>
+                <li><a href="" class="spotRefrList" data-target="spotRefer_here">踩點</a></li>
+                <li><a href="" class="spotRefrList" data-target="spotRefer_weather">天氣氣象</a></li>
+                <li><a href="" class="spotRefrList" data-target="spotRefer_Animal">其他</a></li>
+                <li><a href="" class="spotRefrList" data-target="spotRefer_Com">留言區</a></li>
+            </ul>
+        </div>
+
+        <section class="spotRefer_intor spotShow">
+            <!-- 潛點介紹_rwd 串接好了 -->
+            <div class="spotReferIntor" id="spotReferIntor_rwd"></div>
+            <!-- 潛點介紹_rwd 串接好了 end-->
+        </section>
+
+        <section class="spotRefer_here spotRefer_left">
+            <div class="spotRefer_Contain">
+                <!-- 潛點照片 串接好了 -->
+                <div class="spotReferImg" id="spotReferImg"></div>
+                <!-- 潛點照片 串接好了 end-->
+            </div>
+
+            <div class="spotRefer_left_spotHere" >
+                <div id="spotPepSum"></div>
+
+                <div class="spotHereBlock">
+                    <div class="hereList">
+                        <ul id="spotImgHereList" data-spot="2">
+                        </ul>
+                    </div>
+                    <div class="hereAddBtn" id="hereAddBtn">
+                        我要<br>踩點
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="spotRefer_weather spotRefer_right">
+            <h3>綠島-鋼鐵礁</h3><input type="hidden" value="467660" id="spotStationId"><input type="hidden" value="WRA007" id="spotStationId_sea">
+            <!-- 潛點介紹 串接好了 -->
+            <div class="spotReferIntor" id="spotReferIntor"></div>
+            <!-- 潛點介紹 串接好了 結束-->
+            <!-- 天氣 即時跟未來 串接好了 -->
+            <div class="spotWeatherTab">
+                <div class="weather_list">
+                    <ul>
+                        <li><a href="" class="weathers -iAmHere" data-target="weatherNow" >即時氣象</a></li>
+                        <li><a href="" class="weathers" data-target="weatherFuture" value="10014">未來一週</a></li>
+                    </ul>
+                </div>
+                <div class="weather_block weatherNow -iAmHere">
+                    <div class="weather_block_inside" id="today"></div>
+                    <div class="weather_block_inside">
+                        <div class="spotWeatherText spotWeatherText_right">
+                            <i class="fas weatherString fa-4x"></i>
+                            <h5></h5>
+                        </div>
+                        <div class="spotWeatherText spotWeatherText_left">
+                            <div>
+                                <div class="weather_main TEMP">
+                                    <h6>氣溫</h6>
+                                    <h5></h5>
+                                </div>
+                                <div class="weather_main WDIR">
+                                    <h6>風向</h6>
+                                    <h5></h5>
+                                </div>
+                                <div class="weather_main UV">
+                                    <h6>紫外線指數</h6>
+                                    <h5></h5>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="weather_main sea_tmp">
+                                    <h6>海溫</h6>
+                                    <h5></h5>
+                                </div>
+                                <div class="weather_main water">
+                                    <h6>浪況</h6>
+                                    <h5></h5>
+                                </div>
+                                <div class="weather_main 24R">
+                                    <h6>累積雨量</h6>
+                                    <h5></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="weather_block weatherFuture">
+                    <div class="weather_block_inside" id="weekDay"></div>
+                    <div class="weather_block_inside">
+                        <div class="spotWeatherfuture" id="spotWeatherfuture">
+                        </div>
+                    </div>
+                </div>
+                <div class="weatherDataFrom">
+                    <p>資料來源：<a href="https://www.cwb.gov.tw/V8/C/ " target="_blank" >中央氣象局<span id="timeNow"></span></a></p>
+                </div>
+            </div>
+            <!-- 天氣 即時跟未來 串接好了 結束 -->
+        </section>
+
+        <section class="spotRefer_Animal">
+            <h3>你將會看到．．．</h3>
+            <!-- 動物 串好後端資料 -->
+            <div class="spotAnimal" id="showAnimalRows">
+            </div>
+            <!-- 動物 串好後端 end -->
+        </section>
+        
+        <section class="spotRefer_Com">
+            <h3>留言區</h3>
+            <!-- 留言 串好後端 -->
+            <div class="spotComBlock" id="showComRows"></div>
+            <!-- 留言 串好後端 end -->
+
+            <div class="spotComBlock">
+                
+                <!-- 載入更多 -->
+                <div class="bubbleBtn spotComMoreBtn" id="getMsgBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="goo">
+                        <defs>
+                            <filter id="goo">
+                                <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
+                                    result="goo" />
+                                <feComposite in="SourceGraphic" in2="goo" />
+                            </filter>
+                        </defs>
+                    </svg>
+            
+                    <span class="button--bubble__container">
+                        <a href="#campaign" class="button button--bubble" id="getMsgBtnText">
+                            載入更多
+                        </a>
+                        <span class="button--bubble__effect-container">
+                            <span class="circle top-left"></span>
+                            <span class="circle top-left"></span>
+                            <span class="circle top-left"></span>
+            
+                            <span class="button effect-button"></span>
+            
+                            <span class="circle bottom-right"></span>
+                            <span class="circle bottom-right"></span>
+                            <span class="circle bottom-right"></span>
+                        </span>
+                    </span>
+                </div>
+                <!-- 載入更多 end -->
+
+            </div>
+
+            <div class="lightbox-block3 reportCom">
+                <div class="lightbox3">
+                    <div class="button_closeBox3">
+                        <button type="button" class="btn_modal_close">✖</button>
+                    </div>
+                    <h3>請問是什麼狀況產生的檢舉呢？</h3>
+                    <form action="spotSendReport.php" class="inlightbox-form3" method="post">
+                        <ul>
+                            <li><label><input id="pl" name="reason" value="色情" type="radio">與色情相關</label></li>
+                            <li><label ><input id="pl1" name="reason" value="無關" type="radio">與本網站無相關</label></li>
+                            <li><label><input id="pl2" name="reason" value="言語粗俗" type="radio">言詞用語粗俗不檔</label></li>
+                            <li><input class="submitbtn3" type="submit" value="送出"></li>
+                        </ul>
+                    </form>
+                </div>
+            </div>
+
+            <!-- 留言送出 串好後端 -->
+            <div class="spotComBlock spotComSend">                 
+                <img src="./img/spot/member/memPhoto_200x200-01.png" alt="">
+
+                <div class="spotComSendText">
+                    <form method="post" enctype="multipart/form-data">
+                        <textarea name="message" id="message" rows="2" placeholder="我要留言" Wrap="Physical"></textarea>
+                        <i id="sendBtn" class="fas fa-location-arrow fa-flip-horizontal"></i>
+                    </form>
+                </div>
+            </div>
+            <!-- 留言送出 串好後端 end -->
+        </section>
+
+    </main>
+
+
+    @@include('./layout/footer.html')
+    <script src="./js/login.js"></script>
+    <script src="./js/spotRefer.js"></script>
+
+
+
+    <!--coco有用到的js檔案-->
+    <!-- <script src="../src/bubbleBtn.js"></script>
+    <script src="../src/common.js"></script>
+    <script src="../src/spotRefer.js"></script>
+    <script src="../src/spotHere.js"></script>
+    <script src="../src/spotReferCom.js"></script>
+    <script src="../src/spotReferFuturAPI.js"></script>
+    <script src="../src/spotReferWeatherAPI.js"></script> -->
+
+
+
+
+    <script>
+    function $id(id){
+        return document.getElementById(id);
+    }	
+
+    let spotReferInfoRow;   //潛點照片 潛點敘述 動物照片
+
+    window.addEventListener("load", function(){
+    
+        let html ="";
+    //－－－－－－潛點照片
+        function showSpotReferImg(){
+            let spotReferImg = $id("spotReferImg"); 
+            let spotReferImg_rwd = $id("spotReferImg_rwd"); 
+            html = `<img src="./img/spot/${spotReferInfoRow[0].picture}" alt="">`;
+            spotReferImg.innerHTML = html;
+            spotReferImg_rwd.innerHTML = html;
+        }
+
+    //－－－－－－潛點介紹內文
+        function showInfotext(){
+            let spotReferIntor = $id("spotReferIntor"); 
+            let spotReferIntor_rwd = $id("spotReferIntor_rwd");
+            html = `<p>${spotReferInfoRow[0].description}</p>`;
+            spotReferIntor_rwd.innerHTML = html;
+            spotReferIntor.innerHTML = html;
+        }
+    
+    //－－－－－－show 動物照片
+        function showAnimals(){
+            let showAnimalRows = $id("showAnimalRows"); 
+            for(let i=0; i< spotReferInfoRow.length; i++){
+                html +=`<img src="./img/animals/${spotReferInfoRow[i].animalPic}" alt="">`;
+            }
+            showAnimalRows.innerHTML = html;
+        }
+
+        function spotGetReferInfor(){
+            let xhr = new XMLHttpRequest();
+            xhr.onload = function(){
+                spotReferInfoRow = JSON.parse(xhr.responseText);  //把字串解析成json形式
+                showSpotReferImg();
+                showInfotext();
+                showAnimals();
+            }
+            xhr.open("get", "spotGetReferInfor.php", false);
+            xhr.send(null);
+
+        }
+        spotGetReferInfor();
+
+    },false);
+
+
+    </script>
+
+
+
+</body>
+</html>
