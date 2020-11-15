@@ -1,4 +1,4 @@
-$newkeyBlack:rgba(22, 24, 29, 0.6);
+$newkeyBlack:rgba(22, 24, 29, 0.6);  //黑色開透背景
 .diaryAdd{
     background-attachment: unset;
 }
@@ -871,17 +871,20 @@ $newkeyBlack:rgba(22, 24, 29, 0.6);
     .diaryInsidePage {
         // border: 1px solid black;
         margin: 0 auto;
-        max-width: 80%;
+        max-width: 75%;
         display: flex;
-        margin: 80px auto;
-
+        margin: 60px auto 30px;
+        background-color:$newkeyBlack;
+        border-radius: 10px;
         .pageLeft {
             // border: 1px solid red;
-            padding: 10px;
+            padding: 50px;
             flex: 50%;
 
             .pageLeftImg {
                 // border: 1px solid green;
+                border-radius: 5px 5px 0px 0px;
+                overflow: hidden;
                 img {
                     vertical-align: top;
                 }
@@ -900,6 +903,11 @@ $newkeyBlack:rgba(22, 24, 29, 0.6);
                     fill: none;
                     stroke: $keyWhite;
                     stroke-width: 5px;
+                }
+                p{
+                    text-align: right;
+                    max-width: 100%;
+                    padding: 0px 5px 5px;
                 }
             }
         }
@@ -1133,7 +1141,7 @@ $newkeyBlack:rgba(22, 24, 29, 0.6);
     // 課程卡片  < coco的code >
     .spotPushBlock {
         // border: 1px solid yellow;
-        max-width: 90%;
+        max-width: 80%;
         display: flex;
         flex-direction: row;
         justify-content: space-around;
@@ -1396,7 +1404,7 @@ $newkeyBlack:rgba(22, 24, 29, 0.6);
             margin: 0 auto;
             max-width: 70%;
             display: flex;
-            margin: 80px auto;
+            margin: 60px auto 30px;
             flex-direction: column;
         }
     }
@@ -1419,7 +1427,7 @@ $newkeyBlack:rgba(22, 24, 29, 0.6);
             margin: 0 auto;
             max-width: 95%;
             display: flex;
-            margin: 80px auto;
+            margin: 60px auto 30px;
 
             .pageLeft {
                 // border: 1px solid red;
@@ -1480,7 +1488,7 @@ $newkeyBlack:rgba(22, 24, 29, 0.6);
             margin: 0 auto;
             max-width: 90%;
             display: flex;
-            margin: 80px auto;
+            margin: 60px auto 30px;
 
             .pageLeft {
                 // border: 1px solid red;
