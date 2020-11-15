@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import Swal from 'sweetalert2';
 
    
 function $id(id){
@@ -9,14 +10,13 @@ let showComRows = document.getElementById("showComRows");
 let spotComRow; //留言
 let num = 0;
 let sumCom;
+let comNo;
 //----檢舉留言 lightbox
 function openLigBox(){
     // 開啟 Modal 彈跳視窗 取其data-comNo
     $("i.fa-exclamation-circle").on("click", function(){
         $(".lightbox-block3").addClass("-openbox");
-        var comNo = $(this).attr("data-comNo");
-        console.log(comNo);
-
+        comNo = $(this).attr("data-comNo");
     });
     // 關閉 Modal
     $(".btn_modal_close").on("click", function(){
@@ -45,28 +45,22 @@ function openLigBox(){
     }); 
 }
 
+function sendspotReport(){
+    alert(comNo);
+    // let xhr = new XMLHttpRequest();
+    // xhr.onload = function(){
+        
+    //     Swal.fire("感謝您的點擊", "讓此潛點更加熱門", "success");
 
-// function sendspotReport(){
-
-//     let xhr = new XMLHttpRequest();
-//     xhr.onload = function(){
-
-//     };
-//     xhr.open("Post", "spotSendReport.php", true);
-//     xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
-//     // let messageObj = { message };
-//     // let messageStr = JSON.stringify(messageObj);
-//     // let msg_infor = `msgInfor=${message}&dog=${sdsd}`;
-//     let report_infor = `report=${reason}&comNo=${}`;
-//     xhr.send(report_infor);
-// }
-
-
-
-
-
-
-
+    // };
+    // xhr.open("Post", "spotSendReport.php", true);
+    // xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+    // // let messageObj = { message };
+    // // let messageStr = JSON.stringify(messageObj);
+    // let msg_infor = `msgInfor=${message}&comNo=${comNo}`;
+    // // let report_infor = new FormData(document.getElementById("sendReportForm"));
+    // xhr.send(report_infor);
+}
 
 
 
@@ -232,8 +226,10 @@ function getSpotComs(){
 
 function spotInit(){
     getSpotComs();
-    document.getElementById("sendBtn").addEventListener("click", sendSpotComs, false); 
-    document.getElementById("getMsgBtn").addEventListener("click",showMoreMsg, false)
+
+    document.getElementById("sendBtn").onclick = sendSpotComs;
+    document.getElementById("getMsgBtn").onclick = showMoreMsg;
+    document.getElementById("sendReportBtn").onclick = sendspotReport;
 
 };
 

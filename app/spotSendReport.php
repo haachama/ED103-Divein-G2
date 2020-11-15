@@ -7,38 +7,35 @@ try{
 
     //.......確定是否上傳成功
 
-    $spotReport = json_decode($_POST[""], true);
+    // $spotReport = json_decode($_POST[""], true);
 
-    if( $_FILES["upFile"]["error"] == UPLOAD_ERR_OK){
-        $sql = "INSERT INTO reportComment ( comNo, whistleblowerNo, reportStatus, reportTime) 
-                                     values(:comNo, :whistleblowerNo, :reportStatus, now())";
-        $spotComs = $pdo->prepare( $sql );
-        $spotComs -> bindValue(":comNo", $_REQUEST["comNo"]);
-        $spotComs -> bindValue(":whistleblowerNo","2");
-        $spotComs -> bindValue(":reportStatus", "0");
-        $spotComs -> execute();
-        $pdo->commit();	
+    $sql = "INSERT INTO reportComment ( comNo, whistleblowerNo, reportStatus, reportTime) 
+                                values(:comNo, :whistleblowerNo, :reportStatus, now())";
+    $spotComs = $pdo->prepare( $sql );
+    $spotComs -> bindValue(":comNo", $_REQUEST["comNo"]);
+    $spotComs -> bindValue(":reason", $_REQUEST["reason"]);
+    $spotComs -> bindValue(":whistleblowerNo","2");
+    $spotComs -> bindValue(":reportStatus", "0");
+    $spotComs -> execute();
+    $pdo->commit();	
 
 
 
-        if( !empty($_REQUEST['reason'])){
-            $reson_arr = array();
-            $reson_arr = $_REQUEST['reason'];
-            $reason = implode('、', $reson_arr);
-            $sql = "INSERT INTO reportComment (reason)
-                    VALUE(:reason)";
+        // if( !empty($_REQUEST['reason'])){
+        //     $reson_arr = array();
+        //     $reson_arr = $_REQUEST['reason'];
+        //     $reason = implode('、', $reson_arr);
+        //     $sql = "INSERT INTO reportComment (reason)
+        //             VALUE(:reason)";
 
-            $spotComs = $pdo->prepare($sql);
-            $spotComs -> bindValue(":reason", $fileName);
-            $spotComs -> execute();
-            $pdo->commit();	
+        //     $spotComs = $pdo->prepare($sql);
+        //     $spotComs -> bindValue(":reason", $fileName);
+        //     $spotComs -> execute();
+        //     $pdo->commit();	
 
-        }else{
-            $pdo->rollBack();
-        }
-    }else{
-
-    }
+        // }else{
+        //     $pdo->rollBack();
+        // }
 
 } catch (PDOException $e) {
 	$pdo->rollBack();

@@ -184,12 +184,12 @@
                         <button type="button" class="btn_modal_close">✖</button>
                     </div>
                     <h3>請問是什麼狀況產生的檢舉呢？</h3>
-                    <form action="spotSendReport.php" class="inlightbox-form3" method="post">
+                    <form action="spotSendReport.php" class="inlightbox-form3" method="post" id="sendReportForm">
                         <ul>
-                            <li><label><input id="pl" name="reason" value="色情" type="radio">與色情相關</label></li>
-                            <li><label ><input id="pl1" name="reason" value="無關" type="radio">與本網站無相關</label></li>
-                            <li><label><input id="pl2" name="reason" value="言語粗俗" type="radio">言詞用語粗俗不檔</label></li>
-                            <li><input class="submitbtn3" type="submit" value="送出"></li>
+                            <li><label><input id="pl" name="reason" value="0" type="radio">與色情相關</label></li>
+                            <li><label ><input id="pl1" name="reason" value="1" type="radio">與本網站無相關</label></li>
+                            <li><label><input id="pl2" name="reason" value="2" type="radio">言詞用語粗俗不檔</label></li>
+                            <li><input class="submitbtn3" type="submit" value="送出" id="sendReportBtn"></li>
                         </ul>
                     </form>
                 </div>
