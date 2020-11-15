@@ -463,10 +463,10 @@ var vm = new Vue({
         },
         avgDepth(cardRow){
             return Math.round((parseInt(cardRow.diaryPoint1) +
-              parseInt(cardRow.diaryPoint2) +
-              parseInt(cardRow.diaryPoint3) +
-              parseInt(cardRow.diaryPoint4) +
-              parseInt(cardRow.diaryPoint5)) / 5, 1);
+                parseInt(cardRow.diaryPoint2) +
+                parseInt(cardRow.diaryPoint3) +
+                parseInt(cardRow.diaryPoint4) +
+                parseInt(cardRow.diaryPoint5)) / 5, 1);
         }
         // console.log("hi")這是測試的
     }
