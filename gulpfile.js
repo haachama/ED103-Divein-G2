@@ -50,7 +50,7 @@ gulp.task('default', function () {
         
         server: {
             baseDir: "./app",
-            index: "gameIntro.html"
+            index: "diaryAdd.html"
         }
     });
     gulp.watch(['sass/*.scss' , 'sass/**/*.scss'], ['sass']).on('change', reload);
