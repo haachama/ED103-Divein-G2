@@ -1,4 +1,10 @@
-import $ from "jquery";
+// import $ from "jquery";
+import Vue from 'vue'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+Vue.use(VueAxios, axios)
+
+// sessionStorage["where"] = "./member.html";
 
 $(function () {
     //導覽頁
@@ -23,38 +29,14 @@ $(function () {
     });
 });
 
+//會員資料頁簽
 $(function () {
-    //大頁簽
-    $("a.memberTab").on("click", function(e){
-        e.preventDefault();
-        
-        $(this).closest("ul").find("a.memberTab").removeClass("-on");
-        $(this).addClass("-on");
-
-        $(".memberInfor").hide();
-        
-        $("div.memberTab").removeClass("-on");
-        $("div.memberTab." + $(this).attr("data-target")).addClass("-on");
-    });
-    
-    //小頁簽
-    $("a.memberTagTab").on("click", function(e){
-        e.preventDefault();
-
-        $(this).closest("ul").find("a.memberTagTab").removeClass("-on");
-        $(this).addClass("-on");
-
-        $("div.memberTagTab").removeClass("-on");
-        $("div.memberTagTab." + $(this).attr("data-target")).addClass("-on");
-    });
-
-    //會員資料頁簽
     var memberIF = $(".memberIF");
     var memberIFC = $(".memberIFC");
     var memberPSC = $(".memberPSC");
     var memberLIC = $(".memberLIC");
 
-    $('.show_mif').click(function(){
+    $('.show_mif').on("click", function(){
         if(memberIF.hide()){
             memberIF.show();
             memberIFC.hide();
@@ -64,7 +46,7 @@ $(function () {
             $("div.memberTab").removeClass("-on");
         }
     })
-    $('.show_cmif').click(function(){
+    $('.show_cmif').on("click", function(){
         if(memberIFC.hide()){
             memberIF.hide();
             memberIFC.show();
@@ -74,7 +56,7 @@ $(function () {
             $("div.memberTab").removeClass("-on");
         }
     })
-    $('.show_cpw').click(function(){
+    $('.show_cpw').on("click", function(){
         if(memberIFC.hide()){
             memberIF.hide();
             memberIFC.hide();
@@ -84,7 +66,7 @@ $(function () {
             $("div.memberTab").removeClass("-on");
         }
     })
-    $('.show_cli').click(function(){
+    $('.show_cli').on("click", function(){
         if(memberIFC.hide()){
             memberIF.hide();
             memberIFC.hide();
@@ -95,74 +77,16 @@ $(function () {
         }
     })
 });
-$(function () {
-    //燈箱
-    // 開啟 Modal 彈跳視窗
-    $(".mainBtn_3").on("click", function(){
-        $(".lightbox-block3").addClass("-openbox");
-    });
-    // 關閉 Modal
-    $(".btn_modal_close").on("click", function(){
-        $(".lightbox-block3").addClass("-opacity-zero");
-        // 設定隔一秒後，移除相關 class
-        setTimeout(function(){
-            $(".lightbox-block3").removeClass("-openbox -opacity-zero");
-        }, 1000);
-    });
-    $(".submitbtn3").on("click", function(){
-        $(".lightbox-block3").addClass("-opacity-zero");
-        // 設定隔一秒後，移除相關 class
-        setTimeout(function(){
-            $(".lightbox-block3").removeClass("-openbox -opacity-zero");
-        }, 1000);
-    });
-});
 
-$(function () {
-    //刪除
-    $(".DelDia").click(function(){
-        $(this).parent('div').parent('div').parent('div').remove();
-    });
 
-    $(".DelFav").click(function(){
-        $(this).parent('div').parent('div').parent('div').remove();
-    });
-});
 
-$(function () {
-    //課程評鑑星星
-
-    $(".StarOne").click(function(){
-        $(".pointCheckColor").css("width","40px");
-    });
-
-    $(".StarTwo").click(function(){
-        $(".pointCheckColor").css("width","80px");
-    });
-
-    $(".StarThree").click(function(){
-        $(".pointCheckColor").css("width","120px");
-    });
-
-    $(".StarFour").click(function(){
-        $(".pointCheckColor").css("width","160px");
-    });
-
-    $(".StarFive").click(function(){
-        $(".pointCheckColor").css("width","198px");
-    });
-
-    $(".btn_modal_close").click(function(){
-        setTimeout(function(){
-            $(".pointCheckColor").css("width","0px");
-        },1000);
-    });
-});
 
 //map
 (function($){
     $(document).ready(function(){
-
+        //執行AJAX或axios
+        //取值放入經緯度
+        
         //標註
         //座標 經緯度
         var LD = [[121.492165, 22.642492],[121.471200, 22.642000]];
@@ -349,7 +273,7 @@ $(function () {
         });
 
         //讓頁簽中的地圖顯示
-        $(".memberTab").click(function(){
+        $(".memberTab").on("click",function(){
             mapIdLD.hidden = false;
             mapIdLU.hidden = false;
             mapIdKD.hidden = false;
@@ -363,23 +287,23 @@ $(function () {
             mapIdDBG.updateSize();
         });
 
-        $(".memberTagTab.LD").click(function(){
+        $(".memberTagTab.LD").on("click",function(){
             mapIdLD.hidden = false;
             mapIdLD.updateSize();
         });
-        $(".memberTagTab.LU").click(function(){
+        $(".memberTagTab.LU").on("click",function(){
             mapIdLU.hidden = false;
             mapIdLU.updateSize();
         });
-        $(".memberTagTab.KD").click(function(){
+        $(".memberTagTab.KD").on("click",function(){
             mapIdKD.hidden = false;
             mapIdKD.updateSize();
         });
-        $(".memberTagTab.SLC").click(function(){
+        $(".memberTagTab.SLC").on("click",function(){
             mapIdSLC.hidden = false;
             mapIdSLC.updateSize();
         });
-        $(".memberTagTab.DBG").click(function(){
+        $(".memberTagTab.DBG").on("click",function(){
             mapIdDBG.hidden = false;
             mapIdDBG.updateSize();
         });
@@ -404,3 +328,253 @@ $(function () {
         //   });
     });
 })($)
+
+let app = new Vue({
+    el: "#app",
+    data: {
+        showPointCheck: false,
+        
+        users: [],
+        diary: [],
+        diveClass: [],
+        orders: [],
+        favs: [],
+        image : '',
+
+        newUser: {memId: "", memPsw: "", memName: "", memMail: "",memAvatar: ""},
+        currentUser: {},
+        currentDiary: {},
+        currentClass: {},
+        currentFavorite: {},
+    },
+    mounted: function(){
+        this.page();
+        this.getAllUsers();
+        this.getAllDiary();
+        this.getAllClass();
+        this.getAllOrder();
+        this.getAllFavorite();
+        this.starChange();
+    },
+    methods:{
+        //頁簽
+        page(){
+            //大頁簽
+            $("a.memberTab").on("click", function(e){
+                e.preventDefault();
+                
+                $(this).closest("ul").find("a.memberTab").removeClass("-on");
+                $(this).addClass("-on");
+        
+                $(".memberInfor").hide();
+                
+                $("div.memberTab").removeClass("-on");
+                $("div.memberTab." + $(this).attr("data-target")).addClass("-on");
+            });
+            
+            //小頁簽
+            $("a.memberTagTab").on("click", function(e){
+                e.preventDefault();
+        
+                $(this).closest("ul").find("a.memberTagTab").removeClass("-on");
+                $(this).addClass("-on");
+        
+                $("div.memberTagTab").removeClass("-on");
+                $("div.memberTagTab." + $(this).attr("data-target")).addClass("-on");
+            });
+        },
+
+        //顯示會員個資
+        getAllUsers(){
+            axios.get("./member.php?action=memberRead").then(function(response){
+                app.users = response.data.users;
+            });
+        },
+
+        //修改會員資料
+        updateUsers(){
+            var formData = app.toFormData(app.currentUser);
+            axios.post("./member.php?action=updateUsers", formData).then(function(response){
+                app.currentUser = {};
+                app.getAllUsers();
+            });
+        },
+
+        //密碼修改
+        updateUserPsw(){
+            let params = new URLSearchParams();
+            var oldPsw = $('#oldPsw').val();
+            var memPsw = $('#newPsw').val();
+            var newPswAgain = $('#newPswAgain').val();
+            params.append('memPsw',memPsw);
+            if(oldPsw == memPsw){
+                $("#changePswError").text("新舊密碼不可相同！");
+            }else if(oldPsw == newPswAgain){
+                $("#changePswError").text("新舊密碼不可相同！");
+            }else if(memPsw != newPswAgain){
+                $("#changePswError").text("新密碼不相同！");
+            }else{
+                axios.post("./member.php?action=updateUsersPsw", params).then(function(response){
+                    $("#changePswError").text("");
+                    $(".memberIF").show();
+                    $(".memberIFC").hide();
+                    $(".memberPSC").hide();
+                    $(".memberLIC").hide();
+                    $("a.memberTab").removeClass("-on");
+                    $("div.memberTab").removeClass("-on");
+                });
+            }
+        },
+
+        toFormData(obj){
+            var fd = new FormData();
+            for(var i in obj){
+                fd.append(i,obj[i]);
+            }
+            return fd;
+        },
+        selectUser(user){
+            app.currentUser = user;
+        },
+
+        //更換頭像
+        // updateUsersPic(){
+        //     let params = new URLSearchParams();
+        //     var memAvatar = $('div.memberFile').children('img').text();
+        //     params.append('memAvatar',memAvatar);
+        //     // console.log(courseOrderNo);
+        //     axios.post("./member.php?action=updateUsersPic", params).then(function(response){
+        //         console.log(response.data);
+        //         alert('評分完成');
+        //     });
+        // },
+        // memberPhoto(e){
+        //     let file = e.target.files[0];
+        //     let readFile = new FileReader();
+        //     readFile.readAsDataURL(file);
+        //     readFile.addEventListener('load',this.loadImage);
+        // },
+        // loadImage(e){
+        //     this.image = e.target.result;
+        // },
+
+        //顯示日誌
+        getAllDiary(){
+            axios.get("./member.php?action=diaryRead").then(function(response){
+                app.diary = response.data.diary;
+            });
+        },
+
+        //刪除日誌
+        delDiary(){
+            var formData = app.toFormData(app.currentDiary);
+            axios.post("./member.php?action=delDiary", formData).then(function(response){
+                app.currentDiary = {};
+                app.getAllDiary();
+            });
+        },
+        selectDiary(d){
+            app.currentDiary = d;
+        },
+
+        delDiaryTrue(){
+            $(this).parent('form').parent('div').parent('div').parent('div').remove();
+        },
+
+        //顯示課程
+        getAllClass(){
+            axios.get("./member.php?action=classRead").then(function(response){
+                app.diveClass = response.data.diveClass;
+            });
+        },
+
+        //開啟燈箱
+        openLightBox(){
+            $(".lightbox-block3").addClass("-openbox");
+            // 關閉 Modal
+            $(".btn_modal_close").on("click", function(){
+                $(".lightbox-block3").addClass("-opacity-zero");
+                // 設定隔一秒後，移除相關 class
+                setTimeout(function(){
+                    $(".lightbox-block3").removeClass("-openbox -opacity-zero");
+                }, 1000);
+            });
+            $(".submitbtn3").on("click", function(){
+                $(".lightbox-block3").addClass("-opacity-zero");
+                // 設定隔一秒後，移除相關 class
+                setTimeout(function(){
+                    $(".lightbox-block3").removeClass("-openbox -opacity-zero");
+                }, 1000);
+            });
+        },
+        
+        // 評分
+        coursePoint(){
+            let params = new URLSearchParams();
+            var courseOrderNo = $('li.courseOrderNo').children('p').text();
+            var starPoint = $('input[name*=pl]:checked').val();
+            params.append('courseOrderNo',courseOrderNo);
+            params.append('starPoint',starPoint);
+            // console.log(courseOrderNo);
+            axios.post("./member.php?action=coursePoint", params).then(function(response){
+                console.log(response.data);
+                alert('評分完成');
+            });
+        },
+        selectStar(dc){
+            app.currentClass = dc;
+        },
+
+        starChange(){
+            $(".StarOne").on("click", function(){
+                $(".pointCheckColor").css("width","40px");
+            });
+            $(".StarTwo").on("click", function(){
+                $(".pointCheckColor").css("width","80px");
+            });
+            $(".StarThree").on("click", function(){
+                $(".pointCheckColor").css("width","120px");
+            });
+            $(".StarFour").on("click", function(){
+                $(".pointCheckColor").css("width","160px");
+            });
+            $(".StarFive").on("click", function(){
+                $(".pointCheckColor").css("width","198px");
+            });
+            $(".btn_modal_close").on("click", function(){
+                setTimeout(function(){
+                    $(".pointCheckColor").css("width","0px");
+                },1000);
+            });
+        },
+
+        //顯示訂單
+        getAllOrder(){
+            axios.get("./member.php?action=Order").then(function(response){
+                app.orders = response.data.orders;
+            });
+        },
+
+        //顯示收藏
+        getAllFavorite(){
+            axios.get("./member.php?action=favorite").then(function(response){
+                app.favs = response.data.favs;
+            });
+        },
+
+        //刪除日誌
+        delFavorite(){
+            var formData = app.toFormData(app.currentFavorite);
+            axios.post("./member.php?action=delFavorite", formData).then(function(response){
+                app.currentFavorite = {};
+                app.getAllFavorite();
+            });
+        },
+        selectFavorite(fav){
+            app.currentFavorite = fav;
+        },
+        delFavoriteTrue(){
+            $(this).parent('form').parent('div').parent('div').parent('div').remove();
+        },
+    },
+});

@@ -16,27 +16,35 @@
 
 <body class="member">
     @@include('./layout/header.html')
-    <div class="memberMain">
+
+    <div class="memberMain" id="app">
         <div class="memberAsideMenu">
             <div class="memberAsideMenuTitle"><a href="./trainerCenter.html">會員中心</a></div>
-            <div class="memberOption">
-                <p>Hello, Shizuka</p>
-                <div class="memberFile"><img src="./img/member/member/testg2.jpg"></div>
+            <div class="memberOption" v-for="user in users">
+                <p>Hello, {{ user.memName }}</p>
+                <div class="memberFile"><img :src="('./img/member/member/'+user.memAvatar)"></div>
                 <ul class="memberPointPhone">
-                    <li><p>紅利點數：</p><span>800</span></li>
-                    <li><p>遊戲分數：</p><span>800</span></li>
+                    <li><p>紅利點數：</p><span>{{ user.points }}</span></li>
+                    <li><p>遊戲分數：</p><span>{{ user.memGamePoint }}</span></li>
                 </ul>
                 <ul class="memberInformation">
-                    <li><a href="javascript:;" class="show_mif">個人資料</a></li>
-                    <li><a href="javascript:;" class="show_cpw">密碼修改</a></li>
+                    <li><a href="#" class="show_mif">個人資料</a></li>
+                    <li><a href="#" class="show_cpw">密碼修改</a></li>
                     <li>
-                        <label for="memberImgFile">更換頭像</label>
-                        <input type="file" id="memberImgFile" name="memberImgFile" accept="image/png, image/jpeg">
+                        <form action="#" method="POST">
+                            <label for="memberImgFile">更換頭像</label>
+                            <input type="file" id="memberImgFile" name="memberImgFile" accept="image/png, image/jpeg" @change="memberPhoto();">
+                        </form>
+                        <!-- <form action="">
+                            <label for="memberImgFile">更換頭像</label>
+                            <input type="file" id="memberImgFile" name="memberImgFile" accept="image/png, image/jpeg">
+                            <input type="hidden"></input>
+                        </form> -->
                     </li>
                 </ul>
                 <ul class="memberPoint">
-                    <li><p>紅利點數：</p><span>800</span></li>
-                    <li><p>遊戲分數：</p><span>800</span></li>
+                    <li><p>紅利點數：</p><span>{{ user.points }}</span></li>
+                    <li><p>遊戲分數：</p><span>{{ user.memGamePoint }}</span></li>
                 </ul>
             </div>
         </div>
@@ -55,90 +63,105 @@
                 <div class="memberTabContents" >
     
                     <div class="memberTab Dia -on">
-                        <div class="memberCourse">
-                            <div class="memberImgContainer">
-                                <img src="./img/member/diary/pexels-richard-segal-1618606.jpg">
-                            </div>
-                            <div class="memberCourseInfo">
-                                <p>第一次潛水</p>
-                                <p>潛水日期：09/20 - 09/24</p>
-                                <p>潛水地點：大白沙</p>
-                            </div>
-                            <div class="memberDiaBtn">
-                                <div class="memberDiaEditBtn demo-btn">
-                                    <a href="#campaign">
-                                        日誌編輯 
-                                    </a>
+                        <form  action="#" method="POST">
+                            <div class="memberCourse" v-for="d in diary">
+                                <div class="memberImgContainer">
+                                    <img :src="('./img/diary/'+d.diaryPicsNo)">
                                 </div>
-                                <div class="memberDelBtn">
-                                    <i class="far fa-trash-alt DelDia"></i>
+                                <div class="memberCourseInfo">
+                                    <p>{{ d.diaryName }}</p>
+                                    <p>潛水時間：{{ d.diaryPlayDate }}</p>
+                                    <p>潛水地點：{{ d.diveName }}</p>
+                                </div>
+                                <div class="memberDiaBtn">
+                                    <div class="memberDiaEditBtn demo-btn">
+                                        <a href="#campaign">
+                                            日誌編輯 
+                                        </a>
+                                    </div>
+                                    <div class="memberDelBtn">
+                                        <i class="fas fa-trash DelDia" @click="openLightBox(); selectDiary(d);"></i>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <ul class="memberPagination">
+                        </form>
+                        <!-- <ul class="memberPagination">
                             <li>1</li>
                             <li>2</li>
                             <li>3</li>
-                        </ul>
+                        </ul> -->
+                        <div class="lightbox-block3">
+                            <div class="lightbox3">
+                                <div class="button_closeBox3">
+                                    <button type="button" class="btn_modal_close">✖</button>
+                                </div>
+                                <h3>是否要刪除-{{ currentDiary.diaryName }}-日誌?</h3>
+                                <form action="" class="inlightbox-form3">
+                                    <div class="pointButton"><input class="button btn_modal_close" type="button" value="刪除" @click="delDiary();"></div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
     
                     <div class="memberTab Cor">
-                        <div class="memberCourse">
-                            <div class="memberImgContainer">
-                                <img src="./img/member/course/divein_1.jpg">
-                            </div>
-                            <div class="memberCourseInfo">
-                                <p>潛水體驗班</p>
-                                <p>上課日期：09/20 - 09/24</p>
-                                <p>上課地點：大白沙</p>
-                            </div>
-                            <div class="memberCorBtn">
-                                <div class="memberCorInfBtn demo-btn">
-                                    <a href="#campaign">
-                                        詳細資訊
-                                    </a>
+                        <form action="#" method="POST">
+                            <div class="memberCourse" v-for="dc in diveClass">
+                                <div class="memberImgContainer">
+                                    <img src="./img/member/course/divein_1.jpg">
                                 </div>
-                                <div class="memberCorInfBtn mainBtn_3 demo-btn">
-                                    課程評鑑
+                                <div class="memberCourseInfo">
+                                    <!-- <p class="courseOrderNo">{{ dc.courseOrderNo }}</p> -->
+                                    <p>{{ dc.className }}</p>
+                                    <p>上課日期：{{ dc.courseDate }}</p>
+                                    <p>上課地點：{{ dc.diveName }}</p>
+                                </div>
+                                <div class="memberCorBtn">
+                                    <div class="memberCorInfBtn demo-btn">
+                                        <a href="#campaign">
+                                            詳細資訊
+                                        </a>
+                                    </div>
+                                    <div class="memberCorInfBtn mainBtn_3 demo-btn" @click="openLightBox(); selectStar(dc);">
+                                        課程評鑑
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <ul class="memberPagination">
+                            <div class="lightbox-block3">
+                                <div class="lightbox3">
+                                    <div class="button_closeBox3">
+                                    <button type="button" class="btn_modal_close">✖</button>
+                                    </div>
+                                    <h3>課程評鑑</h3>
+                                    <ul class="pointCheckUl">
+                                        <li class="courseOrderNo"><p>{{ currentClass.courseOrderNo }}</p></li>
+                                        <li><p>{{ currentClass.trainerName }}教練分數：</p></li>
+                                        <li class="pointCheckLi">
+                                            <div class="pointCheckArea">
+                                                <div class="pointCheckColor"></div>
+                                                <div class="pointCheckRadio">
+                                                    <input id="pl1" type="radio" value="1" name="pl">
+                                                    <label for="pl1"><div class="pointCheckStar StarOne"><img src="./img/member/course/star-01.png"></div></label>
+                                                    <input id="pl2" type="radio" value="2" name="pl">
+                                                    <label for="pl2"><div class="pointCheckStar StarTwo"><img src="./img/member/course/star-01.png"></div></label>
+                                                    <input id="pl3" type="radio" value="3" name="pl">
+                                                    <label for="pl3"><div class="pointCheckStar StarThree"><img src="./img/member/course/star-01.png"></div></label>
+                                                    <input id="pl4" type="radio" value="4" name="pl">
+                                                    <label for="pl4"><div class="pointCheckStar StarFour"><img src="./img/member/course/star-01.png"></div></label>
+                                                    <input id="pl5" type="radio" value="5" name="pl">
+                                                    <label for="pl5"><div class="pointCheckStar StarFive"><img src="./img/member/course/star-01.png"></div></label>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="pointButton"><input class="button btn_modal_close" type="button" value="送出" @click="coursePoint();"></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- <ul class="memberPagination">
                             <li>1</li>
                             <li>2</li>
                             <li>3</li>
-                        </ul>
-                    </div>
-                    <div class="lightbox-block3">
-                        <div class="lightbox3">
-                            <div class="button_closeBox3">
-                                <button type="button" class="btn_modal_close">✖</button>
-                            </div>
-                            <h3>課程評鑑</h3>
-                            <form action="" class="inlightbox-form3">
-                                <ul class="pointCheckUl">
-                                    <li><p>教練分數：</p></li>
-                                    <li class="pointCheckLi">
-                                        <div class="pointCheckArea">
-                                            <div class="pointCheckColor"></div>
-                                            <div class="pointCheckRadio">
-                                                <input id="pl1" type="radio" value="1" name="pl">
-                                                <label for="pl1"><div class="pointCheckStar StarOne"><img src="./img/member/course/star-01.png"></div></label>
-                                                <input id="pl2" type="radio" value="2" name="pl">
-                                                <label for="pl2"><div class="pointCheckStar StarTwo"><img src="./img/member/course/star-01.png"></div></label>
-                                                <input id="pl3" type="radio" value="3" name="pl">
-                                                <label for="pl3"><div class="pointCheckStar StarThree"><img src="./img/member/course/star-01.png"></div></label>
-                                                <input id="pl4" type="radio" value="4" name="pl">
-                                                <label for="pl4"><div class="pointCheckStar StarFour"><img src="./img/member/course/star-01.png"></div></label>
-                                                <input id="pl5" type="radio" value="5" name="pl">
-                                                <label for="pl5"><div class="pointCheckStar StarFive"><img src="./img/member/course/star-01.png"></div></label>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="pointButton"><input class="button btn_modal_close" type="button" value="送出"></li>
-                                </ul>
-                            </form>
-                        </div>
+                        </ul> -->
                     </div>
     
                     <div class="memberTab Tag">
@@ -189,17 +212,18 @@
                             <div class="memberOrdPrice"><p>訂單金額</p></div>
                         </div>
                         <hr>
-                        <div class="memberOrderContent">
-                            <div class="memberOrdNo"><p>001</p></div>
-                            <div class="memberOrdData"><p>2020/09/26</p></div>
-                            <div class="memberOrdName"><p>XXXXXXXXX</p></div>
-                            <div class="memberOrdPrice"><p>$80000</p></div>
-                        </div>
-                        <ul class="memberPagination">
+                        <div class="memberOrderContent" v-for="order in orders">
+                            <div class="memberOrdNo"><p>{{ order.listNo }}</p></div>
+                            <div class="memberOrdData"><p>{{ order.orderDate }}</p></div>
+                            <div class="memberOrdName"><p>{{ order.itemName }}</p></div>
+                            <div class="memberOrdPrice"><p>${{ order.itemPrice }}</p></div>
+
+                        <!-- <ul class="memberPagination">
                             <li>1</li>
                             <li>2</li>
                             <li>3</li>
-                        </ul>
+                        </ul> -->
+                        </div>
                     </div>
 
                     <div class="memberTab Fav">
@@ -210,65 +234,45 @@
                             <div class="memberOrdBtn"></div>
                         </div>
                         <hr> -->
-                        <div class="memberFavCourse">
-                            <div class="memberFavContainerImg">
-                                <img src="./img/trainer/coast.jpg">
-                            </div>
-                            <div class="memberFavContainerName">
-                                <p>潛水體驗班</p>
-                            </div>
-                            <div class="memberFavContainerBtn">
-                                <div class="memberFavInfBtn demo-btn">
-                                    <a href="#campaign">
-                                        加入購物車
-                                    </a>
+                        <div v-for = "fav in favs">
+                            <form action="#" method="POST">
+                                <div class="memberFavCourse">
+                                    <div class="memberFavContainerImg">
+                                        <img :src="('./img/shop/'+fav.itemImg)">
+                                    </div>
+                                    <div class="memberFavContainerName">
+                                        <p>{{ fav.itemName }}</p>
+                                    </div>
+                                    <div class="memberFavContainerBtn">
+                                        <div class="memberFavInfBtn demo-btn">
+                                            <a href="#campaign">
+                                                加入購物車
+                                            </a>
+                                        </div>
+                                        <div class="memberDelBtn">
+                                            <i class="fas fa-trash DelFav" @click="openLightBox(); selectFavorite(fav);"></i>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="memberDelBtn">
-                                    <i class="far fa-trash-alt DelFav"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="memberFavCourse">
-                            <div class="memberFavContainerImg">
-                                <img src="./img/trainer/coast.jpg">
-                            </div>
-                            <div class="memberFavContainerName">
-                                <p>潛水體驗班2</p>
-                            </div>
-                            <div class="memberFavContainerBtn">
-                                <div class="memberFavInfBtn demo-btn">
-                                    <a href="#campaign">
-                                        加入購物車
-                                    </a>
-                                </div>
-                                <div class="memberDelBtn">
-                                    <i class="far fa-trash-alt DelFav"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="memberFavCourse">
-                            <div class="memberFavContainerImg">
-                                <img src="./img/trainer/coast.jpg">
-                            </div>
-                            <div class="memberFavContainerName">
-                                <p>潛水體驗班3</p>
-                            </div>
-                            <div class="memberFavContainerBtn">
-                                <div class="memberFavInfBtn demo-btn">
-                                    <a href="#campaign">
-                                        加入購物車
-                                    </a>
-                                </div>
-                                <div class="memberDelBtn">
-                                    <i class="far fa-trash-alt DelFav"></i>
+                            </form>
+                            <!-- <ul class="memberPagination">
+                                <li>1</li>
+                                <li>2</li>
+                                <li>3</li>
+                            </ul> -->
+                            <div class="lightbox-block3">
+                                <div class="lightbox3">
+                                    <div class="button_closeBox3">
+                                        <button type="button" class="btn_modal_close">✖</button>
+                                    </div>
+                                    <!-- <h3 v-if="diaryNone = false">{{ currentDiary.diaryNo }}</h3> -->
+                                    <h3>是否要刪除此收藏?</h3>
+                                    <form action="" class="inlightbox-form3">
+                                        <div class="pointButton"><input class="button btn_modal_close" type="button" value="刪除" @click="delFavorite(); delFavoriteTrue();"></div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
-                        <ul class="memberPagination">
-                            <li>1</li>
-                            <li>2</li>
-                            <li>3</li>
-                        </ul>
                     </div>
                 
                     <div class="memberInfor memberIF">
@@ -276,49 +280,54 @@
                             <h4>會員個人資料</h4>
                         </div>
                         <div class="memberInforArea">
-                            <form action="">
-                                <table>
-                                    <tr>
-                                        <th>會員帳號：</th>
-                                        <td>aaaaaa</td>
-                                    </tr>
-                                    <tr>
-                                        <th>會員密碼：</th>
-                                        <td>******</td>
-                                    </tr>
-                                    <tr>
-                                        <th></th>
-                                        <td><div class="show_cpw demo-btn"><p>密碼修改</p></div></td>
-                                    </tr>
-                                    <tr>
-                                        <th>會員姓名：</th>
-                                        <td>靜香</td>
-                                    </tr>
-                                    <tr>
-                                        <th>會員暱稱：</th>
-                                        <td>Shizuka</td>
-                                    </tr>
-                                    <tr>
-                                        <th>OW證照：</th>
-                                        <td>a123123123</td>
-                                    </tr>
-                                    <tr>
-                                        <th>AOW證照：</th>
-                                        <td>審核未通過</td>
-                                    </tr>
-                                    <tr>
-                                        <th></th>
-                                        <td><div class="show_cli demo-btn"><p>證照填寫</p></div></td>
-                                    </tr>
-                                    <tr>
-                                        <th>會員信箱：</th>
-                                        <td>aaa@a.com</td>
-                                    </tr>
-                                </table>
+                            <span class="errorMsg"></span>
+                            <span class="successMsg"></span>
+                            <form action="#" method="POST">
+                                <div v-for="user in users">
+                                    <table>
+                                        <tr>
+                                            <th>會員編號：</th>
+                                            <td>{{ user.memNo }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>會員帳號：</th>
+                                            <td>{{ user.memId }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>會員密碼：</th>
+                                            <td>{{ user.memPsw }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th></th>
+                                            <td><div class="show_cpw demo-btn"><p>密碼修改</p></div></td>
+                                        </tr>
+                                        <tr>
+                                            <th>會員姓名：</th>
+                                            <td>{{ user.memName }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>OW證照：</th>
+                                            <td>{{ user.licenseOw }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>AOW證照：</th>
+                                            <td>{{ user.licenseAow }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th></th>
+                                            <td><div class="show_cli demo-btn"><p>證照填寫</p></div></td>
+                                        </tr>
+                                        <tr>
+                                            <th>會員信箱：</th>
+                                            <td>{{ user.memMail }}</td>
+                                        </tr>
+                                    </table>
+                                    <div class="memberInforBtn">
+                                        <!-- <button type="button" class="show_cmif demo-btn">編輯資料</button> -->
+                                        <button type="button" class="show_cmif demo-btn" @click="selectUser(user);" >編輯資料</button>
+                                    </div>
+                                </div>
                             </form>
-                        </div>
-                        <div class="memberInforBtn">
-                            <button type="button" class="show_cmif demo-btn">編輯資料</button>
                         </div>
                     </div>
 
@@ -327,23 +336,19 @@
                             <h4>個人資料編輯</h4>
                         </div>
                         <div class="memberInforArea">
-                            <form action="">
+                            <form action="#" method="POST">
                                 <table>
                                     <tr>
                                         <th>會員姓名：</th>
-                                        <td>靜香</td>
-                                    </tr>
-                                    <tr>
-                                        <th>會員暱稱：</th>
-                                        <td><input type="text" class="demo-input1"></td>
+                                        <td>{{ currentUser.memName }}</td>
                                     </tr>
                                     <tr>
                                         <th>會員信箱：</th>
-                                        <td><input type="text" class="demo-input1"></td>
+                                        <td><input type="text" class="demo-input1" v-model="currentUser.memMail"></td>
                                     </tr>
                                 </table>
                                 <div class="memberInforBtn">
-                                    <button type="button" class="show_mif demo-btn">確認修改</button>
+                                    <button type="button" class="show_mif demo-btn" @click="updateUsers();">確認修改</button>
                                 </div>
                             </form>
                         </div>
@@ -354,23 +359,24 @@
                             <h4>密碼修改</h4>
                         </div>
                         <div class="memberInforArea">
-                            <form action="">
+                            <form action="#" method="POST">
+                                <span id="changePswError" style="font-size: 12px; color:#930000;"></span>
                                 <table>
                                     <tr>
                                         <th>請輸入舊密碼：</th>
-                                        <td><input type="password" class="demo-input6"></td>
+                                        <td><input type="password" class="demo-input6" id="oldPsw"></td>
                                     </tr>
                                     <tr>
                                         <th>請輸入新密碼：</th>
-                                        <td><input type="password"  class="demo-input6"></td>
+                                        <td><input type="password"  class="demo-input6" id="newPsw"></td>
                                     </tr>
                                     <tr>
                                         <th>請輸入新密碼：</th>
-                                        <td><input type="password" class="demo-input6"></td>
+                                        <td><input type="password" class="demo-input6" id="newPswAgain"></td>
                                     </tr>
                                 </table>
                                 <div class="memberInforBtn">
-                                    <button type="button" class="show_mif demo-btn">確認修改</button>
+                                    <button type="button" class="demo-btn" @click="updateUserPsw();">確認修改</button>
                                 </div>
                             </form>
                         </div>
@@ -381,7 +387,7 @@
                             <h4>證照審查</h4>
                         </div>
                         <div class="memberInforArea">
-                            <form action="">
+                            <form action="#" method="POST">
                                 <table>
                                     <tr>
                                         <th>請輸入OW字號：</th>
@@ -401,9 +407,6 @@
                 </div>
             </div>
         </div>
-
-       
-
     </div>
 
     @@include('./layout/footer.html')
