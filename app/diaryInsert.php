@@ -26,11 +26,12 @@
 
 
 try{
-    $dsn = "mysql:host=localhost;port=3306;dbname=ed103g2;charset=utf8";  //家3308 教室3306
-    $user = "root";
-    $password = "root";//家no 教室root 
-    $options = array(PDO::ATTR_CASE => PDO::CASE_NATURAL,PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
-    $pdo = new PDO($dsn, $user, $password, $options);
+    // $dsn = "mysql:host=localhost;port=3306;dbname=ed103g2;charset=utf8";  //家3308 教室3306
+    // $user = "root";
+    // $password = "root";//家no 教室root 
+    // $options = array(PDO::ATTR_CASE => PDO::CASE_NATURAL,PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+    // $pdo = new PDO($dsn, $user, $password, $options);
+    require_once("connectED103g2.php");
     
     //第一個是sql欄位
     // NOTNULL  memNo、diaryName、diaryWriteDate、diveNo
@@ -88,7 +89,8 @@ try{
     $sql2 = "INSERT INTO diaryImg(biologicalNo, diaryNo) VALUES(:biologicalNo, $diaryNo)";
     $diaryImg = $pdo->prepare($sql2);
 
-    $checkbox1 = $_POST['biologicalNo'] ;  //回傳是陣列  ajax的value
+    $checkbox1 = json_decode($_POST['biologicalNo']) ;  //回傳是陣列  ajax的value
+    // exit("=======". $_POST['biologicalNo']);
     // echo $checkbox1;
     foreach($checkbox1 as $i=>$biologicalNo){
         $diaryImg->bindValue(":biologicalNo", $biologicalNo); //這裡讓SQL產生第一個圖鑑號碼寫入2次

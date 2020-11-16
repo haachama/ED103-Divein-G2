@@ -185,7 +185,7 @@ $newkeyBlack: rgba(22, 24, 29, 0.6); //黑色開透背景
   // -----------------------篩選_diary.html
   // codepen區
   .diaryAmount {
-    border: 1px solid red;
+    // border: 1px solid red;
     height: 90%;
     .cursor,
     .cursor2,
@@ -2226,7 +2226,7 @@ $newkeyBlack: rgba(22, 24, 29, 0.6); //黑色開透背景
     }
   }
 
-  @media all and (max-width: 375px) {
+  @media all and (max-width: 400px) {
     .diaryAddTitleH3 {
       // border: 1px solid orange;
       display: flex;

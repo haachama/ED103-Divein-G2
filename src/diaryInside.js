@@ -1,3 +1,4 @@
+    import $ from "jquery";
     import {TweenMax, TimelineMax} from "gsap";
     import Vue from "vue";
     import axios from 'axios'
