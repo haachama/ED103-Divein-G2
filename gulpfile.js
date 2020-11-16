@@ -4,13 +4,11 @@ const sass = require('gulp-sass');
 const fileinclude = require('gulp-file-include');
 const browserSync = require('browser-sync').create();
 const clean = require('gulp-clean');
-const wait = require('gulp-wait2');
 
 
 //先執行 clear > sass > cleanCSS
 gulp.task('sass', ['clear'], function () {
     return gulp.src('sass/*.scss')
-        .pipe(wait(200))
         .pipe(sass().on('error', sass.logError))
         .pipe(cleanCSS({
             compatibility: 'ie8'
@@ -42,15 +40,12 @@ gulp.task('fileinclude', function () {
 
 var reload = browserSync.reload;
 
-// 瀏覽器_coco mac環境
+// 瀏覽器
 gulp.task('default', function () {
     browserSync.init({
-        proxy: "http://localhost/divein-G2/app/spotRefer.html",
-        // proxy: "http://localhost/divein-G2/app/spot.html",
-        
         server: {
             baseDir: "./app",
-            index: "diaryAdd.html"
+            index: "diaryInside.html"
         }
     });
     gulp.watch(['sass/*.scss' , 'sass/**/*.scss'], ['sass']).on('change', reload);

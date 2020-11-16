@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./img/favicon.ico" type="image/x-icon" />
     <link rel="Shortcut Icon" href="./img/favicon.ico" type="image/x-icon" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js"></script> <!-- axios.js -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js"></script> axios.js -->
     <link rel="stylesheet" href="./css/style.css">
     <title>海中日子 | 潛水日誌</title>
     <style>
@@ -36,7 +36,7 @@
         <div class='cursor2' id="cursor2"></div>
         <div class='cursor3' id="cursor3"></div>
 
-        <div class="section" v-model="diarycountimg"> <!-- 報錯 -->
+        <div class="section"> 
             <ul class="case-study-wrapper">
                 <li class="case-study-name">
                     <a href="#" class="hover-target">東北角</a>
@@ -54,27 +54,25 @@
                     <a href="#" class="hover-target">蘭嶼</a>
                 </li>
             </ul>
-            <ul class="case-study-images">
-                <li>
+            <ul class="case-study-images"> <!--第一屏Vue-->
+                <li v-for="vueimg in diarycountimg">
                     <div class="img-hero-background">
                         <div>
-                            <img src="https://ivang-design.com/svg-load/slider/1.jpg" alt="">
+                            <img :src="vueimg.Pic1" alt="">
                         </div>
                         <div>
-                            <img src="https://ivang-design.com/svg-load/slider/2.jpg" alt="">
+                            <img :src="vueimg.Pic2" alt="">
                         </div>
                         <div>
-                            <img src="https://ivang-design.com/svg-load/slider/3.jpg" alt="">
+                            <img :src="vueimg.Pic3" alt="">
                         </div>
                         <div>
-                            <img src="https://ivang-design.com/svg-load/slider/4.jpg" alt="">
+                            <img :src="vueimg.Pic4" alt="">
                         </div>
                     </div>
-                    <div class="hero-number-back">165篇日誌</div> <!-- 一掛就全消失，覺得人生很難 {{imgData.Count}}-->
-                    <div class="hero-number">01</div>
-                    <div class="hero-number-fixed">05</div>
+                    <div class="hero-number-back">{{vueimg.Count}}篇日誌</div>
                 </li>
-                <li>
+                <!-- <li>
                     <div class="img-hero-background">
                         <div>
                             <img src="https://ivang-design.com/svg-load/slider/5.jpg" alt="">
@@ -90,7 +88,6 @@
                         </div>
                     </div>
                     <div class="hero-number-back">366篇日誌</div>
-                    <div class="hero-number">02</div>
                 </li>
                 <li>
                     <div class="img-hero-background">
@@ -108,7 +105,6 @@
                         </div>
                     </div>
                     <div class="hero-number-back">236篇日誌</div>
-                    <div class="hero-number">03</div>
                 </li>
                 <li>
                     <div class="img-hero-background">
@@ -126,7 +122,6 @@
                         </div>
                     </div>
                     <div class="hero-number-back">322篇日誌</div>
-                    <div class="hero-number">04</div>
                 </li>
                 <li>
                     <div class="img-hero-background">
@@ -144,8 +139,7 @@
                         </div>
                     </div>
                     <div class="hero-number-back">166篇日誌</div>
-                    <div class="hero-number">05</div>
-                </li>
+                </li> -->
             </ul>
         </div>
     </div>
@@ -212,7 +206,7 @@
                             {{ i.text }}
                         </option>
                     </select>
-                    <label v-for="item in show" :key="item.key"><p><input type="checkbox" name="diveid[]" :value="item.value" class="diveclass"/>{{ item.key }}</p></label>
+                    <label v-for="item in show" :key="item.key"><p><input type="checkbox" v-model="diaryCartfor" name="diveid[]" :value="item.value" class="diveclass"/>{{ item.key }}</p></label>
                 </div>
             </form>
             
@@ -221,7 +215,7 @@
         <!-- 日誌卡片 --> 
         <div class="diaryCenter" >
             <!-- 唯一的v-for卡片 -->
-            <div class="diarySolid" v-for="vuecard in cardData" :key="vuecard.diaryNo" v-model="diaryCartfor"> <!-- 報錯 -->
+            <div class="diarySolid" v-for="vuecard in cardData" :key="vuecard.diaryNo">
                 <a href="./diaryInside.html">
                     <div class="imgContent">
                         <div class="imgSolid">
@@ -245,7 +239,7 @@
                         <div class="diaryTextData">
                             <div>
                                 <p>日誌類型 </p>
-                                <p><span>課程</span><span></span></p>
+                                <p><span>{{diaryType(vuecard)}}</span><span></span></p>
                             </div>
                             <div>
                                 <p>最大深度</p>

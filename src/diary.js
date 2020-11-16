@@ -4,7 +4,9 @@ import {
     TimelineMax
 } from "gsap";
 import Vue from "vue";
-// import TimelineMax from "gsap";
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+Vue.use(VueAxios, axios)
 
 
 $(function () {
@@ -380,8 +382,8 @@ var vm = new Vue({
             ],
             value: "",
             diveTypeFilter: "",
-            diaryCartfor: "", //?
-            diarycountimg:[],
+            diaryCartfor: "",
+            diarycountimg: [],
             diveTypes: [{
                     value: "1",
                     type: "旅遊潛水"
@@ -426,11 +428,11 @@ var vm = new Vue({
     },
     mounted() {
         axios.get("diaryQuery.php").then(
-            data => {
-                console.log(data);
-                this.cardData = data.data
-            }),
-        axios.get("diaryQuery copy.php").then(
+                data => {
+                    console.log(data);
+                    this.cardData = data.data
+                }),
+        axios.get("diaryQuerytotal.php").then(
             idata => {
                 console.log(idata);
                 this.diarycountimg = idata.data
@@ -452,16 +454,41 @@ var vm = new Vue({
         },
     },
     watch: {
-        diveTypeFilter: function () {
-            console.log("還沒寫完");
-        }
+        diveTypeFilter: { //觀察值
+            handler: function (newValue, oldValue) {
+                console.log(newValue);
+                axios.get("diaryQuery.php").then(
+                    response => {
+                        console.log(response);
+                        this.cardData = response.data.filter(x => x.diaryType == newValue);
+                    })
+            }
+        },
+        diaryCartfor: {
+            handler: function (newValue, oldValue) { //這裡有問題
+                console.log(newValue);
+                axios.get("diaryQuery.php").then(
+                    response => {
+                        console.log(response);
+                        this.cardData = response.data.filter(x => x.diveNo == newValue);
+                    })
+            }
+        },
     },
     methods: {
+        diaryType(cardRow) {
+            if (cardRow.diaryType == 1) {
+                return `旅潛`
+                // return `旅潛${cardRow.style.color('#467500')}`
+            } else {
+                return `課潛` //#F75000 怎麼寫
+            }
+        },
         maxDepth(cardRow) {
-            return Math.max(cardRow.diaryPoint1 , cardRow.diaryPoint2 , cardRow.diaryPoint3 , cardRow.diaryPoint4 , cardRow.diaryPoint5);
+            return Math.max(cardRow.diaryPoint1, cardRow.diaryPoint2, cardRow.diaryPoint3, cardRow.diaryPoint4, cardRow.diaryPoint5);
             // console.log(this);
         },
-        avgDepth(cardRow){
+        avgDepth(cardRow) {
             return Math.round((parseInt(cardRow.diaryPoint1) +
                 parseInt(cardRow.diaryPoint2) +
                 parseInt(cardRow.diaryPoint3) +
@@ -472,5 +499,3 @@ var vm = new Vue({
     }
 
 });
-
-

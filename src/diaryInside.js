@@ -1,5 +1,8 @@
     import {TweenMax, TimelineMax} from "gsap";
     import Vue from "vue";
+    import axios from 'axios'
+    import VueAxios from 'vue-axios'
+    Vue.use(VueAxios, axios)
 
 $(function(){
     $('.button--bubble').each(function () {
@@ -187,12 +190,19 @@ var dt = new Vue({
             data: [10, 15, 8, 20, 36, 42],
             line: '',
             autowidth:0,
+            diaryInside: [], //axios
             };
         },
         mounted() { //d3
             this.calculatePath(); //第一步呼叫calculatePath去執行getScales
             window.onresize = this.d3resize;//第二步呼叫d3resize
             window.onload=this.abc;//第三步呼叫abc
+
+            axios.get("diaryInsideQuery.php").then(
+                sdata => {
+                    console.log(sdata);
+                    this.diaryInside = sdata.data
+                })
         },
         methods: {
             abc(){ //d3

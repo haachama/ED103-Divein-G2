@@ -1,4 +1,7 @@
 <?php
+    // session_start();
+    // $memNo = $_SESSION['memNo'];
+
     // $error = '';
     $diaryName = isset($_POST["diaryName"])?$_POST["diaryName"]:""; 
     $diaryType = isset($_POST["diaryType"])?$_POST["diaryType"]:"";

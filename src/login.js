@@ -61,7 +61,8 @@ $(function () {
             $id("memName").innerText = `Hi,${member.memName}`;   //header會員名稱顯示
             $id('spanLogin').innerHTML = '&nbsp;登出';          //header登出顯示 
             $('#loginA').attr('href','./member.html');
-            sessionMember();                                    //將SESSION傳入指定PHP     
+            sessionMember(); 
+            diaryInsert();                                   //將SESSION傳入指定PHP     
           }
         }else{ //error
           alert(memberLogin.status);
@@ -75,6 +76,13 @@ $(function () {
     function sessionMember(){
       let memberLogin = new XMLHttpRequest();
       memberLogin.open("Post", "member.php", true);
+      memberLogin.setRequestHeader("content-type","application/x-www-form-urlencoded");
+      let data_info = `memNo=${member.memNo}`;
+      memberLogin.send(data_info); 
+    }
+    function diaryInsert(){
+      let memberLogin = new XMLHttpRequest();
+      memberLogin.open("Post", "diaryInsert.php", true);
       memberLogin.setRequestHeader("content-type","application/x-www-form-urlencoded");
       let data_info = `memNo=${member.memNo}`;
       memberLogin.send(data_info); 

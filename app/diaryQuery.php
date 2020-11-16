@@ -1,7 +1,7 @@
 <?php
-$dsn = "mysql:host=localhost;port=3306;dbname=ed103g2;charset=utf8";  //家3308 教室3306
+$dsn = "mysql:host=localhost;port=3308;dbname=ed103g2;charset=utf8";  //家3308 教室3306
 $user = "root";
-$password = "root";//家no 教室root 
+$password = "";//家no 教室root 
 $options = array(PDO::ATTR_CASE => PDO::CASE_NATURAL, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
 $pdo = new PDO($dsn, $user, $password, $options);
 
