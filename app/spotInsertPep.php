@@ -1,5 +1,6 @@
 <?php
-
+session_start();
+$memNo =$_SESSION["memNo"];
 
 $errMsg = "";
 try{
@@ -11,22 +12,21 @@ try{
     //.......確定是否上傳成功
     if( $_FILES["upFile"]["error"] == UPLOAD_ERR_OK){
 
-		$sql = "INSERT INTO divehere (diveNo,memNo) 
-                            values(:diveNo, :memNo)";
-        $spotHerePeps = $pdo->prepare( $sql );
-        $spotHerePeps -> bindValue(":diveNo",$_REQUEST["diNo"]);
-        $spotHerePeps -> bindValue(":memNo", "5");
-        $spotHerePeps -> execute();
+      $sql = "INSERT INTO divehere (diveNo,memNo) 
+                              values(:diveNo, :memNo)";
+      $spotHerePeps = $pdo->prepare( $sql );
+      $spotHerePeps -> bindValue(":diveNo",$_REQUEST["diNo"]);
+      $spotHerePeps -> bindValue(":memNo", $memNo);
+      $spotHerePeps -> execute();
 
-        $pdo->commit();	
-		//取得自動創號的key值
-        $psn = $pdo -> lastInsertId();
+      $pdo->commit();	
+  //取得自動創號的key值
+      $psn = $pdo -> lastInsertId();
 
     }else{
-		echo "錯誤代碼 : {$_FILES["upFile"]["error"]} <br>";
-		echo "新增失敗<br>";
+      echo "新增失敗<br>";
 
-	}
+    }
 } catch (PDOException $e) {
 	$pdo->rollBack();
 	$errMsg .= "錯誤原因 : ".$e -> getMessage(). "<br>";

@@ -1,10 +1,18 @@
-import $ from 'jquery';
+// import $ from 'jquery';
+
+function getSpotReferWeatherAPI (){
 
 
-$(document).ready(function(){
+    // var spotStationId = $('#spotReferIntor').prev();
+    // var spotStationId_sea = $('.spotRefer_weather >h3');
+    // var spotStationId_sea = $('#spotReferIntor').prev().attr("data-spotStationIdSea");
+
+    spotStationId_sea = document.querySelector('.spotRefer_weather >h3').getAttribute('data-spotstationidsea');
+    // console.log(spotStationId_sea);
+
+    spotStationId = document.querySelector('.spotRefer_weather >h3').getAttribute('data-spotStationId');
+    // console.log(spotStationId);
     
-    var spotStationId =$('#spotReferIntor').previousSibling.attr("spotStationId");
-    var spotStationId_sea = $('#spotReferIntor').previousSibling.attr("spotStationId_sea");
     
     $.ajax({
         // O-A0003-001即時現象 找天氣現象weather、風向wdir、溫度temp、累積雨量24R、紫外線指數Ｈ_UVI
@@ -40,37 +48,20 @@ $(document).ready(function(){
 
     });
 
+}
+
+    //印出今日日期
+    var timeN = new Date();
+    var timeFormat =`${timeN.getFullYear()}&nbsp;/&nbsp;${timeN.getMonth()+1}&nbsp;/&nbsp;${timeN.getDate()}`;
+   
+    $('#today').html("今日是"+ "&nbsp;" + timeFormat);
 
 
-    $('.weathers').on('click',function(){
-        spotStationId = $('#spotStationId').val();
-        
-        $.ajax({
-            url: 'https://opendata.cwb.gov.tw/api/v1/rest/datastore/O-A0003-001?Authorization=CWB-D686A3C5-20C3-4D99-8F69-3FC7C831D0CA&format=JSON&elementName=TIME,WDIR,TEMP,24R,H_UVI,Weather',
-            type: 'GET',
-            dataType: 'json',
-            success: getInfoONE,
-            error() {
-                alert('Oops!');
-            },
-        });
-
-        $.ajax({
-            url: 'https://opendata.cwb.gov.tw/api/v1/rest/datastore/O-A0018-001?Authorization=CWB-D686A3C5-20C3-4D99-8F69-3FC7C831D0CA&format=JSON&elementName=&sort=obsTime',
-            type: 'GET',
-            dataType: 'json',
-            success: getInfoTWO,
-            error() {
-                alert('Oops!');
-            },
-    
-        });
-    });
-
+    //印出資料來源
     var timeN = new Date();
     var timeFormat =
-        `${timeN.getFullYear()}/${timeN.getMonth()+1}/${timeN.getDate()}`;
-    $('#today').html("今日是"+ "&nbsp;" + timeFormat);
+        `${timeN.getFullYear()}/${timeN.getMonth()+1}/${timeN.getDate()} ${timeN.getHours()}:${timeN.getMinutes()}:${timeN.getSeconds()}`;
+    $('#timeNow').html(timeFormat);
 
     //第一區  天氣  氣溫 風戲 紫外線指數 累積雨量
     function getInfoONE(data){
@@ -199,4 +190,6 @@ $(document).ready(function(){
         }
     }
 
-});
+
+
+

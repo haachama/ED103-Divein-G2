@@ -1,33 +1,22 @@
-import $ from 'jquery';
-import Swal from 'sweetalert2';
-
-   
-function $id(id){
-    return document.getElementById(id);
-};
+// import $ from 'jquery';
+// import Swal from 'sweetalert2';
 
 let showComRows = document.getElementById("showComRows");
-let spotComRow; //留言
+let spotComRow; //留言php回來的變數陣列
 let num = 0;
-let sumCom;
-let comNo;
+let sumCom;  
+let comNo = 0;  //被檢舉的留言
 //----檢舉留言 lightbox
+// 開啟 Modal 彈跳視窗
 function openLigBox(){
-    // 開啟 Modal 彈跳視窗 取其data-comNo
+   
     $("i.fa-exclamation-circle").on("click", function(){
         $(".lightbox-block3").addClass("-openbox");
         comNo = $(this).attr("data-comNo");
-    });
-    // 關閉 Modal
-    $(".btn_modal_close").on("click", function(){
-        $(".lightbox-block3").addClass("-opacity-zero");
-        // 設定隔一秒後，移除相關 class
-        setTimeout(function(){
-            $(".lightbox-block3").removeClass("-openbox -opacity-zero");
-        }, 1000);
+        document.getElementById("formComNo").value = comNo;
+        sendspotReport;
     });
 
-    //檢舉燈箱
     // 關閉 Modal
     $(".btn_modal_close").on("click", function(){
         $(".lightbox-block3").addClass("-opacity-zero");
@@ -42,26 +31,32 @@ function openLigBox(){
         setTimeout(function(){
             $(".lightbox-block3").removeClass("-openbox -opacity-zero");
         }, 1000);
-    }); 
+    });
 }
-
+//傳送檢舉表單
 function sendspotReport(){
-    alert(comNo);
-    // let xhr = new XMLHttpRequest();
-    // xhr.onload = function(){
-        
-    //     Swal.fire("感謝您的點擊", "讓此潛點更加熱門", "success");
+    
+    var formData = new FormData(document.getElementById("sendReportForm"));
+    // formData.append('comNo',comNo);
+    let xhr = new XMLHttpRequest();
+    xhr.onload = function(){
+        if( xhr.status == 200){
+    
+            if(xhr.responseText == "error"){
+                alert("Error");
+            }else{
 
-    // };
-    // xhr.open("Post", "spotSendReport.php", true);
-    // xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
-    // // let messageObj = { message };
-    // // let messageStr = JSON.stringify(messageObj);
-    // let msg_infor = `msgInfor=${message}&comNo=${comNo}`;
-    // // let report_infor = new FormData(document.getElementById("sendReportForm"));
-    // xhr.send(report_infor);
+                Swal.fire("感謝您提出檢舉", "我們將盡快處理", "success");
+            }
+
+        }else{
+            alert(xhr.status)
+        }
+    }
+    xhr.open("Post", `spotSendReport.php`, true);
+    xhr.send(formData);
+    
 }
-
 
 
 //-------讀取更多
@@ -136,6 +131,7 @@ function showSpotCom(){
     let html ="";
     for( let i = 0; i < num ; i++ ){
         html += `<div class="spotCom">
+
                     <img src="./img/member/member/${spotComRow[i].memAvatar}" alt="">
                     <div class="spotComText">
                         <div>
@@ -174,8 +170,7 @@ function sendSpotComs (){
     xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
     // let messageObj = { message };
     // let messageStr = JSON.stringify(messageObj);
-    // let msg_infor = `msgInfor=${message}&dog=${sdsd}`;
-    let msg_infor = `msgInfor=${message}`;
+    let msg_infor = `msgInfor=${message}&diveNo=${spotDiveNO}`;
     xhr.send(msg_infor);
     
 
@@ -183,13 +178,29 @@ function sendSpotComs (){
     $id('message').value = '';
     console.log("送出留言end");
     num = num +1;
-};
+}
+
+
+//各式各樣的監聽事件
+function spotReferCom(){
+    document.getElementById("sendBtn").onclick = sendSpotComs;
+    document.getElementById("getMsgBtn").onclick = showMoreMsg;
+    $id("sendReportBtn").onclick = function(){
+        sendspotReport();
+    };
+}
+
+
+
+
+
 
 //－－－－－－從資料庫取得留言
 function getSpotComs(){
     let xhr = new XMLHttpRequest();
     xhr.onload = function(){
         spotComRow = JSON.parse(xhr.responseText);
+        console.log(spotComRow.length);
         if(num == 0 ){
             let html ="";
             for( let i = 0; i < 3 ; i++ ){
@@ -214,24 +225,15 @@ function getSpotComs(){
             num = num +3; 
         }else{
             showSpotCom();
-            // console.log("取資料Ｂ");
-
         }
 
     }
-    xhr.open("get", "spotGetComs.php", false);
+    xhr.open("get", `spotGetComs.php?spotDiveNO=${spotDiveNO}`, false);
     xhr.send(null);
 
-};
 
-function spotInit(){
-    getSpotComs();
+    //各式各樣的監聽事件
+    spotReferCom();
+}
 
-    document.getElementById("sendBtn").onclick = sendSpotComs;
-    document.getElementById("getMsgBtn").onclick = showMoreMsg;
-    document.getElementById("sendReportBtn").onclick = sendspotReport;
-
-};
-
-window.addEventListener("load", spotInit,false);
 

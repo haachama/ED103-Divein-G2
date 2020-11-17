@@ -1,12 +1,8 @@
-import Swal from 'sweetalert2';
-import $ from 'jquery';
-
-function $id(id){
-    return document.getElementById(id);
-};
+// import Swal from 'sweetalert2';
+// import $ from 'jquery';
 
 let hereAddBtn = document.querySelector(".hereAddBtn");
-let spotPepRow; //踩點人數接收資訊變數
+let spotPepRow; //踩點人數接收資訊php回來的變數陣列
 let sumPep = 0;
 
 //－－－－－－show 多少人 總數
@@ -24,6 +20,38 @@ function showPeps(){
     $id("spotImgHereList").innerHTML = htmlPic;
     
 }
+
+
+//－－－－－更改踩點按鈕樣式
+function addHerePic(){
+
+    hereAddBtn.style.backgroundColor = "#221814";
+    hereAddBtn.style.border = "#221814";
+
+    hereAddBtn.innerHTML = "完成<br>踩點";
+    $(".hereAddBtn").css("pointer-events","none");
+    Swal.fire("感謝您的點擊", "讓此潛點更加熱門", "success");
+
+}
+
+//－－－－－－點擊 送出資訊
+function sendSpotPeps (){
+    console.log("送出資訊");
+    let diveNo111 = $id("spotImgHereList").dataset.spot;
+
+    let xhr = new XMLHttpRequest();
+    xhr.onload = function(){
+        getSpotPep();
+    };
+    xhr.open("Post", "spotInsertPep.php", true);
+    xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+    let Pep_infor = `diNo=${diveNo111}`;
+    xhr.send(Pep_infor);
+    
+    console.log("送出資訊end");
+    sumPep = sumPep + 1;
+}
+
 
 
 //－－－－－－取得資料庫
@@ -51,44 +79,13 @@ function getSpotPep(){
             addHerePic();
         }
     }
-    xhr.open("get", "spotGetPep.php", false);
+    xhr.open("get", `spotGetPep.php?spotDiveNO=${spotDiveNO}`, false);
     xhr.send(null);
-    console.log("取得資料 end");
 }
 
-function addHerePic(){
-
-    hereAddBtn.style.backgroundColor = "#221814";
-    hereAddBtn.style.border = "#221814";
-
-    hereAddBtn.innerHTML = "完成<br>踩點";
-    $(".hereAddBtn").css("pointer-events","none");
-    Swal.fire("感謝您的點擊", "讓此潛點更加熱門", "success");
-
-}
-
-//－－－－－－點擊 送出資訊
-function sendSpotPeps (){
-    console.log("送出資訊");
-    let diveNo111 = $id("spotImgHereList").dataset.spot;
-
-    let xhr = new XMLHttpRequest();
-    xhr.onload = function(){
-        getSpotPep();
-    };
-    xhr.open("Post", "spotInsertPep.php", true);
-    xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
-    let Pep_infor = `diNo=${diveNo111}`;
-    xhr.send(Pep_infor);
-    
-    console.log("送出資訊end");
-
-    sumPep = sumPep + 1;
-};
-
+//各式各樣的點擊事件
 function spotHereInit(){
-getSpotPep();
-$id("hereAddBtn").addEventListener("click",sendSpotPeps,false);
+    $id("hereAddBtn").addEventListener("click",sendSpotPeps,false);
+
 }
 
-window.addEventListener("load", spotHereInit,false);

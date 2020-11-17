@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <link rel="stylesheet" href="fontawesome/css/all.css">
     <link rel="stylesheet" href="css/style.css">
     <title>海中日子｜潛點介紹</title>
@@ -17,7 +18,7 @@
         </div>
 
         <div class="spotRefer_Contain_rwd">
-            <h3>綠島-鋼鐵礁</h3>
+            <!-- <h3 data-geocode="10014" data-spotStationId="467660" data-spotStationId_sea="WRA007" ></h3> -->
             <!-- 潛點照片_rwd 串接好了 -->
             <div class="spotReferImg" id="spotReferImg_rwd"></div>
             <!-- 潛點照片_rwd 串接好了 end-->
@@ -61,9 +62,16 @@
 
             </div>
         </section>
-
+            <!-- 潛點介紹 串接好了 
+            綠島<h3 data-geocode="10014" data-spotStationId="467660" data-spotStationId_sea="WRA007" ></h3>
+            蘭嶼<h3 data-geocode="10014" data-spotStationId="467620" data-spotStationId_sea="C6S94" ></h3>
+            墾丁<h3 data-geocode="10013" data-spotStationId="467590" data-spotStationId_sea="46759A" ></h3>
+            小琉球<h3 data-geocode="10013" data-spotStationId="467590" data-spotStationId_sea="46714D" ></h3>
+            東北角<h3 data-geocode="65" data-spotStationId="466900" data-spotStationId_sea="46694A" ></h3>
+            -->
         <section class="spotRefer_weather spotRefer_right">
-            <h3>綠島-鋼鐵礁</h3><input type="hidden" value="467660" id="spotStationId"><input type="hidden" value="WRA007" id="spotStationId_sea">
+            <!-- <h3 data-geocode="10014" data-spotStationId="467660" data-spotStationId_sea="WRA007" ></h3> -->
+            
             <!-- 潛點介紹 串接好了 -->
             <div class="spotReferIntor" id="spotReferIntor"></div>
             <!-- 潛點介紹 串接好了 結束-->
@@ -72,7 +80,7 @@
                 <div class="weather_list">
                     <ul>
                         <li><a href="" class="weathers -iAmHere" data-target="weatherNow" >即時氣象</a></li>
-                        <li><a href="" class="weathers" data-target="weatherFuture" value="10014">未來一週</a></li>
+                        <li><a href="" class="weathers" data-target="weatherFuture" >未來一週</a></li>
                     </ul>
                 </div>
                 <div class="weather_block weatherNow -iAmHere">
@@ -117,8 +125,7 @@
                 <div class="weather_block weatherFuture">
                     <div class="weather_block_inside" id="weekDay"></div>
                     <div class="weather_block_inside">
-                        <div class="spotWeatherfuture" id="spotWeatherfuture">
-                        </div>
+                        <div class="spotWeatherfuture" id="spotWeatherfuture"></div>
                     </div>
                 </div>
                 <div class="weatherDataFrom">
@@ -131,8 +138,7 @@
         <section class="spotRefer_Animal">
             <h3>你將會看到．．．</h3>
             <!-- 動物 串好後端資料 -->
-            <div class="spotAnimal" id="showAnimalRows">
-            </div>
+            <div class="spotAnimal" id="showAnimalRows"></div>
             <!-- 動物 串好後端 end -->
         </section>
         
@@ -184,19 +190,20 @@
                         <button type="button" class="btn_modal_close">✖</button>
                     </div>
                     <h3>請問是什麼狀況產生的檢舉呢？</h3>
-                    <form action="spotSendReport.php" class="inlightbox-form3" method="post" id="sendReportForm">
+                    <form action="spotSendReport.php" class="inlightbox-form3" method="post" id="sendReportForm" enctype="multipart/form-data">
+                        <input type="hidden" name="comNo" id="formComNo">
                         <ul>
                             <li><label><input id="pl" name="reason" value="0" type="radio">與色情相關</label></li>
                             <li><label ><input id="pl1" name="reason" value="1" type="radio">與本網站無相關</label></li>
                             <li><label><input id="pl2" name="reason" value="2" type="radio">言詞用語粗俗不檔</label></li>
-                            <li><input class="submitbtn3" type="submit" value="送出" id="sendReportBtn"></li>
+                            <li><input class="submitbtn3" type="button" value="送出" id="sendReportBtn"></li>
                         </ul>
                     </form>
                 </div>
             </div>
 
             <!-- 留言送出 串好後端 -->
-            <div class="spotComBlock spotComSend">                 
+            <div class="spotComBlock spotComSend" id="spotComSend">                 
                 <img src="./img/spot/member/memPhoto_200x200-01.png" alt="">
 
                 <div class="spotComSendText">
@@ -214,48 +221,73 @@
 
     @@include('./layout/footer.html')
     <script src="./js/login.js"></script>
-    <script src="./js/spotRefer.js"></script>
+    <script src="./js/bubbleBtn.js"></script>
+    <script src="./js/common.js"></script>
+    <!-- <script src="./js/spotRefer.js"></script> -->
+
+    <script src="./cocojs/spotRefer.js"></script>
+    <script src="./cocojs/spotReferFuturAPI.js"></script>
+    <script src="./cocojs/spotReferWeatherAPI.js"></script>
+
+    <script src="./cocojs/spotHere.js"></script>
+    <script src="./cocojs/spotReferCom.js"></script>
 
 
-
-    <!--coco有用到的js檔案-->
-    <!-- <script src="../src/bubbleBtn.js"></script>
-    <script src="../src/common.js"></script>
-    <script src="../src/spotRefer.js"></script>
-    <script src="../src/spotHere.js"></script>
-    <script src="../src/spotReferCom.js"></script>
-    <script src="../src/spotReferFuturAPI.js"></script>
-    <script src="../src/spotReferWeatherAPI.js"></script> -->
-
-
-
-
+    
     <script>
     function $id(id){
         return document.getElementById(id);
     }	
+    let spotReferInfoRow;   //潛點照片 潛點敘述 動物照片    
+    let html ="";
+    var spotDiveNO;
 
-    let spotReferInfoRow;   //潛點照片 潛點敘述 動物照片
-
-    window.addEventListener("load", function(){
-    
-        let html ="";
+    //－－－－－－潛點留言 若有登入的會員頭像
+        // function spotComMemImg (){
+        //     // console.log(member.memAvatar);
+        //         if(member.memAvatar){
+        //             html = `<img src="./img/member/member/${member.memAvatar}" alt=""></img>`;
+        //         }else{
+        //             html = `<img src="./img/spot/animals/animals-01.png" alt=""></img>`;
+        //         }
+        //     $id("spotComSend").innerHTML = html;
+        // }
     //－－－－－－潛點照片
         function showSpotReferImg(){
-            let spotReferImg = $id("spotReferImg"); 
-            let spotReferImg_rwd = $id("spotReferImg_rwd"); 
             html = `<img src="./img/spot/${spotReferInfoRow[0].picture}" alt="">`;
-            spotReferImg.innerHTML = html;
-            spotReferImg_rwd.innerHTML = html;
+            $id("spotReferImg").innerHTML = html;
+            $id("spotReferImg_rwd").innerHTML = html;
+        }
+
+    //－－－－－－潛點標題介紹
+        function showSpotTitel(){
+            let spotTitel =`
+                <h3 data-geocode="${spotReferInfoRow[0].geocode}" 
+                    data-spotStationIdSea="${spotReferInfoRow[0].spotStationId_sea}" 
+                    data-spotStationId="${spotReferInfoRow[0].spotStationId}" >
+                    ${spotReferInfoRow[0].diveAreaName}-${spotReferInfoRow[0].diveName}
+                </h3>`;
+
+            $(spotTitel).insertBefore('#spotReferIntor');
+            $(spotTitel).insertBefore('#spotReferImg_rwd');
+
+            var spotStationId_sea = document.querySelector('.spotRefer_weather >h3').getAttribute('data-spotstationidsea');
+            
+            var spotgecode = document.querySelector('.spotRefer_weather >h3').getAttribute('data-geocode');
+
+            var spotStationId = document.querySelector('.spotRefer_weather >h3').getAttribute('data-spotStationId');
+
+            getSpotReferWeatherAPI();
+            
         }
 
     //－－－－－－潛點介紹內文
         function showInfotext(){
-            let spotReferIntor = $id("spotReferIntor"); 
-            let spotReferIntor_rwd = $id("spotReferIntor_rwd");
+            // let spotReferIntor = $id("spotReferIntor"); 
+            // let spotReferIntor_rwd = $id("spotReferIntor_rwd");
             html = `<p>${spotReferInfoRow[0].description}</p>`;
-            spotReferIntor_rwd.innerHTML = html;
-            spotReferIntor.innerHTML = html;
+            $id("spotReferIntor").innerHTML = html;
+            $id("spotReferIntor_rwd").innerHTML = html;
         }
     
     //－－－－－－show 動物照片
@@ -267,25 +299,75 @@
             showAnimalRows.innerHTML = html;
         }
 
+    //－－－－－－取得資料庫潛點基本資訊
         function spotGetReferInfor(){
             let xhr = new XMLHttpRequest();
             xhr.onload = function(){
                 spotReferInfoRow = JSON.parse(xhr.responseText);  //把字串解析成json形式
+                
+                // spotComMemImg();
                 showSpotReferImg();
+                showSpotTitel();
                 showInfotext();
                 showAnimals();
+
             }
-            xhr.open("get", "spotGetReferInfor.php", false);
+            xhr.open("get", `./spotGetReferInfor.php?spotDiveNO=${spotDiveNO}`, false);
             xhr.send(null);
+        }
+
+    //－－－－－－取得頁面數值
+        function spotGetUrl(){
+            let url = location.href;
+            let thisURL = url.split("?");
+            let DIVENO = thisURL[1].split("-");
+            for (let i = 0; i < DIVENO.length; i++) {
+                spotDiveNO = DIVENO[i];
+            }
+            
+            //要先做的事情 取得從哪邊來的數值spotDiveNO
+            //讀取留言｜讀取來過這邊的人數
+            spotGetReferInfor();
+            getSpotPep();
+            getSpotComs();
 
         }
-        spotGetReferInfor();
+    
+    
+        window.addEventListener("load", function(){
 
-    },false);
+            spotGetUrl();
+            //頁籤監聽事件|天氣
+            var weathers = document.getElementsByClassName('weathers');
+            for(var i=0;i<weathers.length;i++){
+                weathers[i].onclick = function(){
+                    getSpotReferFuturAPI()
+                    getSpotReferWeatherAPI();
+                }
+            }
 
+        },false);
 
     </script>
 
+    <script>
+        var storage = sessionStorage;
+        let itemString = storage.getItem('addItemList'); //給key值，傳回value
+        // alert(itemString); "A1001, A1005, A1006, A1002";
+        // substr 返回擷取的字串，四個分隔號會分割成五個值的陣列，故最後的分隔號不計算，就可避免多一個空值
+        let items = itemString.substr(0, itemString.length - 2).split(', ');
+        // [A1001,A1005,A1006,A1002]
+        let itemCounting = document.getElementById('itemCounting');
+
+        if (storage['addItemList'] == null | storage['addItemList'] == '') {
+            itemCounting.style.display = "none";
+        } else {
+            itemCounting.style.display = "block";
+            itemCounting.style.backgroundColor = "red";
+            itemCounting.innerText = items.length;
+        }
+
+    </script>
 
 
 </body>

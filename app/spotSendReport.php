@@ -1,25 +1,33 @@
 <?php
+session_start();
+$memNo =$_SESSION["memNo"];
+
 $errMsg = "";
+
 try{
     require_once("./connectED103g2.php");
     
     $pdo->beginTransaction();    //  開啟交易
 
     //.......確定是否上傳成功
+    echo $spotReports;
 
     // $spotReport = json_decode($_POST[""], true);
+    if( $_FILES["upFile"]["error"] == UPLOAD_ERR_OK){
+        $sql = "INSERT INTO reportComment ( comNo, reason, whistleblowerNo, reportStatus, reportTime) 
+                                    values(:comNo, :reason, :whistleblowerNo, :reportStatus, now())";
+        $spotReports = $pdo->prepare( $sql );
+        $spotReports -> bindValue(":comNo",$_POST["comNo"]);
+        $spotReports -> bindValue(":reason",$_POST["reason"]);
+        $spotReports -> bindValue(":whistleblowerNo",$memNo);
+        $spotReports -> bindValue(":reportStatus","0");
+        $spotReports -> execute();
 
-    $sql = "INSERT INTO reportComment ( comNo, whistleblowerNo, reportStatus, reportTime) 
-                                values(:comNo, :whistleblowerNo, :reportStatus, now())";
-    $spotComs = $pdo->prepare( $sql );
-    $spotComs -> bindValue(":comNo", $_REQUEST["comNo"]);
-    $spotComs -> bindValue(":reason", $_REQUEST["reason"]);
-    $spotComs -> bindValue(":whistleblowerNo","2");
-    $spotComs -> bindValue(":reportStatus", "0");
-    $spotComs -> execute();
-    $pdo->commit();	
+        $pdo->commit();	
 
-
+    }else{
+        echo "新增失敗<br>";
+    };
 
         // if( !empty($_REQUEST['reason'])){
         //     $reson_arr = array();

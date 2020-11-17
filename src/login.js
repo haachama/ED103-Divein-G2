@@ -1,4 +1,4 @@
-// import $ from "jquery";  //不是全域JQ要開啟這段引用JQ
+import $ from "jquery";  //不是全域JQ要開啟這段引用JQ
 
 $(function () {
     function $id(id){
