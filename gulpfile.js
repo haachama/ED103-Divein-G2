@@ -47,7 +47,7 @@ gulp.task('default', function () {
     browserSync.init({
         // proxy: "http://localhost/divein-G2/app/spotRefer.html",
         proxy: "http://localhost/divein-G2/app/spot.html",
-        
+        // 
         
     });
     gulp.watch(['sass/*.scss' , 'sass/**/*.scss'], ['sass']).on('change', browserSync.reload);

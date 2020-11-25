@@ -1,6 +1,10 @@
 <?php
 session_start();
-$memNo =$_SESSION["memNo"];
+$memNo = isset($_SESSION["memNo"])?$_SESSION["memNo"]:0;
+
+
+
+// $spotDiveNO = $_GET["spotDiveNO"];
 
 $errMsg = "";
 
@@ -29,21 +33,6 @@ try{
         echo "新增失敗<br>";
     };
 
-        // if( !empty($_REQUEST['reason'])){
-        //     $reson_arr = array();
-        //     $reson_arr = $_REQUEST['reason'];
-        //     $reason = implode('、', $reson_arr);
-        //     $sql = "INSERT INTO reportComment (reason)
-        //             VALUE(:reason)";
-
-        //     $spotComs = $pdo->prepare($sql);
-        //     $spotComs -> bindValue(":reason", $fileName);
-        //     $spotComs -> execute();
-        //     $pdo->commit();	
-
-        // }else{
-        //     $pdo->rollBack();
-        // }
 
 } catch (PDOException $e) {
 	$pdo->rollBack();

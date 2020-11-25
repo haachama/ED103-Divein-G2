@@ -1,10 +1,12 @@
-import $ from 'jquery';
+// import $ from 'jquery';
 
+function getSpotReferWeatherAPI (){
 
-$(document).ready(function(){
-    
-    var spotStationId =$('#spotReferIntor').previousSibling.attr("spotStationId");
-    var spotStationId_sea = $('#spotReferIntor').previousSibling.attr("spotStationId_sea");
+    // var spotStationId_sea = $('#spotReferIntor').prev().attr("data-spotStationIdSea");
+
+    spotStationId_sea = document.querySelector('.spotRefer_weather >h3').getAttribute('data-spotstationidsea');
+
+    spotStationId = document.querySelector('.spotRefer_weather >h3').getAttribute('data-spotStationId');
     
     $.ajax({
         // O-A0003-001即時現象 找天氣現象weather、風向wdir、溫度temp、累積雨量24R、紫外線指數Ｈ_UVI
@@ -40,37 +42,20 @@ $(document).ready(function(){
 
     });
 
+}
+
+    //印出今日日期
+    var timeN = new Date();
+    var timeFormat =`${timeN.getFullYear()}&nbsp;/&nbsp;${timeN.getMonth()+1}&nbsp;/&nbsp;${timeN.getDate()}`;
+   
+    $('#today').html("今日是"+ "&nbsp;" + timeFormat);
 
 
-    $('.weathers').on('click',function(){
-        spotStationId = $('#spotStationId').val();
-        
-        $.ajax({
-            url: 'https://opendata.cwb.gov.tw/api/v1/rest/datastore/O-A0003-001?Authorization=CWB-D686A3C5-20C3-4D99-8F69-3FC7C831D0CA&format=JSON&elementName=TIME,WDIR,TEMP,24R,H_UVI,Weather',
-            type: 'GET',
-            dataType: 'json',
-            success: getInfoONE,
-            error() {
-                alert('Oops!');
-            },
-        });
-
-        $.ajax({
-            url: 'https://opendata.cwb.gov.tw/api/v1/rest/datastore/O-A0018-001?Authorization=CWB-D686A3C5-20C3-4D99-8F69-3FC7C831D0CA&format=JSON&elementName=&sort=obsTime',
-            type: 'GET',
-            dataType: 'json',
-            success: getInfoTWO,
-            error() {
-                alert('Oops!');
-            },
-    
-        });
-    });
-
+    //印出資料來源
     var timeN = new Date();
     var timeFormat =
-        `${timeN.getFullYear()}/${timeN.getMonth()+1}/${timeN.getDate()}`;
-    $('#today').html("今日是"+ "&nbsp;" + timeFormat);
+        `${timeN.getFullYear()}/${timeN.getMonth()+1}/${timeN.getDate()} ${timeN.getHours()}:${timeN.getMinutes()}:${timeN.getSeconds()}`;
+    $('#timeNow').html(timeFormat);
 
     //第一區  天氣  氣溫 風戲 紫外線指數 累積雨量
     function getInfoONE(data){
@@ -108,23 +93,23 @@ $(document).ready(function(){
 
                         var faWind = weatherElement[j].elementValue;
                         if (faWind <=10  ) {
-                            $(".WDIR h5").html("偏北風")
-                        }else if (faWind>=11 && faWind<= 79){
-                            $(".WDIR h5").html("東北風")
-                        }else if (faWind>=80 && faWind<= 100){
-                            $(".WDIR h5").html("偏東風")
-                        }else if (faWind>=101 && faWind<= 169){
-                            $(".WDIR h5").html("東南風")
-                        }else if (faWind>=170 && faWind<= 190){
-                            $(".WDIR h5").html("偏南風")
-                        }else if (faWind>=191 && faWind<= 259){
-                            $(".WDIR h5").html("西南風")
-                        }else if (faWind>=260 && faWind<= 280){
-                            $(".WDIR h5").html("偏西風")
-                        }else if (faWind>=281 && faWind<= 349){
-                            $(".WDIR h5").html("西北風")
-                        }else if (faWind>=350){
-                            $(".WDIR h5").html("偏北風")
+                            $(".WDIR h5").text("偏北風")
+                        }else if (faWind>10 && faWind<= 70){
+                            $(".WDIR h5").text("東北風")
+                        }else if (faWind>80 && faWind<= 100){
+                            $(".WDIR h5").text("偏東風")
+                        }else if (faWind>100 && faWind<= 160){
+                            $(".WDIR h5").text("東南風")
+                        }else if (faWind>170 && faWind<= 190){
+                            $(".WDIR h5").text("偏南風")
+                        }else if (faWind>190 && faWind<= 250){
+                            $(".WDIR h5").text("西南風")
+                        }else if (faWind>260 && faWind<= 280){
+                            $(".WDIR h5").text("偏西風")
+                        }else if (faWind>280 && faWind<= 340){
+                            $(".WDIR h5").text("西北風")
+                        }else if (faWind>350){
+                            $(".WDIR h5").text("偏北風")
                         }
                     }
 
@@ -140,23 +125,36 @@ $(document).ready(function(){
                     if (weatherElement[j].elementName == "24R") {   
 
                         var fatint = weatherElement[j].elementValue;
-
-                        $(".24R h5").html(fatint +"mm")
+                        if(fatint < 0){
+                            $(".24R h5").html( "0 mm")
+                        
+                        }else{
+                            $(".24R h5").html(fatint +"mm")
+                        }
                     }
 
+                    //如果是紫外線指數的話
                     if (weatherElement[j].elementName == "H_UVI") {
 
                         var uv = weatherElement[j].elementValue;
                         if (uv <= 2 ) {
                             $(".UV h5").html("低量");
-                        }else if (uv>=3 && uv<= 5){
-                            $(".UV h5").html("中量");
-                        }else if (uv>=6 && uv<= 7){
-                            $(".UV h5").html("高量");
-                        }else if (uv>=8 && uv<= 10){
-                            $(".UV h5").html("過量");
-                        }else if (uv>=11){
-                            $(".UV h5").html("危險");
+                        }else if (uv>2 && uv<= 5){
+                            $(".UV h5").html("中量 <br><span>*注意防曬<span>");
+                            $(".UV h5 span").css('fontSize','10px');
+                            $(".UV h5 span").css('background','#FF5511');
+                        }else if (uv>5 && uv<= 7){
+                            $(".UV h5").html("高量 <br><span>*加強防曬<span>");
+                            $(".UV h5 span").css('fontSize','10px');
+                            $(".UV h5 span").css('background','#CC0000');
+                        }else if (uv>7 && uv<= 10){
+                            $(".UV h5").html("過浪 <br><span>*嚴加防曬<span>");
+                            $(".UV h5 span").css('fontSize','10px');
+                            $(".UV h5 span").css('background','#CC0000');
+                        }else if (uv>10){
+                            $(".UV h5").html("危險 <br><span>*避免曝曬<span>");
+                            $(".UV h5 span").css('fontSize','10px');
+                            $(".UV h5 span").css('background','#CC0000');
                         }
                     }
                     
@@ -180,23 +178,37 @@ $(document).ready(function(){
                 for(let j = 0; j<weatherElement.length; j++){
                     if(weatherElement[j].elementName == "浪高"){
                         let faWater = weatherElement[j].elementValue / 100;
-                        if (faWater <= 1.5 ) {
+                        if ( faWater <= 1.5 ) {
                             $(".water h5").html("小浪");
-                        }else if (faWater>=1.6 && faWater<= 3){
-                            $(".water h5").html("中浪");
-                        }else if (faWater>=3.1){
-                            $(".water h5").html("大浪");
+                        }else if (faWater>1.5 && faWater<= 3){
+                            $(".water h5").html("中浪 <br><span>*建議不宜潛水<span>");
+                            // $(".water h5 span").css('color','#FF5511');
+                            $(".water h5 span").css('fontSize','12px');
+                            $(".water h5 span").css('background','#FF5511');
+
+                        }else if (faWater>3){
+                            $(".water h5").html("大浪 <br><span>*建議不宜潛水<span>");
+                            $(".water h5 span").css('background','#FF5511');
+                            $(".water h5 span").css('fontSize','12px');
+
                         }
                     }
 
                     if(weatherElement[j].elementName == "海溫"){
 
                         var seaTmp = Math.round(weatherElement[j].elementValue/10);
-                        $(".sea_tmp h5").html(seaTmp + "&#8451;");
+                        if(weatherElement[j].elementValue < 0 || isNaN(weatherElement[j].elementValue) === true){
+                            $(".sea_tmp h5").html( "25 &#8451;");
+                        }else{
+                            $(".sea_tmp h5").html(seaTmp + "&#8451;");
+                        }
+
                     }
                 }
             }
         }
     }
 
-});
+
+
+

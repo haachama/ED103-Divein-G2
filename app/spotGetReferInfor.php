@@ -1,4 +1,3 @@
-
 <?php
 $spotDiveNO = $_GET["spotDiveNO"];
 

@@ -2,6 +2,7 @@
 $areaNO =$_GET['areaNO'];
 
 $errMsg = "";
+ini_set('display_errors', 1);
 
 try{
     require_once("connectED103g2.php");
@@ -18,8 +19,9 @@ try{
 
 
     //找潛點有幾筆
-    $sql = " SELECT count(*)diveSum
-    FROM diveSpots a JOIN diveArea b on a.diveAreaNo = b.diveAreaNo 
+    $sql = " SELECT count(*)comSum
+    FROM diveSpots a JOIN diveArea b on a.diveAreaNo = b.diveAreaNo
+                     JOIN diveComment c on a.diveNo = c.diveNo
     where b.diveAreaNo = $areaNO 
     group by b.diveAreaNo";
 
@@ -49,6 +51,7 @@ try{
     $hereSum = $spotInfos_here->fetch(PDO::FETCH_ASSOC);
     
     
+
     $AllSpotData = array( $classSum, $diveSum, $diarySum, $hereSum );
 
     echo json_encode($AllSpotData,true);

@@ -220,29 +220,32 @@
 
 
     @@include('./layout/footer.html')
+
     <script src="./js/login.js"></script>
     <script src="./js/bubbleBtn.js"></script>
     <script src="./js/common.js"></script>
-    <!-- <script src="./js/spotRefer.js"></script> -->
-
-    <script src="./cocojs/spotRefer.js"></script>
-    <script src="./cocojs/spotReferFuturAPI.js"></script>
-    <script src="./cocojs/spotReferWeatherAPI.js"></script>
-
-    <script src="./cocojs/spotHere.js"></script>
-    <script src="./cocojs/spotReferCom.js"></script>
 
 
-    
+    <script src="./js/spotRefer.js"></script>
+    <script src="./js/spotReferWeatherAPI.js"></script>
+    <script src="./js/spotReferFuturAPI.js"></script>
+
+
+    <script src="./js/spotHere.js"></script>
+    <script src="./js/spotReferCom.js"></script>
+
+    <!--------------- 上線版js ---------------------->
+
     <script>
     function $id(id){
         return document.getElementById(id);
     }	
     let spotReferInfoRow;   //潛點照片 潛點敘述 動物照片    
-    let html ="";
+    let html = "";
     var spotDiveNO;
 
     //－－－－－－潛點留言 若有登入的會員頭像
+
         // function spotComMemImg (){
         //     // console.log(member.memAvatar);
         //         if(member.memAvatar){
@@ -252,6 +255,8 @@
         //         }
         //     $id("spotComSend").innerHTML = html;
         // }
+
+
     //－－－－－－潛點照片
         function showSpotReferImg(){
             html = `<img src="./img/spot/${spotReferInfoRow[0].picture}" alt="">`;
@@ -330,7 +335,7 @@
             spotGetReferInfor();
             getSpotPep();
             getSpotComs();
-
+            spotHereInit();
         }
     
     

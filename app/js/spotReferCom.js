@@ -205,7 +205,7 @@ function getSpotComs(){
             let html ="";
             for( let i = 0; i < 3 ; i++ ){
                 html += `<div class="spotCom">
-                            <img src="./img/member/member/${spotComRow[i].memAvatar}" alt="">
+                            <img src="./img/member/member/${spotComRow[i].memAvatar}">
                             <div class="spotComText">
                                 <div>
                                     <h5>${spotComRow[i].memName}</h5>

@@ -382,37 +382,29 @@
         .spotLeftTwoPic_Rl{
             padding-top: 10px;
             max-height: 266px;
+            border: 4px solid red;
 
-            a{
+            a{ 
+                flex: 2;
                 
-                &:first-child{
-                    width: 75.6%;
-                    img{
-                        width: 100%;
-                    }
-                }
-                &:last-child{
-                    width: 30%;
-                    img{
-                        width: 100%;
-                    }
-                }
+                
             }
         }
         //四張 
         .spotLeftTwoPic_Lr{
             // padding-bottom: 11px;
-            max-height: 266px;
+            // max-height: 266px;
+            border: 4px solid red;
 
 
             a{
-                // border: 1px solid rgb(252, 145, 6);
-                &:first-child{
-                    width: 30%;
-                }
-                &:last-child{
-                    width: 75.5%;
-                }
+                border: 1px solid rgb(252, 145, 6);
+                // &:first-child{
+                //     width: 50%;
+                // }
+                // &:last-child{
+                //     width: 50%;
+                // }
             }
         }
         //五張spotLeftTop
