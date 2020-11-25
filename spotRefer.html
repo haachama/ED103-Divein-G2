@@ -3,14 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/favicon.ico" type="image/x-icon" />
+    <link rel="Shortcut Icon" href="./img/favicon.ico" type="image/x-icon" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <link rel="stylesheet" href="fontawesome/css/all.css">
     <link rel="stylesheet" href="css/style.css">
     <title>海中日子｜潛點介紹</title>
+    <style>
+        header{
+            background-color: rgba(22,24,29,0.55);
+        }
+        #spanLogin:hover{
+            cursor: pointer;
+        }
+        .memCart li{
+             color: #fefefe;
+        }
+        #spotComSend{
+            border-radius: 50%;
+            overflow: hidden;
+        }   
+        .spotRefer .spotComSend .spotComSendText .fa-location-arrow{
+            top: 30%;
+        }
+        .spotRefer .spotRefer_right .spotWeatherfuture{
+            overflow: auto;
+
+        }
+        .spotRefer .spotRefer_left .hereList ul li:last-child::after{
+            display: none;
+        }
+        
+        .spotRefer_Contain{
+            /* border: 1px solid green; */
+            display: flex;
+            flex-direction: column;
+
+        }
+        .spotReferImg img{
+            max-height: 400px;
+            object-fit: cover;
+        }
+
+        .spotReferSmallImgRows{
+            margin-top: 20px;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            /* border: 1px solid red; */
+        }
+
+        .spotReferSmallImg,.spotReferSmallImg_rwd{
+            width: 80%;
+            margin: 0 auto;
+            display: inline-block;
+        }
+
+        .spotReferSmallImg img,.spotReferSmallImg_rwd img{
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+
+        }
+        .spotRefer .spotRefer_left .hereList ul li{
+            height: 72px;
+            overflow: hidden;
+            border-radius: 50%;
+            padding: 0px;
+            margin: 2px;
+        }
+        .spotRefer .spotRefer_left .hereList ul li img{
+            border-radius: 0;
+        }
+
+        @media (max-width: 992px){
+            .spotRefer .spotRefer_right .spotWeatherTab{
+                width: 100%;
+            }
+            .spotRefer .spotRefer_right .weather_block .weather_block_inside{
+                padding: 10px 2px;
+            }
+            .spotReferSmallImgRows{
+                margin-top: 0;
+                margin-bottom: 20px;
+            }
+            .spotReferImg img{
+                max-height: 350px;
+            }
+        }
+        @media (max-width: 576px){
+            .spotRefer .spotComSend{
+                width: 90%;
+            }
+            .spot .spotData {
+                font-size: 12px;
+            }
+            .spot .spotData ul li{
+                font-size: 12px;
+            }
+            .spot .spotData ul .spotDataNum{
+                font-size: 20px;
+            }
+            .spot .spotPush img {
+                height: 50px;
+            }
+            .spotReferImg img{
+                max-height: 224px;
+            }
+        }
+        @media (max-width: 576px){
+            .spotReferImg img{
+                max-height: 200px;
+            }
+        }
+
+
+    </style>
 </head>
 <body class="spotRefer">
-    @@include('./layout/header.html')
+    <header>
+        <h1 class="logo">海中日子 Divein
+            <a href="./main.html"><img src="./img/header/logo.png" alt="logo"></a>
+        </h1>
+        <div class="nav">
+            <ul>
+                <li class="recommend_nav">
+                    <a href="./spot.html">潛點推薦</a>
+                </li>
+                <li class="course_nav">
+                    <a href="./course.php">潛水課程</a>
+                </li>
+                <li class="shop_nav">
+                    <a href="./shop.html">潛水商城</a>
+                </li>
+                <li class="blog_nav">
+                    <a href="./diary.html">潛水日誌</a>
+                </li>
+                <li class="game_nav">
+                    <a href="./gameIntro.html">下潛遊戲</a>
+                </li>
+            </ul>
+        </div>
+        <div class="memCart">
+            <ul>
+                <li class="userName"><span id="memName"></span><span id="spanLogin"></span></li>
+                <li class="memberIcon">
+                    <a id="loginA" href="#"><img src="./img/header/member.png"></a>
+                </li>
+                <li class="lili">
+                    <a class="cartlink" href="./cart.html">
+                        <img src="./img/header/cart.png">
+                    </a>
+                    <span id="itemCounting"></span>
+                </li>
+            </ul>
+        </div>
+        <button class="hamburger hamburger--3dxy" type="button">
+            <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+            </span>
+        </button>
+    </header>
 
     <main class="spotRefer_Main">
         <div class="spotReferTitle">
@@ -20,7 +174,12 @@
         <div class="spotRefer_Contain_rwd">
             <!-- <h3 data-geocode="10014" data-spotStationId="467660" data-spotStationId_sea="WRA007" ></h3> -->
             <!-- 潛點照片_rwd 串接好了 -->
-            <div class="spotReferImg" id="spotReferImg_rwd"></div>
+            <div class="spotReferImg" id="spotReferImg_rwd">
+
+            </div>
+            <div class="spotReferSmallImgRows">
+                <div class="spotReferSmallImg_rwd" id="spotReferSmallImg_rwd"></div>
+            </div>
             <!-- 潛點照片_rwd 串接好了 end-->
         </div>
 
@@ -43,7 +202,12 @@
         <section class="spotRefer_here spotRefer_left">
             <div class="spotRefer_Contain">
                 <!-- 潛點照片 串接好了 -->
-                <div class="spotReferImg" id="spotReferImg"></div>
+                <div class="spotReferImg" id="spotReferImg">
+                    <!-- <img src="./img/spot/spotGiLittle-02.png" alt=""> -->
+                </div>
+                <div class="spotReferSmallImgRows">
+                    <div class="spotReferSmallImg" id="spotReferSmallImg"></div>
+                </div>
                 <!-- 潛點照片 串接好了 end-->
             </div>
 
@@ -52,7 +216,7 @@
 
                 <div class="spotHereBlock">
                     <div class="hereList">
-                        <ul id="spotImgHereList" data-spot="2">
+                        <ul id="spotImgHereList">
                         </ul>
                     </div>
                     <div class="hereAddBtn" id="hereAddBtn">
@@ -203,10 +367,13 @@
             </div>
 
             <!-- 留言送出 串好後端 -->
-            <div class="spotComBlock spotComSend" id="spotComSend">                 
-                <img src="./img/spot/member/memPhoto_200x200-01.png" alt="">
+            <div class="spotComBlock spotComSend" >
+                <div id="spotComSend" style="width: 80px; height: 80px; display: inline-block;">
 
-                <div class="spotComSendText">
+                    <!-- <img src="./img/spot/member/memPhoto_200x200-01.png" alt=""> -->
+                </div>              
+
+                <div class="spotComSendText" id="spotComSendText">
                     <form method="post" enctype="multipart/form-data">
                         <textarea name="message" id="message" rows="2" placeholder="我要留言" Wrap="Physical"></textarea>
                         <i id="sendBtn" class="fas fa-location-arrow fa-flip-horizontal"></i>
@@ -219,42 +386,54 @@
     </main>
 
 
-    @@include('./layout/footer.html')
-
+    <footer>
+    <div class="copyright">
+        Copyright © 2020 Divein | 海中日子 All Rights Reserved.
+    </div>
+</footer>
     <script src="./js/login.js"></script>
     <script src="./js/bubbleBtn.js"></script>
     <script src="./js/common.js"></script>
-
+    <!-- <script src="./js/spotRefer.js"></script> -->
 
     <script src="./js/spotRefer.js"></script>
-    <script src="./js/spotReferWeatherAPI.js"></script>
     <script src="./js/spotReferFuturAPI.js"></script>
-
+    <script src="./js/spotReferWeatherAPI.js"></script>
 
     <script src="./js/spotHere.js"></script>
     <script src="./js/spotReferCom.js"></script>
 
-    <!--------------- 上線版js ---------------------->
 
     <script>
     function $id(id){
         return document.getElementById(id);
     }	
     let spotReferInfoRow;   //潛點照片 潛點敘述 動物照片    
-    let html = "";
+    let html ="";
     var spotDiveNO;
+    let spotReferMemRow;
 
     //－－－－－－潛點留言 若有登入的會員頭像
+        function spotComMemImg (){
+            let xhr = new XMLHttpRequest();
+            xhr.onload = function(){
+                spotReferMemRow = JSON.parse(xhr.responseText);  //把字串解析成json形式
+                html ="";
+                if(spotReferMemRow.memAvatar){ //長度不為0 {} 表示有會員樣式
 
-        // function spotComMemImg (){
-        //     // console.log(member.memAvatar);
-        //         if(member.memAvatar){
-        //             html = `<img src="./img/member/member/${member.memAvatar}" alt=""></img>`;
-        //         }else{
-        //             html = `<img src="./img/spot/animals/animals-01.png" alt=""></img>`;
-        //         }
-        //     $id("spotComSend").innerHTML = html;
-        // }
+                    html = `<img src="img/member/member/${spotReferMemRow.memAvatar}" data-memId="${spotReferMemRow.memId}" alt=""></img>`;
+                    $id("spotComSend").innerHTML = html;
+                }else{
+                    html = `<img src="./img/member/member/memDefault.png">`;
+                    $id("spotComSend").innerHTML = html;
+                }
+            }
+
+            xhr.open("get", "./postMemberInfo.php", false);
+            xhr.send(null);
+            getSpotComs();
+            
+        }
 
 
     //－－－－－－潛點照片
@@ -262,7 +441,58 @@
             html = `<img src="./img/spot/${spotReferInfoRow[0].picture}" alt="">`;
             $id("spotReferImg").innerHTML = html;
             $id("spotReferImg_rwd").innerHTML = html;
+            let numImg_1;
+            let numImg_2;
+            for(var i=1; i <= 100; i++){
+                numImg_1 = Math.floor(Math.random() * (23 - 1 + 1)) + 01;
+                numImg_2 = Math.floor(Math.random() * (23 - 1 + 1)) + 01;
+            }
+
+            let showSmallPic = `
+                                <img src="./img/spot/${spotReferInfoRow[0].picture}" alt="">
+                                <img src="./img/spot/spotPic-${numImg_1}.png" alt="">
+                                <img src="./img/spot/spotPic-${numImg_2}.png" alt="">
+                            `;
+                            console.log(numImg_1);
+                            console.log(numImg_2);
+            $id("spotReferSmallImg").innerHTML = showSmallPic;
+            $id("spotReferSmallImg_rwd").innerHTML = showSmallPic;
+            clickPicChange();
+            clickPicChangeRwd();
+
         }
+
+
+        function showLarge(e){
+            let srcImg = e.target;
+            let newImg = srcImg.cloneNode();
+            let spotReferImg = document.getElementById("spotReferImg");
+            spotReferImg.replaceChild(newImg, spotReferImg.firstElementChild);
+
+        }
+
+        function clickPicChange(){
+            var imgs = document.querySelectorAll(".spotReferSmallImg img");
+            for( let i = 0; i<imgs.length; i++){
+                imgs[i].onclick = showLarge;
+            }
+        }
+        //rwd版本
+        function showLargeRwd(e){
+            let srcImg = e.target;
+            let newImg = srcImg.cloneNode();
+            let spotReferImg_rwd = document.getElementById("spotReferImg_rwd");
+            spotReferImg_rwd.replaceChild(newImg, spotReferImg_rwd.firstElementChild);
+
+        }
+
+        function clickPicChangeRwd(){
+            var imgs = document.querySelectorAll(".spotReferSmallImg_rwd img");
+            for( let i = 0; i<imgs.length; i++){
+                imgs[i].onclick = showLargeRwd;
+            }
+        }
+
 
     //－－－－－－潛點標題介紹
         function showSpotTitel(){
@@ -283,7 +513,6 @@
             var spotStationId = document.querySelector('.spotRefer_weather >h3').getAttribute('data-spotStationId');
 
             getSpotReferWeatherAPI();
-            
         }
 
     //－－－－－－潛點介紹內文
@@ -310,7 +539,6 @@
             xhr.onload = function(){
                 spotReferInfoRow = JSON.parse(xhr.responseText);  //把字串解析成json形式
                 
-                // spotComMemImg();
                 showSpotReferImg();
                 showSpotTitel();
                 showInfotext();
@@ -329,12 +557,16 @@
             for (let i = 0; i < DIVENO.length; i++) {
                 spotDiveNO = DIVENO[i];
             }
+            console.log(spotDiveNO);
+
+            sessionStorage["where"] = `./spotRefer.html?diveNo-${spotDiveNO}`;
             
             //要先做的事情 取得從哪邊來的數值spotDiveNO
             //讀取留言｜讀取來過這邊的人數
+
+            spotComMemImg();
+            getSpotPep(spotDiveNO);
             spotGetReferInfor();
-            getSpotPep();
-            getSpotComs();
             spotHereInit();
         }
     
@@ -360,13 +592,13 @@
         let itemString = storage.getItem('addItemList'); //給key值，傳回value
         // alert(itemString); "A1001, A1005, A1006, A1002";
         // substr 返回擷取的字串，四個分隔號會分割成五個值的陣列，故最後的分隔號不計算，就可避免多一個空值
-        let items = itemString.substr(0, itemString.length - 2).split(', ');
         // [A1001,A1005,A1006,A1002]
         let itemCounting = document.getElementById('itemCounting');
 
         if (storage['addItemList'] == null | storage['addItemList'] == '') {
             itemCounting.style.display = "none";
         } else {
+            let items = itemString.substr(0, itemString.length - 2).split(', ');
             itemCounting.style.display = "block";
             itemCounting.style.backgroundColor = "red";
             itemCounting.innerText = items.length;

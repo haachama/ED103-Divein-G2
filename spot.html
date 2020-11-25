@@ -3,12 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/favicon.ico" type="image/x-icon" />
+    <link rel="Shortcut Icon" href="./img/favicon.ico" type="image/x-icon" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="fontawesome/css/all.css">
     <link rel="stylesheet" href="css/style.css">
-    <title>海中日子 | 潛點推薦</title>
+    <title>海中日子｜潛點推薦</title>
 
     <style>
+
+        header{
+            background-color: rgba(22,24,29,0.55);
+        }
+        #spanLogin:hover{
+            cursor: pointer;
+        }
+        .memCart li{
+             color: #fefefe;
+        }
 
         .spot .spotLeft{
             width: 50%;
@@ -16,6 +28,20 @@
         @media (max-width: 992px) {
             .spot .spotLeft{
                 width: 80%;
+            }
+        }
+        @media (max-width: 576px){
+            .spot .spotData {
+                font-size: 12px;
+            }
+            .spot .spotData ul li{
+                font-size: 12px;
+            }
+            .spot .spotData ul .spotDataNum{
+                font-size: 24px;
+            }
+            .spot .spotPush img {
+                height: 50px;
             }
         }
         .spot .spotarea.-iHere{
@@ -31,9 +57,37 @@
         .spot .spotList li a {
             border: none;
         }
-          
+        .spot .spotList li a.-iHere{
+            border-top: 3px solid white;
+            margin-top: -3px;
 
+        }
 
+        .spot .spotPushBlock{
+            width: 30%;
+            /* border: 1px solid red; */
+            text-align: center;
+        }
+        .spot .spotPush img{
+            height: 80px;
+            /* border: 1px solid red; */
+        }
+        .spot .spotPush span{
+            text-align: center;
+            
+        }
+        .spot .spotPush span:hover{
+            font-size: 1.2ex;
+        }
+
+        .spot{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+        .spot .spotMain section{
+            height: auto;
+        }
 
     </style>
 
@@ -41,7 +95,49 @@
 
 </head>
 <body class="spot">
-    @@include('./layout/header.html')
+    <header>
+        <h1 class="logo">海中日子 Divein
+            <a href="./main.html"><img src="./img/header/logo.png" alt="logo"></a>
+        </h1>
+        <div class="nav">
+            <ul>
+                <li class="recommend_nav">
+                    <a href="./spot.html">潛點推薦</a>
+                </li>
+                <li class="course_nav">
+                    <a href="./course.php">潛水課程</a>
+                </li>
+                <li class="shop_nav">
+                    <a href="./shop.html">潛水商城</a>
+                </li>
+                <li class="blog_nav">
+                    <a href="./diary.html">潛水日誌</a>
+                </li>
+                <li class="game_nav">
+                    <a href="./gameIntro.html">下潛遊戲</a>
+                </li>
+            </ul>
+        </div>
+        <div class="memCart">
+            <ul>
+                <li class="userName"><span id="memName"></span><span id="spanLogin"></span></li>
+                <li class="memberIcon">
+                    <a id="loginA" href="#"><img src="./img/header/member.png"></a>
+                </li>
+                <li class="lili">
+                    <a class="cartlink" href="./cart.html">
+                        <img src="./img/header/cart.png">
+                    </a>
+                    <span id="itemCounting"></span>
+                </li>
+            </ul>
+        </div>
+        <button class="hamburger hamburger--3dxy" type="button">
+            <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+            </span>
+        </button>
+    </header>
 
     <main class="spotMain">
         <section>
@@ -56,18 +152,20 @@
                                 <li>即時<br>氣象</li>
                                 <li><i class="fas weatherString"></i></li>
                                 <li><i class="fas fa-wind"></i></li>
-                                <li><i class="fas fa-tint"></i></li>
+                                <li><i class="fas fa-umbrella-beach"></i></li>
                                 <li><i class="fas fa-temperature-high"></i></li>
                             </ul>
                         </div>
 
                         <div class="spotRightblock spotData" id="spotData"></div>
+
                         <div class="spotRightblock spotFont">
                             <p>譽為世界級的潛水寶地<br>全球百大必潛地</p>
                         </div>
+
                         <div class="spotRightblock spotPush">
-                            
                         </div>
+
                         <div class="spotMore_rwd">
                             <i class="far fa-arrow-alt-circle-down"></i>
                         </div>
@@ -86,7 +184,7 @@
                                 <li>即時<br>氣象</li>
                                 <li><i class="fas weatherString"></i></li>
                                 <li><i class="fas fa-wind"></i></li>
-                                <li><i class="fas fa-tint"></i></li>
+                                <li><i class="fas fa-umbrella-beach"></i></li>
                                 <li><i class="fas fa-temperature-high"></i></li>
                             </ul>
                         </div>
@@ -104,7 +202,7 @@
                             
                         </div>
                         <div class="spotLeftImage spotLeftTwoPic">
-                          
+                            
                         </div>
                     </div>
                 </div>
@@ -117,7 +215,7 @@
                                 <li>即時<br>氣象</li>
                                 <li><i class="fas weatherString"></i></li>
                                 <li><i class="fas fa-wind"></i></li>
-                                <li><i class="fas fa-tint"></i></li>
+                                <li><i class="fas fa-umbrella-beach"></i></li>
                                 <li><i class="fas fa-temperature-high"></i></li>
                             </ul>
                         </div>
@@ -148,7 +246,7 @@
                                 <li>即時<br>氣象</li>
                                 <li><i class="fas weatherString"></i></li>
                                 <li><i class="fas fa-wind"></i></li>
-                                <li><i class="fas fa-tint"></i></li>
+                                <li><i class="fas fa-umbrella-beach"></i></li>
                                 <li><i class="fas fa-temperature-high"></i></li>
                             </ul>
                         </div>
@@ -166,7 +264,7 @@
                     </div>
                     <div class="spotBlock spotLeft">
                         <div class="spotLeftImage spotLeftTwoPic">
-                           
+                            
                         </div>
                         <div class="spotLeftImage spotLeftThreePic">
                             
@@ -182,12 +280,12 @@
                                 <li>即時<br>氣象</li>
                                 <li><i class="fas weatherString"></i></li>
                                 <li><i class="fas fa-wind"></i></li>
-                                <li><i class="fas fa-tint"></i></li>
+                                <li><i class="fas fa-umbrella-beach"></i></li>
                                 <li><i class="fas fa-temperature-high"></i></li>
                             </ul>
                         </div>
                         <div class="spotRightblock spotData">
-                            
+                           
                         </div>
                         <div class="spotRightblock spotFont">
                             <p>初學潛水者的天然訓練場<br>滿足你蠢蠢欲動的潛水心</p>
@@ -225,8 +323,9 @@
                 </div>
             </div>
             <div class="box spotListBlock" >
-                <ul class="spotList" style="border: none;">
-                    <li><a href="spot.html?areaNO-1" class="spotText -iHere" data-target="spotarea1" data-spotStationId="467660" data-spotStationId_sea="WRA007" value="1" >綠島</a></li>
+                <ul class="spotList" >
+                    <li>
+                        <a href="spot.html?areaNO-1" class="spotText -iHere" data-target="spotarea1" data-spotStationId="467660" data-spotStationId_sea="WRA007" value="1" >綠島</a></li>
                     <li><a href="spot.html?areaNO-2" class="spotText" data-target="spotarea2" data-spotStationId="467620" data-spotStationId_sea="C6S94" value="2">蘭嶼</a></li>
                     <li><a href="spot.html?areaNO-3" class="spotText" data-target="spotarea3" data-spotStationId="467590" data-spotStationId_sea="46759A" value="3">墾丁</a></li>
                     <li><a href="spot.html?areaNO-4" class="spotText" data-target="spotarea4" data-spotStationId="467590" data-spotStationId_sea="46714D" value="4">小琉球</a></li>
@@ -235,17 +334,15 @@
             </div>
         </section>
     </main>
-    
-    @@include('./layout/footer.html')
-
+    <footer>
+    <div class="copyright">
+        Copyright © 2020 Divein | 海中日子 All Rights Reserved.
+    </div>
+</footer>
     <script src="./js/login.js"></script>
     <script src="./js/spot.js"></script>
-    
-
     <script src="./js/spotWeatherAPI.js"></script>
     <script src="./js/spotGetInfo.js"></script>
-
-    <!--------------- 上線版js ---------------------->
 
 
     <script>
@@ -257,6 +354,7 @@
     let spotInfoRow;   //潛點照片 潛點敘述 動物照片
     let html ="";
     var areaNO =1;
+    let spotStationId;
 
 
     //東北角上方
@@ -300,8 +398,10 @@
                         <span>${spotInfoRow[1].diveName}</span>
                     </div>
                 </a>`;
+        // document.getElementById("Enc_Rl").innerHTML = html;
         document.getElementById("Enc_Rl").innerHTML = html;
     }
+
 
     //東北角下方
     function spotEncLittle_Lr(){
@@ -437,12 +537,35 @@
     }
 
 
-    //綠島｜蘭嶼｜小琉球
+    //綠島｜蘭嶼｜小琉球 三張照片
     function spotLeftThreePic(){
+        
         html="";
+        let html_2="";
+        let html_3="";
         for(let j = 2; j < spotInfoRow.length ; j++){
 
             html += `<a href="./spotRefer.html?diveNo-${spotInfoRow[j].diveNo}">
+                        <div class="spotLeftImageAd">
+                            <div class="slider_container">
+                                <div class="sw">
+                                    <img src="./img/spot/spotGiLittle-0${j+1}.png" alt="">
+                                </div>
+                                <div class="sw">
+                                    <img src="./img/spot/spotGiLittle-04.png" alt="">
+                                </div>
+                                <div class="sw">
+                                    <img src="./img/spot/spotGiLittle-03.png" alt="">
+                                </div>
+                                <div class="sw">
+                                    <img src="./img/spot/spotGiLittle-04.png" alt="">
+                                </div>
+                            </div>
+                            <span>${spotInfoRow[j].diveName}</span>
+                        </div>
+                    </a>`;
+                    
+            html_2 += `<a href="./spotRefer.html?diveNo-${spotInfoRow[j].diveNo}">
                         <div class="spotLeftImageAd">
                             <div class="slider_container">
                                 <div class="sw">
@@ -461,22 +584,50 @@
                             <span>${spotInfoRow[j].diveName}</span>
                         </div>
                     </a>`;     
+            
+            html_3 += `<a href="./spotRefer.html?diveNo-${spotInfoRow[j].diveNo}">
+                            <div class="spotLeftImageAd">
+                                <div class="slider_container">
+                                    <div class="sw">
+                                        <img src="./img/spot/spotSrkLittle-0${j+1}.png" alt="">
+                                    </div>
+                                    <div class="sw">
+                                        <img src="./img/spot/spotSrkLittle-04.png" alt="">
+                                    </div>
+                                    <div class="sw">
+                                        <img src="./img/spot/spotSrkLittle-03.png" alt="">
+                                    </div>
+                                    <div class="sw">
+                                        <img src="./img/spot/spotSrkLittle-04.png" alt="">
+                                    </div>
+                                </div>
+                                <span>${spotInfoRow[j].diveName}</span>
+                            </div>
+                        </a>`;  
+
+
         }
         let threeImg = html;
+        let threeImg_2 = html_2;
+        let threeImg_3 = html_3;
 
         let spotLeftThreePic = document.getElementsByClassName('spotLeftThreePic');
-        for(let i =0; i<spotLeftThreePic.length; i++){
-            
-            spotLeftThreePic[i].innerHTML = threeImg;
-        }
+
+            spotLeftThreePic[0].innerHTML = threeImg;
+            spotLeftThreePic[1].innerHTML = threeImg_2;
+            spotLeftThreePic[2].innerHTML = threeImg_3;
+
         
 
     }
     
-    //綠島｜蘭嶼｜小琉球
+    //綠島｜蘭嶼｜小琉球 兩張照片
     function spotLeftTwoPic(){
+
         //兩張照片
         html="";
+        let html_2="";
+        let html_3="";
         for(let j = 0; j < 2 ; j++){
             html += `<a href="./spotRefer.html?diveNo-${spotInfoRow[j].diveNo}">
                         <div class="spotLeftImageAd">
@@ -496,46 +647,88 @@
                             </div>
                             <span>${spotInfoRow[j].diveName}</span>
                         </div>
-                    </a>`;     
+                    </a>`; 
+
+            html_2 += `<a href="./spotRefer.html?diveNo-${spotInfoRow[j].diveNo}">
+                        <div class="spotLeftImageAd">
+                            <div class="slider_container">
+                                <div class="sw">
+                                    <img src="./img/spot/spotLyLittle-0${j+1}.png" alt="">
+                                </div>
+                                <div class="sw">
+                                    <img src="./img/spot/spotLyLittle-05.png" alt="">
+                                </div>
+                                <div class="sw">
+                                    <img src="./img/spot/spotLyLittle-03.png" alt="">
+                                </div>
+                                <div class="sw">
+                                    <img src="./img/spot/spotLyLittle-04.png" alt="">
+                                </div>
+                            </div>
+                            <span>${spotInfoRow[j].diveName}</span>
+                        </div>
+                    </a>`; 
+
+            html_3 += `<a href="./spotRefer.html?diveNo-${spotInfoRow[j].diveNo}">
+                        <div class="spotLeftImageAd">
+                            <div class="slider_container">
+                                <div class="sw">
+                                    <img src="./img/spot/spotSrkLittle-0${j+1}.png" alt="">
+                                </div>
+                                <div class="sw">
+                                    <img src="./img/spot/spotSrkLittle-05.png" alt="">
+                                </div>
+                                <div class="sw">
+                                    <img src="./img/spot/spotSrkLittle-03.png" alt="">
+                                </div>
+                                <div class="sw">
+                                    <img src="./img/spot/spotSrkLittle-04.png" alt="">
+                                </div>
+                            </div>
+                            <span>${spotInfoRow[j].diveName}</span>
+                        </div>
+                    </a>`; 
             
         }
         let twoImg =html;
-        // console.log(twoImg);
+        let twoImg_2 =html_2;
+        let twoImg_3 =html_3;
 
         let spotLeftTwoPic = document.getElementsByClassName('spotLeftTwoPic');
-        // console.log(spotLeftTwoPic.length);
-
-        for (let i = 0; i < spotLeftTwoPic.length; i++) {
-            spotLeftTwoPic[i].innerHTML = twoImg;
-        }
+            spotLeftTwoPic[0].innerHTML = twoImg;
+            spotLeftTwoPic[1].innerHTML = twoImg_2;
+            spotLeftTwoPic[2].innerHTML = twoImg_3;
 
     }
 
+    
     //最新日誌＆課程
     function PushPushBlock(){
         let xhr = new XMLHttpRequest();
         xhr.onload = function(){
             pushSpotData = JSON.parse(xhr.responseText); 
-
             let spotPushRow = document.getElementsByClassName('spotPush');
-            html =`<div class="spotPushBlock">
-                        <a href="diaryInside.html?diaryNo=89">
-                            <div class="spotPushImg">
-                                <img src="img/diary/${pushSpotData[0].diaryPicsNo}" alt="">
+            
+                for (let i = 0; i < spotPushRow.length; i++) {
+                    html =`<div class="spotPushBlock">
+                                <a href="diaryInside.html?diaryNo=${pushSpotData[0].diaryNo}">
+                                    <div class="spotPushImg">
+                                        <img src="${pushSpotData[0].diaryPicsNo}" alt="">
+                                    </div>
+                                </a>
+                                <span>最新日誌</span>
                             </div>
-                        </a>
-                        <span>最新日誌</span>
-                    </div>
-                    <div class="spotPushBlock">
-                        <a href="coursePage02.php?classNo=1">
-                            <div class="spotPushImg">
-                                <img src="img/course/${pushSpotData[1].classImage}" alt="">
-                            </div>
-                        </a>
-                        <span>最新課程</span>
-                    </div>`;
+                            <div class="spotPushBlock">
+                                <a href="coursePage02.php?classNo=${pushSpotData[1].classNo}">
+                                    <div class="spotPushImg">
+                                        <img src="img/class/${pushSpotData[1].classImage}" alt="">
+                                    </div>
+                                </a>
+                                <span>最新課程</span>
+                            </div>`;
                 
-            spotPushRow[i].innerHTML = html;
+                    spotPushRow[i].innerHTML = html;
+                }
         }
         xhr.open("get",`spotGetPush.php?areaNO=${areaNO}`, false);
         xhr.send(null);
@@ -556,10 +749,10 @@
                 html = `<ul class="spotRightBlockList">
                             <li class="spotDataNum">${allspotData[0].classSum}</li>
                             <li>潛水<br>課程</li>
-                            <li class="spotDataNum">${allspotData[1].diveSum}</li>
-                            <li>熱門<br>潛點</li>
                             <li class="spotDataNum">${allspotData[2].diarySum}</li>
                             <li>潛水<br>日誌</li>
+                            <li class="spotDataNum">${allspotData[1].comSum}</li>
+                            <li>留言<br>筆數</li>
                             <li class="spotDataNum">${allspotData[3].hereSum}</li>
                             <li>踩過<br>此點</li>
                         </ul>`;
@@ -585,10 +778,7 @@
 
         PushPushBlock();  //最新日誌
         spotData();
-        spotStationId = document.querySelector('.spotList li a').getAttribute('data-spotStationId');
-        // console.log(spotStationId);
-
-        $('.spotText').on('click',getSpotWeatherAPI(),false);
+        $('.spotText').on('click',getSpotWeatherAPI(spotStationId),false);
 
         // var spotStationId = document.querySelector('.spotList >li >a').getAttribute('data-spotStationId');
     }
@@ -616,12 +806,11 @@
                     areaNO = this.getAttribute('value');
                     spotStationId = this.getAttribute('data-spotStationId');
 
-                    console.log(areaNO);
                     console.log(spotStationId);
                     doFirst();
                     spotGetInfor();
                     spotData();
-                    getSpotWeatherAPI() 
+                    getSpotWeatherAPI(spotStationId) 
 
                 }
         }
@@ -633,26 +822,24 @@
 
 
 
+<script>
+    var storage = sessionStorage;
+    let itemString = storage.getItem('addItemList'); //給key值，傳回value
+    // alert(itemString); "A1001, A1005, A1006, A1002";
+    // substr 返回擷取的字串，四個分隔號會分割成五個值的陣列，故最後的分隔號不計算，就可避免多一個空值
+    // [A1001,A1005,A1006,A1002]
+    let itemCounting = document.getElementById('itemCounting');
 
-
-    <script>
-        var storage = sessionStorage;
-        let itemString = storage.getItem('addItemList'); //給key值，傳回value
-        // alert(itemString); "A1001, A1005, A1006, A1002";
-        // substr 返回擷取的字串，四個分隔號會分割成五個值的陣列，故最後的分隔號不計算，就可避免多一個空值
+    if (storage['addItemList'] == null | storage['addItemList'] == '') {
+        itemCounting.style.display = "none";
+    } else {
         let items = itemString.substr(0, itemString.length - 2).split(', ');
-        // [A1001,A1005,A1006,A1002]
-        let itemCounting = document.getElementById('itemCounting');
+        itemCounting.style.display = "block";
+        itemCounting.style.backgroundColor = "red";
+        itemCounting.innerText = items.length;
+    }
 
-        if (storage['addItemList'] == null | storage['addItemList'] == '') {
-            itemCounting.style.display = "none";
-        } else {
-            itemCounting.style.display = "block";
-            itemCounting.style.backgroundColor = "red";
-            itemCounting.innerText = items.length;
-        }
-
-    </script>
+</script>
 
 </body>
 </html>

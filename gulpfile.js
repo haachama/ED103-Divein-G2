@@ -45,8 +45,8 @@ var reload = browserSync.reload;
 // 瀏覽器
 gulp.task('default', function () {
     browserSync.init({
-        // proxy: "http://localhost/divein-G2/app/spotRefer.html",
-        proxy: "http://localhost/divein-G2/app/spot.html",
+        proxy: "http://localhost/divein-G2/app/spotRefer.html",
+        // proxy: "http://localhost/divein-G2/app/spot.html",
         // 
         
     });
