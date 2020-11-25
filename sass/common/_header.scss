@@ -88,13 +88,12 @@ nav{
 
     .memberIcon{
         position: relative;
-
-        &:hover .dropdown{
-            display: inline-block;
-        }
     }
 
-    
+    #spanLogin:hover{
+        cursor: pointer;
+    }
+
     .lili{
         position: relative;
     }

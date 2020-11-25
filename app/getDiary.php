@@ -14,6 +14,7 @@
     ,a.diaryTimePoint1
     ,a.diaryWriteDate
     ,a.diaryType
+    ,a.diaryText
     ,b.diveName
     FROM personaldiary a 
     LEFT JOIN divespots b ON a.diveNo = b.diveNo
@@ -38,6 +39,7 @@
         "diveName"=>$courseDairyRow["diveName"],
         "diveareaName"=>$courseDairyRow["diveareaName"],
         "diaryType"=>$courseDairyRow["diaryType"],
+        "diaryText"=>$courseDairyRow["diaryText"],
         "diaryWriteDate"=>$courseDairyRow["diaryWriteDate"]);
         $i++;
     }
