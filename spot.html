@@ -3,21 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="fontawesome/css/all.css">
     <link rel="stylesheet" href="css/style.css">
     <title>海中日子 | 潛點推薦</title>
-    
+
+    <style>
+
+        .spot .spotLeft{
+            width: 50%;
+        }
+        @media (max-width: 992px) {
+            .spot .spotLeft{
+                width: 80%;
+            }
+        }
+        .spot .spotarea.-iHere{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .spot .spotListBlock .spotList li a {
+            padding-top: 38px;
+            margin-bottom: 38px;
+        }
+        .spot .spotList li a {
+            border: none;
+        }
+          
+
+
+
+    </style>
+
+
+
 </head>
 <body class="spot">
     @@include('./layout/header.html')
 
     <main class="spotMain">
         <section>
-            <div class="box spotContents">
-                <div class="spotarea spotarea1 -iHere">
+            <div class="box spotContents" id="box">
+                <div class="spotarea spotarea1  -iHere">
                     <div class="spotBlock spotRight">
-                        <h2>綠島</h2>
+                        <h2 data-area="1" >綠島</h2>
                         <h5>無與倫比的潛水寶地</h5>
+
                         <div class="spotRightblock spotWeather">
                             <ul class="spotRightBlockList ">
                                 <li>即時<br>氣象</li>
@@ -27,143 +60,21 @@
                                 <li><i class="fas fa-temperature-high"></i></li>
                             </ul>
                         </div>
-                        <div class="spotRightblock spotData">
-                            <ul class="spotRightBlockList">
-                                <li class="spotDataNum">3</li>
-                                <li><a>潛水<br>課程</a></li>
-                                <li class="spotDataNum">4</li>
-                                <li>熱門<br>潛點</li>
-                                <li class="spotDataNum">5</li>
-                                <li>潛水<br>日誌</li>
-                                <li class="spotDataNum">10</li>
-                                <li>踩過<br>此點</li>
-                            </ul>
-                        </div>
+
+                        <div class="spotRightblock spotData" id="spotData"></div>
                         <div class="spotRightblock spotFont">
                             <p>譽為世界級的潛水寶地<br>全球百大必潛地</p>
                         </div>
                         <div class="spotRightblock spotPush">
-                            <div class="spotPushBlock">
-                                <a href="">
-                                    <div class="spotPushImg">
-                                        <img src="img/spot/diary12.jpg" alt="">
-                                    </div>
-                                </a>
-                                <span>最新日誌</span>
-                            </div>
-                            <div class="spotPushBlock">
-                                <a href="">
-                                    <div class="spotPushImg">
-                                        <img src="img/spot/diary12.jpg" alt="">
-                                    </div>
-                                </a>
-                                <span>最新課程</span>
-                            </div>
+                            
                         </div>
                         <div class="spotMore_rwd">
                             <i class="far fa-arrow-alt-circle-down"></i>
                         </div>
                     </div>
                     <div class="spotBlock spotLeft">
-                        <div class="spotLeftImage spotLeftTwoPic">
-                            <a href="./spotRefer.html?1-1">
-                                <div class="spotLeftImageAd">
-                                    <div class="slider_container">
-                                        <div class="sw">
-                                            <img src="./img/spot/spotGiLittle-01.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotGiLittle-04.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotGiLittle-03.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotGiLittle-04.png" alt="">
-                                        </div>
-                                    </div>
-                                    <span>海底教堂</span>
-                                </div>
-                            </a>
-                            <a href="./spotRefer.html?1-2">
-                                <div class="spotLeftImageAd">
-                                    <div class="slider_container">
-                                        <div class="sw">
-                                            <img src="./img/spot/spotGiLittle-02.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotGiLittle-03.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotGiLittle-04.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotGiLittle-05.png" alt="">
-                                        </div>
-                                    </div>
-                                    <span>鋼鐵礁</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="spotLeftImage spotLeftThreePic">
-                            <a href="./spotRefer.html">
-                                <div class="spotLeftImageAd">
-                                    <div class="slider_container">
-                                        <div class="sw">
-                                            <img src="./img/spot/spotGiLittle-03.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotGiLittle-05.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotGiLittle-03.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotGiLittle-04.png" alt="">
-                                        </div>
-                                    </div>
-                                    <span>石朗大香菇</span>
-                                </div>
-                            </a>
-                            <a href="./spotRefer.html">
-                                <div class="spotLeftImageAd">
-                                    <div class="slider_container">
-                                        <div class="sw">
-                                            <img src="./img/spot/spotGiLittle-04.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotGiLittle-05.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotGiLittle-03.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotGiLittle-04.png" alt="">
-                                        </div>
-                                    </div>
-                                    <span>海底大峽谷</span>
-                                </div>
-                            </a>
-                            <a href="./spotRefer.html">
-                                <div class="spotLeftImageAd">
-                                    <div class="slider_container">
-                                        <div class="sw">
-                                            <img src="./img/spot/spotGiLittle-05.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotGiLittle-04.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotGiLittle-03.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotGiLittle-04.png" alt="">
-                                        </div>
-                                    </div>
-                                    <span>雞仔礁</span>
-                                </div>
-                            </a>
-                        </div>
+                        <div class="spotLeftImage spotLeftTwoPic" ></div>
+                        <div class="spotLeftImage spotLeftThreePic"></div>
                     </div>
                 </div>
                 <div class="spotarea spotarea2">
@@ -179,142 +90,21 @@
                                 <li><i class="fas fa-temperature-high"></i></li>
                             </ul>
                         </div>
-                        <div class="spotRightblock spotData">
-                            <ul class="spotRightBlockList">
-                                <li class="spotDataNum">3</li>
-                                <li>潛水<br>課程</li>
-                                <li class="spotDataNum">4</li>
-                                <li>熱門<br>潛點</li>
-                                <li class="spotDataNum">5</li>
-                                <li>潛水<br>日誌</li>
-                                <li class="spotDataNum">10</li>
-                                <li>踩過<br>此點</li>
-                            </ul>
-                        </div>
+                        <div class="spotRightblock spotData"></div>
                         <div class="spotRightblock spotFont">
                             <p>坐擁水下能見度高達50M的澄澈玻璃海<br>充滿部落風情的人之島</p>
                         </div>
-                        <div class="spotRightblock spotPush">
-                            <div class="spotPushBlock">
-                                <a href="">
-                                    <div class="spotPushImg">
-                                        <img src="img/spot/diary12.jpg" alt="">
-                                    </div>
-                                </a>
-                                <span>最新日誌</span>
-                            </div>
-                            <div class="spotPushBlock">
-                                <a href="">
-                                    <div class="spotPushImg">
-                                        <img src="img/spot/diary12.jpg" alt="">
-                                    </div>
-                                </a>
-                                <span>最新課程</span>
-                            </div>
-                        </div>
+                        <div class="spotRightblock spotPush"></div>
                         <div class="spotMore_rwd">
                             <i class="far fa-arrow-alt-circle-down"></i>
                         </div>
                     </div>
                     <div class="spotBlock spotLeft">
                         <div class="spotLeftImage spotLeftThreePic">
-                            <a href="./spotRefer.html">
-                                <div class="spotLeftImageAd">
-                                    <div class="slider_container">
-                                        <div class="sw">
-                                            <img src="./img/spot/spotLyLittle-03.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotLyLittle-05.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotLyLittle-03.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotLyLittle-04.png" alt="">
-                                        </div>
-                                    </div>
-                                    <span>母雞岩</span>
-                                </div>
-                            </a>
-                            <a href="./spotRefer.html">
-                                <div class="spotLeftImageAd">
-                                    <div class="slider_container">
-                                        <div class="sw">
-                                            <img src="./img/spot/spotLyLittle-04.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotLyLittle-05.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotLyLittle-03.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotLyLittle-04.png" alt="">
-                                        </div>
-                                    </div>
-                                    <span>椰油斷層</span>
-                                </div>
-                            </a>
-                            <a href="./spotRefer.html">
-                                <div class="spotLeftImageAd">
-                                    <div class="slider_container">
-                                        <div class="sw">
-                                            <img src="./img/spot/spotLyLittle-05.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotLyLittle-04.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotLyLittle-03.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotLyLittle-04.png" alt="">
-                                        </div>
-                                    </div>
-                                    <span>四條溝</span>
-                                </div>
-                            </a>
+                            
                         </div>
                         <div class="spotLeftImage spotLeftTwoPic">
-                            <a href="./spotRefer.html">
-                                <div class="spotLeftImageAd">
-                                    <div class="slider_container">
-                                        <div class="sw">
-                                            <img src="./img/spot/spotLyLittle-01.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotLyLittle-04.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotLyLittle-03.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotLyLittle-04.png" alt="">
-                                        </div>
-                                    </div>
-                                    <span>野銀小峽谷</span>
-                                </div>
-                            </a>
-                            <a href="./spotRefer.html">
-                                <div class="spotLeftImageAd">
-                                    <div class="slider_container">
-                                        <div class="sw">
-                                            <img src="./img/spot/spotLyLittle-02.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotLyLittle-03.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotLyLittle-04.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotLyLittle-05.png" alt="">
-                                        </div>
-                                    </div>
-                                    <span>八代灣沉船</span>
-                                </div>
-                            </a>
+                          
                         </div>
                     </div>
                 </div>
@@ -331,123 +121,21 @@
                                 <li><i class="fas fa-temperature-high"></i></li>
                             </ul>
                         </div>
-                        <div class="spotRightblock spotData">
-                            <ul class="spotRightBlockList">
-                                <li class="spotDataNum">3</li>
-                                <li>潛水<br>課程</li>
-                                <li class="spotDataNum">4</li>
-                                <li>熱門<br>潛點</li>
-                                <li class="spotDataNum">5</li>
-                                <li>潛水<br>日誌</li>
-                                <li class="spotDataNum">10</li>
-                                <li>踩過<br>此點</li>
-                            </ul>
-                        </div>
+                        <div class="spotRightblock spotData"></div>
                         <div class="spotRightblock spotFont">
                             <p>得天獨厚的地理條件<br>孕育富饒的海洋生物相更是獨具特色</p>
                         </div>
-                        <div class="spotRightblock spotPush">
-                            <div class="spotPushBlock">
-                                <a href="">
-                                    <div class="spotPushImg">
-                                        <img src="img/spot/diary12.jpg" alt="">
-                                    </div>
-                                </a>
-                                <span>最新日誌</span>
-                            </div>
-                            <div class="spotPushBlock">
-                                <a href="">
-                                    <div class="spotPushImg">
-                                        <img src="img/spot/diary12.jpg" alt="">
-                                    </div>
-                                </a>
-                                <span>最新課程</span>
-                            </div>
-                        </div>
+                        <div class="spotRightblock spotPush"></div>
                         <div class="spotMore_rwd">
                             <i class="far fa-arrow-alt-circle-down"></i>
                         </div>
                     </div>
                     <div class="spotBlock spotLeft">
-                        <div class="spotLeftImage spotLeftTwoPic_Rl">
-                            <a href="./spotRefer.html">
-                                <div class="spotLeftImageAd">
-                                    <div class="slider_container">
-                                        <div class="sw">
-                                            <img src="./img/spot/spotKdLittle-01.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotKdLittle-03.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotKdLittle-01.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotKdLittle-03.png" alt="">
-                                        </div>
-                                    </div>
-                                    <span>後壁湖</span>
-                                </div>
-                            </a>
-                            <a href="./spotRefer.html">
-                                <div class="spotLeftImageAd">
-                                    <div class="slider_container">
-                                        <div class="sw">
-                                            <img src="./img/spot/spotKdLittle-04.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotKdLittle-02.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotKdLittle-04.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotKdLittle-02.png" alt="">
-                                        </div>
-                                    </div>
-                                    <span>出水口</span>
-                                </div>
-                            </a>
+                        <div class="spotLeftImage spotLeftTwoPic_Rl" id="Kd_Rl">
+                            
                         </div>
-                        <div class="spotLeftImage spotLeftTwoPic_Lr">
-                            <a href="./spotRefer.html">
-                                <div class="spotLeftImageAd">
-                                    <div class="slider_container">
-                                        <div class="sw">
-                                            <img src="./img/spot/spotKdLittle-02.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotKdLittle-04.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotKdLittle-02.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotKdLittle-04.png" alt="">
-                                        </div>
-                                    </div>
-                                    <span>雙峰藍洞</span>
-                                </div>
-                            </a>
-                            <a href="./spotRefer.html">
-                                <div class="spotLeftImageAd">
-                                    <div class="slider_container">
-                                        <div class="sw">
-                                            <img src="./img/spot/spotKdLittle-03.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotKdLittle-01.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotKdLittle-03.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotKdLittle-01.png" alt="">
-                                        </div>
-                                    </div>
-                                    <span>合界</span>
-                                </div>
-                            </a>
+                        <div class="spotLeftImage spotLeftTwoPic_Lr" id="Kd_Lr">
+                            
                         </div>
                     </div>
                 </div>
@@ -465,37 +153,12 @@
                             </ul>
                         </div>
                         <div class="spotRightblock spotData">
-                            <ul class="spotRightBlockList">
-                                <li class="spotDataNum">3</li>
-                                <li>潛水<br>課程</li>
-                                <li class="spotDataNum">4</li>
-                                <li>熱門<br>潛點</li>
-                                <li class="spotDataNum">5</li>
-                                <li>潛水<br>日誌</li>
-                                <li class="spotDataNum">10</li>
-                                <li>踩過<br>此點</li>
-                            </ul>
+                            
                         </div>
                         <div class="spotRightblock spotFont">
                             <p>台灣唯一的珊瑚礁島<br>海龜目擊率百分之九十九點九聞名</p>
                         </div>
                         <div class="spotRightblock spotPush">
-                            <div class="spotPushBlock">
-                                <a href="">
-                                    <div class="spotPushImg">
-                                        <img src="img/spot/diary12.jpg" alt="">
-                                    </div>
-                                </a>
-                                <span>最新日誌</span>
-                            </div>
-                            <div class="spotPushBlock">
-                                <a href="">
-                                    <div class="spotPushImg">
-                                        <img src="img/spot/diary12.jpg" alt="">
-                                    </div>
-                                </a>
-                                <span>最新課程</span>
-                            </div>
                         </div>
                         <div class="spotMore_rwd">
                             <i class="far fa-arrow-alt-circle-down"></i>
@@ -503,103 +166,10 @@
                     </div>
                     <div class="spotBlock spotLeft">
                         <div class="spotLeftImage spotLeftTwoPic">
-                            <a href="./spotRefer.html">
-                                <div class="spotLeftImageAd">
-                                    <div class="slider_container">
-                                        <div class="sw">
-                                            <img src="./img/spot/spotSrkLittle-01.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotSrkLittle-04.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotSrkLittle-03.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotSrkLittle-04.png" alt="">
-                                        </div>
-                                    </div>
-                                    <span>花瓶岩</span>
-                                </div>
-                            </a>
-                            <a href="./spotRefer.html">
-                                <div class="spotLeftImageAd">
-                                    <div class="slider_container">
-                                        <div class="sw">
-                                            <img src="./img/spot/spotSrkLittle-02.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotSrkLittle-03.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotSrkLittle-04.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotSrkLittle-05.png" alt="">
-                                        </div>
-                                    </div>
-                                    <span>美人洞</span>
-                                </div>
-                            </a>
+                           
                         </div>
                         <div class="spotLeftImage spotLeftThreePic">
-                            <a href="./spotRefer.html">
-                                <div class="spotLeftImageAd">
-                                    <div class="slider_container">
-                                        <div class="sw">
-                                            <img src="./img/spot/spotSrkLittle-03.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotSrkLittle-05.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotSrkLittle-03.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotSrkLittle-04.png" alt="">
-                                        </div>
-                                    </div>
-                                    <span>衫福沉船</span>
-                                </div>
-                            </a>
-                            <a href="./spotRefer.html">
-                                <div class="spotLeftImageAd">
-                                    <div class="slider_container">
-                                        <div class="sw">
-                                            <img src="./img/spot/spotSrkLittle-04.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotSrkLittle-05.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotSrkLittle-03.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotSrkLittle-04.png" alt="">
-                                        </div>
-                                    </div>
-                                    <span>鎮海艦</span>
-                                </div>
-                            </a>
-                            <a href="./spotRefer.html">
-                                <div class="spotLeftImageAd">
-                                    <div class="slider_container">
-                                        <div class="sw">
-                                            <img src="./img/spot/spotSrkLittle-05.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotSrkLittle-04.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotSrkLittle-03.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotSrkLittle-04.png" alt="">
-                                        </div>
-                                    </div>
-                                    <span>厚石礁群</span>
-                                </div>
-                            </a>
+                            
                         </div>
                     </div>
                 </div>
@@ -617,16 +187,7 @@
                             </ul>
                         </div>
                         <div class="spotRightblock spotData">
-                            <ul class="spotRightBlockList">
-                                <li class="spotDataNum">3</li>
-                                <li>潛水<br>課程</li>
-                                <li class="spotDataNum">4</li>
-                                <li>熱門<br>潛點</li>
-                                <li class="spotDataNum">5</li>
-                                <li>潛水<br>日誌</li>
-                                <li class="spotDataNum">10</li>
-                                <li>踩過<br>此點</li>
-                            </ul>
+                            
                         </div>
                         <div class="spotRightblock spotFont">
                             <p>初學潛水者的天然訓練場<br>滿足你蠢蠢欲動的潛水心</p>
@@ -654,96 +215,22 @@
                         </div>
                     </div>
                     <div class="spotBlock spotLeft">
-                        <div class="spotLeftImage spotLeftTwoPic_Rl">
-                            <a href="./spotRefer.html">
-                                <div class="spotLeftImageAd">
-                                    <div class="slider_container">
-                                        <div class="sw">
-                                            <img src="./img/spot/spotEncLittle-03.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotEncLittle-01.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotEncLittle-03.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotEncLittle-01.png" alt="">
-                                        </div>
-                                    </div>
-                                    <span>和美</span>
-                                </div>
-                            </a>
-                            <a href="./spotRefer.html">
-                                <div class="spotLeftImageAd">
-                                    <div class="slider_container">
-                                        <div class="sw">
-                                            <img src="./img/spot/spotEncLittle-04.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotEncLittle-02.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotEncLittle-04.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotEncLittle-02.png" alt="">
-                                        </div>
-                                    </div>
-                                    <span>龍洞</span>
-                                </div>
-                            </a>
+                        <div class="spotLeftImage spotLeftTwoPic_Rl" id="Enc_Rl">
+                        
                         </div>
-                        <div class="spotLeftImage spotLeftTwoPic_Lr">
-                            <a href="./spotRefer.html">
-                                <div class="spotLeftImageAd">
-                                    <div class="slider_container">
-                                        <div class="sw">
-                                            <img src="./img/spot/spotEncLittle-02.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotEncLittle-04.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotEncLittle-02.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotEncLittle-04.png" alt="">
-                                        </div>
-                                    </div>
-                                    <span>潮境公園</span>
-                                </div>
-                            </a>
-                            <a href="./spotRefer.html">
-                                <div class="spotLeftImageAd">
-                                    <div class="slider_container">
-                                        <div class="sw">
-                                            <img src="./img/spot/spotEncLittle-01.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotEncLittle-03.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotEncLittle-01.png" alt="">
-                                        </div>
-                                        <div class="sw">
-                                            <img src="./img/spot/spotEncLittle-03.png" alt="">
-                                        </div>
-                                    </div>
-                                    <span>鼻頭角</span>
-                                </div>
-                            </a>
+                        <div class="spotLeftImage spotLeftTwoPic_Lr" id="Enc_Lr">
+                            
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="box spotListBlock">
-                <ul class="spotList">
-                    <li><a href="" class="spotText -iHere" data-target="spotarea1" value="467660">綠島</a></li>
-                    <li><a href="" class="spotText" data-target="spotarea2" value="467620">蘭嶼</a></li>
-                    <li><a href="" class="spotText" data-target="spotarea3" value="467590">墾丁</a></li>
-                    <li><a href="" class="spotText" data-target="spotarea4" value="467660">小琉球</a></li>
-                    <li><a href="" class="spotText" data-target="spotarea5" value="466900">東北角</a></li>
+            <div class="box spotListBlock" >
+                <ul class="spotList" style="border: none;">
+                    <li><a href="spot.html?areaNO-1" class="spotText -iHere" data-target="spotarea1" data-spotStationId="467660" data-spotStationId_sea="WRA007" value="1" >綠島</a></li>
+                    <li><a href="spot.html?areaNO-2" class="spotText" data-target="spotarea2" data-spotStationId="467620" data-spotStationId_sea="C6S94" value="2">蘭嶼</a></li>
+                    <li><a href="spot.html?areaNO-3" class="spotText" data-target="spotarea3" data-spotStationId="467590" data-spotStationId_sea="46759A" value="3">墾丁</a></li>
+                    <li><a href="spot.html?areaNO-4" class="spotText" data-target="spotarea4" data-spotStationId="467590" data-spotStationId_sea="46714D" value="4">小琉球</a></li>
+                    <li><a href="spot.html?areaNO-5" class="spotText" data-target="spotarea5" data-spotStationId="466900" data-spotStationId_sea="46694A" value="5">東北角</a></li>
                 </ul>
             </div>
         </section>
@@ -751,7 +238,421 @@
     
     @@include('./layout/footer.html')
 
+    <script src="./js/login.js"></script>
     <script src="./js/spot.js"></script>
-  
+    
+
+    <script src="./js/spotWeatherAPI.js"></script>
+    <script src="./js/spotGetInfo.js"></script>
+
+    <!--------------- 上線版js ---------------------->
+
+
+    <script>
+
+    function $id(id){
+        return document.getElementById(id);
+    }	
+
+    let spotInfoRow;   //潛點照片 潛點敘述 動物照片
+    let html ="";
+    var areaNO =1;
+
+
+    //東北角上方
+    function spotEncLittle_Rl(){
+        html="";
+        html = `<a href="./spotRefer.html?diveNo-${spotInfoRow[0].diveNo}">
+                    <div class="spotLeftImageAd">
+                        <div class="slider_container">
+                            <div class="sw">
+                                <img src="./img/spot/spotEncLittle-03.png" alt="">
+                            </div>
+                            <div class="sw">
+                                <img src="./img/spot/spotEncLittle-01.png" alt="">
+                            </div>
+                            <div class="sw">
+                                <img src="./img/spot/spotEncLittle-03.png" alt="">
+                            </div>
+                            <div class="sw">
+                                <img src="./img/spot/spotEncLittle-01.png" alt="">
+                            </div>
+                        </div>
+                        <span>${spotInfoRow[0].diveName}</span>
+                    </div>
+                </a>
+                <a href="./spotRefer.html?diveNo-${spotInfoRow[1].diveNo}">
+                    <div class="spotLeftImageAd">
+                        <div class="slider_container">
+                            <div class="sw">
+                                <img src="./img/spot/spotEncLittle-04.png" alt="">
+                            </div>
+                            <div class="sw">
+                                <img src="./img/spot/spotEncLittle-02.png" alt="">
+                            </div>
+                            <div class="sw">
+                                <img src="./img/spot/spotEncLittle-04.png" alt="">
+                            </div>
+                            <div class="sw">
+                                <img src="./img/spot/spotEncLittle-02.png" alt="">
+                            </div>
+                        </div>
+                        <span>${spotInfoRow[1].diveName}</span>
+                    </div>
+                </a>`;
+        document.getElementById("Enc_Rl").innerHTML = html;
+    }
+
+    //東北角下方
+    function spotEncLittle_Lr(){
+        html="";
+        html = `<a href="./spotRefer.html?diveNo-${spotInfoRow[2].diveNo}">
+                    <div class="spotLeftImageAd">
+                        <div class="slider_container">
+                            <div class="sw">
+                                <img src="./img/spot/spotEncLittle-02.png" alt="">
+                            </div>
+                            <div class="sw">
+                                <img src="./img/spot/spotEncLittle-04.png" alt="">
+                            </div>
+                            <div class="sw">
+                                <img src="./img/spot/spotEncLittle-02.png" alt="">
+                            </div>
+                            <div class="sw">
+                                <img src="./img/spot/spotEncLittle-04.png" alt="">
+                            </div>
+                        </div>
+                        <span>${spotInfoRow[2].diveName}</span>
+                    </div>
+                </a>
+                <a href="./spotRefer.html?diveNo-${spotInfoRow[3].diveNo}">
+                    <div class="spotLeftImageAd">
+                        <div class="slider_container">
+                            <div class="sw">
+                                <img src="./img/spot/spotEncLittle-01.png" alt="">
+                            </div>
+                            <div class="sw">
+                                <img src="./img/spot/spotEncLittle-03.png" alt="">
+                            </div>
+                            <div class="sw">
+                                <img src="./img/spot/spotEncLittle-01.png" alt="">
+                            </div>
+                            <div class="sw">
+                                <img src="./img/spot/spotEncLittle-03.png" alt="">
+                            </div>
+                        </div>
+                        <span>${spotInfoRow[3].diveName}</span>
+                    </div>
+                </a>`;
+        document.getElementById("Enc_Lr").innerHTML = html;
+    }
+
+    //墾丁上方
+    function spotKdLittle_Rl(){
+            html="";
+            html = `<a href="./spotRefer.html?diveNo-${spotInfoRow[0].diveNo}">
+                        <div class="spotLeftImageAd">
+                            <div class="slider_container">
+                                <div class="sw">
+                                    <img src="./img/spot/spotKdLittle-01.png" alt="">
+                                </div>
+                                <div class="sw">
+                                    <img src="./img/spot/spotKdLittle-03.png" alt="">
+                                </div>
+                                <div class="sw">
+                                    <img src="./img/spot/spotKdLittle-01.png" alt="">
+                                </div>
+                                <div class="sw">
+                                    <img src="./img/spot/spotKdLittle-03.png" alt="">
+                                </div>
+                            </div>
+                            <span>${spotInfoRow[0].diveName}</span>
+                        </div>
+                    </a>
+                    <a href="./spotRefer.html?diveNo-${spotInfoRow[1].diveNo}">
+                        <div class="spotLeftImageAd">
+                            <div class="slider_container">
+                                <div class="sw">
+                                    <img src="./img/spot/spotKdLittle-04.png" alt="">
+                                </div>
+                                <div class="sw">
+                                    <img src="./img/spot/spotKdLittle-02.png" alt="">
+                                </div>
+                                <div class="sw">
+                                    <img src="./img/spot/spotKdLittle-04.png" alt="">
+                                </div>
+                                <div class="sw">
+                                    <img src="./img/spot/spotKdLittle-02.png" alt="">
+                                </div>
+                            </div>
+                            <span>${spotInfoRow[1].diveName}</span>
+                        </div>
+                    </a>`;
+            document.getElementById("Kd_Rl").innerHTML = html;
+        }
+
+
+    //墾丁下方
+    function spotKdLittle_Lr(){
+        html="";
+        html = `<a href="./spotRefer.html?diveNo-${spotInfoRow[2].diveNo}">
+                    <div class="spotLeftImageAd">
+                        <div class="slider_container">
+                            <div class="sw">
+                                <img src="./img/spot/spotKdLittle-02.png" alt="">
+                            </div>
+                            <div class="sw">
+                                <img src="./img/spot/spotKdLittle-04.png" alt="">
+                            </div>
+                            <div class="sw">
+                                <img src="./img/spot/spotKdLittle-02.png" alt="">
+                            </div>
+                            <div class="sw">
+                                <img src="./img/spot/spotKdLittle-04.png" alt="">
+                            </div>
+                        </div>
+                        <span>${spotInfoRow[2].diveName}</span>
+                    </div>
+                </a>
+                <a href="./spotRefer.html?diveNo-${spotInfoRow[3].diveNo}">
+                    <div class="spotLeftImageAd">
+                        <div class="slider_container">
+                            <div class="sw">
+                                <img src="./img/spot/spotKdLittle-03.png" alt="">
+                            </div>
+                            <div class="sw">
+                                <img src="./img/spot/spotKdLittle-01.png" alt="">
+                            </div>
+                            <div class="sw">
+                                <img src="./img/spot/spotKdLittle-03.png" alt="">
+                            </div>
+                            <div class="sw">
+                                <img src="./img/spot/spotKdLittle-01.png" alt="">
+                            </div>
+                        </div>
+                        <span>${spotInfoRow[3].diveName}</span>
+                    </div>
+                </a>`;
+        document.getElementById("Kd_Lr").innerHTML = html;
+    }
+
+
+    //綠島｜蘭嶼｜小琉球
+    function spotLeftThreePic(){
+        html="";
+        for(let j = 2; j < spotInfoRow.length ; j++){
+
+            html += `<a href="./spotRefer.html?diveNo-${spotInfoRow[j].diveNo}">
+                        <div class="spotLeftImageAd">
+                            <div class="slider_container">
+                                <div class="sw">
+                                    <img src="./img/spot/spotLyLittle-0${j+1}.png" alt="">
+                                </div>
+                                <div class="sw">
+                                    <img src="./img/spot/spotLyLittle-04.png" alt="">
+                                </div>
+                                <div class="sw">
+                                    <img src="./img/spot/spotLyLittle-03.png" alt="">
+                                </div>
+                                <div class="sw">
+                                    <img src="./img/spot/spotLyLittle-04.png" alt="">
+                                </div>
+                            </div>
+                            <span>${spotInfoRow[j].diveName}</span>
+                        </div>
+                    </a>`;     
+        }
+        let threeImg = html;
+
+        let spotLeftThreePic = document.getElementsByClassName('spotLeftThreePic');
+        for(let i =0; i<spotLeftThreePic.length; i++){
+            
+            spotLeftThreePic[i].innerHTML = threeImg;
+        }
+        
+
+    }
+    
+    //綠島｜蘭嶼｜小琉球
+    function spotLeftTwoPic(){
+        //兩張照片
+        html="";
+        for(let j = 0; j < 2 ; j++){
+            html += `<a href="./spotRefer.html?diveNo-${spotInfoRow[j].diveNo}">
+                        <div class="spotLeftImageAd">
+                            <div class="slider_container">
+                                <div class="sw">
+                                    <img src="./img/spot/spotGiLittle-0${j+1}.png" alt="">
+                                </div>
+                                <div class="sw">
+                                    <img src="./img/spot/spotGiLittle-05.png" alt="">
+                                </div>
+                                <div class="sw">
+                                    <img src="./img/spot/spotGiLittle-03.png" alt="">
+                                </div>
+                                <div class="sw">
+                                    <img src="./img/spot/spotGiLittle-04.png" alt="">
+                                </div>
+                            </div>
+                            <span>${spotInfoRow[j].diveName}</span>
+                        </div>
+                    </a>`;     
+            
+        }
+        let twoImg =html;
+        // console.log(twoImg);
+
+        let spotLeftTwoPic = document.getElementsByClassName('spotLeftTwoPic');
+        // console.log(spotLeftTwoPic.length);
+
+        for (let i = 0; i < spotLeftTwoPic.length; i++) {
+            spotLeftTwoPic[i].innerHTML = twoImg;
+        }
+
+    }
+
+    //最新日誌＆課程
+    function PushPushBlock(){
+        let xhr = new XMLHttpRequest();
+        xhr.onload = function(){
+            pushSpotData = JSON.parse(xhr.responseText); 
+
+            let spotPushRow = document.getElementsByClassName('spotPush');
+            html =`<div class="spotPushBlock">
+                        <a href="diaryInside.html?diaryNo=89">
+                            <div class="spotPushImg">
+                                <img src="img/diary/${pushSpotData[0].diaryPicsNo}" alt="">
+                            </div>
+                        </a>
+                        <span>最新日誌</span>
+                    </div>
+                    <div class="spotPushBlock">
+                        <a href="coursePage02.php?classNo=1">
+                            <div class="spotPushImg">
+                                <img src="img/course/${pushSpotData[1].classImage}" alt="">
+                            </div>
+                        </a>
+                        <span>最新課程</span>
+                    </div>`;
+                
+            spotPushRow[i].innerHTML = html;
+        }
+        xhr.open("get",`spotGetPush.php?areaNO=${areaNO}`, false);
+        xhr.send(null);
+
+    }
+    
+    // show 各data總數
+    function spotData(){
+        // console.log(areaNO);
+        let xhr = new XMLHttpRequest();
+
+        xhr.onload = function(){
+            allspotData = JSON.parse(xhr.responseText);
+            
+            let spotDataArr = document.getElementsByClassName('spotData');
+            for (let i = 0; i < spotDataArr.length; i++) {
+                // let spotData = spotDataArr[i];
+                html = `<ul class="spotRightBlockList">
+                            <li class="spotDataNum">${allspotData[0].classSum}</li>
+                            <li>潛水<br>課程</li>
+                            <li class="spotDataNum">${allspotData[1].diveSum}</li>
+                            <li>熱門<br>潛點</li>
+                            <li class="spotDataNum">${allspotData[2].diarySum}</li>
+                            <li>潛水<br>日誌</li>
+                            <li class="spotDataNum">${allspotData[3].hereSum}</li>
+                            <li>踩過<br>此點</li>
+                        </ul>`;
+
+                spotDataArr[i].innerHTML = html;
+            }
+        }
+
+        xhr.open("get",`spotGetData.php?areaNO=${areaNO}`, false);
+        xhr.send(null);
+    }
+
+    //獲取資訊
+    function spotGetInfor(){
+
+        spotLeftTwoPic();       //照片第一種 五張
+        spotLeftThreePic();    //照片第一種 五張
+
+        spotEncLittle_Rl();
+        spotEncLittle_Lr();
+        spotKdLittle_Rl();
+        spotKdLittle_Lr();
+
+        PushPushBlock();  //最新日誌
+        spotData();
+        spotStationId = document.querySelector('.spotList li a').getAttribute('data-spotStationId');
+        // console.log(spotStationId);
+
+        $('.spotText').on('click',getSpotWeatherAPI(),false);
+
+        // var spotStationId = document.querySelector('.spotList >li >a').getAttribute('data-spotStationId');
+    }
+
+    //去資料庫取值
+    function doFirst(){
+        let xhr = new XMLHttpRequest();
+        xhr.onload = function(){
+            spotInfoRow = JSON.parse(xhr.responseText);
+            spotGetInfor();
+        }
+        xhr.open("get", `spotGetInfor.php?areaNO=${areaNO}`, false);
+        xhr.send(null);
+    }
+
+
+    window.addEventListener("load", function(){
+        //先綁定頁籤監聽事件
+        var spotTextArr = document.getElementsByClassName('spotText');
+        for(var i=0; i<spotTextArr.length;i++){
+
+            let areaNam = spotTextArr[i];
+
+                areaNam.onclick = function(){
+                    areaNO = this.getAttribute('value');
+                    spotStationId = this.getAttribute('data-spotStationId');
+
+                    console.log(areaNO);
+                    console.log(spotStationId);
+                    doFirst();
+                    spotGetInfor();
+                    spotData();
+                    getSpotWeatherAPI() 
+
+                }
+        }
+        doFirst();
+        
+    },false);
+
+    </script>
+
+
+
+
+
+    <script>
+        var storage = sessionStorage;
+        let itemString = storage.getItem('addItemList'); //給key值，傳回value
+        // alert(itemString); "A1001, A1005, A1006, A1002";
+        // substr 返回擷取的字串，四個分隔號會分割成五個值的陣列，故最後的分隔號不計算，就可避免多一個空值
+        let items = itemString.substr(0, itemString.length - 2).split(', ');
+        // [A1001,A1005,A1006,A1002]
+        let itemCounting = document.getElementById('itemCounting');
+
+        if (storage['addItemList'] == null | storage['addItemList'] == '') {
+            itemCounting.style.display = "none";
+        } else {
+            itemCounting.style.display = "block";
+            itemCounting.style.backgroundColor = "red";
+            itemCounting.innerText = items.length;
+        }
+
+    </script>
+
 </body>
 </html>
