@@ -56,7 +56,7 @@ $('.button--bubble').each(function () {
     }, '-=1');
 
     var tlBt1 = new TimelineMax();
-    var tlBt1 = new TimelineMax();
+    var tlBt2 = new TimelineMax();
 
     tlBt1.set($circlesTopLeft, {
         x: 0,

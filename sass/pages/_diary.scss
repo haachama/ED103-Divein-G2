@@ -34,7 +34,7 @@ $newkeyBlack: rgba(22, 24, 29, 0.6); //黑色開透背景
           .imgSolid {
             // border: 1px solid green;
             width: 100%;
-            height: 200px;
+            height: 280px;
             overflow: hidden;
 
             img {
@@ -161,11 +161,13 @@ $newkeyBlack: rgba(22, 24, 29, 0.6); //黑色開透背景
         .diaryTextPP {
           // border: 1px solid green;
           padding: 10px 0px 10px 10px;
-          width: 100%;
-          overflow: hidden;
           color: $keyBlue;
+          width: 100%;
+          // height:40px;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
         }
-
         i {
           // border: 1px solid blue;
           color: $keyBlue;
@@ -178,15 +180,22 @@ $newkeyBlack: rgba(22, 24, 29, 0.6); //黑色開透背景
     // 日誌卡片<共用的css>_diary.html頁面
     .diaryCenter {
       // border: 1px solid red;
-      width: 90%;
+      width: 100%;
+    }
+    .diarySolid {
+      // border: 1px solid black;
+      width: 350px; // 改
+      border-radius: 5px;
+      overflow: hidden;
+      margin: 0px 20px 20px 20px;
     }
   }
 
   // -----------------------篩選_diary.html
   // codepen區
   .diaryAmount {
-    border: 1px solid red;
-    height: 90%;
+    // border: 1px solid red;
+    height: 800px; //改
     .cursor,
     .cursor2,
     .cursor3 {
@@ -222,14 +231,11 @@ $newkeyBlack: rgba(22, 24, 29, 0.6); //黑色開透背景
       border: none;
     }
 
-    // .cursor2{
-    //     border: 2px solid #fff;
-    //     box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
-    // }
     .cursor2.hover {
       background: rgba(255, 255, 255, 1);
       box-shadow: 0 0 0 rgba(255, 255, 255, 0.2);
     }
+  
 
     /* #Slider
         ================================================== */
@@ -239,15 +245,16 @@ $newkeyBlack: rgba(22, 24, 29, 0.6); //黑色開透背景
       width: 100%;
       display: block;
       overflow: hidden;
-      height: 100vh;
+      height: 85vh;
     }
 
     /* Case Study Showcase
         ================================================== */
 
     .case-study-wrapper {
+      // border: 1px solid orange;
       position: absolute;
-      top: 50%;
+      top: 38%;
       left: 50%;
       z-index: 10;
       width: auto;
@@ -265,6 +272,7 @@ $newkeyBlack: rgba(22, 24, 29, 0.6); //黑色開透背景
 
     .case-study-wrapper .case-study-name a {
       //區域文字
+      // border: 1px solid orange;
       position: relative;
       list-style: none;
       margin: 0 auto;
@@ -327,7 +335,7 @@ $newkeyBlack: rgba(22, 24, 29, 0.6); //黑色開透背景
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%;
+      height: 90%;
       margin: 0;
       z-index: 2;
     }
@@ -335,7 +343,7 @@ $newkeyBlack: rgba(22, 24, 29, 0.6); //黑色開透背景
     .case-study-images li {
       position: absolute;
       width: 100%;
-      height: 100%;
+      height: 90%;
       top: 0;
       left: 0;
       overflow: hidden;
@@ -347,7 +355,7 @@ $newkeyBlack: rgba(22, 24, 29, 0.6); //黑色開透背景
     .case-study-images li .img-hero-background {
       position: absolute;
       width: 100%;
-      height: 100%;
+      height: 800px;
       top: 0;
       left: 0;
       overflow: hidden;
@@ -367,9 +375,9 @@ $newkeyBlack: rgba(22, 24, 29, 0.6); //黑色開透背景
     }
 
     .case-study-images li .hero-number-back {
-      // border: 1px solid red;
+      // border: 1px solid red;  //----------------------------------
       position: absolute;
-      top: 25%;
+      top: 13%;
       left: 50%;
       -webkit-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
@@ -469,38 +477,38 @@ $newkeyBlack: rgba(22, 24, 29, 0.6); //黑色開透背景
     .case-study-images li:nth-child(1) .img-hero-background div {
       // border: 1px solid red;
       position: absolute;
-      width: 20%;
-      top: 12%;
-      left: 8%;
+      width: 21%;
+      top: 5%;
+      left: 3%;
       display: block;
     }
 
     .case-study-images li:nth-child(1) .img-hero-background div:nth-child(2) {
       // border: 1px solid red;
       width: 23%;
-      top: 22%;
+      top: 3%;
       left: 60%;
     }
 
     .case-study-images li:nth-child(1) .img-hero-background div:nth-child(3) {
       // border: 1px solid red;
-      width: 18%;
-      top: 55%;
-      left: 75%;
+      width: 19%;
+      top: 40%;
+      left: 80%;
     }
 
     .case-study-images li:nth-child(1) .img-hero-background div:nth-child(4) {
       // border: 1px solid red;
-      width: 16%;
-      top: 44%;
+      width: 20%;
+      top: 33%;
       left: 25%;
     }
 
     .case-study-images li:nth-child(2) .img-hero-background div {
       // border: 1px solid red;
       position: absolute;
-      width: 18%;
-      top: 7%;
+      width: 20%;
+      top: 3%;
       left: 8%;
       display: block;
     }
@@ -514,44 +522,44 @@ $newkeyBlack: rgba(22, 24, 29, 0.6); //黑色開透背景
 
     .case-study-images li:nth-child(2) .img-hero-background div:nth-child(3) {
       // border: 1px solid red;
-      width: 16%;
-      top: 17%;
+      width: 20%;
+      top: 3%;
       left: 72%;
     }
 
     .case-study-images li:nth-child(2) .img-hero-background div:nth-child(4) {
       // border: 1px solid red;
       width: 20%;
-      top: 54%;
+      top: 34%;
       left: 57%;
     }
 
     .case-study-images li:nth-child(3) .img-hero-background div {
       // border: 1px solid red;
       position: absolute;
-      width: 16%;
-      top: 9%;
-      left: 8%;
+      width: 21%;
+      top: 4%;
+      left: 3%;
       display: block;
     }
 
     .case-study-images li:nth-child(3) .img-hero-background div:nth-child(2) {
       // border: 1px solid red;
-      width: 16%;
+      width: 19%;
       top: 40%;
-      left: 29%;
+      left: 19%;
     }
 
     .case-study-images li:nth-child(3) .img-hero-background div:nth-child(3) {
       // border: 1px solid red;
-      width: 17%;
-      top: 11%;
+      width: 19%;
+      top: 5%;
       left: 59%;
     }
 
     .case-study-images li:nth-child(3) .img-hero-background div:nth-child(4) {
       // border: 1px solid red;
-      width: 18%;
+      width: 20%;
       top: 34%;
       left: 75%;
     }
@@ -560,79 +568,79 @@ $newkeyBlack: rgba(22, 24, 29, 0.6); //黑色開透背景
       // border: 1px solid red;
       position: absolute;
       width: 20%;
-      top: 12%;
-      left: 8%;
+      top: 3%;
+      left: 5%;
       display: block;
     }
 
     .case-study-images li:nth-child(4) .img-hero-background div:nth-child(2) {
       // border: 1px solid red;
-      width: 17%;
-      top: 22%;
+      width: 19%;
+      top: 5%;
       left: 60%;
     }
 
     .case-study-images li:nth-child(4) .img-hero-background div:nth-child(3) {
       // border: 1px solid red;
       width: 20%;
-      top: 58%;
+      top: 35%;
       left: 75%;
     }
 
     .case-study-images li:nth-child(4) .img-hero-background div:nth-child(4) {
       // border: 1px solid red;
-      width: 18%;
+      width: 21%;
       top: 34%;
-      left: 27%;
+      left: 23%;
     }
 
     .case-study-images li:nth-child(5) .img-hero-background div {
       // border: 1px solid red;
       position: absolute;
-      width: 18%;
-      top: 7%;
-      left: 8%;
+      width: 20%;
+      top: 4%;
+      left: 5%;
       display: block;
     }
 
     .case-study-images li:nth-child(5) .img-hero-background div:nth-child(2) {
       // border: 1px solid red;
-      width: 19%;
+      width: 21%;
       top: 30%;
-      left: 27%;
+      left: 23%;
     }
 
     .case-study-images li:nth-child(5) .img-hero-background div:nth-child(3) {
       // border: 1px solid red;
-      width: 20%;
-      top: 10%;
-      left: 72%;
+      width: 21%;
+      top: 3%;
+      left: 75%;
     }
 
     .case-study-images li:nth-child(5) .img-hero-background div:nth-child(4) {
       // border: 1px solid red;
       width: 20%;
-      top: 34%;
-      left: 67%;
+      top: 36%;
+      left: 53%;
     }
 
-    /* #Media
-        ================================================== */
-
+    /* #Media================================================== */
+    
     @media (max-width: 991px) {
+      .diaryAmount{
+        height: 700px;
+      }
       .case-study-images li .hero-number-back {
         font-size: 8vw;
       }
-    }
-
-    @media (max-width: 767px) {
       .case-study-images li:nth-child(1) .img-hero-background div,
       .case-study-images li:nth-child(2) .img-hero-background div,
       .case-study-images li:nth-child(3) .img-hero-background div,
       .case-study-images li:nth-child(4) .img-hero-background div,
       .case-study-images li:nth-child(5) .img-hero-background div {
+        // border: 1px solid red;
         width: calc(100% - 40px);
-        top: 50%;
+        top: 40%;
         left: 20px;
         transform: translateY(-50%);
       }
@@ -655,7 +663,7 @@ $newkeyBlack: rgba(22, 24, 29, 0.6); //黑色開透背景
         display: none;
       }
     }
-
+    
     .switch-wrap {
       position: fixed;
       bottom: 30px;
@@ -752,13 +760,42 @@ $newkeyBlack: rgba(22, 24, 29, 0.6); //黑色開透背景
     }
   }
 
+  @media (max-width: 376px){
+    .diaryAmount .section{
+      // border: 1px solid green;
+      height:620px;
+    }
+    .diaryAmount {
+      // border: 1px solid red;
+      height:525px;
+    }
+    .case-study-images{
+      // border: 1px solid red;
+      // height:100px;
+    }
+    .case-study-images li {
+      // border: 1px solid yellow;
+      height:300px;
+    }
+    .case-study-images li .img-hero-background{
+      // border: 1px solid green;
+      height:100px;
+    }
+    .cursor,
+    .cursor2,
+    .cursor3 {
+      display: none;
+    }
+    
+  }
+
   // 所有日誌 Title_diary.html頁面
   .diary_diaryTitleH3 {
     // border: 1px solid black;
     display: flex;
     padding: 10px 0px 10px 30px;
     justify-content: space-between;
-    margin: 80px auto 80px;
+    margin: 10px auto 10px;
     max-width: 80%;
     position: relative;
 
@@ -780,7 +817,7 @@ $newkeyBlack: rgba(22, 24, 29, 0.6); //黑色開透背景
   // 篩選_diary.html頁面
   .diary_formSelect {
     // border: 1px solid blue;
-    margin: 80px auto 150px;
+    margin: 60px auto 150px;
     max-width: 80%;
     padding: 5px 0px 5px 80px;
     background-color: $newkeyBlack;
@@ -848,6 +885,7 @@ $newkeyBlack: rgba(22, 24, 29, 0.6); //黑色開透背景
     .diary_formSelect {
       // border: 1px solid blue;
       max-width: 100%;
+      margin: 40px auto 70px;
       label {
         // border: 1px solid yellowgreen;
         p {
@@ -891,15 +929,15 @@ $newkeyBlack: rgba(22, 24, 29, 0.6); //黑色開透背景
   .diaryInsidePage {
     // border: 1px solid black;
     margin: 0 auto;
-    max-width: 75%;
+    max-width: 80%;
     display: flex;
-    margin: 60px auto 30px;
+    margin: 5px auto 20px;
     background-color: $newkeyBlack;
-    border-radius: 10px;
+    border-radius: 5px;
     .pageLeft {
       // border: 1px solid red;
-      padding: 50px;
-      flex: 50%;
+      padding: 20px;
+      flex: 40%;
 
       .pageLeftImg {
         // border: 1px solid green;
@@ -934,8 +972,8 @@ $newkeyBlack: rgba(22, 24, 29, 0.6); //黑色開透背景
 
     .pageRight {
       // border: 1px solid purple;
-      padding: 10px;
-      flex: 50%;
+      padding: 20px;
+      flex: 60%;
       hr {
         border: 0;
         background-color: $transparentWhite;
@@ -952,11 +990,6 @@ $newkeyBlack: rgba(22, 24, 29, 0.6); //黑色開透背景
         padding-right: 5px;
         padding-bottom: 10px;
 
-        div:nth-child(1) span:nth-child(1) {
-          //檢舉
-          // border: 1px solid red;
-          font-size: 14px;
-        }
         div {
           // border: 1px solid blue;
           padding: 5px;
@@ -1114,20 +1147,24 @@ $newkeyBlack: rgba(22, 24, 29, 0.6); //黑色開透背景
       .biological {
         // border: 1px solid blue;
         color: $keyWhite;
-        width: 100%;
+        max-width: 100%;
         padding: 10px 0px;
       }
-
-      .rightPicture {
-        // border: 1px solid blue;
-        display: flex;
-
-        div {
-          // border: 1px solid goldenrod;
-          width: 120px;
+      .animalVue{
+        // border: 1px solid green;
+        max-width:100%;
+        display:flex;
+        justify-content:flex-start;
+        flex-wrap: wrap;
+        .rightPicture {
+          // border: 1px solid blue;
+          max-width:100%;
+          div {
+            // border: 1px solid red;
+            width: 120px;
+          }
         }
       }
-
       // 日誌
       .rightContent {
         // border: 1px solid black;
@@ -1137,6 +1174,7 @@ $newkeyBlack: rgba(22, 24, 29, 0.6); //黑色開透背景
         p {
           // border: 1px solid rgb(226, 119, 119);
           color: $keyWhite;
+          line-height: 25px;
         }
       }
     }
@@ -1237,6 +1275,7 @@ $newkeyBlack: rgba(22, 24, 29, 0.6); //黑色開透背景
   @media all and (max-width: 1600px) {
     .diaryInsidePage {
       // border: 1px solid green;
+      max-width: 95%;
       .pageLeft {
         // border: 1px solid red;
 
@@ -1364,13 +1403,19 @@ $newkeyBlack: rgba(22, 24, 29, 0.6); //黑色開透背景
           padding: 10px 0px;
         }
 
-        .rightPicture {
-          // border: 1px solid blue;
-          display: flex;
-
-          div {
-            // border: 1px solid goldenrod;
-            width: 120px;
+        .animalVue{
+        // border: 1px solid green;
+        max-width:100%;
+        display:flex;
+        justify-content:flex-start;
+        flex-wrap: wrap;
+          .rightPicture {
+            // border: 1px solid blue;
+            max-width:100%;
+            div {
+              // border: 1px solid red;
+              width: 120px;
+            }
           }
         }
 
@@ -1410,22 +1455,22 @@ $newkeyBlack: rgba(22, 24, 29, 0.6); //黑色開透背景
       flex-wrap: wrap;
     }
   }
-
   @media all and (max-width: 1200px) {
     //這裡要改(上半部)
     .diaryInsidePage {
       // border: 1px solid yellow;
       margin: 0 auto;
-      max-width: 70%;
+      max-width: 80%;
       display: flex;
       margin: 60px auto 30px;
       flex-direction: column;
     }
+    
   }
   @media all and (max-width: 768px) {
     //這裡要改(上半部)
     .diaryInsidePage {
-      max-width: 90%;
+      max-width: 80%;
       .pageRight {
         // border: 1px solid purple;
         padding: 10px;
@@ -1492,7 +1537,7 @@ $newkeyBlack: rgba(22, 24, 29, 0.6); //黑色開透背景
       }
     }
   }
-  @media all and (max-width: 375px) {
+  @media all and (max-width: 400px) {
     //這裡要改(上半部)
     .diaryInsidePage {
       // border: 1px solid black;
@@ -2226,7 +2271,7 @@ $newkeyBlack: rgba(22, 24, 29, 0.6); //黑色開透背景
     }
   }
 
-  @media all and (max-width: 375px) {
+  @media all and (max-width: 400px) {
     .diaryAddTitleH3 {
       // border: 1px solid orange;
       display: flex;
@@ -2257,3 +2302,4 @@ $newkeyBlack: rgba(22, 24, 29, 0.6); //黑色開透背景
     }
   }
 }
+

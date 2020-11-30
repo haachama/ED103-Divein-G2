@@ -1,5 +1,5 @@
 header {
-    background-color: rgba(254, 254, 254, 0.15);
+    background-color: rgba(22,24,29,0.55);
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -78,7 +78,7 @@ nav{
     li {
         display: inline-block;
         margin: 0 10px;
-        color: $keyBlue;
+        color: #fefefe;
         vertical-align: middle;
     }
 
@@ -88,12 +88,13 @@ nav{
 
     .memberIcon{
         position: relative;
+
+        &:hover .dropdown{
+            display: inline-block;
+        }
     }
 
-    #spanLogin:hover{
-        cursor: pointer;
-    }
-
+    
     .lili{
         position: relative;
     }
@@ -106,6 +107,10 @@ nav{
         right: -10px;
         // display: none;
     }
+}
+
+#spanLogin:hover{
+    cursor: pointer;
 }
 
 
@@ -201,16 +206,13 @@ nav{
         
         li {
             display: none;
-
         }
 
         li:nth-child(1).show{
-            display: none;
+            display: block;
+            padding-bottom: 30px;
         }
 
-        li:nth-child(1).show{
-            display: none;
-        }
     }
 
     .nav a:hover{

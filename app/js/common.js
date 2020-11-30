@@ -14,9 +14,6 @@ $(function () {
         if ($pixel > 991) {
             $('.nav').removeClass('hide')
             $('.nav').addClass('show')
-        } else {
-            $('.nav').removeClass('show')
-            $('.nav').addClass('hide')
         }
     });
 });
