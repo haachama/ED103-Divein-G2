@@ -9,18 +9,7 @@ $(function () {
         $('.memCart li').toggleClass("show");
         $('header').toggleClass("bg")
     });
-    // RWD導覽列
-    $(window).resize(function () {
-        var $pixel = document.body.clientWidth;
-
-        if ($pixel > 991) {
-            $('.nav').removeClass('hide')
-            $('.nav').addClass('show')
-        } else {
-            $('.nav').removeClass('show')
-            $('.nav').addClass('hide')
-        }
-    });
+    
 
     // 頁籤
     $("a.tab").on("click", function (e) {
@@ -52,7 +41,7 @@ $(function () {
 
     // lightbox 5-2  審核名單
     $(".finishBtn").on("click", function () {
-        console.log("hhihihihi");
+        
         $(".lightbox-auditList").addClass("-openbox");
     });
 
