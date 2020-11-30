@@ -1,40 +1,47 @@
 <?php
-
-// 鳥蛋版本
-// session_start();
-// $memNo =$_SESSION["memNo"];
+session_start();
+$memNo = isset($_SESSION["memNo"])?$_SESSION["memNo"]:0;
 
 
-// try{
-// require_once("connectED103g2.php");
+    $spotDiveNO = $_GET["spotDiveNO"];  
 
-// $sql = "SELECT a.diveNo, b.memNo, b.memAvatar 
-//         FROM divehere a JOIN member b ON a.memNo = b.memNo
-//         WHERE memNo ='$memNo';
-//         GROUP BY a.diveHereNo asc";
+    $errMsg = "";
+    try{
+        require_once("connectED103g2.php");
+        
+        //撈1
+        $sql = "SELECT a.diveNo, a.memNo, b.memAvatar, b.memId
+                FROM divehere a JOIN member b ON a.memNo = b.memNo
+                WHERE a.diveNo = $spotDiveNO
+                GROUP BY a.diveHereNo asc";
+        
+        $spotPeps = $pdo->query($sql);
+        $spotPepRow = $spotPeps->fetchAll(PDO::FETCH_ASSOC);
 
-// $spotPeps = $pdo->query($sql);
-// $spotPepRow = $spotPeps->fetchAll(PDO::FETCH_ASSOC);
-// echo json_encode($spotPepRow,true);
+        //撈 2
+        $sql = "SELECT a.diveNo, a.memNo, b.memId
+                FROM divehere a JOIN member b ON a.memNo = b.memNo
+                WHERE a.diveNo = $spotDiveNO and a.memNo = $memNo
+                GROUP BY a.diveHereNo asc";
 
-// } catch (PDOException $e){
-//     $e->getMessage();
-// }
+        $spotMemId = $pdo->query($sql);
 
-try{
-    require_once("connectED103g2.php");
-    
-    $sql = "SELECT a.diveNo, b.memNo, b.memAvatar 
-            FROM divehere a JOIN member b ON a.memNo = b.memNo
-            GROUP BY a.diveHereNo asc";
-    
-    $spotPeps = $pdo->query($sql);
-    $spotPepRow = $spotPeps->fetchAll(PDO::FETCH_ASSOC);
-    echo json_encode($spotPepRow,true);
-    
-    } catch (PDOException $e){
+        if( $spotMemId->rowCount()==0 ){
+            $spotMemIdCheck = [];
+        }else{
+            $spotMemIdCheck = $spotMemId->fetch(PDO::FETCH_ASSOC);
+        }
+
+        $AllSpotData = array( $spotPepRow, $spotMemIdCheck);
+        echo json_encode($AllSpotData,true);
+        
+    } 
+    catch (PDOException $e){
         $e->getMessage();
+        $errMsg .= "錯誤原因 : ".$e -> getMessage(). "<br>";
+        $errMsg .= "錯誤行號 : ".$e -> getLine(). "<br>";
     }
+
 ?>
 
 

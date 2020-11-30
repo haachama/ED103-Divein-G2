@@ -6,23 +6,15 @@ let spotComRow; //留言php回來的變數陣列
 let num = 0;
 let sumCom;  
 let comNo = 0;  //被檢舉的留言
-
 //----檢舉留言 lightbox
 // 開啟 Modal 彈跳視窗
 function openLigBox(){
    
     $("i.fa-exclamation-circle").on("click", function(){
-        if($id('spanLogin').innerHTML == "&nbsp;登出"){
-
-            $(".lightbox-block3").addClass("-openbox");
-            comNo = $(this).attr("data-comNo");
-            document.getElementById("formComNo").value = comNo;
-            sendspotReport;
-
-        }else{
-
-            Swal.fire("哈囉！朋友請先登入會員");
-        }
+        $(".lightbox-block3").addClass("-openbox");
+        comNo = $(this).attr("data-comNo");
+        document.getElementById("formComNo").value = comNo;
+        sendspotReport;
     });
 
     // 關閉 Modal
@@ -45,6 +37,7 @@ function openLigBox(){
 function sendspotReport(){
     
     var formData = new FormData(document.getElementById("sendReportForm"));
+    // formData.append('comNo',comNo);
     let xhr = new XMLHttpRequest();
     xhr.onload = function(){
         if( xhr.status == 200){
@@ -69,22 +62,14 @@ function sendspotReport(){
 //-------讀取更多
 function showMoreMsg(){
     //------要再次查看資料 重新計算陣列數量
+    console.log("讀取更多");
     let html ="";
     let count = spotComRow.length; 
-    console.log(count);
     sumCom = showComRows.childNodes.length +3;
-    console.log(sumCom);
-
-    let style = '';
-    let checkMemIdCom =$("#spotComSend img").data('memid');
     if(sumCom >= count ){
+        
+        console.log("讀取剩餘");
         for( let i = num; i < count; i ++){
-            if(spotComRow[i].memId == checkMemIdCom){
-                style = 'style = "display:none;"';
-            }else{
-                style='';
-            }
-
             html = `
                     <img src="./img/member/member/${spotComRow[i].memAvatar}" alt="">
                     <div class="spotComText">
@@ -95,7 +80,7 @@ function showMoreMsg(){
                         <p>${spotComRow[i].content}</p>
                     </div>
                     <div class="spotComText">
-                        <i class="fas fa-exclamation-circle" data-comNo="${spotComRow[i].comNo}" data-memId="${spotComRow[i].memId}" ${style}></i>
+                        <i class="fas fa-exclamation-circle" data-comNo="${spotComRow[i].comNo}" ></i>
                     </div>
                 `;
             let comDom = document.createElement('div');
@@ -109,16 +94,10 @@ function showMoreMsg(){
         }
         openLigBox();
     }else{
+        console.log("讀取其他更多");
 
         for( let i = num; i < (num + 3); i++ ){
-
-            if(spotComRow[i].memId == checkMemIdCom){
-                style = 'style = "display:none;"';
-            }else{
-                style='';
-            }
-
-            html = `
+        html = `
                     <img src="./img/member/member/${spotComRow[i].memAvatar}" alt="">
                     <div class="spotComText">
                         <div>
@@ -128,36 +107,31 @@ function showMoreMsg(){
                         <p>${spotComRow[i].content}</p>
                     </div>
                     <div class="spotComText">
-                    <i class="fas fa-exclamation-circle" data-comNo="${spotComRow[i].comNo}" data-memId="${spotComRow[i].memId}" ${style}></i>
+                    <i class="fas fa-exclamation-circle" data-comNo="${spotComRow[i].comNo}" ></i>
                     </div>
                 `;
             var dom = document.createElement('div');
             dom.className='spotCom';
             dom.innerHTML = html;
             showComRows.appendChild(dom);
+            // console.log(i);
         }
+        console.log(num);
         num = num + 3 ;
         
     }
     openLigBox();
-}
+    console.log(sumCom);
 
+}
 
 //----顯示留言
 function showSpotCom(){
     sumCom = showComRows.childNodes.length+3;
-    let html =""
-    let style = '';
-    let checkMemIdCom =$("#spotComSend img").data('memid');
-
+    let html ="";
     for( let i = 0; i < num ; i++ ){
-
-        if(spotComRow[i].memId == checkMemIdCom){
-            style = 'style = "display:none;"';
-        }else{
-            style='';
-        }
         html += `<div class="spotCom">
+
                     <img src="./img/member/member/${spotComRow[i].memAvatar}" alt="">
                     <div class="spotComText">
                         <div>
@@ -167,46 +141,43 @@ function showSpotCom(){
                         <p>${spotComRow[i].content}</p>
                     </div>
                     <div class="spotComText">
-                        <i class="fas fa-exclamation-circle" data-comNo="${spotComRow[i].comNo}" data-memId="${spotComRow[i].memId}" ${style} ></i>
+                    <i class="fas fa-exclamation-circle" data-comNo="${spotComRow[i].comNo}" ></i>
                     </div>
                 </div>`;
-    }
 
-    showComRows.innerHTML = html;
+        }
+        showComRows.innerHTML = html;
     openLigBox();
 }
-  
-
+     
 //－－－－－－送出留言  
 //html页面调用js文件里的函数，
 //写法必须为dosave = function (){}形式
 function sendSpotComs (){
-
+    console.log("送出留言");
     let message = $id("message").value;
     let xhr = new XMLHttpRequest();
-    if($id('spanLogin').innerHTML == "&nbsp;登出"){
-
-        xhr.onload = function(){
-        
-            if(message !=''){
-                getSpotComs();
-            }else{
-                Swal.fire("請先輸入內容唷！");
-                return false;
-            }
+    xhr.onload = function(){
+        if(message !=''){
+            getSpotComs();
+        }else{
+            alert("請輸入內容");
+            return false;
         }
-    }else{
-        Swal.fire("請先登入會員");
-    }
+        
+    };
     xhr.open("Post", "spotInsertCom.php", true);
     xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+    // let messageObj = { message };
+    // let messageStr = JSON.stringify(messageObj);
     let msg_infor = `msgInfor=${message}&diveNo=${spotDiveNO}`;
     xhr.send(msg_infor);
     
+
     //－－－－－－清空表單
     $id('message').value = '';
+    console.log("送出留言end");
     num = num +1;
-
 }
 
 
@@ -220,27 +191,19 @@ function spotReferCom(){
 }
 
 
+
+
+
+
 //－－－－－－從資料庫取得留言
 function getSpotComs(){
     let xhr = new XMLHttpRequest();
-
     xhr.onload = function(){
         spotComRow = JSON.parse(xhr.responseText);
-
-        let html ="";
-        let style = '';
-        let checkMemIdCom =$("#spotComSend img").data('memid');
-
-        if(spotComRow.length<=3){
-            $id("getMsgBtn").style.pointerEvents="none";
-            $id("getMsgBtnText").innerHTML="沒有更多";
-
-            for( let i = 0; i < spotComRow.length ; i++ ){
-                if(spotComRow[i].memId == checkMemIdCom){
-                    style = 'style = "display:none;"';
-                }else{
-                    style='';
-                }
+        console.log(spotComRow.length);
+        if(num == 0 ){
+            let html ="";
+            for( let i = 0; i < 3 ; i++ ){
                 html += `<div class="spotCom">
                             <img src="./img/member/member/${spotComRow[i].memAvatar}">
                             <div class="spotComText">
@@ -251,50 +214,19 @@ function getSpotComs(){
                                 <p>${spotComRow[i].content}</p>
                             </div>
                             <div class="spotComText">
-                            <i class="fas fa-exclamation-circle" data-comNo="${spotComRow[i].comNo}" data-memId="${spotComRow[i].memId}" ${style} ></i>
+                            <i class="fas fa-exclamation-circle" data-comNo="${spotComRow[i].comNo}" ></i>
                             </div>
                         </div>`;
     
                 showComRows.innerHTML = html;
-
-           };
+            };
             openLigBox();
-
+            // console.log("取資料Ａ");
+            num = num +3; 
         }else{
-            console.log(num);
-            if( num == 0){
-
-                for(let i = 0; i < 3 ; i++ ){
-                    
-                    if(spotComRow[i].memId == checkMemIdCom){
-                        style = 'style = "display:none;"';
-                    }else{
-                        style='';
-                    }
-
-                    html += `<div class="spotCom">
-                                <img src="./img/member/member/${spotComRow[i].memAvatar}">
-                                <div class="spotComText">
-                                    <div>
-                                        <h5>${spotComRow[i].memName}</h5>
-                                        <span>${spotComRow[i].comTime}</span>
-                                    </div>
-                                    <p>${spotComRow[i].content}</p>
-                                </div>
-                                <div class="spotComText">
-                                <i class="fas fa-exclamation-circle" data-comNo="${spotComRow[i].comNo}" data-memId="${spotComRow[i].memId}" ${style} ></i>
-                                </div>
-                            </div>`;
-
-                    showComRows.innerHTML = html;
-                };
-                openLigBox();
-                num = num +3;
-
-            }else{
-                showSpotCom();
-            }
+            showSpotCom();
         }
+
     }
     xhr.open("get", `spotGetComs.php?spotDiveNO=${spotDiveNO}`, false);
     xhr.send(null);
